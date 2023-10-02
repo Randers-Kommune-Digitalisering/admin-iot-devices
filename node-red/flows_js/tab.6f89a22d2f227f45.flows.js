@@ -1,7 +1,7 @@
 const Node = {
-  "id": "971a7ae6df987a48",
+  "id": "6f89a22d2f227f45",
   "type": "tab",
-  "label": "Flow 1",
+  "label": "OS2iot",
   "disabled": false,
   "info": "",
   "env": [],
