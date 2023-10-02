@@ -4,7 +4,9 @@ const Node = {
   "z": "6f89a22d2f227f45",
   "name": "",
   "statusCode": "",
-  "headers": {},
+  "headers": {
+    "content-type": "text/plain"
+  },
   "x": 1190,
   "y": 120,
   "wires": [],

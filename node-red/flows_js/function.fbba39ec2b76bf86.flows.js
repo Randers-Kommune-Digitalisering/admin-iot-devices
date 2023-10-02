@@ -21,8 +21,10 @@ const Node = {
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   let payload = msg.payload;
+  let res = msg.res;
   
   msg = {};
+  msg.res = res;
   msg.payload = payload;
   
   return msg;
