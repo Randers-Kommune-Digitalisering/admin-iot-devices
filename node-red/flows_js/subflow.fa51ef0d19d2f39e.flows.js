@@ -55,7 +55,7 @@ const Node = {
       }
     ]
   },
-  "_order": 1
+  "_order": 2
 }
 
 module.exports = Node;

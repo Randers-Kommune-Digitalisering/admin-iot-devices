@@ -1,15 +1,22 @@
 const Node = {
-  "id": "c8517b17e93c29da",
+  "id": "ca7192529d4aa8d2",
   "type": "change",
   "z": "6f89a22d2f227f45",
-  "name": "Opsætning af \\n metadata tabelnavn",
+  "name": "",
   "rules": [
     {
       "t": "set",
-      "p": "metadata_tablename",
-      "pt": "flow",
-      "to": "os2iot_metadata",
+      "p": "payload",
+      "pt": "msg",
+      "to": "OK",
       "tot": "str"
+    },
+    {
+      "t": "set",
+      "p": "statusCode",
+      "pt": "msg",
+      "to": "200",
+      "tot": "num"
     }
   ],
   "action": "",
@@ -17,14 +24,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 550,
+  "x": 1020,
   "y": 120,
   "wires": [
     [
-      "5626c6c9bb4e43fb"
+      "84a9ee6d219e650d"
     ]
   ],
-  "_order": 45
+  "_order": 71
 }
 
 module.exports = Node;
