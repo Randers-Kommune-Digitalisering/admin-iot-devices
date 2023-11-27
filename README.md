@@ -2,7 +2,7 @@
 |  [**Beskrivelse**](#beskrivelse)  |  [**Afhængigheder**](#afh%C3%A6ngigheder)  |
 
 ## Beskrivelse
-Formålet med applikationen er at modtage og lagre store mængder IoT data fra offentlige institutioner. Data lagres i lokal database og i [KMD EnergyKey](https://www.kmd.dk/loesninger-og-services/loesninger/energi/kmd-energykey).
+Formålet med applikationen er at modtage og lagre store mængder IoT bygningsdata fra offentlige institutioner. Data lagres i lokal database og i [KMD EnergyKey](https://www.kmd.dk/loesninger-og-services/loesninger/energi/kmd-energykey).
 
 
 ## Dataflow
