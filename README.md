@@ -1,6 +1,13 @@
-# vis-os2iot-data
-### Beskrivelse
-Sensor data pushes fra OS2IoT til applikationen via en POST request.
+# 🌡️ vis-os2iot-data
+|  [**Beskrivelse**](#beskrivelse)  |  [**Afhængigheder**](#afh%C3%A6ngigheder)  |
+
+## Beskrivelse
+Formålet med applikationen er at modtage og lagre store mængder IoT data fra offentlige institutioner. Data lagres i lokal database og i [KMD EnergyKey](https://www.kmd.dk/loesninger-og-services/loesninger/energi/kmd-energykey).
+
+
+## Dataflow
+Sensordata pushes fra OS2IoT til applikationen via en POST request med basic authentication.
+
 Applikationen modtager dataobjekter som følger denne JSON objekt struktur:
 
     [
@@ -17,5 +24,11 @@ Applikationen modtager dataobjekter som følger denne JSON objekt struktur:
 		    ]
 	    }
     ]
-    
-Applikationen gemmer data i MariaDB. Metadata for alle sensorer gemmes i én samlet tabel. Hver sensors individuel data gennes i egen tabel for sensor. Her antages det at **id** er en unik værdi. 
+Applikationen gemmer data i MariaDB. Metadata for alle sensorer gemmes i samlet metadata tabel. Hver individuel sensors data gennes i egen tabel hvor hver datatype gemmes i separat række (timestamp, datatype, værdi). Her antages det at sensorens **id** er en unik værdi. 
+
+### Afhængigheder
+Løsningen er afhængig af en række :gear: software komponenter og :cloud: netværksadgange til eksterne ressourcer for at fungere.
+
+:gear: | [Node.js 18](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)  |  [Node-RED 3.0.2](https://nodered.org/docs/getting-started/windows)  |
+
+:cloud: | Indkommende POST requests |
