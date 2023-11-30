@@ -10,6 +10,13 @@ const Node = {
       "pt": "msg",
       "to": "payload",
       "tot": "msg"
+    },
+    {
+      "t": "set",
+      "p": "payload",
+      "pt": "msg",
+      "to": "payload ~> $type() = \"Array\" ?\t    payload\t:   [payload]",
+      "tot": "jsonata"
     }
   ],
   "action": "",
