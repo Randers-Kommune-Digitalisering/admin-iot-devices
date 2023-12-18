@@ -33,37 +33,6 @@ function Decoder(bytes, port)
     // CNT Unsigned int (16 bits)
     decoded.intrusionCount = (bytes[n++] << 8) | bytes[n];
 
-    /*
-    if(port == 20)
-    {
-        // 3Byte data payload
-
-        // EVENT Unsigned char (8 bits)
-        decoded.batteryAlarm   = (bytes[0] & 0b00000100) >> 2; // ? 'low battery event (25%)' : 'battery OK';
-        decoded.tamperAlarm    = (bytes[0] & 0b00000010) >> 1; // ? 'Tamper alarm' : 'No Tamper alarm';
-        decoded.intrusionAlarm = (bytes[0] & 0b00000001); // ? 'Intrusion alarm detected' : 'No Intrusion';
-
-        // CNT Unsigned int (16 bits)
-        decoded.intrusionCount = (bytes[1] << 8) | bytes[2];
-    }
-    else if(port == 9)
-    {
-        // 4Byte ALIVE message
-
-        // BATTERY Unsigned char (8 bits)
-        decoded.batteryType = (bytes[0] & 0b10000000) >> 7 ? 
-            "Lithium-thionyl" : "Alkaline";
-        decoded.batteryLevel = bytes[0] & 0b01111111;
-
-        // EVENT Unsigned char (8 bits)
-        decoded.batteryAlarm   = (bytes[1] & 0b00000100) >> 2; // ? 'low battery event (25%)' : 'battery OK';
-        decoded.tamperAlarm    = (bytes[1] & 0b00000010) >> 1; // ? 'Tamper alarm' : 'No Tamper alarm';
-        decoded.intrusionAlarm = (bytes[1] & 0b00000001); // ? 'Intrusion alarm detected' : 'No Intrusion';
-
-        // CNT Unsigned int (16 bits)
-        decoded.intrusionCount = (bytes[2] << 8) | bytes[3];
-    }
-    */
     return decoded;
 }
 function base64ToBytes(str) {
