@@ -44,6 +44,10 @@ function base64ToBytes(str) {
 }
 function decode(payload, metadata)
 {
+    /* Ignorer hvis ikke fPort 20 eller 9 */
+    if(payload.fPort != 20 && payload.fPort != 9)
+        return;
+
     /* Find timestamp + sensor ID */
     let timestamp = payload.rxInfo[0].time != null ?
                     payload.rxInfo[0].time :
