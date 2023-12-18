@@ -18,7 +18,7 @@ function Decoder(bytes, port)
     if(port == 9)
     {
         // BATTERY Unsigned char (8 bits)
-        decoded.batteryType = (bytes[n] & 0b10000000) >> 7 ? 
+        var batteryType = (bytes[n] & 0b10000000) >> 7 ? 
             "Lithium-thionyl" : "Alkaline";
         decoded.batteryLevel = bytes[n] & 0b01111111;
         n++;
