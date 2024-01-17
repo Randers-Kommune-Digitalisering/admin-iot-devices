@@ -1,14 +1,14 @@
 const Node = {
-  "id": "8a24b20598152164",
+  "id": "c8ac74761feddde4",
   "type": "change",
-  "z": "6f89a22d2f227f45",
-  "name": "Flyt payload \\n til msg.data",
+  "z": "b1af099441f07c56",
+  "name": "",
   "rules": [
     {
-      "t": "move",
-      "p": "payload",
+      "t": "set",
+      "p": "sensorId",
       "pt": "msg",
-      "to": "data",
+      "to": "req.params.sensor",
       "tot": "msg"
     }
   ],
@@ -17,11 +17,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 610,
-  "y": 540,
+  "x": 430,
+  "y": 180,
   "wires": [
     [
-      "548ebee0f6759b73"
+      "98b198f1405b691e"
     ]
   ]
 }
