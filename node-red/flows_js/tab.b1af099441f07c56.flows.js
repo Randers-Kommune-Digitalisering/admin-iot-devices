@@ -1,7 +1,7 @@
 const Node = {
-  "id": "6f89a22d2f227f45",
+  "id": "b1af099441f07c56",
   "type": "tab",
-  "label": "OS2iot",
+  "label": "EnergyKey",
   "disabled": false,
   "info": "",
   "env": []

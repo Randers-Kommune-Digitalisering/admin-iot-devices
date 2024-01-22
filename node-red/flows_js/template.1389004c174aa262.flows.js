@@ -15,8 +15,7 @@ const Node = {
     [
       "0d5c40542398a9c2"
     ]
-  ],
-  "_order": 54
+  ]
 }
 
 Node.template = `
