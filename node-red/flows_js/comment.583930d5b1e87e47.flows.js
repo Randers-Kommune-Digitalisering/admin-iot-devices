@@ -1,11 +1,11 @@
 const Node = {
-  "id": "7c899222243dc6fa",
+  "id": "583930d5b1e87e47",
   "type": "comment",
   "z": "b1af099441f07c56",
-  "name": "API til eksport af data",
+  "name": "Sensor-data",
   "info": "",
-  "x": 180,
-  "y": 80,
+  "x": 150,
+  "y": 300,
   "wires": []
 }
 

@@ -2,13 +2,20 @@ const Node = {
   "id": "c8ac74761feddde4",
   "type": "change",
   "z": "b1af099441f07c56",
-  "name": "",
+  "name": "Hent params",
   "rules": [
     {
       "t": "set",
       "p": "sensorId",
       "pt": "msg",
       "to": "req.params.sensor",
+      "tot": "msg"
+    },
+    {
+      "t": "set",
+      "p": "format",
+      "pt": "msg",
+      "to": "req.params.format",
       "tot": "msg"
     }
   ],
@@ -17,8 +24,8 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 430,
-  "y": 180,
+  "x": 550,
+  "y": 340,
   "wires": [
     [
       "98b198f1405b691e"
