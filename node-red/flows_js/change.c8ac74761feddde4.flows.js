@@ -13,6 +13,13 @@ const Node = {
     },
     {
       "t": "set",
+      "p": "sensorId",
+      "pt": "msg",
+      "to": "sensorId ~> $replace(\"-\", \"_\")",
+      "tot": "jsonata"
+    },
+    {
+      "t": "set",
       "p": "format",
       "pt": "msg",
       "to": "req.params.format",
