@@ -8,7 +8,14 @@ const Node = {
       "t": "set",
       "p": "header",
       "pt": "msg",
-      "to": "(\t$n := header.col ~> $count;\t\t/* Set base header */\t( header.col ) @ $col .\t{\t    \"col\": $col,\t    \"value\": $.header[$col in col].value\t}\t\t/* Set headers for values */\t~> $append(\t    \t    maalepunkter @ $val # $id .\t    [\t    {\t        \"col\": $n + ($id * 3)\t    },\t    {\t        \"col\": $n + 1 + ($id * 3),\t        \"value\": $val.title\t    },\t    {\t        \"col\": $n + 2 +($id * 3)\t    }\t    ]\t    \t)\t)",
+      "to": "(\t    $n := template.header.col ~> $count;\t\t    /* Set base header from template */\t    ( template.header.col ) @ $col .\t    {\t        \"col\": $col,\t        \"value\": $.template.header[ $col in col ].value ~> $exists() ?\t                    \t                    \"#\" & ( $ ~> $lookup( $.template.header[ $col in col ].value ) )\t    }\t\t    /* Set headers for values from templates and maalepunkter */\t    ~> $append\t    (\t        maalepunkter @ $value # $id .\t\t        template.values @ $template . \t        {\t            \"col\": $n + $template.col + ( $id * 3 ),\t            \"value\": $value ~> $lookup( $template.value )\t        }\t        \t    )\t)",
+      "tot": "jsonata"
+    },
+    {
+      "t": "set",
+      "p": "body",
+      "pt": "msg",
+      "to": "(\t    $n := template.body ~> $count;\t\t    template.body @ $col .\t    {\t        \"col\": $col.col\t    }\t\t    ~> $append\t    (\t        maalepunkter @ $value # $id .\t\t        template.values @ $template . \t        {\t            \"col\": $n + $template.col + ( $id * 3 ),\t            \"value\": $value ~> $lookup( $template.value )\t        }\t        \t    )\t)",
       "tot": "jsonata"
     }
   ],
@@ -20,7 +27,9 @@ const Node = {
   "x": 1280,
   "y": 760,
   "wires": [
-    []
+    [
+      "608fa82e404a9071"
+    ]
   ]
 }
 
