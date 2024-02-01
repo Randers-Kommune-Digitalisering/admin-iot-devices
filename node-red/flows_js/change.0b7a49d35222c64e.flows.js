@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "url",
       "pt": "msg",
-      "to": "\"localhost:1880/sensor/\" & maalerNavn",
+      "to": "\"localhost:1880/sensor/\" & maaler.navn",
       "tot": "jsonata"
     }
   ],

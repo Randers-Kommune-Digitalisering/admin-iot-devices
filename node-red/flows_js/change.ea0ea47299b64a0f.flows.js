@@ -6,10 +6,10 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "maalerNavn",
+      "p": "maaler",
       "pt": "msg",
-      "to": "emu-sensor_0f65",
-      "tot": "str"
+      "to": "{\"navn\":\"emu-sensor_0f65\",\"installationsnummer\":\"\",\"nummer\":\"\",\"energiartskode\":\"\"}",
+      "tot": "json"
     },
     {
       "t": "set",
