@@ -1,14 +1,14 @@
 const Node = {
-  "id": "0b7a49d35222c64e",
+  "id": "2e92958b7855fa56",
   "type": "change",
   "z": "b1af099441f07c56",
-  "name": "URL",
+  "name": "Format",
   "rules": [
     {
       "t": "set",
-      "p": "url",
+      "p": "payload",
       "pt": "msg",
-      "to": "\"localhost:1880/sensor/\" & maaler.navn",
+      "to": "payload ~> $lookup(( payload ~> $keys() ) [0] )",
       "tot": "jsonata"
     }
   ],
@@ -17,11 +17,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 590,
-  "y": 860,
+  "x": 760,
+  "y": 680,
   "wires": [
     [
-      "28740381ed59925f"
+      "8d8378d4931c91f7"
     ]
   ]
 }
