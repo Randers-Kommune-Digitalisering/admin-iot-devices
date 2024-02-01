@@ -2,6 +2,7 @@ const Node = {
   "id": "6c767014c723bd8f",
   "type": "change",
   "z": "b1af099441f07c56",
+  "d": true,
   "name": "Konvertering til \\n EnergyKey standard-format",
   "rules": [
     {
@@ -24,8 +25,8 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1080,
-  "y": 880,
+  "x": 740,
+  "y": 1180,
   "wires": [
     []
   ]

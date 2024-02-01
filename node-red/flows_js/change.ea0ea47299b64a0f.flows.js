@@ -8,8 +8,8 @@ const Node = {
       "t": "set",
       "p": "maaler",
       "pt": "msg",
-      "to": "{\"navn\":\"emu-sensor_0f65\",\"installationsnummer\":\"\",\"nummer\":\"\",\"energiartskode\":\"\"}",
-      "tot": "json"
+      "to": "{\t   \"navn\": \"emu-sensor_0f65\",\t   \"installationsnummer\": \"\",\t   \"nummer\": \"emu-sensor_0f65\",\t   \"energiartskode\": 1\t}",
+      "tot": "jsonata"
     },
     {
       "t": "set",
@@ -24,8 +24,8 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 180,
-  "y": 760,
+  "x": 400,
+  "y": 720,
   "wires": [
     [
       "0b7a49d35222c64e"
