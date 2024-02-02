@@ -1,28 +1,21 @@
 const Node = {
-  "id": "0b7a49d35222c64e",
+  "id": "51fc02586067098b",
   "type": "change",
   "z": "b1af099441f07c56",
-  "name": "URL",
+  "name": "Headers",
   "rules": [
     {
       "t": "set",
-      "p": "baseurl",
+      "p": "access_token",
       "pt": "msg",
-      "to": "https://os2iot.prototypes.randers.dk/sensor/",
+      "to": "",
       "tot": "str"
     },
     {
       "t": "set",
-      "p": "baseurl",
+      "p": "headers",
       "pt": "msg",
-      "to": "localhost:1880/sensor/",
-      "tot": "str"
-    },
-    {
-      "t": "set",
-      "p": "url",
-      "pt": "msg",
-      "to": "baseurl & maaler.navn",
+      "to": "{\t    \"accept\": \"application/json\",\t    \"authorization\": \"Basic \" & access_token,\t    \"content-type\": \"application/json\"\t}",
       "tot": "jsonata"
     }
   ],
@@ -31,11 +24,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 590,
+  "x": 780,
   "y": 840,
   "wires": [
     [
-      "51fc02586067098b"
+      "28740381ed59925f"
     ]
   ]
 }

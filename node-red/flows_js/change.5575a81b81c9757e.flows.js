@@ -2,7 +2,7 @@ const Node = {
   "id": "5575a81b81c9757e",
   "type": "change",
   "z": "b1af099441f07c56",
-  "name": "Konvertering til CSV",
+  "name": "Konvertering \\n til CSV",
   "rules": [
     {
       "t": "set",
@@ -17,10 +17,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1100,
-  "y": 940,
+  "x": 1290,
+  "y": 960,
   "wires": [
     [
+      "53b5ab5c51d68858",
       "608fa82e404a9071"
     ]
   ]
