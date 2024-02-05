@@ -1,25 +1,25 @@
 const Node = {
-  "id": "8af1b0957f13a81b",
+  "id": "eb4e1b06e06a371c",
   "type": "template",
   "z": "b1af099441f07c56",
-  "name": "Forespørgsel ↓\\n Kontrollér eksisterende metadata",
+  "name": "Forespørgsel ↓\\n Kontrollér eksisterende måler-metadata",
   "field": "sql",
   "fieldType": "msg",
   "format": "sql",
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 220,
-  "y": 1780,
+  "x": 400,
+  "y": 1060,
   "wires": [
     [
-      "8ab1c4421f6cc48b"
+      "35c414292ba555b1"
     ]
   ]
 }
 
 Node.template = `
-SELECT * FROM {{flow.maaler_metadata_tablename}} WHERE nummer = '{{maaler.nummer}}'
+SELECT * FROM {{flow.maaler_metadata_tablename}} WHERE nummer = '{{sensorId}}';
 `
 
 module.exports = Node;

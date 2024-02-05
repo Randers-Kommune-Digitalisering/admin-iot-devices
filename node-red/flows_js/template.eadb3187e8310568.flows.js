@@ -10,7 +10,7 @@ const Node = {
   "template": "",
   "output": "str",
   "x": 1000,
-  "y": 1660,
+  "y": 2060,
   "wires": [
     [
       "994af279b41bd835"
@@ -22,7 +22,7 @@ Node.template = `
 INSERT INTO {{flow.maalepunkt_metadata_tablename}}
 (maalernummer, titel, type, datakey, energiartskode, typekode)
 VALUES
-('{{maaler.nummer}}', '{{maalepunkt.titel}}', '{{maalepunkt.type}}', '{{maalepunkt.key}}', {{maalepunkt.artskode}}, {{maalepunkt.typekode}});
+('{{maaler.nummer}}', '{{maalepunkt.title}}', '{{maalepunkt.type}}', '{{maalepunkt.key}}', {{maalepunkt.artskode}}, {{maalepunkt.typekode}});
 `
 
 module.exports = Node;

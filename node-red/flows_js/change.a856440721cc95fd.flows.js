@@ -1,5 +1,5 @@
 const Node = {
-  "id": "1be60ae8d8d72362",
+  "id": "a856440721cc95fd",
   "type": "change",
   "z": "b1af099441f07c56",
   "name": "",
@@ -8,9 +8,8 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "maalepunkt",
-      "tot": "msg",
-      "dc": true
+      "to": "Metadata eksisterer ikke for den valgte sensor",
+      "tot": "str"
     }
   ],
   "action": "",
@@ -18,11 +17,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 960,
-  "y": 2180,
+  "x": 1260,
+  "y": 1120,
   "wires": [
     [
-      "0ceaf45f2921f5ad"
+      "53b5ab5c51d68858"
     ]
   ]
 }

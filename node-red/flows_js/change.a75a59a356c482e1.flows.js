@@ -1,5 +1,5 @@
 const Node = {
-  "id": "1be60ae8d8d72362",
+  "id": "a75a59a356c482e1",
   "type": "change",
   "z": "b1af099441f07c56",
   "name": "",
@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "maalepunkt",
+      "to": "data",
       "tot": "msg",
       "dc": true
     }
@@ -18,13 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 960,
-  "y": 2180,
+  "x": 505,
+  "y": 1240,
   "wires": [
     [
-      "0ceaf45f2921f5ad"
+      "558de1edc2f8a350"
     ]
-  ]
+  ],
+  "l": false
 }
 
 module.exports = Node;

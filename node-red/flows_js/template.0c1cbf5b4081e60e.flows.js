@@ -1,5 +1,5 @@
 const Node = {
-  "id": "cc14923ccb54abc0",
+  "id": "0c1cbf5b4081e60e",
   "type": "template",
   "z": "b1af099441f07c56",
   "name": "",
@@ -9,17 +9,17 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 390,
-  "y": 2500,
+  "x": 500,
+  "y": 2660,
   "wires": [
     [
-      "622c3464cfe1344d"
+      "5fab0466e0bc82b8"
     ]
   ]
 }
 
 Node.template = `
-DROP TABLE energykey_maaler_metadata
+DROP TABLE energykey_maalepunkt_metadata
 `
 
 module.exports = Node;

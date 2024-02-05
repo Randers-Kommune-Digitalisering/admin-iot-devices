@@ -1,5 +1,5 @@
 const Node = {
-  "id": "ddc7668798e01cc1",
+  "id": "9ab4b98b1792e1e3",
   "type": "switch",
   "z": "b1af099441f07c56",
   "name": "",
@@ -16,14 +16,14 @@ const Node = {
   "checkall": "true",
   "repair": false,
   "outputs": 2,
-  "x": 710,
-  "y": 2060,
+  "x": 1010,
+  "y": 1060,
   "wires": [
     [
-      "eadb3187e8310568"
+      "a856440721cc95fd"
     ],
     [
-      "1be60ae8d8d72362"
+      "8799e1c3102b77c1"
     ]
   ]
 }

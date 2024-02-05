@@ -1,14 +1,14 @@
 const Node = {
-  "id": "1be60ae8d8d72362",
+  "id": "8a903beb4611f04d",
   "type": "change",
   "z": "b1af099441f07c56",
   "name": "",
   "rules": [
     {
       "t": "set",
-      "p": "payload",
+      "p": "data",
       "pt": "msg",
-      "to": "maalepunkt",
+      "to": "payload",
       "tot": "msg",
       "dc": true
     }
@@ -18,13 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 960,
-  "y": 2180,
+  "x": 205,
+  "y": 1060,
   "wires": [
     [
-      "0ceaf45f2921f5ad"
+      "eb4e1b06e06a371c"
     ]
-  ]
+  ],
+  "l": false
 }
 
 module.exports = Node;
