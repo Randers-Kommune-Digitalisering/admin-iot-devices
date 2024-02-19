@@ -17,6 +17,7 @@ services:
       TZ: "Europe/Copenhagen"
       # Fortæller node-red editoren hvilket flow.json den skal åbne og arbejde i
       FLOWS: "/data/flows.json"
+      SFTP_PASS: ${SFTP_PASS}
 
     # Bind mount fra codespace til den kørende containers /data.
     # Det gør det muligt at comitte ændringer i flows til repositoriet
