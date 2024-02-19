@@ -11,8 +11,8 @@ const Node = {
   "workdir": "Energimonitorering",
   "savedir": "",
   "name": "",
-  "x": 350,
-  "y": 200,
+  "x": 470,
+  "y": 80,
   "wires": [
     [
       "e2589491a1a8c203"

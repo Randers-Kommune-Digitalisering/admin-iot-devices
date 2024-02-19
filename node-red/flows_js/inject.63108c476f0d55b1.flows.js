@@ -5,9 +5,6 @@ const Node = {
   "name": "",
   "props": [
     {
-      "p": "payload"
-    },
-    {
       "p": "topic",
       "vt": "str"
     }
@@ -17,10 +14,8 @@ const Node = {
   "once": false,
   "onceDelay": 0.1,
   "topic": "",
-  "payload": "",
-  "payloadType": "date",
-  "x": 160,
-  "y": 1620,
+  "x": 130,
+  "y": 140,
   "wires": [
     [
       "b20c1ca4f27ed7fb"

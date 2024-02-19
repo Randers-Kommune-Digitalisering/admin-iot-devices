@@ -1,7 +1,7 @@
 const Node = {
   "id": "a6e46e2260941a9a",
   "type": "template",
-  "z": "b1af099441f07c56",
+  "z": "330fa4345482a521",
   "name": "Forespørgsel ↓\\n Træk tabeldata",
   "field": "sql",
   "fieldType": "msg",
@@ -9,8 +9,8 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 780,
-  "y": 600,
+  "x": 800,
+  "y": 900,
   "wires": [
     [
       "d734769d19f27404"

@@ -4,8 +4,8 @@ const Node = {
   "z": "b1af099441f07c56",
   "name": "Auto eksport i EnergyKey format",
   "info": "",
-  "x": 370,
-  "y": 1000,
+  "x": 350,
+  "y": 840,
   "wires": []
 }
 

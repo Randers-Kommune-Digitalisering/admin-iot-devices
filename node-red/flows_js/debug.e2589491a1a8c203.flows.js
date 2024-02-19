@@ -10,8 +10,8 @@ const Node = {
   "complete": "false",
   "statusVal": "",
   "statusType": "auto",
-  "x": 520,
-  "y": 200,
+  "x": 640,
+  "y": 80,
   "wires": []
 }
 

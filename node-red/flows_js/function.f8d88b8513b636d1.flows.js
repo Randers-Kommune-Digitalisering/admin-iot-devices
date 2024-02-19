@@ -2,6 +2,7 @@ const Node = {
   "id": "f8d88b8513b636d1",
   "type": "function",
   "z": "b1af099441f07c56",
+  "d": true,
   "name": "Slice",
   "func": "",
   "outputs": 1,
@@ -9,8 +10,8 @@ const Node = {
   "initialize": "",
   "finalize": "",
   "libs": [],
-  "x": 490,
-  "y": 1340,
+  "x": 470,
+  "y": 1240,
   "wires": [
     [
       "3599cd499c7ce2d4"

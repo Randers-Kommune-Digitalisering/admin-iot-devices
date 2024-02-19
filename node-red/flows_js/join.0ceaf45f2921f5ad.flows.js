@@ -14,8 +14,8 @@ const Node = {
   "timeout": "",
   "count": "",
   "reduceRight": false,
-  "x": 1130,
-  "y": 2180,
+  "x": 1110,
+  "y": 540,
   "wires": [
     [
       "895ff1f234fa0893"

@@ -15,7 +15,7 @@ const Node = {
       "t": "set",
       "p": "maaler.nummer",
       "pt": "msg",
-      "to": "maaler.navn ~> $replace(\"-\", \"_\")",
+      "to": "maaler.nummer ~> $replace(\"-\", \"_\")",
       "tot": "jsonata"
     }
   ],
@@ -24,8 +24,8 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 770,
-  "y": 1620,
+  "x": 750,
+  "y": 140,
   "wires": [
     [
       "d3d6553ead498af3"

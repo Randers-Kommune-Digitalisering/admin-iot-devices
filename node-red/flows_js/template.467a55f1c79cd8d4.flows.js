@@ -9,8 +9,8 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 990,
-  "y": 1760,
+  "x": 970,
+  "y": 240,
   "wires": [
     [
       "ee4f7cbdea23fd25"
@@ -19,8 +19,7 @@ const Node = {
 }
 
 Node.template = `
-INSERT INTO {{flow.maaler_metadata_tablename}}
-(navn, installationsnummer, nummer, energiartskode)
+INSERT INTO {{flow.maaler_metadata_tablename}} (navn, installationsnummer, nummer, energiartskode)
 VALUES
 ('{{maaler.navn}}', '{{maaler.installationsnummer}}', '{{maaler.nummer}}', {{maaler.energiartskode}});
 `

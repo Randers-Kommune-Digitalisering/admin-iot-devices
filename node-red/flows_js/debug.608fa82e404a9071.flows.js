@@ -3,7 +3,7 @@ const Node = {
   "type": "debug",
   "z": "b1af099441f07c56",
   "name": "debug",
-  "active": true,
+  "active": false,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
@@ -11,8 +11,8 @@ const Node = {
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1410,
-  "y": 1400,
+  "x": 1390,
+  "y": 1240,
   "wires": []
 }
 

@@ -4,8 +4,8 @@ const Node = {
   "z": "b1af099441f07c56",
   "name": "For hvert \"maalepunkt\"",
   "info": "",
-  "x": 400,
-  "y": 2000,
+  "x": 380,
+  "y": 420,
   "wires": []
 }
 

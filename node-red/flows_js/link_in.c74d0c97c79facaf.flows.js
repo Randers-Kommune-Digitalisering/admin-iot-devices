@@ -4,8 +4,8 @@ const Node = {
   "z": "b1af099441f07c56",
   "name": "Format EK In",
   "links": [],
-  "x": 165,
-  "y": 1060,
+  "x": 145,
+  "y": 900,
   "wires": [
     [
       "8a903beb4611f04d"

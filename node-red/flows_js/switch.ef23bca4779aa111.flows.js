@@ -1,7 +1,7 @@
 const Node = {
   "id": "ef23bca4779aa111",
   "type": "switch",
-  "z": "b1af099441f07c56",
+  "z": "330fa4345482a521",
   "name": "",
   "property": "format",
   "propertyType": "msg",
@@ -18,8 +18,8 @@ const Node = {
   "checkall": "true",
   "repair": false,
   "outputs": 2,
-  "x": 570,
-  "y": 460,
+  "x": 910,
+  "y": 580,
   "wires": [
     [
       "1ac694583ba72ca3"

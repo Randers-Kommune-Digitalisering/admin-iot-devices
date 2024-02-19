@@ -1,7 +1,7 @@
 const Node = {
   "id": "e185c748f4327fed",
   "type": "change",
-  "z": "b1af099441f07c56",
+  "z": "330fa4345482a521",
   "name": "Hent params",
   "rules": [
     {
@@ -31,8 +31,8 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 550,
-  "y": 600,
+  "x": 570,
+  "y": 900,
   "wires": [
     [
       "a6e46e2260941a9a"
