@@ -3,7 +3,7 @@ const Node = {
   "type": "debug",
   "z": "b1af099441f07c56",
   "name": "Metadata updated",
-  "active": true,
+  "active": false,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
