@@ -7,7 +7,7 @@ const Node = {
   "tosidebar": true,
   "console": true,
   "tostatus": false,
-  "complete": "payload.error",
+  "complete": "error",
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
