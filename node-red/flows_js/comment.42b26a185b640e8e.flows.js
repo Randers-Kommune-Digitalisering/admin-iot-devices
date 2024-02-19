@@ -4,7 +4,7 @@ const Node = {
   "z": "5f6ef472b7d9e1e9",
   "name": "Opret metadata for dataeksport",
   "info": "",
-  "x": 210,
+  "x": 370,
   "y": 260,
   "wires": []
 }

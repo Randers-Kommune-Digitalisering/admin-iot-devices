@@ -1,8 +1,8 @@
 const Node = {
-  "id": "2cc8f51067018631",
+  "id": "5907e92efad911d1",
   "type": "template",
   "z": "5f6ef472b7d9e1e9",
-  "name": "Forespørgsel ↓\\n Hent målere til eksport",
+  "name": "Forespørgsel ↓\\n Opdater tidspunkt for dataeksport",
   "field": "sql",
   "fieldType": "msg",
   "format": "sql",
@@ -10,16 +10,16 @@ const Node = {
   "template": "",
   "output": "str",
   "x": 620,
-  "y": 520,
+  "y": 1020,
   "wires": [
     [
-      "a9133e3aafe269f8"
+      "db89090407e65909"
     ]
   ]
 }
 
 Node.template = `
-SELECT * FROM {{flow.maaler_metadata_tablename}}
+UPDATE {{flow.metadata_tablename}} SET lastPull = NOW() WHERE maalernummer = '{{maaler.nummer}}'
 `
 
 module.exports = Node;

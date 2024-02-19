@@ -22,15 +22,16 @@ const Node = {
       "t": "set",
       "p": "url",
       "pt": "msg",
-      "to": "baseurl & payload.navn & \"/csv\"",
+      "to": "baseurl & payload.nummer & \"/csv\"",
       "tot": "jsonata"
     },
     {
       "t": "set",
-      "p": "payload",
+      "p": "maaler",
       "pt": "msg",
-      "to": "{ \"TEST_PAYLOAD\": \"ja\" }",
-      "tot": "json"
+      "to": "payload",
+      "tot": "msg",
+      "dc": true
     }
   ],
   "action": "",
@@ -38,7 +39,7 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 290,
+  "x": 450,
   "y": 720,
   "wires": [
     [

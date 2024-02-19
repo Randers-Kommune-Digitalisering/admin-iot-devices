@@ -19,7 +19,7 @@ const Node = {
 }
 
 Node.template = `
-SELECT lastPull FROM sftp_metadata WHERE nummer = '{{sensorId}}'
+SELECT lastPull FROM sftp_metadata WHERE maalernummer = '{{sensorId}}'
 `
 
 module.exports = Node;

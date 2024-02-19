@@ -1,25 +1,25 @@
 const Node = {
-  "id": "2cc8f51067018631",
+  "id": "b31a1ed434826951",
   "type": "template",
   "z": "5f6ef472b7d9e1e9",
-  "name": "Forespørgsel ↓\\n Hent målere til eksport",
+  "name": "Forespørgsel ↓\\n Eksisterer dataeksport metadata for sensor?",
   "field": "sql",
   "fieldType": "msg",
   "format": "sql",
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 620,
-  "y": 520,
+  "x": 570,
+  "y": 800,
   "wires": [
     [
-      "a9133e3aafe269f8"
+      "af1c9ccbddc7c28b"
     ]
   ]
 }
 
 Node.template = `
-SELECT * FROM {{flow.maaler_metadata_tablename}}
+SELECT * FROM {{flow.metadata_tablename}} WHERE maalernummer = '{{maaler.nummer}}'
 `
 
 module.exports = Node;

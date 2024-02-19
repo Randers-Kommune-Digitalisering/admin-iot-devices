@@ -1,25 +1,27 @@
 const Node = {
-  "id": "2cc8f51067018631",
+  "id": "0fb94198e3c26829",
   "type": "template",
   "z": "5f6ef472b7d9e1e9",
-  "name": "Forespørgsel ↓\\n Hent målere til eksport",
+  "name": "Forespørgsel ↓\\n Indsæt dataeksport metadata for måler",
   "field": "sql",
   "fieldType": "msg",
   "format": "sql",
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 620,
-  "y": 520,
+  "x": 630,
+  "y": 940,
   "wires": [
     [
-      "a9133e3aafe269f8"
+      "1bcfd65804ab0c2d"
     ]
   ]
 }
 
 Node.template = `
-SELECT * FROM {{flow.maaler_metadata_tablename}}
+INSERT INTO {{flow.metadata_tablename}}
+(lastPull, maalernummer)
+values (NOW(), '{{maaler.nummer}}')
 `
 
 module.exports = Node;

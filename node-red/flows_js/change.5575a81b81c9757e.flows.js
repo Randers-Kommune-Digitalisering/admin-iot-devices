@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "(\t    $separator := \";\";\t    $linebreak := \"\\r\\n\";\t    \t    [\t        header @ $col . [ $col.value & $separator ]\t        ~> $join() ,\t\t        body @ $row . [[ $row @ $col . [ $col.value & $separator ] ] ~> $join() ]\t        ~> $join($linebreak) /* OBS: Breaker efter hver kolonne hvis der kun er én datarække */\t    ]\t    ~> $join($linebreak)\t)",
+      "to": "(\t    $separator := \";\";\t    $linebreak := \"\\r\\n\";\t    \t    [\t        header @ $col . [ $col.value & $separator ]\t        ~> $join() ,\t\t        body @ $row . [[ $row @ $col . [ $col.value & $separator ] ] ~> $join() ]\t    ]\t    ~> $join($linebreak)\t)",
       "tot": "jsonata"
     }
   ],
@@ -17,7 +17,7 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1150,
+  "x": 1170,
   "y": 1200,
   "wires": [
     [
