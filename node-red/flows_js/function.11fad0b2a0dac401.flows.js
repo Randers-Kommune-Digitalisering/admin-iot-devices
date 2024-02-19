@@ -10,7 +10,7 @@ const Node = {
   "finalize": "",
   "libs": [],
   "x": 940,
-  "y": 1240,
+  "y": 1260,
   "wires": [
     [
       "5575a81b81c9757e"
@@ -19,8 +19,9 @@ const Node = {
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
-  if(!Array.isArray(msg.body[0]))
-      msg.body = [msg.body];
+  if (Array.isArray(msg.body))
+      if(!Array.isArray(msg.body[0]))
+          msg.body = [msg.body];
       
   return msg;
 }

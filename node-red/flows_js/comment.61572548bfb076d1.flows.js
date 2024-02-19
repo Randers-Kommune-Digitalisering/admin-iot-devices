@@ -5,7 +5,7 @@ const Node = {
   "name": "Hent metadata for sensorer til eksport",
   "info": "",
   "x": 390,
-  "y": 460,
+  "y": 340,
   "wires": []
 }
 

@@ -1,18 +1,18 @@
 const Node = {
-  "id": "349220ea41d50cae",
+  "id": "e52d80fed6524176",
   "type": "debug",
   "z": "5f6ef472b7d9e1e9",
-  "name": "Målerdata",
+  "name": "Export CSV",
   "active": true,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
-  "complete": "maaler.data",
+  "complete": "payload",
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1120,
-  "y": 600,
+  "x": 670,
+  "y": 1120,
   "wires": []
 }
 

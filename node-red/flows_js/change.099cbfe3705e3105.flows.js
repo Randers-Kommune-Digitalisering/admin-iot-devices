@@ -1,14 +1,14 @@
 const Node = {
-  "id": "2e92958b7855fa56",
+  "id": "099cbfe3705e3105",
   "type": "change",
-  "z": "330fa4345482a521",
-  "name": "Format",
+  "z": "5f6ef472b7d9e1e9",
+  "name": "Saml målere til enkelt CSV",
   "rules": [
     {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "payload ~> $lookup(( payload ~> $keys() ) [0] )",
+      "to": "(\t    $linebreak := \"\\r\\n\";\t    \t    payload ~> $join($linebreak)\t)",
       "tot": "jsonata"
     }
   ],
@@ -17,11 +17,12 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 780,
-  "y": 860,
+  "x": 360,
+  "y": 1120,
   "wires": [
     [
-      "8d8378d4931c91f7"
+      "e52d80fed6524176",
+      "6b5c39c64499ad0e"
     ]
   ]
 }

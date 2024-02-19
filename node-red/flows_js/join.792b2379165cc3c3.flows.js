@@ -10,14 +10,20 @@ const Node = {
   "key": "topic",
   "joiner": "\\n",
   "joinerType": "str",
-  "accumulate": "false",
+  "accumulate": true,
   "timeout": "",
   "count": "",
   "reduceRight": false,
-  "x": 290,
-  "y": 1100,
+  "reduceExp": "",
+  "reduceInit": "",
+  "reduceInitType": "",
+  "reduceFixup": "",
+  "x": 330,
+  "y": 980,
   "wires": [
-    []
+    [
+      "099cbfe3705e3105"
+    ]
   ]
 }
 

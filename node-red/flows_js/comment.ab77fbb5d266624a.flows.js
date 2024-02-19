@@ -5,7 +5,7 @@ const Node = {
   "name": "Sensor-dimensioner",
   "info": "",
   "x": 190,
-  "y": 860,
+  "y": 740,
   "wires": []
 }
 

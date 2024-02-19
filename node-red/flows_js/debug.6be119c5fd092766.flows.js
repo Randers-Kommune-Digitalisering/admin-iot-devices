@@ -1,18 +1,17 @@
 const Node = {
-  "id": "349220ea41d50cae",
+  "id": "6be119c5fd092766",
   "type": "debug",
   "z": "5f6ef472b7d9e1e9",
-  "name": "Målerdata",
+  "name": "debug 4",
   "active": true,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
-  "complete": "maaler.data",
-  "targetType": "msg",
+  "complete": "false",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1120,
-  "y": 600,
+  "x": 850,
+  "y": 1160,
   "wires": []
 }
 

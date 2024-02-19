@@ -1,18 +1,18 @@
 const Node = {
-  "id": "349220ea41d50cae",
+  "id": "217985ec45797087",
   "type": "debug",
   "z": "5f6ef472b7d9e1e9",
-  "name": "Målerdata",
+  "name": "CSV upload error",
   "active": true,
   "tosidebar": true,
-  "console": false,
+  "console": true,
   "tostatus": false,
-  "complete": "maaler.data",
+  "complete": "payload",
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1120,
-  "y": 600,
+  "x": 690,
+  "y": 1400,
   "wires": []
 }
 

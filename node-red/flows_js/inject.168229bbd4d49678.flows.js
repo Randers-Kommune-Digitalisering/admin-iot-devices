@@ -4,13 +4,13 @@ const Node = {
   "z": "5f6ef472b7d9e1e9",
   "name": "",
   "props": [],
-  "repeat": "",
+  "repeat": "3600",
   "crontab": "",
   "once": false,
-  "onceDelay": 0.1,
+  "onceDelay": "15",
   "topic": "",
   "x": 130,
-  "y": 320,
+  "y": 200,
   "wires": [
     [
       "b1742a1011f5abc4"

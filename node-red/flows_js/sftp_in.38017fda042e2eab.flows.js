@@ -1,21 +1,21 @@
 const Node = {
-  "id": "e79f916a411ce05c",
+  "id": "38017fda042e2eab",
   "type": "sftp in",
   "z": "5f6ef472b7d9e1e9",
   "sftp": "c1cfb6a2a5b6b043",
-  "operation": "list",
+  "operation": "put",
   "filename": "",
   "localFilename": "",
   "fileContents": "",
-  "fileExtension": ".txt",
-  "workdir": "Energimonitorering",
+  "fileExtension": "",
+  "workdir": "",
   "savedir": "",
   "name": "",
   "x": 470,
-  "y": 80,
+  "y": 1300,
   "wires": [
     [
-      "e2589491a1a8c203"
+      "8bfcdaf66ddd8d25"
     ]
   ]
 }

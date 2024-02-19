@@ -1,5 +1,5 @@
 const Node = {
-  "id": "d997ccabf77f03ea",
+  "id": "03701452390e007d",
   "type": "change",
   "z": "5f6ef472b7d9e1e9",
   "name": "Creds",
@@ -31,6 +31,13 @@ const Node = {
       "pt": "msg",
       "to": "22",
       "tot": "num"
+    },
+    {
+      "t": "set",
+      "p": "payload",
+      "pt": "msg",
+      "to": "{\t   \"filename\": \"Energimonitorering/data.csv\",\t   \"filedata\": payload \t}",
+      "tot": "jsonata"
     }
   ],
   "action": "",
@@ -38,11 +45,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 310,
-  "y": 80,
+  "x": 290,
+  "y": 1300,
   "wires": [
     [
-      "e79f916a411ce05c"
+      "38017fda042e2eab"
     ]
   ]
 }

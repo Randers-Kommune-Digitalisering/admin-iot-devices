@@ -1,15 +1,16 @@
 const Node = {
-  "id": "b1742a1011f5abc4",
+  "id": "4c983c26ebac5051",
   "type": "change",
   "z": "5f6ef472b7d9e1e9",
-  "name": "Opsætning af \\n metadata tabelnavn",
+  "name": "",
   "rules": [
     {
       "t": "set",
-      "p": "metadata_tablename",
-      "pt": "flow",
-      "to": "sftp_metadata",
-      "tot": "str"
+      "p": "maaler",
+      "pt": "msg",
+      "to": "payload",
+      "tot": "msg",
+      "dc": true
     }
   ],
   "action": "",
@@ -17,13 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 330,
-  "y": 200,
+  "x": 365,
+  "y": 560,
   "wires": [
     [
-      "77e5be3851c6c08c"
+      "4f76bee9aff3e61d"
     ]
-  ]
+  ],
+  "l": false
 }
 
 module.exports = Node;

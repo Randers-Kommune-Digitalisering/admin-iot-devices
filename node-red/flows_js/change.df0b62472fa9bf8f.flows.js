@@ -1,29 +1,36 @@
 const Node = {
-  "id": "4f76bee9aff3e61d",
+  "id": "df0b62472fa9bf8f",
   "type": "change",
   "z": "5f6ef472b7d9e1e9",
-  "name": "URL",
+  "name": "Creds",
   "rules": [
     {
       "t": "set",
-      "p": "baseurl",
+      "p": "host",
       "pt": "msg",
-      "to": "https://os2iot.prototypes.randers.dk/sensor/",
+      "to": "sftp.randers.dk",
       "tot": "str"
     },
     {
       "t": "set",
-      "p": "baseurl",
+      "p": "user",
       "pt": "msg",
-      "to": "localhost:1880/sensor/",
+      "to": "Energimonitorering",
       "tot": "str"
     },
     {
       "t": "set",
-      "p": "url",
+      "p": "password",
       "pt": "msg",
-      "to": "baseurl & maaler.nummer & \"/csv\"",
-      "tot": "jsonata"
+      "to": "SFTP_PASS",
+      "tot": "env"
+    },
+    {
+      "t": "set",
+      "p": "port",
+      "pt": "msg",
+      "to": "22",
+      "tot": "num"
     }
   ],
   "action": "",
@@ -31,11 +38,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 470,
-  "y": 600,
+  "x": 390,
+  "y": 1600,
   "wires": [
     [
-      "f71dfb4793082f44"
+      "616e0423c54b2ad2"
     ]
   ]
 }

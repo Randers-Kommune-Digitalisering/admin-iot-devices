@@ -4,8 +4,8 @@ const Node = {
   "z": "5f6ef472b7d9e1e9",
   "name": "Hent data for hver måler",
   "info": "",
-  "x": 510,
-  "y": 680,
+  "x": 530,
+  "y": 560,
   "wires": []
 }
 

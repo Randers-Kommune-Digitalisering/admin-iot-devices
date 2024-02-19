@@ -1,15 +1,15 @@
 const Node = {
-  "id": "2e92958b7855fa56",
+  "id": "1530a4d94080d225",
   "type": "change",
-  "z": "330fa4345482a521",
-  "name": "Format",
+  "z": "5f6ef472b7d9e1e9",
+  "name": "",
   "rules": [
     {
       "t": "set",
-      "p": "payload",
+      "p": "maaler.data",
       "pt": "msg",
-      "to": "payload ~> $lookup(( payload ~> $keys() ) [0] )",
-      "tot": "jsonata"
+      "to": "payload",
+      "tot": "msg"
     }
   ],
   "action": "",
@@ -17,11 +17,12 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 780,
-  "y": 860,
+  "x": 840,
+  "y": 600,
   "wires": [
     [
-      "8d8378d4931c91f7"
+      "b31a1ed434826951",
+      "349220ea41d50cae"
     ]
   ]
 }

@@ -10,10 +10,10 @@ const Node = {
   "stream": false,
   "addname": "",
   "x": 290,
-  "y": 680,
+  "y": 560,
   "wires": [
     [
-      "4f76bee9aff3e61d"
+      "4c983c26ebac5051"
     ]
   ]
 }

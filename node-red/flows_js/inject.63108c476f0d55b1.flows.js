@@ -3,16 +3,11 @@ const Node = {
   "type": "inject",
   "z": "b1af099441f07c56",
   "name": "",
-  "props": [
-    {
-      "p": "topic",
-      "vt": "str"
-    }
-  ],
+  "props": [],
   "repeat": "",
   "crontab": "",
-  "once": false,
-  "onceDelay": 0.1,
+  "once": true,
+  "onceDelay": "5",
   "topic": "",
   "x": 130,
   "y": 140,
