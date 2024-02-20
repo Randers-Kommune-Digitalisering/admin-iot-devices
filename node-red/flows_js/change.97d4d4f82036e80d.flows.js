@@ -2,13 +2,13 @@ const Node = {
   "id": "97d4d4f82036e80d",
   "type": "change",
   "z": "7597822579cc59c2",
-  "name": "Multiply values for m2 conversion",
+  "name": "Divide values for m2 conversion",
   "rules": [
     {
       "t": "set",
       "p": "data",
       "pt": "msg",
-      "to": "data ~> | $.values | {\t    \"value\": value * 10\t} |",
+      "to": "data ~> | $.values | {\t    \"value\": value * 0.1\t} |",
       "tot": "jsonata"
     }
   ],
@@ -17,7 +17,7 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 640,
+  "x": 630,
   "y": 140,
   "wires": [
     []
