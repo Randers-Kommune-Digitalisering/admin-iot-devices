@@ -1,31 +1,34 @@
 const Node = {
-  "id": "eb8510ce27f08ff5",
+  "id": "995915c0ce51b1bf",
   "type": "switch",
   "z": "6f89a22d2f227f45",
-  "name": "Kontroller last_obs",
+  "name": "Er data null?",
   "property": "payload[0].last_observation",
   "propertyType": "msg",
   "rules": [
     {
-      "t": "nnull"
+      "t": "neq",
+      "v": "0000-00-00 00:00:00",
+      "vt": "str"
     },
     {
-      "t": "null"
+      "t": "else"
     }
   ],
   "checkall": "true",
   "repair": false,
   "outputs": 2,
-  "x": 210,
-  "y": 1180,
+  "x": 355,
+  "y": 1160,
   "wires": [
     [
-      "995915c0ce51b1bf"
+      "8bc2222bbe133ca5"
     ],
     [
       "88bbb7b21b2b99af"
     ]
-  ]
+  ],
+  "l": false
 }
 
 module.exports = Node;

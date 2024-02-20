@@ -22,7 +22,7 @@ const Node = {
       "t": "set",
       "p": "url",
       "pt": "msg",
-      "to": "baseurl & maaler.navn",
+      "to": "baseurl & maaler.nummer",
       "tot": "jsonata"
     }
   ],

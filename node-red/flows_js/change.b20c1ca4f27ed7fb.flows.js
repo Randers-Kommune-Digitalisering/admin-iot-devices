@@ -8,14 +8,14 @@ const Node = {
       "t": "set",
       "p": "maaler",
       "pt": "msg",
-      "to": "{\t   \"navn\": \"CF19 Puls\",\t   \"installationsnummer\": \"\",\t   \"nummer\": \"cf19_Adeunis\",\t   \"energiartskode\": 1\t}",
+      "to": "{\t   \"navn\": \"CF19 Puls\",\t   \"installationsnummer\": \"\",\t   \"nummer\": \"cf19_Adeunis\",\t   \"energiartskode\": 6\t}",
       "tot": "jsonata"
     },
     {
       "t": "set",
       "p": "maalepunkter",
       "pt": "msg",
-      "to": "[\t    {\t        \"title\": \"Energi\",\t        \"key\": \"Active_Energy_Import_T1\",\t        \"type\": \"Wh\",\t        \"artskode\": 1,\t        \"typekode\": 3\t    }\t]",
+      "to": "[\t    {\t        \"title\": \"Gas\",\t        \"key\": \"Channel A\",\t        \"type\": \"m3\",\t        \"artskode\": 6,\t        \"typekode\": 3\t    }\t]",
       "tot": "jsonata"
     }
   ],

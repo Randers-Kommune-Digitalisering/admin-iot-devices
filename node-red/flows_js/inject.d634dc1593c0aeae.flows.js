@@ -14,7 +14,7 @@ const Node = {
   "once": false,
   "onceDelay": 0.1,
   "topic": "",
-  "payload": "{\"id\":\"cf19-Adeunis\",\"name\":\"Gas måler Grønhøjskolen\",\"observedAt\":\"2024-01-26T09:55:26.180Z\",\"decoder\":\"adeunis\",\"productType\":\"pulse\",\"data\":\"46c4000036600000000c14d154ae\"}",
+  "payload": "{\"id\":\"cf19-Adeunis\",\"name\":\"Gas måler Grønhøjskolen\",\"observedAt\":\"2024-02-25T09:55:26.180Z\",\"decoder\":\"adeunis\",\"productType\":\"pulse\",\"data\":\"46c4000036600000000c14d154ae\"}",
   "payloadType": "json",
   "x": 110,
   "y": 160,
