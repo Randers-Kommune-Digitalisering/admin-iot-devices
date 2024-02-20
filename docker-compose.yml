@@ -13,7 +13,7 @@ services:
       DB_HOST: db
       DB_PORT: 3306
       DB_DATABASE: demo
-      DEV_ENVIROMENT : "true"
+      DEV_ENV: "true"
       TZ: "Europe/Copenhagen"
       # Fortæller node-red editoren hvilket flow.json den skal åbne og arbejde i
       FLOWS: "/data/flows.json"

@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "Metadata eksisterer ikke for den valgte sensor til eksport i CSV-format",
+      "to": "",
       "tot": "str"
     }
   ],
@@ -17,8 +17,8 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1240,
-  "y": 960,
+  "x": 1220,
+  "y": 1100,
   "wires": [
     [
       "53b5ab5c51d68858"

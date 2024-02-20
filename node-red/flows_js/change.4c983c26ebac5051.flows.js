@@ -11,6 +11,11 @@ const Node = {
       "to": "payload",
       "tot": "msg",
       "dc": true
+    },
+    {
+      "t": "delete",
+      "p": "payload",
+      "pt": "msg"
     }
   ],
   "action": "",

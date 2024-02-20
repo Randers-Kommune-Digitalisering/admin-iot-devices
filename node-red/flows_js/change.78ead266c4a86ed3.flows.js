@@ -1,8 +1,8 @@
 const Node = {
-  "id": "ea0ea47299b64a0f",
+  "id": "78ead266c4a86ed3",
   "type": "change",
   "z": "b1af099441f07c56",
-  "name": "Opsætning af datasæt",
+  "name": "Opsætning af datasæt (Emu)",
   "rules": [
     {
       "t": "set",
@@ -25,10 +25,10 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 340,
-  "y": 880,
+  "y": 180,
   "wires": [
     [
-      "0b7a49d35222c64e"
+      "61eeecae2bf70623"
     ]
   ]
 }

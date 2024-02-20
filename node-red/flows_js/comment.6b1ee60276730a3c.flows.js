@@ -5,7 +5,7 @@ const Node = {
   "name": "Manuel oprettelse af metadata - skal gøres første gang en sensor skal exporteres",
   "info": "",
   "x": 360,
-  "y": 80,
+  "y": 100,
   "wires": []
 }
 

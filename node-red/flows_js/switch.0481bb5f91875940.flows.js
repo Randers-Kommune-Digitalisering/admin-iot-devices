@@ -1,13 +1,13 @@
 const Node = {
-  "id": "ddc7668798e01cc1",
+  "id": "0481bb5f91875940",
   "type": "switch",
-  "z": "b1af099441f07c56",
+  "z": "330fa4345482a521",
   "name": "",
   "property": "payload",
   "propertyType": "msg",
   "rules": [
     {
-      "t": "empty"
+      "t": "nempty"
     },
     {
       "t": "else"
@@ -16,14 +16,14 @@ const Node = {
   "checkall": "true",
   "repair": false,
   "outputs": 2,
-  "x": 690,
-  "y": 620,
+  "x": 830,
+  "y": 520,
   "wires": [
     [
-      "eadb3187e8310568"
+      "1ac694583ba72ca3"
     ],
     [
-      "1be60ae8d8d72362"
+      "9d32536e5def0eeb"
     ]
   ]
 }

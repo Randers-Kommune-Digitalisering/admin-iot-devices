@@ -1,16 +1,15 @@
 const Node = {
-  "id": "a75a59a356c482e1",
+  "id": "9d32536e5def0eeb",
   "type": "change",
-  "z": "b1af099441f07c56",
+  "z": "330fa4345482a521",
   "name": "",
   "rules": [
     {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "data",
-      "tot": "msg",
-      "dc": true
+      "to": "",
+      "tot": "str"
     }
   ],
   "action": "",
@@ -18,14 +17,13 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 485,
-  "y": 1220,
+  "x": 1020,
+  "y": 540,
   "wires": [
     [
-      "558de1edc2f8a350"
+      "ab354d79fe9547a2"
     ]
-  ],
-  "l": false
+  ]
 }
 
 module.exports = Node;

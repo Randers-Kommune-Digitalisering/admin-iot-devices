@@ -10,6 +10,11 @@ const Node = {
       "pt": "msg",
       "to": "payload ~> $type() = \"array\" and\tpayload ~> $count() > 0 ?\t\t    \"WHERE observedAt > '\" & payload[0].lastPull & \"'\"\t:   \"LIMIT 1000\"",
       "tot": "jsonata"
+    },
+    {
+      "t": "delete",
+      "p": "payload",
+      "pt": "msg"
     }
   ],
   "action": "",
@@ -17,11 +22,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 790,
-  "y": 420,
+  "x": 1400,
+  "y": 340,
   "wires": [
     [
-      "98b198f1405b691e"
+      "7cbed5f41338246d"
     ]
   ]
 }

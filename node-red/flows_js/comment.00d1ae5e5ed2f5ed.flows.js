@@ -5,7 +5,7 @@ const Node = {
   "name": "Auto eksport i EnergyKey format fra endpoint med format = CSV",
   "info": "",
   "x": 450,
-  "y": 840,
+  "y": 980,
   "wires": []
 }
 
