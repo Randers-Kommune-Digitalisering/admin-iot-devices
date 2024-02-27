@@ -1,17 +1,17 @@
 const Node = {
-  "id": "24120daf425b0eb2",
+  "id": "7c5d8a12ed9f91b3",
   "type": "http in",
   "z": "330fa4345482a521",
   "name": "",
-  "url": "/sensordimensions/:sensor",
+  "url": "/sensor/:sensor/:format/history",
   "method": "get",
   "upload": false,
   "swaggerDoc": "",
-  "x": 230,
-  "y": 900,
+  "x": 240,
+  "y": 500,
   "wires": [
     [
-      "e185c748f4327fed"
+      "ea4f17499382e8ea"
     ]
   ]
 }

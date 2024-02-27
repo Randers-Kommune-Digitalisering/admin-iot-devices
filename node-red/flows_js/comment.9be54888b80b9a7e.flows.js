@@ -5,7 +5,7 @@ const Node = {
   "name": "Format",
   "info": "",
   "x": 650,
-  "y": 500,
+  "y": 640,
   "wires": []
 }
 

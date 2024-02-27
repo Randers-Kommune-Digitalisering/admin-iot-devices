@@ -1,15 +1,15 @@
 const Node = {
-  "id": "9d32536e5def0eeb",
+  "id": "fa1846b7722ac332",
   "type": "change",
   "z": "330fa4345482a521",
   "name": "",
   "rules": [
     {
       "t": "set",
-      "p": "payload",
+      "p": "headers",
       "pt": "msg",
-      "to": "",
-      "tot": "str"
+      "to": "{\t    \"Content-Disposition\": \"attachment;filename=\" & req.params.sensor & \".\" & req.params.format\t}",
+      "tot": "jsonata"
     }
   ],
   "action": "",
@@ -17,13 +17,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1020,
-  "y": 680,
+  "x": 465,
+  "y": 540,
   "wires": [
     [
-      "ab354d79fe9547a2"
+      "ea4f17499382e8ea"
     ]
-  ]
+  ],
+  "l": false
 }
 
 module.exports = Node;

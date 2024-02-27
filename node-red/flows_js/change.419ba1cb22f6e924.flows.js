@@ -2,7 +2,6 @@ const Node = {
   "id": "419ba1cb22f6e924",
   "type": "change",
   "z": "6f89a22d2f227f45",
-  "d": true,
   "name": "Tesdata 2",
   "rules": [
     {

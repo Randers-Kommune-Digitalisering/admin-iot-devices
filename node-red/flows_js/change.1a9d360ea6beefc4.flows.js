@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "limit",
       "pt": "msg",
-      "to": "payload ~> $type() = \"array\" and\tpayload ~> $count() > 0 ?\t\t    \"WHERE observedAt > '\" & payload[0].lastPull & \"'\"\t:   \"LIMIT 1000\"",
+      "to": "payload ~> $type() = \"array\" and\tpayload ~> $count() > 0 ?\t\t    \"WHERE observedAt > '\" & payload[0].lastPull & \"'\"\t:   \"WHERE observedAt > '\" & $fromMillis($millis()-2592000000) & \"'\"",
       "tot": "jsonata"
     },
     {
