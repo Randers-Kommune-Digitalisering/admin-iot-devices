@@ -5,7 +5,7 @@ const Node = {
   "name": "Manuel eksport i EnergyKey format",
   "info": "",
   "x": 220,
-  "y": 840,
+  "y": 880,
   "wires": []
 }
 

@@ -5,7 +5,7 @@ const Node = {
   "name": "For hvert \"maalepunkt\"",
   "info": "",
   "x": 380,
-  "y": 560,
+  "y": 600,
   "wires": []
 }
 

@@ -15,7 +15,7 @@ const Node = {
       "t": "set",
       "p": "maalepunkter",
       "pt": "msg",
-      "to": "[\t    {\t        \"title\": \"Gas\",\t        \"key\": \"Channel A\",\t        \"type\": \"m3\",\t        \"artskode\": 6,\t        \"typekode\": 3\t    }\t]",
+      "to": "[\t    {\t        \"title\": \"Gas\",\t        \"key\": \"Channel A\",\t        \"type\": \"m3\",\t        \"artskode\": 2,\t        \"typekode\": 1\t    }\t]",
       "tot": "jsonata"
     }
   ],

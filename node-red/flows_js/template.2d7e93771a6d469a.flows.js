@@ -10,7 +10,7 @@ const Node = {
   "template": "",
   "output": "str",
   "x": 200,
-  "y": 620,
+  "y": 660,
   "wires": [
     [
       "15782f0c50e57a72"
@@ -19,7 +19,9 @@ const Node = {
 }
 
 Node.template = `
-SELECT * FROM {{flow.maalepunkt_metadata_tablename}} WHERE maalernummer = '{{maaler.nummer}}' AND datakey = '{{maalepunkt.key}}'
+SELECT * FROM {{flow.maalepunkt_metadata_tablename}}
+WHERE maalernummer = '{{maaler.nummer}}'
+AND datakey = '{{maalepunkt.key}}'
 `
 
 module.exports = Node;

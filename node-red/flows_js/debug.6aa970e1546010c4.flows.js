@@ -1,18 +1,17 @@
 const Node = {
-  "id": "895ff1f234fa0893",
+  "id": "6aa970e1546010c4",
   "type": "debug",
   "z": "b1af099441f07c56",
-  "name": "Metadata updated",
-  "active": false,
+  "name": "debug 4",
+  "active": true,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
-  "complete": "true",
-  "targetType": "full",
+  "complete": "false",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1310,
-  "y": 740,
+  "x": 940,
+  "y": 1660,
   "wires": []
 }
 

@@ -21,7 +21,10 @@ const Node = {
 Node.template = `
 INSERT INTO {{flow.maaler_metadata_tablename}} (navn, installationsnummer, nummer, energiartskode)
 VALUES
-('{{maaler.navn}}', '{{maaler.installationsnummer}}', '{{maaler.nummer}}', {{maaler.energiartskode}});
+('{{maaler.navn}}',
+'{{maaler.installationsnummer}}',
+'{{maaler.nummer}}',
+{{maaler.energiartskode}});
 `
 
 module.exports = Node;

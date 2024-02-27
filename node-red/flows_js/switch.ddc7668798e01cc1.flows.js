@@ -17,13 +17,13 @@ const Node = {
   "repair": false,
   "outputs": 2,
   "x": 690,
-  "y": 620,
+  "y": 660,
   "wires": [
     [
       "eadb3187e8310568"
     ],
     [
-      "1be60ae8d8d72362"
+      "ba0a06c78b183eb7"
     ]
   ]
 }
