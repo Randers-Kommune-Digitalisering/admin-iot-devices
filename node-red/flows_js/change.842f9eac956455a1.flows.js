@@ -1,14 +1,14 @@
 const Node = {
-  "id": "6758da6f740087e5",
+  "id": "842f9eac956455a1",
   "type": "change",
-  "z": "5f6ef472b7d9e1e9",
-  "name": "Metric",
+  "z": "6f89a22d2f227f45",
+  "name": "Metric (Count)",
   "rules": [
     {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "{\t    \"op\": \"set\",\t    \"val\": payload.filename = undefined ? 0 : 1,\t    \"labels\": {\t        \"type\": \"csv\"\t    }\t}",
+      "to": "{\t    \"op\": \"inc\",\t    \"val\": payload.affectedRows,\t    \"labels\": {\t        \"sensor\": data.id\t    }\t}",
       "tot": "jsonata"
     }
   ],
@@ -17,11 +17,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 290,
-  "y": 1420,
+  "x": 1420,
+  "y": 1440,
   "wires": [
     [
-      "0db8ead9775fc166"
+      "8321bf4ad454952a"
     ]
   ]
 }

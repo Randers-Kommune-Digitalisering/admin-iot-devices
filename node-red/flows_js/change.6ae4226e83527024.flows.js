@@ -1,14 +1,14 @@
 const Node = {
-  "id": "6758da6f740087e5",
+  "id": "6ae4226e83527024",
   "type": "change",
-  "z": "5f6ef472b7d9e1e9",
+  "z": "317943546a48f552",
   "name": "Metric",
   "rules": [
     {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "{\t    \"op\": \"set\",\t    \"val\": payload.filename = undefined ? 0 : 1,\t    \"labels\": {\t        \"type\": \"csv\"\t    }\t}",
+      "to": "{\t    \"op\": \"set\",\t    \"val\": isRunning ? 1 : 0,\t    \"labels\": {\t        \"comment\": \"Test comment\"\t    }\t}",
       "tot": "jsonata"
     }
   ],
@@ -17,11 +17,12 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 290,
-  "y": 1420,
+  "x": 410,
+  "y": 120,
   "wires": [
     [
-      "0db8ead9775fc166"
+      "f1229256841a296f",
+      "0f5102ea65c501e6"
     ]
   ]
 }

@@ -4,8 +4,8 @@ const Node = {
   "z": "317943546a48f552",
   "name": "Create an HTTP Endpoint for prometheus scraping",
   "info": "",
-  "x": 510,
-  "y": 200,
+  "x": 490,
+  "y": 80,
   "wires": []
 }
 

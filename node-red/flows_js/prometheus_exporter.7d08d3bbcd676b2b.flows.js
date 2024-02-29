@@ -1,12 +1,11 @@
 const Node = {
-  "id": "cbbbdcd302d4f5e7",
+  "id": "7d08d3bbcd676b2b",
   "type": "prometheus-exporter",
-  "z": "317943546a48f552",
-  "d": true,
+  "z": "6f89a22d2f227f45",
   "name": "service status",
   "metric": "a44033cc1d2a511b",
-  "x": 1080,
-  "y": 260,
+  "x": 1600,
+  "y": 1400,
   "wires": []
 }
 

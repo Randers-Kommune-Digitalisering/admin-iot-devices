@@ -1,7 +1,7 @@
 const Node = {
-  "id": "a44033cc1d2a511b",
+  "id": "aeb21dc3c11a677e",
   "type": "prometheus-metric-config",
-  "name": "lastDatabaseInsertStatus",
+  "name": "lastDatabaseInsertTime",
   "help": "Last insert to database status",
   "labels": "sensor",
   "mtype": "gauge"

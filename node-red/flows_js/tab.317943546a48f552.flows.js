@@ -1,7 +1,7 @@
 const Node = {
   "id": "317943546a48f552",
   "type": "tab",
-  "label": "Flow 1",
+  "label": "Prometheus Status",
   "disabled": false,
   "info": "",
   "env": []
