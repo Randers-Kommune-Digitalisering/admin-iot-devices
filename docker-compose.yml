@@ -1,12 +1,16 @@
-version: "3.9"
+version: "1.0"
 services:
 
-  node-red:
-    build: node-red
+  node_red_vue:
+    build: .
+
     networks:
-      - node_red
+      - node_red_vue
+
     ports:
       - "1880:1880"
+      - "3000:3000"
+
     environment:
       DB_USER: root
       DB_PASS: pass
@@ -18,12 +22,20 @@ services:
       # Fortæller node-red editoren hvilket flow.json den skal åbne og arbejde i
       FLOWS: "/data/flows.json"
       SFTP_PASS: ${SFTP_PASS}
+      BACKEND_URL: http://localhost:1880
+      VUE_PORT: 3000
 
     # Bind mount fra codespace til den kørende containers /data.
     # Det gør det muligt at comitte ændringer i flows til repositoriet
     volumes:
       - "./node-red/:/data" 
 
+
+      # Bind mount fra codespace til den kørende containers /data.
+      # Gør det muligt at deploye flowkode direkte fra IDE og bruge git til at comitte ændringerne til repo.
+    volumes:
+      - "./node-red/:/data" 
+      
     depends_on: 
       db:
         condition: service_healthy
@@ -44,9 +56,10 @@ services:
       interval: 5s
       timeout: 5s
       retries: 55
+
     networks:
-      - node_red
+      - node_red_vue
       
 networks: 
-  node_red:
-    name: node_red
+  node_red_vue:
+    name: node_red_vue
