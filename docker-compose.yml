@@ -29,12 +29,6 @@ services:
     # Det gør det muligt at comitte ændringer i flows til repositoriet
     volumes:
       - "./node-red/:/data" 
-
-
-      # Bind mount fra codespace til den kørende containers /data.
-      # Gør det muligt at deploye flowkode direkte fra IDE og bruge git til at comitte ændringerne til repo.
-    volumes:
-      - "./node-red/:/data" 
       
     depends_on: 
       db:
