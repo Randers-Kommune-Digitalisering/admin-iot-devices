@@ -1,11 +1,11 @@
 const Node = {
-  "id": "87bd706a.aec93",
+  "id": "0ec8f12132d1fb32",
   "type": "comment",
   "z": "317943546a48f552",
-  "name": "Create an HTTP Endpoints for prometheus scraping",
+  "name": "Load",
   "info": "",
-  "x": 490,
-  "y": 140,
+  "x": 350,
+  "y": 480,
   "wires": []
 }
 

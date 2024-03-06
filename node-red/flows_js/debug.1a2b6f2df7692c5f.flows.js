@@ -1,8 +1,8 @@
 const Node = {
-  "id": "0f5102ea65c501e6",
+  "id": "1a2b6f2df7692c5f",
   "type": "debug",
   "z": "317943546a48f552",
-  "name": "Up",
+  "name": "Load",
   "active": false,
   "tosidebar": true,
   "console": false,
@@ -12,7 +12,7 @@ const Node = {
   "statusVal": "",
   "statusType": "auto",
   "x": 630,
-  "y": 260,
+  "y": 560,
   "wires": []
 }
 

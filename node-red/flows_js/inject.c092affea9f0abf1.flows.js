@@ -1,25 +1,30 @@
 const Node = {
-  "id": "3f5ea8af299f0426",
+  "id": "c092affea9f0abf1",
   "type": "inject",
   "z": "317943546a48f552",
   "name": "",
   "props": [
     {
-      "p": "isRunning",
-      "v": "true",
+      "p": "actionTime",
+      "v": "$millis()",
       "vt": "jsonata"
+    },
+    {
+      "p": "actionDescription",
+      "v": "Complete flow",
+      "vt": "str"
     }
   ],
-  "repeat": "300",
+  "repeat": "",
   "crontab": "",
-  "once": true,
+  "once": false,
   "onceDelay": "0.5",
   "topic": "",
   "x": 315,
-  "y": 220,
+  "y": 340,
   "wires": [
     [
-      "6ae4226e83527024"
+      "aba0dc6b40c950e4"
     ]
   ],
   "l": false

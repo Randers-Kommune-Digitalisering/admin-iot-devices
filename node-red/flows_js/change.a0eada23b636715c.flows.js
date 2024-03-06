@@ -1,5 +1,5 @@
 const Node = {
-  "id": "6ae4226e83527024",
+  "id": "a0eada23b636715c",
   "type": "change",
   "z": "317943546a48f552",
   "name": "Metric",
@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "{\t    \"op\": \"set\",\t    \"val\": isRunning ? 1 : 0\t}",
+      "to": "{\t    \"op\": \"inc\",\t    \"val\": affectedRows,\t    \"labels\": {\t        \"table\": tableName\t    }\t}",
       "tot": "jsonata"
     }
   ],
@@ -18,11 +18,11 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 410,
-  "y": 220,
+  "y": 520,
   "wires": [
     [
-      "f1229256841a296f",
-      "0f5102ea65c501e6"
+      "4a8f23379067c18e",
+      "1a2b6f2df7692c5f"
     ]
   ]
 }

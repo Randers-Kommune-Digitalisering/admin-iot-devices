@@ -1,25 +1,30 @@
 const Node = {
-  "id": "3f5ea8af299f0426",
+  "id": "396ee9c589ba757a",
   "type": "inject",
   "z": "317943546a48f552",
   "name": "",
   "props": [
     {
-      "p": "isRunning",
-      "v": "true",
-      "vt": "jsonata"
+      "p": "affectedRows",
+      "v": "1",
+      "vt": "num"
+    },
+    {
+      "p": "tableName",
+      "v": "MainTable",
+      "vt": "str"
     }
   ],
-  "repeat": "300",
+  "repeat": "",
   "crontab": "",
-  "once": true,
+  "once": false,
   "onceDelay": "0.5",
   "topic": "",
   "x": 315,
-  "y": 220,
+  "y": 540,
   "wires": [
     [
-      "6ae4226e83527024"
+      "a0eada23b636715c"
     ]
   ],
   "l": false
