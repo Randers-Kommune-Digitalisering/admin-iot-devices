@@ -16,8 +16,8 @@
             "alert": "OBS"
         },
         {
-            "title": "Vue Info",
-            "url": "/vue"
+            "title": "Opret måler",
+            "url": "/newsensor"
         }
     ])
 
@@ -93,6 +93,7 @@
 /* Is top header */
 .header
 {
+    z-index: 8;
     display: flex;
     flex-direction: row;
     align-items: flex-end;
