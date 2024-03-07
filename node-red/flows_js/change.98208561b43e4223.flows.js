@@ -10,6 +10,13 @@ const Node = {
       "pt": "msg",
       "to": "payload ~> $lookup(( payload ~> $keys() ) [0] )",
       "tot": "jsonata"
+    },
+    {
+      "t": "set",
+      "p": "payload",
+      "pt": "msg",
+      "to": "[ payload @ $tablename . ( $tablename ~> $contains(\"metadata\") = false ? [ $tablename ~> $replace(\"os2iot_\", \"\") ] ) ]",
+      "tot": "jsonata"
     }
   ],
   "action": "",
