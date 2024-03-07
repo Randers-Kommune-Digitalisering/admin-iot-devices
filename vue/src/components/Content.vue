@@ -1,5 +1,13 @@
+<script setup>
+defineProps({
+  id: {
+    type: String,
+    required: false
+  }
+})
+</script>
 <template>
-    <h3>
+    <h3 :id="id">
       <slot name="icon"></slot>
       <slot name="heading"></slot>
     </h3>
