@@ -139,7 +139,7 @@
 
             <div :style="startingPointSelected ? 'transition-delay: 600ms' : ''" :class="( startingPointSelected ? ( startUsingTemplate ? ( hasSelectedTemplate ? ' anim' : ' anim hidden' ) : ' anim' ) : ' anim hidden' )">
                 <Content>
-                    <button class="addsensor">
+                    <button :class="'addsensor' + (startUsingTemplate ? ' blue' : '')">
                         <span v-if="startUsingTemplate">
                             <span v-if="currentSensorCount > 1">
                                 Registrér målere
