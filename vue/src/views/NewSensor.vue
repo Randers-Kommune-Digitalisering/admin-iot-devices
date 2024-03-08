@@ -34,6 +34,8 @@
 
             if(useTemplate)
                 scrollTo("selectTemplate")
+            else
+                scrollTo("editSensor")
         }
 
         // Otherwise
@@ -49,6 +51,7 @@
     function selectTemplate(templateUid)
     {
         hasSelectedTemplate.value = true
+        scrollTo("editSensor")
     }
 
     function createSensor(useTemplate = false)
@@ -61,12 +64,20 @@
 
     function scrollTo(id)
     {
+        console.log("scrolling to " + id)
         setTimeout(function() {
         
             router.push({ hash: '#' + id })
-            document.getElementById(id).scrollIntoView();
+
+            const item = document.getElementById(id);
+            var rect = item.getBoundingClientRect();
+
+            let count = rect.top- window.scrollY - 120
+
+            //document.getElementById(id).scrollIntoView();
+            window.scrollBy(0, count)
         
-        }, 200)
+        }, 400)
     }
 
 
@@ -132,7 +143,7 @@
             <!-- Sensor metadata -->
 
             <div :style="startingPointSelected ? 'transition-delay: 300ms' : ''"  :class="( startingPointSelected ? ( startUsingTemplate ? ( hasSelectedTemplate ? ' anim' : ' anim hidden' ) : ' anim' ) : ' anim hidden' )">
-                <EditSensor @onUpdateSensorCount="updateSensorCount" id="editSensor" :quickAddMode="( startUsingTemplate ? true : false )" />
+                <EditSensor id="editSensor" @onUpdateSensorCount="updateSensorCount" :quickAddMode="( startUsingTemplate ? true : false )" />
             </div>
 
             <!-- Register sensor(s) button -->
