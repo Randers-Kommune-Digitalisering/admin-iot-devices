@@ -18,6 +18,8 @@
 
     var hasSelectedTemplate = ref(false)
 
+    var currentSensorCount = ref(1)
+
     // Functions to continue flow
 
     function selectStartingPoint(useTemplate)
@@ -28,7 +30,7 @@
         if(startingPointSelected.value == false)
         {
             startingPointSelected.value = true
-            startUsingTemplate = useTemplate
+            startUsingTemplate.value = useTemplate
 
             if(useTemplate)
                 scrollTo("selectTemplate")
@@ -74,6 +76,12 @@
         console.log("Receieved metadata: " + JSON.stringify(metadata))
     }
 
+    // Function to update count on sensor edit
+
+    const updateSensorCount = (count) => {
+        currentSensorCount.value = count
+    }
+
 
 </script>
 
@@ -116,23 +124,31 @@
             <!-- Template -->
 
             <div :style="( startingPointSelected ? ( startUsingTemplate ? ' padding-top: 2rem;' : '' ) : '' )
-                        + (hasSelectedTemplate ? 'opacity: 0.5;' : '')"
+                        + (hasSelectedTemplate ? 'opacity: 0.5;' : '') + 'transition-delay:150ms;'"
                 :class="( startingPointSelected ? ( startUsingTemplate ? ' anim' : ' anim hidden' ) : ' anim hidden' )">
                 <SelectTemplate id="selectTemplate" @onSelectTemplate="selectTemplate" />
             </div>
 
             <!-- Sensor metadata -->
 
-            <div :class="( startingPointSelected ? ( startUsingTemplate ? ( hasSelectedTemplate ? ' anim' : ' anim hidden' ) : ' anim' ) : ' anim hidden' )">
-                <EditSensor id="editSensor" :quickAddMode="( startUsingTemplate ? true : false )" />
+            <div :style="startingPointSelected ? 'transition-delay: 300ms' : ''"  :class="( startingPointSelected ? ( startUsingTemplate ? ( hasSelectedTemplate ? ' anim' : ' anim hidden' ) : ' anim' ) : ' anim hidden' )">
+                <EditSensor @onUpdateSensorCount="updateSensorCount" id="editSensor" :quickAddMode="( startUsingTemplate ? true : false )" />
             </div>
 
-            <!-- Register sensor(s) -->
+            <!-- Register sensor(s) button -->
 
-            <div :class="( startingPointSelected ? ( startUsingTemplate ? ( hasSelectedTemplate ? ' anim' : ' anim hidden' ) : ' anim' ) : ' anim hidden' )">
+            <div :style="startingPointSelected ? 'transition-delay: 600ms' : ''" :class="( startingPointSelected ? ( startUsingTemplate ? ( hasSelectedTemplate ? ' anim' : ' anim hidden' ) : ' anim' ) : ' anim hidden' )">
                 <Content>
                     <button class="addsensor">
-                        Opret måler
+                        <span v-if="startUsingTemplate">
+                            <span v-if="currentSensorCount > 1">
+                                Registrér målere
+                            </span>
+                            <span v-else>
+                                Registrér måler
+                            </span>
+                        </span>
+                        <span v-else>Opret måler</span>
                         <br /><IconNewItem />
                     </button>
                 </Content>
@@ -198,14 +214,14 @@ button.gray:hover
 
 .anim
 {
-    transition: 200ms;
+    transition: 300ms;
     transform: scaleY(1);
     opacity: 1;
 }
 .hidden
 {
     max-height: 0rem;
-    transform: scaleY(0);
+    transform: scaleY(0) translateY(-60%);
     opacity: 0;
     overflow: hidden;
 }

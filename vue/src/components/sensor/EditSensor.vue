@@ -21,6 +21,14 @@
         }
     })
 
+    // Define emit update in sensor count
+
+    const emit = defineEmits(['onUpdateSensorCount'])
+
+    const setEmit = (count) => {
+        emit('onUpdateSensorCount', count)
+    }
+
     var sensorList = ref([])
 
     // Initialize blank sensor
@@ -40,6 +48,7 @@
     function newSensor()
     {
         sensorList.value.push( JSON.parse(JSON.stringify (sensorMetadata)) )
+        setEmit(sensorList.value.length)
     }
 
     function deleteSensor(id)
@@ -47,11 +56,13 @@
         const firstPart = sensorList.value.slice(0, id)
         const lastPart = sensorList.value.slice(id+1)
         sensorList.value = firstPart.concat(lastPart)
+        setEmit(sensorList.value.length)
     }
 
     function cleanSensorList()
     {
         sensorList.value = [sensorList.value[0]]
+        setEmit(sensorList.value.length)
     }
 
     // Test data
@@ -101,7 +112,7 @@
         
         <!-- Sensor description -->
     
-        <div class="flexbox" :style="quickAddMode ? 'margin-top:2rem' : ''">
+        <div class="flexbox" :style="( quickAddMode ? 'margin-top:2rem;' : '' )">
             
             <div>
                 <label for="name_0" class="capitalize">
