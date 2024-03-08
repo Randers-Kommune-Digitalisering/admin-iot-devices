@@ -390,7 +390,7 @@ hr {
 
 /* Custom colored elements */
 
-span.red
+span.red, label.red
 { color: var(--color-red); }
 .card.red, .tag.red
 { border-color: var(--color-red); }
@@ -400,7 +400,7 @@ button.red, input[type='submit'].red, .message.red
 button.red:hover, input[type='submit'].red:hover
 { background-color: var(--color-red-light); }
 
-span.green
+span.green, label.green
 { color: var(--color-green); }
 .card.green, .tag.green
 { border-color: var(--color-green); }
@@ -410,7 +410,7 @@ button.green, input[type='submit'].green, .message.green
 button.green:hover, input[type='submit'].green:hover
 { background-color: var(--color-green-light); }
 
-span.blue
+span.blue, label.blue
 { color: var(--color-blue); }
 .card.blue, .tag.blue
 { border-color: var(--color-blue); }
@@ -420,7 +420,7 @@ button.blue, input[type='submit'].blue, .message.blue
 button.blue:hover, input[type='submit'].blue:hover
 { background-color: var(--color-blue-light); }
 
-span.orange
+span.orange, label.orange
 { color: var(--color-orange); }
 .card.orange, .tag.orange
 { border-color: var(--color-orange); }
@@ -430,7 +430,7 @@ button.orange, input[type='submit'].orange, .message.orange
 button.orange:hover, input[type='submit'].orange:hover
 { background-color: var(--color-orange-light); }
 
-span.randers
+span.randers, label.randers
 { color: var(--randers-color-); }
 .card.randers, .tag.randers
 { border-color: var(--randers-color-); }
