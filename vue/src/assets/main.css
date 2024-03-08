@@ -103,6 +103,11 @@ table, form
 button, input[type='submit']
 {
     border: 0rem;
+    
+    font-size: 0.8em;
+    font-weight: 400;
+    text-transform: unset;
+    line-height: normal;
 }
     button:disabled, input[type='submit']:disabled
     {
@@ -113,14 +118,14 @@ input, input[type='text']
 {
     border-color: var(--color-border-dark);
 }
-select
 
+select
 {
-    border-color: var(--color-border);
+    border-color: var(--color-border-dark);
 }
 select:focus
 {
-    border-color: var(--color-border-dark);
+    border-color: var(--color-blue);
 }
 
 input:not([type='submit']):focus
@@ -206,6 +211,11 @@ option[disabled]
 code {
     background-color: var(--color-border);
 }
+
+hr {
+    border-color: var(--color-border);
+}
+
 
 
 /* Custom components */
