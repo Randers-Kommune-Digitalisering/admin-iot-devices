@@ -198,6 +198,10 @@ option
 {
     color: #373d43;
 }
+option[disabled]
+{
+    color: #c5c5c5;
+}
 
 code {
     background-color: var(--color-border);

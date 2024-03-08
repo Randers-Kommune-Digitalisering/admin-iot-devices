@@ -51,7 +51,6 @@
 
     function scrollTo(id)
     {
-        console.log("Scrolling to " + id)
         setTimeout(function() {
         
             router.push({ hash: '#' + id })
@@ -103,8 +102,8 @@
 
     <!-- Sensor metadata -->
 
-    <div style="padding-top: 2rem" :class="( startingPointSelected ? ( startUsingTemplate ? 'anim' : 'anim hidden' ) : 'anim hidden' )">
-        <EditSensor id="editSensor" />
+    <div style="padding-top: 2rem" :class="( startingPointSelected ? ( startUsingTemplate ? 'anim' : 'anim' ) : 'anim hidden' )">
+        <EditSensor id="editSensor" :quickAddMode="( startUsingTemplate ? true : false )" />
     </div>
 
 </template>

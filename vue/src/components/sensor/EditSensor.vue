@@ -1,10 +1,13 @@
 <script setup>
-    import { ref } from 'vue'
+    import { ref, watch  } from 'vue'
 
     import Content from '@/components/Content.vue'
 
-    defineProps({
-        quickAdd: {
+    import sensorMetadata from '@/data/sensorMetadata.json'
+    import energiarter from '@/data/energiarter.json'
+
+    const props = defineProps({
+        quickAddMode: {
             type: Boolean,
             required: false,
             default: false
@@ -15,16 +18,19 @@
         }
     })
 
-    const sensorMetadata = {
-        appEui: "",
-        devEui: ""
-    }
-
     var sensorList = ref([])
 
     // Initialize blank sensor
 
     newSensor()
+
+    // Clean list when changing mode
+
+    watch( () => props.quickAddMode, (current, previous) => {
+        if(current !== previous)
+            cleanSensorList();
+    })
+
 
     // Helper functions
 
@@ -37,9 +43,13 @@
     {
         const firstPart = sensorList.value.slice(0, id)
         const lastPart = sensorList.value.slice(id+1)
-        sensorList.value = firstPart.concat(lastPart);
+        sensorList.value = firstPart.concat(lastPart)
     }
 
+    function cleanSensorList()
+    {
+        sensorList.value = [sensorList.value[0]]
+    }
 </script>
 
 <template>
@@ -52,32 +62,59 @@
     <form @submit.prevent="">
         <fieldset>
 
+            <!-- DevEUI + AppKey list -->
             <div class="flexbox" v-for="(sensor, index) in sensorList">
-
                 <div>
-                    <label for="key" class="capitalize">
+                    <label :for="'eui_' + index" class="capitalize">
                         <span class="uid" v-if="sensorList.length > 1">#{{index+1}}</span>
 
                         Enheds EUI (DevEUI)
 
                     </label>
-                    <input type="text" placeholder="..." id="key" v-model="sensor.appEui">
+                    <input type="text" placeholder="..." :id="'eui_' + index" v-model="sensor.appEui">
                 </div>
-                
                 <div>
-                    <label for="key" class="capitalize">
+                    <label :for="'app_' + index" class="capitalize">
 
                         OTAA Application Key (AppKey)
 
-                        <div class="float-right tag tagbutton" v-if="sensorList.length > 1"><a @click="deleteSensor(index)">Slet</a></div>
+                        <div @click="deleteSensor(index)" class="float-right tag tagbutton" v-if="sensorList.length > 1">Slet</div>
                     </label>
-                    <input type="text" placeholder="..." id="key" v-model="sensor.devEui">
+                    <input type="text" placeholder="..." :id="'app_' + index" v-model="sensor.devEui">
+                </div>
+
+            </div>
+            <button @click="newSensor()" v-if="quickAddMode">Tilføj måler</button>
+
+            <!-- Full sensor metadata -->
+            <div v-if="!quickAddMode" class="flexbox">
+                
+                <div>
+                    <label for="name_0" class="capitalize">
+
+                        Målernavn
+
+                    </label>
+                    <input type="text" placeholder="..." id="name_0" v-model="sensorList[0].name">
+                </div>
+
+                
+                <div>
+                    <label for="energiart_0" class="capitalize">
+
+                        Energiart
+
+                    </label>
+                    <select name="template" id="template" v-model="sensorList[0].energiart">
+                        <option value="-1" disabled>Vælg fra liste ..</option>
+
+                        <option v-for="(energiart, index) in energiarter" :value="index">{{ energiart }}</option>
+                    </select>
+
                 </div>
 
             </div>
 
-            <!--input type="submit" value="Tilføj"-->
-            <button @click="newSensor()">Tilføj måler</button>
         </fieldset>
     </form>
 
@@ -89,7 +126,7 @@
     .tagbutton
     {
         text-transform: uppercase;
-        font-size: 0.8em;
+        font-size: 0.7em;
     }
     .tagbutton:hover
     {
