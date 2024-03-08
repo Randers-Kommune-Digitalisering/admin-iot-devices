@@ -19,7 +19,7 @@
     <template #heading>Vælg en skabelon</template>
 
     <select name="cars" id="cars">
-        <option value="volvo" disabled>Vælg fra liste ..</option>
+        <option value="volvo" disabled selected>Vælg fra liste ..</option>
         <option value="volvo">Gas Puls måler (Brunata)</option>
         <option value="saab">El forbrug (EMU)</option>
     </select>

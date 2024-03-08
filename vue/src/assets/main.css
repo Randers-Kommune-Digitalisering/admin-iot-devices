@@ -113,12 +113,21 @@ input, input[type='text']
 {
     border-color: var(--color-border-dark);
 }
+select
+
+{
+    border-color: var(--color-border);
+}
+select:focus
+{
+    border-color: var(--color-border-dark);
+}
 
 input:not([type='submit']):focus
 {
     border-color: var(--color-blue);
 }
-input:not([type='submit']):required:invalid:focus
+input:not([type='submit']):required:invalid:focus, select:required:invalid:focus
 {
     border-color: var(--color-orange);
 }
@@ -178,6 +187,16 @@ input[type='checkbox'] + label, input[type='radio'] + label
 {
     display: inline-block;
     margin-left: 1rem;
+}
+
+select
+{
+    color: var(--color-text);
+}
+
+option
+{
+    color: #373d43;
 }
 
 code {

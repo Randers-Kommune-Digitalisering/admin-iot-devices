@@ -6,6 +6,7 @@
     import Content from '@/components/Content.vue'
 
     import SelectTemplate from '@/components/sensor/SelectTemplate.vue'
+    import EditSensor from '@/components/sensor/EditSensor.vue'
 
     import IconNewSensor from '@/components/icons/IconEditItem.vue'
     import IconTemplateSensor from '@/components/icons/IconDuplicateItem.vue'
@@ -14,7 +15,7 @@
     var startingPointSelected = ref(false)
     var startUsingTemplate = ref(null)
 
-    const IconNewSensorScale = ref(null)
+    var isEditingSensor = ref(false)
 
     function selectStartingPoint(useTemplate)
     {
@@ -65,6 +66,8 @@
 <template>
     <h2 id="start">Opret måler</h2>
 
+    <!-- Select starting point -->
+
     <div :style="(startingPointSelected ? 'opacity: 0.5;' : '')">
         <Content>
             <template #icon>
@@ -92,8 +95,16 @@
         </Content>
     </div>
 
+    <!-- Template -->
+
     <div style="padding-top: 2rem" :class="( startingPointSelected ? ( startUsingTemplate ? 'anim' : 'anim hidden' ) : 'anim hidden' )">
         <SelectTemplate id="selectTemplate" />
+    </div>
+
+    <!-- Sensor metadata -->
+
+    <div style="padding-top: 2rem" :class="( startingPointSelected ? ( startUsingTemplate ? 'anim' : 'anim hidden' ) : 'anim hidden' )">
+        <EditSensor id="editSensor" />
     </div>
 
 </template>
@@ -133,7 +144,11 @@ button.collapse
 
 button.gray
 {
-    background-color: var(--color-text);
+    background-color: var(--color-border);
+}
+button.gray:hover
+{
+    background-color: var(--color-border-dark);
 }
 
 .anim
