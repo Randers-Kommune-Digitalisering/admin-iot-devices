@@ -65,7 +65,7 @@
 
     function scrollTo(id)
     {
-        console.log("scrolling to " + id)
+        //console.log("scrolling to " + id)
         setTimeout(function() {
         
             router.push({ hash: '#' + id })
@@ -97,7 +97,7 @@
     // Function to on set as template
 
     const updateSetAsTemplate = (setAsTemplate) => {
-        console.log(isTemplate)
+        //console.log(isTemplate)
         isTemplate.value = setAsTemplate
     }   
 
@@ -151,7 +151,7 @@
             <!-- Sensor metadata -->
 
             <div :style="startingPointSelected ? 'transition-delay: 300ms' : ''"  :class="( startingPointSelected ? ( startUsingTemplate ? ( hasSelectedTemplate ? ' anim' : ' anim hidden' ) : ' anim' ) : ' anim hidden' )">
-                <EditSensor id="editSensor" @onUpdateSensorCount="updateSensorCount" @onUpdateSetAsTemplate="updateSetAsTemplate" :quickAddMode="( startUsingTemplate ? true : false )" />
+                <EditSensor id="editSensor" @onUpdateSensorCount="updateSensorCount" @onUpdateSetAsTemplate="updateSetAsTemplate" :forceNoTemplate="startUsingTemplate" :quickAddMode="( startUsingTemplate ? true : false )" />
             </div>
 
             <!-- Register sensor(s) button -->

@@ -15,6 +15,11 @@
             required: false,
             default: false
         },
+        forceNoTemplate: {
+            type: Boolean,
+            required: false,
+            default: false
+        },
         id: {
             type: String,
             required: false
@@ -39,6 +44,13 @@
     watch( () => isTemplate.value, (current, previous) => {
         sensorList.value[0].isTemplate = current
         setEmit('onUpdateSetAsTemplate', current)
+    })
+
+    // Watch forceNoTemplate
+
+    watch( () => props.forceNoTemplate, (current, previous) => {
+        if(current == true)
+            isTemplate.value = false
     })
 
     // Initialize blank sensor
@@ -137,7 +149,7 @@
                     Navn
 
                 </label>
-                <input type="text" placeholder="F.eks. `El-måler Grønhøjskolen`" id="name_0" v-model="sensorList[0].name" required>
+                <input type="text" :placeholder="isTemplate ? 'F.eks. `Brunata Minomess vandmåler`' : 'F.eks. `El-måler Grønhøjskolen`'" id="name_0" v-model="sensorList[0].name" required>
             </div>
 
             
