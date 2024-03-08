@@ -9,13 +9,16 @@
     import EditSensor from '@/components/sensor/EditSensor.vue'
 
     import IconNewSensor from '@/components/icons/IconEditItem.vue'
+    import IconNewItem from '@/components/icons/IconNewItem.vue'
     import IconTemplateSensor from '@/components/icons/IconDuplicateItem.vue'
 
 
     var startingPointSelected = ref(false)
     var startUsingTemplate = ref(null)
 
-    var isEditingSensor = ref(false)
+    var hasSelectedTemplate = ref(false)
+
+    // Functions to continue flow
 
     function selectStartingPoint(useTemplate)
     {
@@ -41,9 +44,14 @@
 
     }
 
+    function selectTemplate(templateUid)
+    {
+        hasSelectedTemplate.value = true
+    }
+
     function createSensor(useTemplate = false)
     {
-
+        console.log("Creating sensor")
     }
 
 
@@ -60,6 +68,13 @@
     }
 
 
+    // Function to update values on template selection
+
+    const updateTemplateValues = (metadata) => {
+        console.log("Receieved metadata: " + JSON.stringify(metadata))
+    }
+
+
 </script>
 
 <template>
@@ -67,7 +82,7 @@
 
     <!-- Select starting point -->
 
-    <div :style="(startingPointSelected ? 'opacity: 0.5;' : '')">
+    <div :style="(startingPointSelected ? 'opacity: 0.5;' : '')" id="sectionStart">
         <Content>
             <template #icon>
             </template>
@@ -94,25 +109,45 @@
         </Content>
     </div>
 
-    <!-- Template -->
+            
+    <form @submit.prevent="createSensor">
+        <fieldset>
 
-    <div style="padding-top: 2rem" :class="( startingPointSelected ? ( startUsingTemplate ? 'anim' : 'anim hidden' ) : 'anim hidden' )">
-        <SelectTemplate id="selectTemplate" />
-    </div>
+            <!-- Template -->
 
-    <!-- Sensor metadata -->
+            <div :style="( startingPointSelected ? ( startUsingTemplate ? ' padding-top: 2rem;' : '' ) : '' )
+                        + (hasSelectedTemplate ? 'opacity: 0.5;' : '')"
+                :class="( startingPointSelected ? ( startUsingTemplate ? ' anim' : ' anim hidden' ) : ' anim hidden' )">
+                <SelectTemplate id="selectTemplate" @onSelectTemplate="selectTemplate" />
+            </div>
 
-    <div style="padding-top: 2rem" :class="( startingPointSelected ? ( startUsingTemplate ? 'anim' : 'anim' ) : 'anim hidden' )">
-        <EditSensor id="editSensor" :quickAddMode="( startUsingTemplate ? true : false )" />
-    </div>
+            <!-- Sensor metadata -->
+
+            <div :class="( startingPointSelected ? ( startUsingTemplate ? ( hasSelectedTemplate ? ' anim' : ' anim hidden' ) : ' anim' ) : ' anim hidden' )">
+                <EditSensor id="editSensor" :quickAddMode="( startUsingTemplate ? true : false )" />
+            </div>
+
+            <!-- Register sensor(s) -->
+
+            <div :class="( startingPointSelected ? ( startUsingTemplate ? ( hasSelectedTemplate ? ' anim' : ' anim hidden' ) : ' anim' ) : ' anim hidden' )">
+                <Content>
+                    <button class="addsensor">
+                        Opret måler
+                        <br /><IconNewItem />
+                    </button>
+                </Content>
+            </div>
+
+        </fieldset>
+    </form>
 
 </template>
 
 <style scoped>
-button
+#sectionStart button
 {
     height: 12rem;
-    font-size: 1em;
+    font-size: 0.9em;
     padding-bottom: 0.8rem;
 
     font-weight: 300;
@@ -130,7 +165,7 @@ button.selected
     background-color: var(--color-green);
 }
 
-button.collapse
+#sectionStart button.collapse
 {
     height: 8rem;
     font-size: 0.8em!important;
@@ -140,6 +175,17 @@ button.collapse
     {
         margin-top: 0.5rem;
     }
+
+.addsensor {
+    font-size: 0.9em;
+    height: 7.5rem;
+    width: 20rem;
+    font-weight: 300;
+}
+.addsensor svg
+{
+    margin-top: 1rem;
+}
 
 button.gray
 {

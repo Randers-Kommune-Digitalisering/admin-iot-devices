@@ -3,6 +3,9 @@
 
     import Content from '@/components/Content.vue'
 
+    import IconEditSimple from '../icons/IconEditSimple.vue'
+    import IconSettings from '../icons/IconSettings.vue'
+
     import sensorMetadata from '@/data/sensorMetadata.json'
     import energiarter from '@/data/energiarter.json'
 
@@ -50,75 +53,133 @@
     {
         sensorList.value = [sensorList.value[0]]
     }
+
+    // Test data
+
+    const serviceProfile = ["Test service profil A", "Test service profil B"]
+    const payloadDecoder = ["Test payload decoder I", "Test payload decoder II"]
+
 </script>
 
 <template>
 
+    <!-- DevEUI + AppKey list + Name + Energiart -->
+
+    <hr />
+
 <Content :id="id">
     <template #icon>
+        <IconEditSimple />
     </template>
-    <template #heading>Måler beskrivelse</template>
+    <template #heading>Beskrivelse</template>
 
-    <form @submit.prevent="">
-        <fieldset>
+        <div class="flexbox" v-for="(sensor, index) in sensorList">
+            <div>
+                <label :for="'eui_' + index" class="capitalize">
+                    <span class="uid" v-if="sensorList.length > 1">#{{index+1}}</span>
 
-            <!-- DevEUI + AppKey list -->
-            <div class="flexbox" v-for="(sensor, index) in sensorList">
-                <div>
-                    <label :for="'eui_' + index" class="capitalize">
-                        <span class="uid" v-if="sensorList.length > 1">#{{index+1}}</span>
+                    Enheds EUI (DevEUI)
 
-                        Enheds EUI (DevEUI)
-
-                    </label>
-                    <input type="text" placeholder="..." :id="'eui_' + index" v-model="sensor.appEui">
-                </div>
-                <div>
-                    <label :for="'app_' + index" class="capitalize">
-
-                        OTAA Application Key (AppKey)
-
-                        <div @click="deleteSensor(index)" class="float-right tag tagbutton" v-if="sensorList.length > 1">Slet</div>
-                    </label>
-                    <input type="text" placeholder="..." :id="'app_' + index" v-model="sensor.devEui">
-                </div>
-
+                </label>
+                <input type="text" placeholder="..." :id="'eui_' + index" v-model="sensor.appEui" required>
             </div>
-            <button @click="newSensor()" v-if="quickAddMode">Tilføj måler</button>
+            <div>
+                <label :for="'app_' + index" class="capitalize">
+                    <span class="uid" v-if="sensorList.length > 1">#{{index+1}}</span>
 
-            <!-- Full sensor metadata -->
-            <div v-if="!quickAddMode" class="flexbox">
-                
-                <div>
-                    <label for="name_0" class="capitalize">
+                    OTAA Application Key (AppKey)
 
-                        Målernavn
+                    <div @click="deleteSensor(index)" class="float-right tag tagbutton" v-if="sensorList.length > 1">Slet</div>
+                </label>
+                <input type="text" placeholder="..." :id="'app_' + index" v-model="sensor.devEui" required>
+            </div>
 
-                    </label>
-                    <input type="text" placeholder="..." id="name_0" v-model="sensorList[0].name">
-                </div>
+        </div>
+        <button @click="newSensor()" v-if="quickAddMode" type="button">Tilføj måler</button>
 
-                
-                <div>
-                    <label for="energiart_0" class="capitalize">
 
-                        Energiart
+        
+        <!-- Sensor description -->
+    
+        <div class="flexbox" :style="quickAddMode ? 'margin-top:2rem' : ''">
+            
+            <div>
+                <label for="name_0" class="capitalize">
 
-                    </label>
-                    <select name="template" id="template" v-model="sensorList[0].energiart">
-                        <option value="-1" disabled>Vælg fra liste ..</option>
+                    Navn
 
-                        <option v-for="(energiart, index) in energiarter" :value="index">{{ energiart }}</option>
-                    </select>
+                </label>
+                <input type="text" placeholder="F.eks. `El-måler Grønhøjskolen`" id="name_0" v-model="sensorList[0].name" required>
+            </div>
 
-                </div>
+            
+            <div>
+                <label for="energiart_0" class="capitalize">
+
+                    Energiart
+
+                </label>
+                <select name="template" id="template" v-model="sensorList[0].energiart" required>
+                    <option value="-1" disabled>Vælg fra liste ..</option>
+
+                    <option v-for="(energiart, index) in energiarter" :value="index">{{ energiart }}</option>
+                </select>
 
             </div>
 
-        </fieldset>
-    </form>
+        </div>
 
 </Content>
+
+    <!-- Sensor configuration -->
+
+    <hr v-if="!quickAddMode" />
+
+<Content v-if="!quickAddMode">
+    <template #icon>
+        <IconSettings />
+    </template>
+    <template #heading>Konfiguration</template>
+
+
+    
+    <div class="flexbox">
+            
+            <div>
+                <label for="deviceprofile_0" class="capitalize">
+
+                    Serviceprofil
+
+                </label>
+                <select name="template" id="template" v-model="sensorList[0].serviceProfile">
+                    <option value="-1" disabled>Vælg fra liste ..</option>
+
+                    <option v-for="(profile, index) in serviceProfile" :value="index">{{ profile }}</option>
+                </select>
+
+            </div>
+            
+            <div>
+                <label for="deviceprofile_0" class="capitalize">
+
+                    Dekoder
+
+                </label>
+                <select name="template" id="template" v-model="sensorList[0].payloadDecoder">
+                    <option value="-1" disabled>Vælg fra liste ..</option>
+
+                    <option v-for="(decoder, index) in payloadDecoder" :value="index">{{ decoder }}</option>
+                </select>
+
+            </div>
+
+        </div>
+
+
+</Content>
+
+
+
 
 </template>
 
@@ -136,5 +197,6 @@
     {
         font-weight: 600;
         font-size:0.9em!important;
+        color: var(--color-border-dark);
     }
 </style>

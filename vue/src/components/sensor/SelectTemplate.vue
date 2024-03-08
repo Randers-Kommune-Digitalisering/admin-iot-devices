@@ -13,9 +13,17 @@
     function selectTemplate()
     {
         console.log("Selected template: " + selectedTemplate.value)
+        setEmit(selectedTemplate.value)
     }
 
     var selectedTemplate = ref("n/a")
+
+    
+    const emit = defineEmits(['onSelectTemplate'])
+ 
+    const setEmit = (template) => {
+        emit('onSelectTemplate', template)
+    }
 
 </script>
 
@@ -26,7 +34,7 @@
     </template>
     <template #heading>Vælg en skabelon</template>
 
-    <select name="template" id="template" @change="selectTemplate()" v-model="selectedTemplate">
+    <select name="template" id="template" @change="selectTemplate()" v-model="selectedTemplate" style="margin-bottom: 0.8rem">
         <option value="n/a" disabled>Vælg fra liste ..</option>
         <option value="0">Gas Puls måler (Brunata)</option>
         <option value="1">El forbrug (EMU)</option>
