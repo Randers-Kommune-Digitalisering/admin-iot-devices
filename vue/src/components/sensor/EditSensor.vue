@@ -70,6 +70,7 @@
     // Initialize blank sensor
 
     newSensor()
+    cleanSensorList()
 
     // Clean list when changing mode
 
