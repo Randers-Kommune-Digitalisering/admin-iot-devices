@@ -17,6 +17,7 @@
     var startUsingTemplate = ref(null)
 
     var hasSelectedTemplate = ref(false)
+    var isTemplate = ref(false)
 
     var currentSensorCount = ref(1)
 
@@ -93,6 +94,13 @@
         currentSensorCount.value = count
     }
 
+    // Function to on set as template
+
+    const updateSetAsTemplate = (setAsTemplate) => {
+        console.log(isTemplate)
+        isTemplate.value = setAsTemplate
+    }   
+
 
 </script>
 
@@ -143,14 +151,14 @@
             <!-- Sensor metadata -->
 
             <div :style="startingPointSelected ? 'transition-delay: 300ms' : ''"  :class="( startingPointSelected ? ( startUsingTemplate ? ( hasSelectedTemplate ? ' anim' : ' anim hidden' ) : ' anim' ) : ' anim hidden' )">
-                <EditSensor id="editSensor" @onUpdateSensorCount="updateSensorCount" :quickAddMode="( startUsingTemplate ? true : false )" />
+                <EditSensor id="editSensor" @onUpdateSensorCount="updateSensorCount" @onUpdateSetAsTemplate="updateSetAsTemplate" :quickAddMode="( startUsingTemplate ? true : false )" />
             </div>
 
             <!-- Register sensor(s) button -->
 
             <div :style="startingPointSelected ? 'transition-delay: 600ms' : ''" :class="( startingPointSelected ? ( startUsingTemplate ? ( hasSelectedTemplate ? ' anim' : ' anim hidden' ) : ' anim' ) : ' anim hidden' )">
                 <Content>
-                    <button :class="'addsensor' + (startUsingTemplate ? ' blue' : '')">
+                    <button :class="'addsensor' + (startUsingTemplate ? ' blue' : isTemplate ? ' orange' : '')">
                         <span v-if="startUsingTemplate">
                             <span v-if="currentSensorCount > 1">
                                 Registrér målere
@@ -159,7 +167,10 @@
                                 Registrér måler
                             </span>
                         </span>
-                        <span v-else>Opret måler</span>
+                        <span v-else>
+                            <span v-if="isTemplate">Opret skabelon</span>
+                            <span v-else>Opret måler</span>
+                        </span>
                         <br /><IconNewItem />
                     </button>
                 </Content>

@@ -23,11 +23,13 @@
 
     // Define emit update in sensor count
 
-    const emit = defineEmits(['onUpdateSensorCount'])
+    const emit = defineEmits(['onUpdateSensorCount', 'onUpdateSetAsTemplate'])
 
-    const setEmit = (count) => {
-        emit('onUpdateSensorCount', count)
+    const setEmit = (_emi, value) => {
+        emit(_emi, value)
     }
+
+    // Define emit update set as template
 
     var sensorList = ref([])
     var isTemplate = ref(false)
@@ -35,7 +37,8 @@
     // Watch when toggling template
 
     watch( () => isTemplate.value, (current, previous) => {
-        console.log("Is template? " + isTemplate.value)
+        sensorList.value[0].isTemplate = current
+        setEmit('onUpdateSetAsTemplate', current)
     })
 
     // Initialize blank sensor
@@ -55,7 +58,7 @@
     function newSensor()
     {
         sensorList.value.push( JSON.parse(JSON.stringify (sensorMetadata)) )
-        setEmit(sensorList.value.length)
+        setEmit('onUpdateSensorCount', sensorList.value.length)
     }
 
     function deleteSensor(id)
@@ -63,13 +66,13 @@
         const firstPart = sensorList.value.slice(0, id)
         const lastPart = sensorList.value.slice(id+1)
         sensorList.value = firstPart.concat(lastPart)
-        setEmit(sensorList.value.length)
+        setEmit('onUpdateSensorCount', sensorList.value.length)
     }
 
     function cleanSensorList()
     {
         sensorList.value = [sensorList.value[0]]
-        setEmit(sensorList.value.length)
+        setEmit('onUpdateSensorCount', sensorList.value.length)
     }
 
     // Test data
@@ -94,7 +97,7 @@
         <div v-if="!quickAddMode">
             <input type="checkbox" id="istemplate" name="One" value="One" style="margin-bottom: 2.5rem" v-model="isTemplate">
             <label v-if="isTemplate" for="istemplate" class="orange">Markeret som skabelon</label>
-            <label v-else for="istemplate" class="randers">Marker som skabelon</label>
+            <label v-else for="istemplate" class="randers">Markér som skabelon</label>
         </div>
 
 
@@ -217,6 +220,7 @@
     .tagbutton:hover
     {
         cursor: pointer;
+        background-color: var(--color-border-dark)
     }
     label .uid
     {
