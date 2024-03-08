@@ -1,24 +1,29 @@
 <script setup>
+
+    // Import vue
     import { ref } from 'vue'
     import { useRouter } from 'vue-router'
     const router = useRouter()
 
+    // Import scripts
+    import CreateSensor from '../components/connector/CreateSensor.vue'
+
+    // Import components
     import Content from '@/components/Content.vue'
 
     import SelectTemplate from '@/components/sensor/SelectTemplate.vue'
     import EditSensor from '@/components/sensor/EditSensor.vue'
 
+    // Import Icons
     import IconNewSensor from '@/components/icons/IconEditItem.vue'
     import IconNewItem from '@/components/icons/IconNewItem.vue'
     import IconTemplateSensor from '@/components/icons/IconDuplicateItem.vue'
 
-
+    // Set refs for state
     var startingPointSelected = ref(false)
     var startUsingTemplate = ref(null)
-
     var hasSelectedTemplate = ref(false)
     var isTemplate = ref(false)
-
     var currentSensorCount = ref(1)
 
     // Functions to continue flow
@@ -58,6 +63,7 @@
     function createSensor(useTemplate = false)
     {
         console.log("Creating sensor")
+        CreateSensor.create( EditSensor.getSensorList() )
     }
 
 

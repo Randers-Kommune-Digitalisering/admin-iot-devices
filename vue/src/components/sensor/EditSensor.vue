@@ -1,5 +1,22 @@
-<script setup>
+<script>
     import { ref, watch  } from 'vue'
+
+    var sensorList = ref([])
+    var isTemplate = ref(false)
+
+    // Retrieve sensor data
+
+    function getSensorList()
+    {
+        return sensorList.value
+    }
+
+    export default {
+        getSensorList
+    }
+
+</script>
+<script setup>
 
     import Content from '@/components/Content.vue'
 
@@ -27,6 +44,7 @@
     })
 
     // Define emit update in sensor count
+    // Define emit update set as template
 
     const emit = defineEmits(['onUpdateSensorCount', 'onUpdateSetAsTemplate'])
 
@@ -34,10 +52,6 @@
         emit(_emi, value)
     }
 
-    // Define emit update set as template
-
-    var sensorList = ref([])
-    var isTemplate = ref(false)
 
     // Watch when toggling template
 

@@ -3,14 +3,17 @@ const Node = {
   "type": "http in",
   "z": "dc028cb1b3d1491a",
   "name": "",
-  "url": "/sensors/add",
+  "url": "/devices/add",
   "method": "post",
   "upload": false,
   "swaggerDoc": "",
   "x": 190,
-  "y": 260,
+  "y": 360,
   "wires": [
-    []
+    [
+      "fa9292bd8e343920",
+      "76fe6897c7feccd1"
+    ]
   ]
 }
 
