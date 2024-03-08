@@ -30,6 +30,13 @@
     }
 
     var sensorList = ref([])
+    var isTemplate = ref(false)
+
+    // Watch when toggling template
+
+    watch( () => isTemplate.value, (current, previous) => {
+        console.log("Is template? " + isTemplate.value)
+    })
 
     // Initialize blank sensor
 
@@ -84,7 +91,14 @@
     </template>
     <template #heading>Beskrivelse</template>
 
-        <div class="flexbox" v-for="(sensor, index) in sensorList">
+        <div v-if="!quickAddMode">
+            <input type="checkbox" id="istemplate" name="One" value="One" style="margin-bottom: 2.5rem" v-model="isTemplate">
+            <label v-if="isTemplate" for="istemplate" class="orange">Markeret som skabelon</label>
+            <label v-else for="istemplate" class="randers">Marker som skabelon</label>
+        </div>
+
+
+        <div class="flexbox" v-if="!isTemplate" v-for="(sensor, index) in sensorList">
             <div>
                 <label :for="'eui_' + index" class="capitalize">
                     <span class="uid" v-if="sensorList.length > 1">#{{index+1}}</span>
@@ -106,7 +120,7 @@
             </div>
 
         </div>
-        <button @click="newSensor()" v-if="quickAddMode" type="button">Tilføj måler</button>
+        <button @click="newSensor()" v-if="quickAddMode" type="button" class="gray">Tilføj måler</button>
 
 
         
@@ -209,5 +223,14 @@
         font-weight: 600;
         font-size:0.9em!important;
         color: var(--color-border-dark);
+    }
+    
+    button.gray
+    {
+        background-color: var(--color-border);
+    }
+    button.gray:hover
+    {
+        background-color: var(--color-border-dark);
     }
 </style>
