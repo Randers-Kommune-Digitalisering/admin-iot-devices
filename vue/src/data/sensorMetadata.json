@@ -3,5 +3,7 @@
     "devEui": "",
 
     "name": "",
-    "energiart": -1
+    "energiart": -1,
+    "serviceProfile": -1,
+    "payloadDecoder": -1
 }
