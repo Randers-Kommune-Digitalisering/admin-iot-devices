@@ -1,25 +1,25 @@
 const Node = {
-  "id": "ad858d75c34662a7",
+  "id": "cb62915abe36898f",
   "type": "template",
   "z": "7b3a886e00fb2ea6",
-  "name": "DROP",
+  "name": "Select device \\n med devEui",
   "field": "sql",
   "fieldType": "msg",
-  "format": "handlebars",
+  "format": "sql",
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 790,
-  "y": 120,
+  "x": 270,
+  "y": 500,
   "wires": [
     [
-      "1f61fb9cdab32b2d"
+      "00152d6dbca958e1"
     ]
   ]
 }
 
 Node.template = `
-DROP TABLE {{flow.maalepunkt_metadata_tablename}};
+SELECT * FROM {{flow.maaler_metadata_tablename}} WHERE deviceEui = '{{devEui}}'
 `
 
 module.exports = Node;

@@ -82,13 +82,13 @@
 
     // Helper functions
 
-    function newSensor()
+    function newSensor() // Adds a sensor to the list
     {
         sensorList.value.push( JSON.parse(JSON.stringify (sensorMetadata)) )
         setEmit('onUpdateSensorCount', sensorList.value.length)
     }
 
-    function deleteSensor(id)
+    function deleteSensor(id) // Deletes sensor from list
     {
         const firstPart = sensorList.value.slice(0, id)
         const lastPart = sensorList.value.slice(id+1)
@@ -96,7 +96,7 @@
         setEmit('onUpdateSensorCount', sensorList.value.length)
     }
 
-    function cleanSensorList()
+    function cleanSensorList() // Removes all sensors but index 0
     {
         sensorList.value = [sensorList.value[0]]
         setEmit('onUpdateSensorCount', sensorList.value.length)
@@ -136,7 +136,7 @@
                     Enheds EUI (DevEUI)
 
                 </label>
-                <input type="text" placeholder="..." :id="'eui_' + index" v-model="sensor.appEui" required>
+                <input type="text" placeholder="..." :id="'eui_' + index" v-model="sensor.devEui" required>
             </div>
             <div>
                 <label :for="'app_' + index" class="capitalize">
@@ -146,7 +146,7 @@
 
                     <div @click="deleteSensor(index)" class="float-right tag tagbutton" v-if="sensorList.length > 1">Slet</div>
                 </label>
-                <input type="text" placeholder="..." :id="'app_' + index" v-model="sensor.devEui" required>
+                <input type="text" placeholder="..." :id="'app_' + index" v-model="sensor.appKey" required>
             </div>
 
         </div>

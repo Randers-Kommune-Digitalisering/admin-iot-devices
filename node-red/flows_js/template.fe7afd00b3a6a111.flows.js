@@ -9,7 +9,7 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 490,
+  "x": 310,
   "y": 240,
   "wires": [
     [
@@ -26,7 +26,8 @@ CREATE TABLE if not exists {{flow.maaler_metadata_tablename}}
 	last_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
 	navn VARCHAR(255),
-	nummer VARCHAR(255),
+	deviceEui VARCHAR(255),
+	applicationKey VARCHAR(255),
 	installationsnummer VARCHAR(255),
 	energiartskode SMALLINT,
 
@@ -39,7 +40,7 @@ CREATE TABLE if not exists {{flow.maaler_metadata_tablename}}
 	isTemplate BOOL DEFAULT false,
 	defaultValuesTemplateUid MEDIUMINT,
 
-	UNIQUE (uid, nummer)
+	UNIQUE (uid, deviceEui)
 );
 `
 

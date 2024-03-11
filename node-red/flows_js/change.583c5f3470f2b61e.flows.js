@@ -2,6 +2,7 @@ const Node = {
   "id": "583c5f3470f2b61e",
   "type": "change",
   "z": "7b3a886e00fb2ea6",
+  "d": true,
   "name": "Create insert \\n statement",
   "rules": [
     {
@@ -32,7 +33,7 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 470,
-  "y": 520,
+  "y": 1320,
   "wires": [
     [
       "5598fbd836563add"

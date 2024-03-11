@@ -1,5 +1,5 @@
 {
-    "appEui": "",
+    "appKey": "",
     "devEui": "",
 
     "name": "",
@@ -7,5 +7,6 @@
     "serviceProfile": -1,
     "payloadDecoder": -1,
 
-    "isTemplate": false
+    "isTemplate": false,
+    "templateUid": -1
 }

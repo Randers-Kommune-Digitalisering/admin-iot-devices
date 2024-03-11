@@ -1,12 +1,11 @@
 const Node = {
-  "id": "4ea2ce33888480e8",
+  "id": "fe87b509d49e206c",
   "type": "comment",
   "z": "7b3a886e00fb2ea6",
-  "d": true,
-  "name": "Indsæt måler dynamisk SQL",
+  "name": "Kombinér med skabelondata",
   "info": "",
-  "x": 300,
-  "y": 1240,
+  "x": 740,
+  "y": 500,
   "wires": []
 }
 
