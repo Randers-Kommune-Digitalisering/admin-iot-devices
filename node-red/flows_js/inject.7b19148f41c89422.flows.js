@@ -11,7 +11,7 @@ const Node = {
     },
     {
       "p": "uid",
-      "v": "1",
+      "v": "5",
       "vt": "num"
     }
   ],
@@ -21,10 +21,11 @@ const Node = {
   "onceDelay": 0.1,
   "topic": "",
   "x": 75,
-  "y": 600,
+  "y": 640,
   "wires": [
     [
-      "67efff30a935798a"
+      "67efff30a935798a",
+      "cb62915abe36898f"
     ]
   ],
   "l": false

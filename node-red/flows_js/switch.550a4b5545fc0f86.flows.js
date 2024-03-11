@@ -3,7 +3,7 @@ const Node = {
   "type": "switch",
   "z": "7b3a886e00fb2ea6",
   "name": "Baseret på skabelon?",
-  "property": "payload[0].defaultValuesTemplateUid",
+  "property": "payload.defaultValuesTemplateUid",
   "propertyType": "msg",
   "rules": [
     {
@@ -18,11 +18,11 @@ const Node = {
   "checkall": "true",
   "repair": false,
   "outputs": 2,
-  "x": 720,
-  "y": 640,
+  "x": 700,
+  "y": 600,
   "wires": [
     [
-      "8f32174591048747"
+      "d4c9376b5eb61668"
     ],
     [
       "49293fabb0fc27ff"

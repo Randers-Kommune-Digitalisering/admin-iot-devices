@@ -4,8 +4,8 @@ const Node = {
   "z": "7b3a886e00fb2ea6",
   "name": "Kombinér med skabelondata",
   "info": "",
-  "x": 740,
-  "y": 600,
+  "x": 720,
+  "y": 560,
   "wires": []
 }
 

@@ -3,14 +3,14 @@ const Node = {
   "type": "template",
   "z": "7b3a886e00fb2ea6",
   "name": "Select template",
-  "field": "payload",
+  "field": "sql",
   "fieldType": "msg",
   "format": "sql",
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 980,
-  "y": 620,
+  "x": 1020,
+  "y": 580,
   "wires": [
     [
       "03479a37810184ed"
@@ -19,7 +19,7 @@ const Node = {
 }
 
 Node.template = `
-SELECT * FROM {{flow.maaler_metadata_tablename}} WHERE devEui = {{deviceEui}}
+SELECT * FROM {{flow.maaler_metadata_tablename}} WHERE isTemplate = true AND uid = {{payload.defaultValuesTemplateUid}}
 `
 
 module.exports = Node;

@@ -11,8 +11,13 @@
         return sensorList.value
     }
 
+    function setTemplateUid(templateUid)
+    {
+        sensorList.value[0].templateUid = templateUid
+    }
+
     export default {
-        getSensorList
+        getSensorList, setTemplateUid
     }
 
 </script>

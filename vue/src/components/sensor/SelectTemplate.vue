@@ -15,8 +15,6 @@
 
     const templates = GetTemplate.getTemplates()
 
-    ///console.log(JSON.stringify(templates))
-
 
     // Update when selecting a template
 

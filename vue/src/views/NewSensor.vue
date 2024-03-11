@@ -56,6 +56,10 @@
 
     function selectTemplate(templateUid)
     {
+        // Call function to register template uid in EditSensor.vue component
+        EditSensor.setTemplateUid(templateUid)
+
+        // Update UI
         hasSelectedTemplate.value = true
         scrollTo("editSensor")
     }

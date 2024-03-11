@@ -2,7 +2,7 @@ const Node = {
   "id": "19e4ab832cf0cc36",
   "type": "link in",
   "z": "7b3a886e00fb2ea6",
-  "name": "DB: Get Template (msg.templateUid)",
+  "name": "DB: Get template (msg.uid)",
   "links": [],
   "x": 55,
   "y": 1240,

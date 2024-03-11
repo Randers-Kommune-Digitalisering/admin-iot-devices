@@ -5,7 +5,7 @@ const Node = {
   "name": "Opret tabeller",
   "info": "",
   "x": 110,
-  "y": 240,
+  "y": 200,
   "wires": []
 }
 

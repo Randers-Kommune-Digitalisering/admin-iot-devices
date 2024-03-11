@@ -1,8 +1,8 @@
 const Node = {
-  "id": "f4fe574b19518461",
+  "id": "650114e61f7a4412",
   "type": "debug",
   "z": "7b3a886e00fb2ea6",
-  "name": "Opret sensor",
+  "name": "Hent sensor",
   "active": true,
   "tosidebar": true,
   "console": false,
@@ -11,8 +11,8 @@ const Node = {
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1190,
-  "y": 840,
+  "x": 1630,
+  "y": 540,
   "wires": []
 }
 

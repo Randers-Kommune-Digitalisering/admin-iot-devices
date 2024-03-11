@@ -1,15 +1,16 @@
 const Node = {
-  "id": "994e9bf954e6f1d2",
+  "id": "c6c231d0887435ea",
   "type": "change",
-  "z": "dc028cb1b3d1491a",
-  "name": "Params",
+  "z": "7b3a886e00fb2ea6",
+  "name": "",
   "rules": [
     {
       "t": "set",
-      "p": "uid",
+      "p": "payload",
       "pt": "msg",
-      "to": "req.params.template",
-      "tot": "msg"
+      "to": "payload[0]",
+      "tot": "msg",
+      "dc": true
     }
   ],
   "action": "",
@@ -17,13 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 500,
-  "y": 360,
+  "x": 545,
+  "y": 600,
   "wires": [
     [
-      "c674c0ce75e712fb"
+      "550a4b5545fc0f86"
     ]
-  ]
+  ],
+  "l": false
 }
 
 module.exports = Node;

@@ -4,6 +4,7 @@ import { ref } from 'vue'
 function create(metadata)
 {
     const data = ref(null)
+    const status = ref(null)
 
     fetch('/api/devices/add', {
         method: "POST",
@@ -14,7 +15,11 @@ function create(metadata)
         body: JSON.stringify(metadata), // body data type must match "Content-Type" header
 
     })
-    .then(response => response = response.json())
+    .then(response => {
+        status.value = response.status
+        response = response.json()
+        return response
+    })
     .then(value => data.value = value)
 
     return data
