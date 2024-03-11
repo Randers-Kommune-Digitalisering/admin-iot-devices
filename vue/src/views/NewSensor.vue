@@ -1,7 +1,7 @@
 <script setup>
 
     // Import vue
-    import { ref } from 'vue'
+    import { ref, watch } from 'vue'
     import { useRouter } from 'vue-router'
     const router = useRouter()
 
@@ -20,18 +20,19 @@
     import IconTemplateSensor from '@/components/icons/IconDuplicateItem.vue'
 
     // Set refs for state
-    var startingPointSelected = ref(false)
-    var startUsingTemplate = ref(null)
-    var hasSelectedTemplate = ref(false)
-    var isTemplate = ref(false)
-    var currentSensorCount = ref(1)
+    const startingPointSelected = ref(false)
+    const startUsingTemplate = ref(null)
+    const hasSelectedTemplate = ref(false)
+    const isTemplate = ref(false)
+    const currentSensorCount = ref(1)
+    const httpResponse = ref(null)
 
     // Functions to continue flow
 
     function selectStartingPoint(useTemplate)
     {
 
-        // If no starting point has been selected
+        // If no starting point has been selected previously
 
         if(startingPointSelected.value == false)
         {
@@ -44,7 +45,7 @@
                 scrollTo("editSensor")
         }
 
-        // Otherwise
+        // If previous starting point was undone
         else
         {
             scrollTo("start")
@@ -54,10 +55,15 @@
 
     }
 
-    function selectTemplate(templateUid)
+    function selectTemplate(template)
     {
-        // Call function to register template uid in EditSensor.vue component
-        EditSensor.setTemplateUid(templateUid)
+        console.log(template)
+
+        // Update shared properties in EditSensor.vue component
+        // Lock input fields for shared properties
+        EditSensor.setTemplateValues(template)
+
+       // sensorList[0].energiart = template.energiartskode
 
         // Update UI
         hasSelectedTemplate.value = true
@@ -67,7 +73,10 @@
     function createSensor(useTemplate = false)
     {
         console.log("Creating sensor")
-        CreateSensor.create( EditSensor.getSensorList() )
+
+        // Create sensor in Node-RED
+        httpResponse.value = CreateSensor.create( EditSensor.getSensorList() )
+        .then(response => console.log(response))
     }
 
 
@@ -75,20 +84,15 @@
 
     function scrollTo(id)
     {
-        //console.log("scrolling to " + id)
         setTimeout(function() {
         
             router.push({ hash: '#' + id })
-
             const item = document.getElementById(id);
-            var rect = item.getBoundingClientRect();
-
+            let rect = item.getBoundingClientRect();
             let count = rect.top- window.scrollY - 120
-
-            //document.getElementById(id).scrollIntoView();
             window.scrollBy(0, count)
         
-        }, 400)
+        }, 400) // Wait for animations before scrolling
     }
 
 

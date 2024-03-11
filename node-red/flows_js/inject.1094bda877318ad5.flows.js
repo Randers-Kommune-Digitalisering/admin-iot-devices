@@ -16,7 +16,7 @@ const Node = {
   "payload": "[{\"appKey\":\"\",\"devEui\":\"\",\"name\":\"Test skabelon\",\"energiart\":5,\"serviceProfile\":0,\"payloadDecoder\":0,\"isTemplate\":true,\"templateUid\":-1}]",
   "payloadType": "json",
   "x": 75,
-  "y": 900,
+  "y": 940,
   "wires": [
     [
       "9f4ad71f76a13a20"

@@ -6,7 +6,7 @@ const Node = {
   "name": "Opret device profil? Link til standarder",
   "info": "",
   "x": 570,
-  "y": 920,
+  "y": 960,
   "wires": []
 }
 

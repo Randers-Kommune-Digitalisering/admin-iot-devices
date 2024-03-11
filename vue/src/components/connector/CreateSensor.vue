@@ -1,12 +1,11 @@
 <script>
 import { ref } from 'vue'
 
-function create(metadata)
+async function create(metadata)
 {
-    const data = ref(null)
     const status = ref(null)
 
-    fetch('/api/devices/add', {
+    const response = fetch('/api/devices/add', {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -20,9 +19,8 @@ function create(metadata)
         response = response.json()
         return response
     })
-    .then(value => data.value = value)
 
-    return data
+    return response
 }
 
 export default {

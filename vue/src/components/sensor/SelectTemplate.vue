@@ -16,12 +16,12 @@
     const templates = GetTemplate.getTemplates()
 
 
-    // Update when selecting a template
+    // Notify when selecting a template
 
     function selectTemplate()
     {
-        console.log("Selected template: " + selectedTemplate.value)
-        setEmit(selectedTemplate.value)
+        GetTemplate.getTemplate(selectedTemplate.value)
+        .then(response => setEmit(response[0]))
     }
 
     var selectedTemplate = ref("n/a")

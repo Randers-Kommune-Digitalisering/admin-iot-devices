@@ -24,6 +24,20 @@ const Node = {
       "pt": "flow",
       "to": "iot_location_metadata",
       "tot": "str"
+    },
+    {
+      "t": "set",
+      "p": "serviceprofile_metadata_tablename",
+      "pt": "flow",
+      "to": "iot_serviceprofile_metadata",
+      "tot": "str"
+    },
+    {
+      "t": "set",
+      "p": "decoder_metadata_tablename",
+      "pt": "flow",
+      "to": "iot_decoder_metadata",
+      "tot": "str"
     }
   ],
   "action": "",

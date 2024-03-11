@@ -22,8 +22,27 @@ function getTemplates()
     return data
 }
 
+async function getTemplate(uid)
+{
+    const status = ref(null)
+
+    const response = fetch('/api/devices/templates/get/' + uid, {
+        method: "GET",
+        headers: {
+            "Accept": "application/json"
+        }
+    })
+    .then(response => {
+        status.value = response.status
+        response = response.json()
+        return response
+    })
+
+    return response
+}
+
 export default {
-    getTemplates
+    getTemplates, getTemplate
 }
 
 

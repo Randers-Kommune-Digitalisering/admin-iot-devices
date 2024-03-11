@@ -1,8 +1,9 @@
 <script>
     import { ref, watch  } from 'vue'
 
-    var sensorList = ref([])
-    var isTemplate = ref(false)
+    const sensorList = ref([])
+    const isTemplate = ref(false)
+    const lockSharedProperties = ref(false)
 
     // Retrieve sensor data
 
@@ -11,13 +12,18 @@
         return sensorList.value
     }
 
-    function setTemplateUid(templateUid)
+    function setTemplateValues(template)
     {
-        sensorList.value[0].templateUid = templateUid
+        // Update value(s) for properties shared with template
+        sensorList.value[0].templateUid = template.uid
+        sensorList.value[0].energiart = template.energiartskode
+        
+        // Lock input fields
+        lockSharedProperties.value = true
     }
 
     export default {
-        getSensorList, setTemplateUid
+        getSensorList, setTemplateValues
     }
 
 </script>
@@ -77,11 +83,21 @@
     newSensor()
     cleanSensorList()
 
-    // Clean list when changing mode
+    // Clean sensor list when changing mode
 
     watch( () => props.quickAddMode, (current, previous) => {
+        
         if(current !== previous)
-            cleanSensorList();
+        {
+            cleanSensorList()
+
+            // Update value(s) for properties shared with template
+            sensorList.value[0].templateUid = -1
+            sensorList.value[0].energiart = -1
+            
+            // Unlock input fields
+            lockSharedProperties.value = false
+        }
     })
 
 
@@ -179,7 +195,7 @@
                     Energiart
 
                 </label>
-                <select name="template" id="template" v-model="sensorList[0].energiart" required>
+                <select name="template" id="template" v-model="sensorList[0].energiart" :disabled="lockSharedProperties" required>
                     <option value="-1" disabled>Vælg fra liste ..</option>
 
                     <option v-for="(energiart, index) in energiarter" :value="index">{{ energiart }}</option>
