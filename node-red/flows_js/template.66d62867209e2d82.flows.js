@@ -1,25 +1,25 @@
 const Node = {
-  "id": "8f32174591048747",
+  "id": "66d62867209e2d82",
   "type": "template",
   "z": "7b3a886e00fb2ea6",
-  "name": "Select template",
-  "field": "payload",
+  "name": "Select alle devices",
+  "field": "sql",
   "fieldType": "msg",
   "format": "sql",
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 980,
-  "y": 620,
+  "x": 290,
+  "y": 440,
   "wires": [
     [
-      "03479a37810184ed"
+      "0997bd3fd2b806e2"
     ]
   ]
 }
 
 Node.template = `
-SELECT * FROM {{flow.maaler_metadata_tablename}} WHERE devEui = {{deviceEui}}
+SELECT * FROM {{flow.maaler_metadata_tablename}} WHERE isTemplate = false
 `
 
 module.exports = Node;

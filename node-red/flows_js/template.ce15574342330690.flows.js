@@ -10,7 +10,7 @@ const Node = {
   "template": "",
   "output": "str",
   "x": 810,
-  "y": 820,
+  "y": 880,
   "wires": [
     [
       "aaa270f856dad07c"
@@ -21,7 +21,7 @@ const Node = {
 Node.template = `
 INSERT INTO {{flow.maaler_metadata_tablename}}
 (
-	navn,
+	name,
 	deviceEui,
 	applicationKey,
 	-- installationsnummer,

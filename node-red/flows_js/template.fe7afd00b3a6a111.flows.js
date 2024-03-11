@@ -25,7 +25,7 @@ CREATE TABLE if not exists {{flow.maaler_metadata_tablename}}
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	last_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
-	navn VARCHAR(255),
+	name VARCHAR(255),
 	deviceEui VARCHAR(255),
 	applicationKey VARCHAR(255),
 	installationsnummer VARCHAR(255),

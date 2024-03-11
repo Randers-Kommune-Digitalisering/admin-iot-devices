@@ -1,11 +1,11 @@
 const Node = {
-  "id": "c9708672bb2d6389",
+  "id": "f342c7b0edf978b8",
   "type": "comment",
   "z": "7b3a886e00fb2ea6",
-  "name": "Indsæt måler(e) eller template",
+  "name": "Hent templates",
   "info": "",
-  "x": 160,
-  "y": 820,
+  "x": 120,
+  "y": 1040,
   "wires": []
 }
 

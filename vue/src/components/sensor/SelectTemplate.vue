@@ -2,6 +2,7 @@
     import { ref } from 'vue'
 
     import Content from '@/components/Content.vue'
+    import GetTemplate from '@/components/connector/GetTemplate.vue'
 
     defineProps({
     id: {
@@ -9,6 +10,15 @@
         required: false
     }
     })
+
+    // Retrieve templates
+
+    const templates = GetTemplate.getTemplates()
+
+    ///console.log(JSON.stringify(templates))
+
+
+    // Update when selecting a template
 
     function selectTemplate()
     {
@@ -36,8 +46,7 @@
 
     <select name="template" id="template" @change="selectTemplate()" v-model="selectedTemplate" style="margin-bottom: 0.8rem">
         <option value="n/a" disabled>Vælg fra liste ..</option>
-        <option value="0">Gas Puls måler (Brunata)</option>
-        <option value="1">El forbrug (EMU)</option>
+        <option v-for="template in templates" :value="template.uid">{{template.name}}</option>
     </select>
 
 </Content>

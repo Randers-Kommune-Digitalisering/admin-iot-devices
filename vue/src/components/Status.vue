@@ -1,7 +1,7 @@
 <script setup>
-import { ref } from 'vue';
-const statusExpress = ref(null);
-const statusNodered = ref(null);
+import { ref } from 'vue'
+const statusExpress = ref(null)
+const statusNodered = ref(null)
 
 // Express status
 fetch('/status')

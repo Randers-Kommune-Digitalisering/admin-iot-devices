@@ -3,7 +3,7 @@ import { ref } from 'vue'
 
 function create(metadata)
 {
-    var response
+    const data = ref(null)
 
     fetch('/api/devices/add', {
         method: "POST",
@@ -15,9 +15,9 @@ function create(metadata)
 
     })
     .then(response => response = response.json())
-    .then(value => response = "Node-RED status: " + value)
+    .then(value => data.value = value)
 
-    return response
+    return data
 }
 
 export default {

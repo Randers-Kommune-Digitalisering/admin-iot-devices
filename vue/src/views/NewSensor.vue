@@ -6,7 +6,7 @@
     const router = useRouter()
 
     // Import scripts
-    import CreateSensor from '../components/connector/CreateSensor.vue'
+    import CreateSensor from '@/components/connector/CreateSensor.vue'
 
     // Import components
     import Content from '@/components/Content.vue'
