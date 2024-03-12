@@ -16,6 +16,10 @@
 
     import IconUniqueSensor from '@/components/icons/IconEditItem.vue'
     import IconTemplateSensor from '@/components/icons/IconDuplicateItem.vue'
+    import IconEdit from '@/components/icons/IconEditSimple.vue'
+    import IconNewItem from '@/components/icons/IconNewItem.vue'
+    import IconUpload from '@/components/icons/IconUpload.vue'
+    import IconDownload from '@/components/icons/IconDownload.vue'
     
     import energiarter from '@/data/energiarter.json'
 
@@ -64,7 +68,7 @@
     function filterSensors(filter)
     {
         if(filter == filter.Inactive)
-            return
+            sensors.value = sensors.value.filter(item => item.maalepunktCount > 0)
     }
 
 </script>
@@ -88,11 +92,13 @@
                     <th>Energiart</th>
                     <th>Seneste data</th>
                     <th>Målepunkter</th>
-                    <th v-if="showEditButton"></th>
+                    <th></th>
                 </tr>
             </thead>
+
             <tr v-if="sensors != null" v-for="sensor in sensors">
-                <td style="max-width: 2rem">
+
+                <td class="sensorTypeTd"> <!-- Sensor type (if based on template or not) -->
                     <span class="randers" v-if="sensor.defaultValuesTemplateUid == -1">
                         <IconUniqueSensor scale="0.8" />
                     </span>
@@ -100,16 +106,141 @@
                         <IconTemplateSensor scale="0.8" />
                     </span>
                 </td>
-                <td>{{sensor.name}}</td>
+
+                <td>
+                    <div class="flex col">
+                        <span>{{sensor.name}}</span>
+                        <span v-if="sensor.defaultValuesTemplateUid == -1" class="tiny blue">Baseret på skabelon <span style="text-decoration: underline">denne skabelon</span></span>
+                    </div>
+                </td>
                 <td>{{energiarter[sensor.energiartskode]}}</td>
-                <td><span :class="true ? 'red' : 'blue'">{{true ? 'Ingen data' : 'X minutter siden'}}</span></td>
-                <td>{{0}}</td>
-                <td v-if="showEditButton"><router-link :to="'/editsensor/'"><button @click="">Redigér</button></router-link></td>
+
+                <td>
+                    <div class="flex col">
+                        <span class="red small">Ingen import</span>
+                        <span class="red small">Ingen export</span>
+                        <!--span :class="true ? 'red' : 'blue'">{{true ? 'Ingen data' : 'X minutter siden'}}</span-->
+                    </div>
+                </td>
+
+                <td>
+                    <div class="flex">
+                        <span class="fullheight">
+                            {{0}}
+                        </span>
+                        <router-link v-if="showEditButton" :to="'/editsensor/'">
+                            <button @click="" class="rowbutton ext blue">
+                                <IconNewItem />
+                                <span>
+                                    Tilføj
+                                </span>
+                            </button>
+                        </router-link>
+                    </div>
+                </td>
+
+                <td>
+                    <router-link v-if="showEditButton" :to="'/editsensor/'">
+                        <button @click="" class="rowbutton wide">
+                            <IconEdit />
+                            <span>
+                                Redigér
+                            </span>
+                        </button>
+                    </router-link>
+                </td>
             </tr>
             <tr v-else>
-                <td :columnspan="showEditButton ? 6 : 5">Der er ingen målere at vise</td>
+                <td :colspan="showEditButton ? 6 : 5">Der er ingen målere at vise</td>
             </tr>
         </table>
     </Content>
 
 </template>
+
+<style scoped>
+
+    th
+    {
+        font-size: 0.8em;
+    }
+    td
+    {
+        font-size: 1em;
+    }
+    .rowbutton 
+    {
+        width: 4rem;
+        height: 4.5rem;
+        padding: 0.5rem;
+        margin-bottom: 0rem;
+        position:relative;
+    }
+    .rowbutton.wide
+    {
+        width: 5rem;
+    }
+    .rowbutton.ext
+    {
+        margin-left: 0.2rem;
+    }
+        .rowbutton > span
+        {
+            position:absolute;
+            left:0px;
+            width:100%;
+            text-align: center;
+            bottom: 0.5rem;
+            font-size: 0.6em;
+        }
+        .rowbutton svg
+        {
+            position:absolute;
+            left: calc(50% - 10px);
+            bottom: calc(50% - 4px);
+        }
+        
+    .small
+    {
+        font-size: 0.7em;
+    }
+    .tiny
+    {
+        font-size: 0.6em;
+    }
+
+    .flex
+    {
+        display:flex;
+        gap: 0.5rem;
+    }
+    .flex.right
+    {
+        justify-content:flex-end;
+    }
+    .flex:not(.col)
+    {
+        align-items:center;
+    }
+    .flex.col
+    {
+        flex-direction:column;
+    }
+        .flex > .fullheight
+        {
+            display:block;
+            height: 100%;
+        }
+
+    
+    .sensorTypeTd
+    {
+        max-width: 1.5rem;
+        padding-right:0rem;
+    }
+    .sensorTypeTd > span
+    {
+        transform: translateY(0.3rem);
+    }
+
+</style>
