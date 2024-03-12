@@ -1,7 +1,7 @@
 const Node = {
   "id": "cfe472f46471d577",
   "type": "inject",
-  "z": "6f89a22d2f227f45",
+  "z": "1b1f52cac1d78ec2",
   "name": "Testdata",
   "props": [
     {
@@ -15,8 +15,8 @@ const Node = {
   "topic": "",
   "payload": "{\"id\":\"emu-sensor_0f65\",\"type\":\"energy-monitor\",\"observedAt\":\"2024-01-17T13:28:34.453Z\",\"name\":\"102CEFFFFE010F65\",\"values\":[{\"type\":\"Active_Energy_Import_T1\",\"value\":488543},{\"type\":\"Active_Energy_Import_T2\",\"value\":0},{\"type\":\"Active_Energy_Export_T1\",\"value\":0},{\"type\":\"Active_Energy_Export_T2\",\"value\":0},{\"type\":\"errorcode\",\"value\":0}]}",
   "payloadType": "json",
-  "x": 140,
-  "y": 60,
+  "x": 180,
+  "y": 760,
   "wires": [
     [
       "419ba1cb22f6e924"

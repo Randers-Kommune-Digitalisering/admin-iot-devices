@@ -40,6 +40,9 @@ CREATE TABLE if not exists {{flow.maaler_metadata_tablename}}
 	isTemplate BOOL DEFAULT false,
 	defaultValuesTemplateUid MEDIUMINT,
 
+	lastObservation TIMESTAMP,
+	dataTablename VARCHAR(255)
+
 	UNIQUE (uid, deviceEui)
 );
 `

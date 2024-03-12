@@ -1,19 +1,19 @@
 const Node = {
-  "id": "18063b9c64a89f90",
+  "id": "d9d1ce2b32c69a7d",
   "type": "inject",
   "z": "1b1f52cac1d78ec2",
   "name": "",
   "props": [],
   "repeat": "",
   "crontab": "",
-  "once": false,
-  "onceDelay": 0.1,
+  "once": true,
+  "onceDelay": "0.5",
   "topic": "",
-  "x": 115,
-  "y": 460,
+  "x": 125,
+  "y": 120,
   "wires": [
     [
-      "297471fc50d5d7bf"
+      "2faab9b16015fbe0"
     ]
   ],
   "l": false

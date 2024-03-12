@@ -1,7 +1,7 @@
 const Node = {
   "id": "419ba1cb22f6e924",
   "type": "change",
-  "z": "6f89a22d2f227f45",
+  "z": "1b1f52cac1d78ec2",
   "name": "Tesdata 2",
   "rules": [
     {
@@ -17,8 +17,8 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 280,
-  "y": 60,
+  "x": 340,
+  "y": 760,
   "wires": [
     [
       "3f7d611f923f8a95"

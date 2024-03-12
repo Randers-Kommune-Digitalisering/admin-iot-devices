@@ -1,7 +1,7 @@
 const Node = {
   "id": "209f1eec1ad15796",
   "type": "template",
-  "z": "7b3a886e00fb2ea6",
+  "z": "1b1f52cac1d78ec2",
   "name": "DROP",
   "field": "sql",
   "fieldType": "msg",
@@ -9,8 +9,8 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 810,
-  "y": 80,
+  "x": 290,
+  "y": 260,
   "wires": [
     [
       "1f61fb9cdab32b2d"

@@ -20,6 +20,8 @@
 
 <template>
 
+    <h2>Målere</h2>
+
     <ListSensors :sensors="sensors" />
 
 </template>

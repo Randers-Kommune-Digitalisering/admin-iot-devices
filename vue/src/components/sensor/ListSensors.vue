@@ -13,6 +13,9 @@
 
 <script setup>
     import { ref, watch } from 'vue'
+
+    import IconUniqueSensor from '@/components/icons/IconEditItem.vue'
+    import IconTemplateSensor from '@/components/icons/IconDuplicateItem.vue'
     
     import energiarter from '@/data/energiarter.json'
 
@@ -30,6 +33,11 @@
             type: Boolean,
             required: false,
             default: true
+        },
+        header: {
+            type: String,
+            required: false,
+            default: "Registrerede målere"
         }
     })
 
@@ -62,15 +70,11 @@
 </script>
 
 <template>
-
-
-    <h2>Målere</h2>
     
     <Content>
         <template #icon>
-            <IconTable />
         </template>
-        <template #heading>Registrerede målere</template>
+        <template #heading>{{header}}</template>
 
         <span class="paragraph">
             Herunder kan de registrerede målere ses, rettes og slettes.
@@ -79,6 +83,7 @@
         <table>
             <thead>
                 <tr>
+                    <th></th>
                     <th>Målernavn</th>
                     <th>Energiart</th>
                     <th>Seneste data</th>
@@ -86,12 +91,23 @@
                     <th v-if="showEditButton"></th>
                 </tr>
             </thead>
-            <tr v-for="sensor in sensors">
+            <tr v-if="sensors != null" v-for="sensor in sensors">
+                <td style="max-width: 2rem">
+                    <span class="randers" v-if="sensor.defaultValuesTemplateUid == -1">
+                        <IconUniqueSensor scale="0.8" />
+                    </span>
+                    <span class="blue" v-else>
+                        <IconTemplateSensor scale="0.8" />
+                    </span>
+                </td>
                 <td>{{sensor.name}}</td>
                 <td>{{energiarter[sensor.energiartskode]}}</td>
                 <td><span :class="true ? 'red' : 'blue'">{{true ? 'Ingen data' : 'X minutter siden'}}</span></td>
                 <td>{{0}}</td>
-                <td v-if="showEditButton"><router-link :to="'/editsensor/'"><button @click="">Rediger</button></router-link></td>
+                <td v-if="showEditButton"><router-link :to="'/editsensor/'"><button @click="">Redigér</button></router-link></td>
+            </tr>
+            <tr v-else>
+                <td :columnspan="showEditButton ? 6 : 5">Der er ingen målere at vise</td>
             </tr>
         </table>
     </Content>
