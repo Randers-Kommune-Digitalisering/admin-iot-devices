@@ -9,6 +9,7 @@ import App from './App.vue'
 
 import Start from '@/views/Start.vue'
 import NewSensor from '@/views/NewSensor.vue'
+import Sensors from '@/views/Sensors.vue'
 import Templates from '@/views/Templates.vue'
 
 // Opsætning af URL routing
@@ -23,8 +24,13 @@ const router = createRouter({
         },        
         {
             path: '/newsensor', 
-            name: "Opret måler",
+            name: "Ny måler",
             component: NewSensor
+        },        
+        {
+            path: '/sensors', 
+            name: "Målere",
+            component: Sensors
         },
         {
             path: '/templates', 

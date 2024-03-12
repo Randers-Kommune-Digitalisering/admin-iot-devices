@@ -131,7 +131,7 @@
 <template>
 <div v-if="httpResponse == null">
 
-    <h2 id="start">Opret måler</h2>
+    <h2 id="start">Ny måler</h2>
 
     <!-- Select starting point -->
 
@@ -208,7 +208,10 @@
 </div>
 <div v-else>
 
-    <h2 id="start">{{currentSensorCount > 1 ? 'Målere' : 'Måler'}} registreret</h2>
+    <h2 id="start">{{
+            isTemplate ? 'Skabelon oprettet' :
+            ( currentSensorCount > 1 ? 'Målere registreret' : 'Måler registreret' )
+        }}</h2>
     
     <Content>
         <template #icon>
@@ -217,12 +220,15 @@
         <template #heading>
             <span :class="httpResponse.affectedRows >= 1 ? 'green' : 'red'">
                 <span class="heavy">
-                    {{ JSON.stringify( httpResponse.affectedRows )}} {{currentSensorCount > 1 ? 'nye målere' : 'ny måler'}}
-                </span> blev registreret
+                    {{
+                        isTemplate ? 'Ny skabelon blev oprettet' :
+                        ( JSON.stringify( httpResponse.affectedRows ) + ( currentSensorCount > 1 ? ' nye målere blev registreret' : ' ny måler blev registreret' ))
+                    }}
+                </span>
             </span>
         </template>
         
-        <button @click="resetAll()">Registrér endnu en måler</button>
+        <button @click="resetAll()">Registrér en ny måler</button>
         
     </Content>
 

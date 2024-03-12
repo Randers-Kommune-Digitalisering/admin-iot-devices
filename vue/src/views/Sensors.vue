@@ -12,23 +12,23 @@
         //.then(value => console.log(value))
 
     const keyMap = {
-        "Navn": 
+        "Navn": "name"
     }
 
 </script>
 
 <template>
 
-    <h2>Konteringsregler</h2>
+    <h2>Målere</h2>
     
     <Content>
         <template #icon>
             <IconTable />
         </template>
-        <template #heading>Aktuelle konteringsregler</template>
+        <template #heading>Registrerede målere</template>
 
         <span class="paragraph">
-            Herunder kan de aktuelle konteringsregler ses, rettes og slettes. Vær opmærksom på at rettelser overskrives hvis der laves ændringer i <code>konteringsregler.csv</code>.
+            Herunder kan de registrerede målere ses, rettes og slettes.
         </span>
         
         <table>

@@ -11,12 +11,11 @@
             "url": "/"
         },
         {
-            "title": "UI Templates",
-            "url": "/templates",
-            "alert": "OBS"
+            "title": "Målere",
+            "url": "/sensors"
         },
         {
-            "title": "Opret måler",
+            "title": "Ny måler",
             "url": "/newsensor"
         }
     ])
