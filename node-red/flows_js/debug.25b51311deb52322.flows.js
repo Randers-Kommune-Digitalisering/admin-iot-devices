@@ -1,8 +1,8 @@
 const Node = {
-  "id": "650114e61f7a4412",
+  "id": "25b51311deb52322",
   "type": "debug",
   "z": "7b3a886e00fb2ea6",
-  "name": "Hent sensor",
+  "name": "debug 5",
   "active": true,
   "tosidebar": true,
   "console": false,
@@ -11,8 +11,8 @@ const Node = {
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1630,
-  "y": 580,
+  "x": 380,
+  "y": 800,
   "wires": []
 }
 

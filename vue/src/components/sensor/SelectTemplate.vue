@@ -21,7 +21,7 @@
     function selectTemplate()
     {
         GetTemplate.getTemplate(selectedTemplate.value)
-        .then(response => setEmit(response[0]))
+        .then(response => setEmit(response))
     }
 
     var selectedTemplate = ref("n/a")

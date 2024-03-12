@@ -12,22 +12,7 @@
         //.then(value => console.log(value))
 
     const keyMap = {
-        "id": {
-            "id": 4,
-            "key": "ruleId"
-        },
-        "navn": {
-            "id": 0,
-            "key": "value"
-        },
-        "nummer": {
-            "id": 1,
-            "key": "value"
-        },
-        "posteringstekst": {
-            "id": 3,
-            "key": "Posteringstekst"
-        }
+        "Navn": 
     }
 
 </script>

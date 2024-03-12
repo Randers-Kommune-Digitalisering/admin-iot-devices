@@ -18,6 +18,7 @@
     import IconNewSensor from '@/components/icons/IconEditItem.vue'
     import IconNewItem from '@/components/icons/IconNewItem.vue'
     import IconTemplateSensor from '@/components/icons/IconDuplicateItem.vue'
+    import IconOK from '@/components/icons/IconOK.vue'
 
     // Set refs for state
     const startingPointSelected = ref(false)
@@ -57,15 +58,11 @@
 
     function selectTemplate(template)
     {
-        console.log(template)
-
         // Update shared properties in EditSensor.vue component
         // Lock input fields for shared properties
         EditSensor.setTemplateValues(template)
 
-       // sensorList[0].energiart = template.energiartskode
-
-        // Update UI
+        // Update state and scroll
         hasSelectedTemplate.value = true
         scrollTo("editSensor")
     }
@@ -75,8 +72,21 @@
         console.log("Creating sensor")
 
         // Create sensor in Node-RED
-        httpResponse.value = CreateSensor.create( EditSensor.getSensorList() )
+        CreateSensor.create(EditSensor.getSensorList())
+        .then(response => httpResponse.value = response)
         .then(response => console.log(response))
+    }
+
+    function resetAll()
+    {
+        startingPointSelected.value = false
+        startUsingTemplate.value = null
+        hasSelectedTemplate.value = false
+        isTemplate.value = false
+        currentSensorCount.value = 1
+        httpResponse.value = null
+
+        EditSensor.resetSensorList()
     }
 
 
@@ -119,6 +129,8 @@
 </script>
 
 <template>
+<div v-if="httpResponse == null">
+
     <h2 id="start">Opret måler</h2>
 
     <!-- Select starting point -->
@@ -193,6 +205,29 @@
         </fieldset>
     </form>
 
+</div>
+<div v-else>
+
+    <h2 id="start">{{currentSensorCount > 1 ? 'Målere' : 'Måler'}} registreret</h2>
+    
+    <Content>
+        <template #icon>
+                <IconOK />
+        </template>
+        <template #heading>
+            <span :class="httpResponse.affectedRows >= 1 ? 'green' : 'red'">
+                <span class="heavy">
+                    {{ JSON.stringify( httpResponse.affectedRows )}} {{currentSensorCount > 1 ? 'nye målere' : 'ny måler'}}
+                </span> blev registreret
+            </span>
+        </template>
+        
+        <button @click="resetAll()">Registrér endnu en måler</button>
+        
+    </Content>
+
+
+</div>
 </template>
 
 <style scoped>

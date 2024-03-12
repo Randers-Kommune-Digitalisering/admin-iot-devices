@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "payload[0] ~> | $ | {\t    \"uid\": $$.sensor.uid,\t    \"name\": $$.sensor.name,\t    \"deviceEui\": $$.sensor.deviceEui,\t    \"applicationKey\": $$.sensor.applicationKey,\t    \"isTemplate\": false,\t    \"defaultValuesTemplateUid\": $$.sensor.defaultValuesTemplateUid\t} |",
+      "to": "payload[0] ~> | $ | {\t    \"uid\": $$.sensor.uid,\t    \"name\": $$.sensor.name,\t    \"deviceEui\": $$.sensor.deviceEui,\t    \"applicationKey\": $$.sensor.applicationKey,\t    \"isTemplate\": 0,\t    \"defaultValuesTemplateUid\": $$.sensor.defaultValuesTemplateUid\t} |",
       "tot": "jsonata"
     }
   ],
@@ -18,7 +18,7 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 1390,
-  "y": 580,
+  "y": 620,
   "wires": [
     [
       "650114e61f7a4412",

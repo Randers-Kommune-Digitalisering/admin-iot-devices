@@ -22,8 +22,14 @@
         lockSharedProperties.value = true
     }
 
+    function resetSensorList()
+    {
+        sensorList.value = []
+        newSensor()
+    }
+
     export default {
-        getSensorList, setTemplateValues
+        getSensorList, setTemplateValues, resetSensorList
     }
 
 </script>
