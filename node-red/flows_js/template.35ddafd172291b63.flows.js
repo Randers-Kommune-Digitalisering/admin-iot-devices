@@ -9,8 +9,8 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 370,
-  "y": 1560,
+  "x": 270,
+  "y": 1540,
   "wires": [
     [
       "4e909629542ee5f8"
@@ -19,7 +19,9 @@ const Node = {
 }
 
 Node.template = `
-UPDATE {{flow.metadata_tablename}} SET last_observation = '{{data.observedAt}}' WHERE uid = '{{data.id}}';
+UPDATE {{global.metadataTablename.maaler}}
+SET lastObservation = '{{data.observedAt}}'
+WHERE deviceEui = '{{data.deviceEui}}';
 `
 
 module.exports = Node;

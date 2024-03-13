@@ -7,12 +7,12 @@ const Node = {
   "tosidebar": true,
   "console": true,
   "tostatus": false,
-  "complete": "payload ~> $count() > 0 ?\t{\t    $flowContext(\"metadata_tablename\"): \"metadata exists for sensor\",\t    \"sensorUid\": data.id,\t    \"lastObservation\": payload[0].last_observation\t}\t:\t{\t    $flowContext(\"metadata_tablename\"): \"metadata created for sensor\",\t    \"sensorUid\": data.id\t}",
+  "complete": "payload ~> $count() > 0 ?\t{\t    data.deviceEui: \"device is already registered\",\t    \"lastObservation\": payload[0].lastObservation = \"0000-00-00 00:00:00\" ?\t                        \"no observation\" : payload[0].lastObservation\t}\t:\t{\t    data.deviceEui: \"device is NOT registered\"\t}",
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
   "x": 880,
-  "y": 720,
+  "y": 520,
   "wires": []
 }
 

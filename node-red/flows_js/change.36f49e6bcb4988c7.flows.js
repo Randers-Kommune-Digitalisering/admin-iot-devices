@@ -2,6 +2,7 @@ const Node = {
   "id": "36f49e6bcb4988c7",
   "type": "change",
   "z": "bd0288d62c2263f6",
+  "g": "d9883d443804cd54",
   "name": "Metric (Time)",
   "rules": [
     {
@@ -17,8 +18,8 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1410,
-  "y": 1360,
+  "x": 950,
+  "y": 1180,
   "wires": [
     [
       "b5efb5cbaedf2270"

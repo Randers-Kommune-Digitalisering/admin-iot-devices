@@ -13,7 +13,7 @@ const Node = {
   "once": false,
   "onceDelay": 0.1,
   "topic": "",
-  "payload": "[{\"appKey\":\"OtaaAppKeyTest\",\"devEui\":\"EnhedsEuiTest\",\"name\":\"Test måler GAS\",\"energiart\":5,\"serviceProfile\":0,\"payloadDecoder\":0,\"isTemplate\":false,\"templateUid\":-1}]",
+  "payload": "[{\"appKey\":\"OtaaAppKeyTest\",\"devEui\":\"102ceffffe010f65\",\"name\":\"Emu El-måler Grønhøjskolen\",\"energiart\":0,\"serviceProfile\":0,\"payloadDecoder\":0,\"isTemplate\":false,\"templateUid\":-1}]",
   "payloadType": "json",
   "x": 160,
   "y": 620,

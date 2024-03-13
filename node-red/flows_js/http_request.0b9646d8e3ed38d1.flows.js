@@ -3,7 +3,7 @@ const Node = {
   "type": "http request",
   "z": "1b1f52cac1d78ec2",
   "name": "",
-  "method": "GET",
+  "method": "POST",
   "ret": "txt",
   "paytoqs": "ignore",
   "url": "localhost:1880/os2iot/v2",
@@ -14,7 +14,7 @@ const Node = {
   "authType": "",
   "senderr": false,
   "headers": [],
-  "x": 690,
+  "x": 350,
   "y": 760,
   "wires": [
     []

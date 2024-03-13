@@ -1,5 +1,5 @@
 const Node = {
-  "id": "5be302691f63ec28",
+  "id": "0e678bf293d6a90f",
   "type": "debug",
   "z": "bd0288d62c2263f6",
   "name": "stdout",
@@ -7,12 +7,12 @@ const Node = {
   "tosidebar": true,
   "console": true,
   "tostatus": false,
-  "complete": "{\t    $flowContext(\"metadata_tablename\"): \"metadata created for sensor\",\t    \"sensorUid\": data.id\t}",
+  "complete": "{\t    data.deviceEui: \"no data inserted\"\t}",
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1100,
-  "y": 900,
+  "x": 560,
+  "y": 660,
   "wires": []
 }
 

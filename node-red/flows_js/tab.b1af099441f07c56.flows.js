@@ -1,7 +1,7 @@
 const Node = {
   "id": "b1af099441f07c56",
   "type": "tab",
-  "label": "EnergyKey Export",
+  "label": "EnergyKey CSV Builder",
   "disabled": false,
   "info": "",
   "env": []

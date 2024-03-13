@@ -7,12 +7,12 @@ const Node = {
   "tosidebar": true,
   "console": true,
   "tostatus": false,
-  "complete": "payload.changedRows = 1 ?\t{\t    $flowContext(\"metadata_tablename\"): \"metadata updated\",\t    \"uid\": data.id,\t    \"observatedAt\": data.observedAt\t}\t:\t{\t    $flowContext(\"metadata_tablename\"): \"error updating metadata\"\t}",
+  "complete": "payload.changedRows = 1 ?\t{\t    $globalContext(\"metadataTablename.maaler\"): \"metadata updated\",\t    \"deviceEui\": data.deviceEui,\t    \"observatedAt\": data.observedAt\t}\t:\t{\t    $globalContext(\"metadataTablename.maaler\"): \"error updating metadata\",\t    \"error\": error\t}",
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
-  "x": 880,
-  "y": 1560,
+  "x": 720,
+  "y": 1540,
   "wires": []
 }
 

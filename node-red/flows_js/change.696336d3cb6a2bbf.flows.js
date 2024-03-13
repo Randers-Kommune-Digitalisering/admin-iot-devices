@@ -2,6 +2,7 @@ const Node = {
   "id": "696336d3cb6a2bbf",
   "type": "change",
   "z": "bd0288d62c2263f6",
+  "g": "d9883d443804cd54",
   "name": "Metric (Status)",
   "rules": [
     {
@@ -17,8 +18,8 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1420,
-  "y": 1400,
+  "x": 960,
+  "y": 1220,
   "wires": [
     [
       "e7594f21bc0f2496"

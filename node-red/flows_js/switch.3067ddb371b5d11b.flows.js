@@ -1,29 +1,29 @@
 const Node = {
-  "id": "a96baed53b120e98",
+  "id": "3067ddb371b5d11b",
   "type": "switch",
   "z": "bd0288d62c2263f6",
-  "name": "Findes en \\n observation?",
-  "property": "payload[0].lastObservation = \"0000-00-00 00:00:00\"",
+  "name": "Findes måler?",
+  "property": "payload ~> $count() > 0",
   "propertyType": "jsonata",
   "rules": [
     {
-      "t": "true"
+      "t": "false"
     },
     {
-      "t": "false"
+      "t": "true"
     }
   ],
   "checkall": "true",
   "repair": false,
   "outputs": 2,
-  "x": 330,
-  "y": 780,
+  "x": 340,
+  "y": 660,
   "wires": [
     [
-      "0cfb9646d9305e06"
+      "0e678bf293d6a90f"
     ],
     [
-      "0c99847146884cfe"
+      "a96baed53b120e98"
     ]
   ]
 }

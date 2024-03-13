@@ -4,8 +4,8 @@ const Node = {
   "z": "bd0288d62c2263f6",
   "name": "Indsæt ny sensordata",
   "info": "",
-  "x": 600,
-  "y": 1300,
+  "x": 260,
+  "y": 1280,
   "wires": []
 }
 
