@@ -25,7 +25,7 @@
     function resetSensorList()
     {
         sensorList.value = []
-        newSensor()
+        //newSensor()
     }
 
     export default {
