@@ -110,15 +110,19 @@
                 <td>
                     <div class="flex col">
                         <span>{{sensor.name}}</span>
-                        <span v-if="sensor.defaultValuesTemplateUid == -1" class="tiny blue">Baseret på skabelon <span style="text-decoration: underline">denne skabelon</span></span>
+                        <span v-if="sensor.defaultValuesTemplateUid != -1" class="tiny blue">Baseret på skabelon <span style="text-decoration: underline">denne skabelon</span></span>
                     </div>
                 </td>
                 <td>{{energiarter[sensor.energiartskode]}}</td>
 
                 <td>
                     <div class="flex col">
-                        <span class="red small">Ingen import</span>
-                        <span class="red small">Ingen export</span>
+                        <span class="red small flex">
+                            <IconDownload scale="0.8" /> <span>Ingen import</span>
+                        </span>
+                        <span class="red small flex">
+                            <IconUpload scale="0.8" /> <span>Ingen export</span>
+                        </span>
                         <!--span :class="true ? 'red' : 'blue'">{{true ? 'Ingen data' : 'X minutter siden'}}</span-->
                     </div>
                 </td>
