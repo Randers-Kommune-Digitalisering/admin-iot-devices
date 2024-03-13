@@ -19,7 +19,7 @@ const Node = {
 }
 
 Node.template = `
-SELECT * FROM {{flow.maaler_metadata_tablename}} WHERE uid = {{uid}}
+SELECT * FROM {{global.metadataTablename.maaler}} WHERE uid = {{uid}}
 `
 
 module.exports = Node;

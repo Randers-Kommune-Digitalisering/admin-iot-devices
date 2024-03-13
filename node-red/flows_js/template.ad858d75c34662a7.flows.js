@@ -19,7 +19,7 @@ const Node = {
 }
 
 Node.template = `
-DROP TABLE {{flow.maalepunkt_metadata_tablename}};
+DROP TABLE {{global.metadataTablename.maalepunkt}};
 `
 
 module.exports = Node;

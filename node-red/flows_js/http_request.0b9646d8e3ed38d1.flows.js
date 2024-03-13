@@ -6,7 +6,7 @@ const Node = {
   "method": "GET",
   "ret": "txt",
   "paytoqs": "ignore",
-  "url": "",
+  "url": "localhost:1880/os2iot/v2",
   "tls": "",
   "persist": false,
   "proxy": "",

@@ -19,7 +19,7 @@ const Node = {
 }
 
 Node.template = `
-INSERT INTO {{flow.maaler_metadata_tablename}}
+INSERT INTO {{global.metadataTablename.maaler}}
 (
 	name,
 	deviceEui,

@@ -1,41 +1,48 @@
 const Node = {
-  "id": "e60736957d07d12c",
+  "id": "6b9a4e582b1e4da4",
   "type": "change",
   "z": "7b3a886e00fb2ea6",
-  "name": "Table names",
+  "name": "Table names (new)",
   "rules": [
     {
       "t": "set",
-      "p": "maaler_metadata_tablename",
-      "pt": "flow",
+      "p": "metadataTablename",
+      "pt": "global",
+      "to": "{}",
+      "tot": "json"
+    },
+    {
+      "t": "set",
+      "p": "metadataTablename.maaler",
+      "pt": "global",
       "to": "iot_device_metadata",
       "tot": "str"
     },
     {
       "t": "set",
-      "p": "maalepunkt_metadata_tablename",
-      "pt": "flow",
+      "p": "metadataTablename.maalepunkt",
+      "pt": "global",
       "to": "iot_metric_metadata",
       "tot": "str"
     },
     {
       "t": "set",
-      "p": "lokation_metadata_tablename",
-      "pt": "flow",
+      "p": "metadataTablename.lokation",
+      "pt": "global",
       "to": "iot_location_metadata",
       "tot": "str"
     },
     {
       "t": "set",
-      "p": "serviceprofile_metadata_tablename",
-      "pt": "flow",
+      "p": "metadataTablename.serviceprofile",
+      "pt": "global",
       "to": "iot_serviceprofile_metadata",
       "tot": "str"
     },
     {
       "t": "set",
-      "p": "decoder_metadata_tablename",
-      "pt": "flow",
+      "p": "metadataTablename.decoder",
+      "pt": "global",
       "to": "iot_decoder_metadata",
       "tot": "str"
     }
@@ -45,7 +52,7 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 230,
+  "x": 290,
   "y": 80,
   "wires": [
     [

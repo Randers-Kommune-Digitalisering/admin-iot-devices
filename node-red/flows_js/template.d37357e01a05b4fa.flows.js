@@ -19,7 +19,7 @@ const Node = {
 }
 
 Node.template = `
-SELECT * FROM {{flow.maaler_metadata_tablename}} WHERE isTemplate = true
+SELECT * FROM {{global.metadataTablename.maaler}} WHERE isTemplate = true
 `
 
 module.exports = Node;

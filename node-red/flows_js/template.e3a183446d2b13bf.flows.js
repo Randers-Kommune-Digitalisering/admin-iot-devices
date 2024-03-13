@@ -19,7 +19,7 @@ const Node = {
 }
 
 Node.template = `
-CREATE TABLE if not exists {{flow.maalepunkt_metadata_tablename}}
+CREATE TABLE if not exists {{global.metadataTablename.maalepunkt}}
 (
 	deviceUid MEDIUMINT,
 

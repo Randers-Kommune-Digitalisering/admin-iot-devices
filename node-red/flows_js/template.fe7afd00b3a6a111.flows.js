@@ -19,7 +19,7 @@ const Node = {
 }
 
 Node.template = `
-CREATE TABLE if not exists {{flow.maaler_metadata_tablename}}
+CREATE TABLE if not exists {{global.metadataTablename.maaler}}
 (
 	uid MEDIUMINT NOT NULL AUTO_INCREMENT,
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -41,7 +41,7 @@ CREATE TABLE if not exists {{flow.maaler_metadata_tablename}}
 	defaultValuesTemplateUid MEDIUMINT,
 
 	lastObservation TIMESTAMP,
-	dataTablename VARCHAR(255)
+	dataTablename VARCHAR(255),
 
 	UNIQUE (uid, deviceEui)
 );

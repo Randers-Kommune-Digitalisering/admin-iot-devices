@@ -19,7 +19,7 @@ const Node = {
 }
 
 Node.template = `
-CREATE TABLE if not exists {{flow.decoder_metadata_tablename}}
+CREATE TABLE if not exists {{global.metadataTablename.decoder}}
 (
 	uid MEDIUMINT NOT NULL AUTO_INCREMENT,
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,

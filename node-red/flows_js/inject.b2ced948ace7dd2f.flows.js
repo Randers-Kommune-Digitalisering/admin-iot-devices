@@ -13,7 +13,7 @@ const Node = {
   "y": 80,
   "wires": [
     [
-      "e60736957d07d12c"
+      "6b9a4e582b1e4da4"
     ]
   ],
   "l": false
