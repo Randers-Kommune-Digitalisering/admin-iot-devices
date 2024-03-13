@@ -44,6 +44,10 @@
     import energiarter from '@/data/energiarter.json'
 
     const props = defineProps({
+        sensor: {
+            type: Object,
+            required: false
+        },
         quickAddMode: {
             type: Boolean,
             required: false,
@@ -57,6 +61,11 @@
         id: {
             type: String,
             required: false
+        },
+        lockEui: {
+            type: Boolean,
+            required: false,
+            default: false
         }
     })
 
@@ -69,6 +78,24 @@
         emit(_emi, value)
     }
 
+    // Watch when editing sensorEui
+
+    watch( () =>  props.sensor, (current, previous) => {
+        
+        if(current.isTemplate)
+        {
+            isTemplate.value = true
+        }
+
+        sensorList.value[0].devEui = current.deviceEui
+        sensorList.value[0].appKey = current.applicationKey
+        sensorList.value[0].name = current.name
+        sensorList.value[0].energiart = current.energiartskode
+        sensorList.value[0].serviceProfile = current.serviceProfileUid
+        sensorList.value[0].payloadDecoder = current.serviceProfileUid
+        //console.log("Updated sensor data: ")
+        console.log(current)
+    })
 
     // Watch when toggling template
 
@@ -163,7 +190,7 @@
                     Enheds EUI (DevEUI)
 
                 </label>
-                <input type="text" placeholder="..." :id="'eui_' + index" v-model="sensor.devEui" required>
+                <input type="text" placeholder="..." :id="'eui_' + index" v-model="sensor.devEui" :disabled="lockEui" required>
             </div>
             <div>
                 <label :for="'app_' + index" class="capitalize">

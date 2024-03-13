@@ -150,7 +150,7 @@
                 </td>
 
                 <td>
-                    <router-link v-if="showEditButton" :to="'/editsensor/'">
+                    <router-link v-if="showEditButton" :to="'/sensors/' + sensor.uid">
                         <button @click="" class="rowbutton wide">
                             <IconEdit />
                             <span>
