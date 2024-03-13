@@ -13,7 +13,11 @@
 
 <script setup>
     import { ref, watch } from 'vue'
+    import { useRouter } from 'vue-router'
+
     import * as dayjs from 'dayjs'
+
+    const router = useRouter()
 
     import IconUniqueSensor from '@/components/icons/IconEditItem.vue'
     import IconTemplateSensor from '@/components/icons/IconDuplicateItem.vue'
@@ -34,7 +38,7 @@
             required: false,
             default: filters.NoFilter
         },
-        showEditButton: {
+        allowClick: {
             type: Boolean,
             required: false,
             default: true
@@ -72,6 +76,13 @@
             sensors.value = sensors.value.filter(item => item.maalepunktCount > 0)
     }
 
+    // Click
+
+    function clickSensor(uid)
+    {
+        router.push('/sensors/' + uid)
+    }
+
 </script>
 
 <template>
@@ -87,17 +98,17 @@
         
         <table>
             <thead>
-                <tr>
+                <tr class="nohover">
                     <th></th>
                     <th>Målernavn</th>
                     <th>Energiart</th>
                     <th>Seneste data</th>
                     <th>Målepunkter</th>
-                    <th></th>
+                    <!--th></th-->
                 </tr>
             </thead>
 
-            <tr v-if="sensors != null" v-for="sensor in sensors">
+            <tr v-if="sensors != null && sensors.length > 0" v-for="sensor in sensors" @click="clickSensor(sensor.uid)" :class="!allowClick ? 'nohover' : ''">
 
                 <td class="sensorTypeTd"> <!-- Sensor type (if based on template or not) -->
                     <span class="randers" v-if="sensor.defaultValuesTemplateUid == -1">
@@ -134,6 +145,10 @@
                 </td>
 
                 <td>
+                    {{0}}
+                </td>
+
+                <!-- td>
                     <div class="flex">
                         <span class="fullheight">
                             {{0}}
@@ -158,9 +173,11 @@
                             </span>
                         </button>
                     </router-link>
-                </td>
+                </td-->
+
             </tr>
-            <tr v-else>
+
+            <tr v-else class="nohover">
                 <td :colspan="showEditButton ? 6 : 5">Der er ingen målere at vise</td>
             </tr>
         </table>
@@ -251,6 +268,13 @@
     .sensorTypeTd > span
     {
         transform: translateY(0.3rem);
+    }
+
+
+    tr:not(.nohover):hover
+    {
+        cursor:pointer;
+        background-color: var(--color-bg)
     }
 
 </style>
