@@ -13,6 +13,7 @@
 
 <script setup>
     import { ref, watch } from 'vue'
+    import * as dayjs from 'dayjs'
 
     import IconUniqueSensor from '@/components/icons/IconEditItem.vue'
     import IconTemplateSensor from '@/components/icons/IconDuplicateItem.vue'
@@ -117,9 +118,14 @@
 
                 <td>
                     <div class="flex col">
-                        <span class="red small flex">
+
+                        <span v-if="sensor.lastObservation == '0000-00-00 00:00:00'" class="red small flex">
                             <IconDownload scale="0.8" /> <span>Ingen import</span>
                         </span>
+                        <span v-else class="randers small flex">
+                            <IconDownload scale="0.8" /> <span>{{ dayjs(sensor.lastObservation).format("DD/MM-YYYY") }}</span>
+                        </span>
+
                         <span class="red small flex">
                             <IconUpload scale="0.8" /> <span>Ingen export</span>
                         </span>
