@@ -13,11 +13,11 @@
 
 <script setup>
     import { ref, watch } from 'vue'
-    import { useRouter } from 'vue-router'
+    //import { useRouter } from 'vue-router'
 
     import * as dayjs from 'dayjs'
 
-    const router = useRouter()
+    //const router = useRouter()
 
     import IconUniqueSensor from '@/components/icons/IconEditItem.vue'
     import IconTemplateSensor from '@/components/icons/IconDuplicateItem.vue'
@@ -27,61 +27,27 @@
     import IconDownload from '@/components/icons/IconDownload.vue'
     
     import energiarter from '@/data/energiarter.json'
+    import typekoder from '@/data/typekoder.json'
 
     const props = defineProps({
-        sensors: {
+        measurementPoints: {
             type: Array,
             required: false
-        },
-        filter: {
-            type: String,
-            required: false,
-            default: filters.NoFilter
-        },
-        allowClick: {
-            type: Boolean,
-            required: false,
-            default: true
-        },
-        header: {
-            type: String,
-            required: false,
-            default: "Registrerede målere"
         }
     })
 
-    const sensors = ref(null)
+    const measurementPoints = ref(null)
 
     // Watch when changing props
 
-    watch( () => props.sensors, (current, previous) => {
+    watch( () => props.measurementPoints, (current, previous) => {
 
-        sensors.value = current
-        console.log("New sensor-list retrieved:")
+        measurementPoints.value = current
+        console.log("New measurementPoints-list retrieved:")
         console.log(current)
 
     })
 
-    watch( () => props.filter, (current, previous) => {
-        
-        console.log("New filter set:")
-        console.log(current)
-    })
-
-    // Filter function
-
-    function filterSensors(filter)
-    {
-        if(filter == filter.Inactive)
-            sensors.value = sensors.value.filter(item => item.maalepunktCount > 0)
-    }
-
-    // Click
-
-    function clickSensor(uid)
-    {
-        router.push('/sensors/' + uid)
-    }
 
 </script>
 
@@ -93,44 +59,33 @@
         <template #heading>{{header}}</template>
 
         <span class="paragraph">
-            Herunder kan de registrerede målere ses, rettes og slettes.
+            Herunder kan målepunkter for måleren ses, rettes og slettes. Målepunkter eksporteres automatisk til EnergyKey.
         </span>
         
         <table>
             <thead>
                 <tr class="nohover">
-                    <th></th>
-                    <th>Målernavn</th>
+                    <th>Navn</th>
+                    <th>Enhed</th>
                     <th>Energiart</th>
+                    <th>Type</th>
                     <th>Seneste data</th>
-                    <th>Målepunkter</th>
-                    <!--th></th-->
+                    <th></th>
                 </tr>
             </thead>
 
-            <tr v-if="sensors != null && sensors.length > 0" v-for="sensor in sensors" @click="clickSensor(sensor.uid)" :class="!allowClick ? 'nohover' : ''">
+            <tr v-if="sensors != null && sensors.length > 0" v-for="measurement in measurementPoints" @click="clickSensor(sensor.uid)" :class="!allowClick ? 'nohover' : ''">
 
-                <td class="sensorTypeTd"> <!-- Sensor type (if based on template or not) -->
-                    <span class="randers" v-if="sensor.defaultValuesTemplateUid == -1">
-                        <IconUniqueSensor scale="0.8" />
-                    </span>
-                    <span class="blue" v-else>
-                        <IconTemplateSensor scale="0.8" />
-                    </span>
-                </td>
+                <td>{{measurement.name}}</td>
+                <td>{{measurement.unit}}</td>
 
-                <td>
-                    <div class="flex col">
-                        <span>{{sensor.name}}</span>
-                        <span v-if="sensor.defaultValuesTemplateUid != -1" class="tiny blue">Baseret på skabelon <span style="text-decoration: underline">denne skabelon</span></span>
-                    </div>
-                </td>
-                <td>{{energiarter[sensor.energiartskode]}}</td>
+                <td>{{energiarter[measurement.energiartskode]}}</td>
+                <td>{{typekoder[measurement.typekode]}}</td>
 
                 <td>
                     <div class="flex col">
 
-                        <span v-if="sensor.lastObservation == '0000-00-00 00:00:00'" class="red small flex">
+                        <span v-if="measurement.lastObservation == '0000-00-00 00:00:00'" class="red small flex">
                             <IconDownload scale="0.8" /> <span>Ingen import</span>
                         </span>
                         <span v-else class="randers small flex">
@@ -140,15 +95,15 @@
                         <span class="red small flex">
                             <IconUpload scale="0.8" /> <span>Ingen export</span>
                         </span>
-                        <!--span :class="true ? 'red' : 'blue'">{{true ? 'Ingen data' : 'X minutter siden'}}</span-->
+                        
                     </div>
                 </td>
 
                 <td>
-                    {{0}}
+                    
                 </td>
 
-                <!-- td>
+                <!--td>
                     <div class="flex">
                         <span class="fullheight">
                             {{0}}
@@ -162,7 +117,7 @@
                             </button>
                         </router-link>
                     </div>
-                </td>
+                </td-->
 
                 <td>
                     <router-link v-if="showEditButton" :to="'/sensors/' + sensor.uid">
@@ -173,12 +128,12 @@
                             </span>
                         </button>
                     </router-link>
-                </td-->
+                </td>
 
             </tr>
 
             <tr v-else class="nohover">
-                <td :colspan="showEditButton ? 6 : 5">Der er ingen målere at vise.</td>
+                <td :colspan="6">Der er ingen målepunkter tilknyttet måleren.</td>
             </tr>
         </table>
     </Content>

@@ -1,12 +1,12 @@
 const Node = {
-  "id": "0b9646d8e3ed38d1",
+  "id": "29e7d43764c0825e",
   "type": "http request",
   "z": "1b1f52cac1d78ec2",
   "name": "",
   "method": "POST",
-  "ret": "txt",
+  "ret": "obj",
   "paytoqs": "ignore",
-  "url": "localhost:1880/os2iot/v2",
+  "url": "localhost:1880/devices/measurements/add",
   "tls": "",
   "persist": false,
   "proxy": "",
@@ -15,7 +15,7 @@ const Node = {
   "senderr": false,
   "headers": [],
   "x": 350,
-  "y": 500,
+  "y": 620,
   "wires": [
     []
   ]

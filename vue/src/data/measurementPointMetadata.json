@@ -1,7 +1,11 @@
 {
-    "sensorUid": "",
-    "installation": "",
+    "devUid": "",
+    "name": "",
+    "inputUnit": "",
+    "convertedUnit": "",
     "energiart": -1,
     "type": -1,
-    "valueConversion": ""
+    "key": "",
+    "operator": "",
+    "operationValue": -1
 }

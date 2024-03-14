@@ -5,7 +5,7 @@ const Node = {
   "name": "Opret målepunkt",
   "info": "",
   "x": 180,
-  "y": 600,
+  "y": 580,
   "wires": []
 }
 

@@ -8,6 +8,7 @@
     const route = useRoute()
 
 
+    import ListMeasurementPoints from '@/components/sensor/ListMeasurementPoints.vue'
     import EditSensor from '@/components/sensor/EditSensor.vue'
 
 
@@ -25,21 +26,9 @@
 
 <template>
 
-    <h2>Måler</h2>
+    <h2>{{sensor.name}}</h2>
 
-    <Content>
-        
-        <template #icon>
-            <IconOK />
-        </template>
-        <template #heading>
-            Målepunkter
-        </template>
-
-        Kommer ...
-
-    </Content>
-
+    <ListMeasurementPoints />
     <EditSensor :sensor="sensor" :lockEui="true" />
 
 </template>

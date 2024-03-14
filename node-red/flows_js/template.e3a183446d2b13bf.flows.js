@@ -38,8 +38,8 @@ CREATE TABLE if not exists {{global.metadataTablename.maalepunkt}}
 	operator VARCHAR(255),
 	operationvalue SMALLINT,
 
-	isTemplate BOOL DEFAULT false,
-	defaultValuesTemplateUid MEDIUMINT,
+	-- isTemplate BOOL DEFAULT false,
+	-- defaultValuesTemplateUid MEDIUMINT,
 
 	UNIQUE (uid)
 );
