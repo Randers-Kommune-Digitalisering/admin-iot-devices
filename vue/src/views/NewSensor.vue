@@ -179,6 +179,7 @@
             <!-- Sensor metadata -->
 
             <div :style="startingPointSelected ? 'transition-delay: 300ms' : ''"  :class="( startingPointSelected ? ( startUsingTemplate ? ( hasSelectedTemplate ? ' anim' : ' anim hidden' ) : ' anim' ) : ' anim hidden' )">
+                <hr />
                 <EditSensor id="editSensor" @onUpdateSensorCount="updateSensorCount" @onUpdateSetAsTemplate="updateSetAsTemplate" :forceNoTemplate="startUsingTemplate" :quickAddMode="( startUsingTemplate ? true : false )" />
             </div>
 
@@ -239,69 +240,69 @@
 </template>
 
 <style scoped>
-#sectionStart button
-{
-    height: 12rem;
-    font-size: 0.9em;
-    padding-bottom: 0.8rem;
-
-    font-weight: 300;
-    text-transform: unset;
-    line-height: normal;
-}
-    button svg
+    #sectionStart button
     {
-        transition: 200ms;
-        margin-top: 2rem;
+        height: 12rem;
+        font-size: 0.9em;
+        padding-bottom: 0.8rem;
+
+        font-weight: 300;
+        text-transform: unset;
+        line-height: normal;
+    }
+        button svg
+        {
+            transition: 200ms;
+            margin-top: 2rem;
+        }
+
+    button.selected
+    {
+        background-color: var(--color-green);
     }
 
-button.selected
-{
-    background-color: var(--color-green);
-}
-
-#sectionStart button.collapse
-{
-    height: 8rem;
-    font-size: 0.8em!important;
-    padding-bottom: 0rem;
-}
-    button.collapse svg
+    #sectionStart button.collapse
     {
-        margin-top: 0.5rem;
+        height: 8rem;
+        font-size: 0.8em!important;
+        padding-bottom: 0rem;
+    }
+        button.collapse svg
+        {
+            margin-top: 0.5rem;
+        }
+
+    .addsensor {
+        font-size: 0.9em;
+        height: 7.5rem;
+        width: 20rem;
+        font-weight: 300;
+    }
+    .addsensor svg
+    {
+        margin-top: 1rem;
     }
 
-.addsensor {
-    font-size: 0.9em;
-    height: 7.5rem;
-    width: 20rem;
-    font-weight: 300;
-}
-.addsensor svg
-{
-    margin-top: 1rem;
-}
+    button.gray
+    {
+        background-color: var(--color-border);
+    }
+    button.gray:hover
+    {
+        background-color: var(--color-border-dark);
+    }
 
-button.gray
-{
-    background-color: var(--color-border);
-}
-button.gray:hover
-{
-    background-color: var(--color-border-dark);
-}
-
-.anim
-{
-    transition: 300ms;
-    transform: scaleY(1);
-    opacity: 1;
-}
-.hidden
-{
-    max-height: 0rem;
-    transform: scaleY(0) translateY(-60%);
-    opacity: 0;
-    overflow: hidden;
-}
+    .anim
+    {
+        transition: 300ms;
+        transform: scaleY(1);
+        opacity: 1;
+    }
+    .hidden
+    {
+        max-height: 0rem;
+        transform: scaleY(0) translateY(-60%);
+        opacity: 0;
+        overflow: hidden;
+    }
 </style>

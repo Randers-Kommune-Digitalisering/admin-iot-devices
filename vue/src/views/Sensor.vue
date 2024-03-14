@@ -13,22 +13,28 @@
 
 
     const sensor = ref(null)
+    const measurementPoints = ref(null)
 
-    // Fetch sensors
+    // Fetch sensor
 
-    fetch('/api/devices/get/' + route.params.uid)
+    fetch('/api/devices/get/' + route.params.uid + '/measurements/get')
+        .then(response => response = response.json())
+        .then(value => measurementPoints.value = value)
+
+    // Fetch measurement points
+
+    fetch('/api/devices/get/' + route.params.uid + '/')
         .then(response => response = response.json())
         .then(value => sensor.value = value)
-        //.then(value => console.log(value))
 
 
 </script>
 
 <template>
 
-    <h2>{{sensor.name}}</h2>
+    <h2>{{sensor != null ? sensor.name : 'Måler'}}</h2>
 
-    <ListMeasurementPoints />
+    <ListMeasurementPoints :measurementPoints="measurementPoints" />
     <EditSensor :sensor="sensor" :lockEui="true" />
 
 </template>

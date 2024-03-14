@@ -1,16 +1,3 @@
-<script>
-
-    const filters = {
-        Inactive: "inactive",
-        ActiveNoMeasurementPoints: "activeNoMeasurementPoints",
-        ActiveWithMeasurementPoints: "activeWithMeasurementPoints",
-        NoFilter: "noFilter"
-    }
-
-    export default { filters }
-
-</script>
-
 <script setup>
     import { ref, watch } from 'vue'
     //import { useRouter } from 'vue-router'
@@ -44,9 +31,11 @@
 
         measurementPoints.value = current
         console.log("New measurementPoints-list retrieved:")
-        console.log(current)
+        console.log(measurementPoints.value)
 
     })
+
+
 
 
 </script>
@@ -74,10 +63,10 @@
                 </tr>
             </thead>
 
-            <tr v-if="sensors != null && sensors.length > 0" v-for="measurement in measurementPoints" @click="clickSensor(sensor.uid)" :class="!allowClick ? 'nohover' : ''">
+            <tr v-if="measurementPoints != null" v-for="measurement in measurementPoints">
 
                 <td>{{measurement.name}}</td>
-                <td>{{measurement.unit}}</td>
+                <td>{{measurement.enhed}}</td>
 
                 <td>{{energiarter[measurement.energiartskode]}}</td>
                 <td>{{typekoder[measurement.typekode]}}</td>
@@ -85,11 +74,11 @@
                 <td>
                     <div class="flex col">
 
-                        <span v-if="measurement.lastObservation == '0000-00-00 00:00:00'" class="red small flex">
+                        <span v-if="measurement.lastObservation == null" class="red small flex">
                             <IconDownload scale="0.8" /> <span>Ingen import</span>
                         </span>
                         <span v-else class="randers small flex">
-                            <IconDownload scale="0.8" /> <span>{{ dayjs(sensor.lastObservation).format("DD/MM-YYYY") }}</span>
+                            <IconDownload scale="0.8" /> <span>{{ dayjs(measurement.lastObservation).format("DD/MM-YYYY") }}</span>
                         </span>
 
                         <span class="red small flex">
@@ -100,27 +89,7 @@
                 </td>
 
                 <td>
-                    
-                </td>
-
-                <!--td>
-                    <div class="flex">
-                        <span class="fullheight">
-                            {{0}}
-                        </span>
-                        <router-link v-if="showEditButton" :to="'/editsensor/'">
-                            <button @click="" class="rowbutton ext blue">
-                                <IconNewItem />
-                                <span>
-                                    Tilføj
-                                </span>
-                            </button>
-                        </router-link>
-                    </div>
-                </td-->
-
-                <td>
-                    <router-link v-if="showEditButton" :to="'/sensors/' + sensor.uid">
+                    <router-link :to="'/sensors/' + measurement.uid">
                         <button @click="" class="rowbutton wide">
                             <IconEdit />
                             <span>
@@ -135,6 +104,23 @@
             <tr v-else class="nohover">
                 <td :colspan="6">Der er ingen målepunkter tilknyttet måleren.</td>
             </tr>
+
+
+            <tr> <!-- Add sensor row -->
+                <td colspan="5"></td>
+                <td>
+                    <router-link :to="'/editsensor/'">
+                        <button @click="" class="rowbutton blue wide">
+                            <IconNewItem />
+                            <span>
+                                Tilføj
+                            </span>
+                        </button>
+                    </router-link>
+                </td>
+            </tr>
+
+
         </table>
     </Content>
 
@@ -149,6 +135,10 @@
     td
     {
         font-size: 1em;
+    }
+    table
+    {
+        margin-bottom: 3rem;
     }
     .rowbutton 
     {
@@ -213,23 +203,5 @@
             display:block;
             height: 100%;
         }
-
-    
-    .sensorTypeTd
-    {
-        max-width: 1.5rem;
-        padding-right:0rem;
-    }
-    .sensorTypeTd > span
-    {
-        transform: translateY(0.3rem);
-    }
-
-
-    tr:not(.nohover):hover
-    {
-        cursor:pointer;
-        background-color: var(--color-bg)
-    }
 
 </style>

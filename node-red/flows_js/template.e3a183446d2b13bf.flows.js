@@ -27,7 +27,7 @@ CREATE TABLE if not exists {{global.metadataTablename.maalepunkt}}
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	lastUpdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
-	navn VARCHAR(255),
+	name VARCHAR(255),
 	enhed VARCHAR(255),
 	energiartskode SMALLINT,
 	typekode SMALLINT,

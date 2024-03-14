@@ -22,7 +22,7 @@ Node.template = `
 INSERT INTO {{global.metadataTablename.maalepunkt}}
 (
 	deviceUid,
-	navn,
+	name,
 	inputenhed,
 	enhed,
 	energiartskode,

@@ -165,9 +165,7 @@
 
 <template>
 
-    <!-- DevEUI + AppKey list + Name + Energiart -->
-
-    <hr />
+<!-- DevEUI + AppKey list + Name + Energiart -->
 
 <Content :id="id">
     <template #icon>
