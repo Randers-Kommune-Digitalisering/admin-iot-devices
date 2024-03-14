@@ -1,11 +1,11 @@
 const Node = {
-  "id": "7c882908e07f4855",
+  "id": "17f5ec9a78ecf0e9",
   "type": "comment",
   "z": "1b1f52cac1d78ec2",
-  "name": "Instantiate a sensor",
+  "name": "Opret målepunkt",
   "info": "",
-  "x": 190,
-  "y": 340,
+  "x": 180,
+  "y": 600,
   "wires": []
 }
 

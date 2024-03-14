@@ -16,7 +16,7 @@ const Node = {
   "payload": "[{\"appKey\":\"OtaaAppKeyTest\",\"devEui\":\"102ceffffe010f65\",\"name\":\"Emu El-måler Grønhøjskolen\",\"energiart\":0,\"serviceProfile\":0,\"payloadDecoder\":0,\"isTemplate\":false,\"templateUid\":-1}]",
   "payloadType": "json",
   "x": 160,
-  "y": 620,
+  "y": 380,
   "wires": [
     [
       "2377d286150de930"

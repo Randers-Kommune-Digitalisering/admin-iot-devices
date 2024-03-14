@@ -2,7 +2,7 @@ const Node = {
   "id": "6b9a4e582b1e4da4",
   "type": "change",
   "z": "7b3a886e00fb2ea6",
-  "name": "Table names (new)",
+  "name": "Table names",
   "rules": [
     {
       "t": "set",
@@ -52,7 +52,7 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 290,
+  "x": 270,
   "y": 80,
   "wires": [
     [

@@ -5,7 +5,7 @@ const Node = {
   "name": "Drop tables",
   "info": "",
   "x": 170,
-  "y": 220,
+  "y": 60,
   "wires": []
 }
 

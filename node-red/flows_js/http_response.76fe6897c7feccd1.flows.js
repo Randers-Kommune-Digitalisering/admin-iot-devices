@@ -6,7 +6,7 @@ const Node = {
   "statusCode": "200",
   "headers": {},
   "x": 720,
-  "y": 600,
+  "y": 240,
   "wires": []
 }
 

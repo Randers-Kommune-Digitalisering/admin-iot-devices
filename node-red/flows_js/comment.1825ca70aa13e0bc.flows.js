@@ -1,11 +1,11 @@
 const Node = {
-  "id": "7c882908e07f4855",
+  "id": "1825ca70aa13e0bc",
   "type": "comment",
-  "z": "1b1f52cac1d78ec2",
-  "name": "Instantiate a sensor",
+  "z": "dc028cb1b3d1491a",
+  "name": "Measurement points",
   "info": "",
   "x": 190,
-  "y": 340,
+  "y": 540,
   "wires": []
 }
 

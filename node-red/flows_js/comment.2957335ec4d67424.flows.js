@@ -5,7 +5,7 @@ const Node = {
   "name": "Upload data",
   "info": "",
   "x": 170,
-  "y": 720,
+  "y": 480,
   "wires": []
 }
 
