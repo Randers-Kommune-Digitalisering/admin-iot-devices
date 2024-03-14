@@ -5,11 +5,9 @@
     import * as dayjs from 'dayjs'
 
     //const router = useRouter()
-    
+
     import Content from '@/components/Content.vue'
 
-    import IconUniqueSensor from '@/components/icons/IconEditItem.vue'
-    import IconTemplateSensor from '@/components/icons/IconDuplicateItem.vue'
     import IconEdit from '@/components/icons/IconEditSimple.vue'
     import IconNewItem from '@/components/icons/IconNewItem.vue'
     import IconUpload from '@/components/icons/IconUpload.vue'
@@ -36,9 +34,6 @@
         console.log(measurementPoints.value)
 
     })
-
-
-
 
 </script>
 

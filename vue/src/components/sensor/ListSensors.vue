@@ -16,14 +16,13 @@
     import { useRouter } from 'vue-router'
 
     import * as dayjs from 'dayjs'
-    
+
     import Content from '@/components/Content.vue'
 
     const router = useRouter()
 
     import IconUniqueSensor from '@/components/icons/IconEditItem.vue'
     import IconTemplateSensor from '@/components/icons/IconDuplicateItem.vue'
-    import IconEdit from '@/components/icons/IconEditSimple.vue'
     import IconNewItem from '@/components/icons/IconNewItem.vue'
     import IconUpload from '@/components/icons/IconUpload.vue'
     import IconDownload from '@/components/icons/IconDownload.vue'
@@ -47,8 +46,7 @@
         },
         header: {
             type: String,
-            required: false,
-            default: "Registrerede målere"
+            required: false
         }
     })
 
@@ -149,33 +147,6 @@
                 <td>
                     {{0}}
                 </td>
-
-                <!-- td>
-                    <div class="flex">
-                        <span class="fullheight">
-                            {{0}}
-                        </span>
-                        <router-link v-if="showEditButton" :to="'/editsensor/'">
-                            <button @click="" class="rowbutton ext blue">
-                                <IconNewItem />
-                                <span>
-                                    Tilføj
-                                </span>
-                            </button>
-                        </router-link>
-                    </div>
-                </td>
-
-                <td>
-                    <router-link v-if="showEditButton" :to="'/sensors/' + sensor.uid">
-                        <button @click="" class="rowbutton wide">
-                            <IconEdit />
-                            <span>
-                                Redigér
-                            </span>
-                        </button>
-                    </router-link>
-                </td-->
 
             </tr>
 
