@@ -5,6 +5,8 @@
     import * as dayjs from 'dayjs'
 
     //const router = useRouter()
+    
+    import Content from '@/components/Content.vue'
 
     import IconUniqueSensor from '@/components/icons/IconEditItem.vue'
     import IconTemplateSensor from '@/components/icons/IconDuplicateItem.vue'
@@ -45,7 +47,7 @@
     <Content>
         <template #icon>
         </template>
-        <template #heading>{{header}}</template>
+        <template #heading>Målepunkter</template>
 
         <span class="paragraph">
             Herunder kan målepunkter for måleren ses, rettes og slettes. Målepunkter eksporteres automatisk til EnergyKey.
@@ -63,7 +65,7 @@
                 </tr>
             </thead>
 
-            <tr v-if="measurementPoints != null" v-for="measurement in measurementPoints">
+            <tr v-if="measurementPoints != null && measurementPoints.length > 0" v-for="measurement in measurementPoints">
 
                 <td>{{measurement.name}}</td>
                 <td>{{measurement.enhed}}</td>

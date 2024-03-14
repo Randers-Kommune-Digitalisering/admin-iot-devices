@@ -16,6 +16,8 @@
     import { useRouter } from 'vue-router'
 
     import * as dayjs from 'dayjs'
+    
+    import Content from '@/components/Content.vue'
 
     const router = useRouter()
 
