@@ -50,7 +50,7 @@
         }
     })
 
-    const sensors = ref(null)
+    const sensors = ref(props.sensors)
 
     // Watch when changing props
 
@@ -125,12 +125,12 @@
                         <span v-if="sensor.defaultValuesTemplateUid != -1" class="tiny blue">Baseret på skabelon <span style="text-decoration: underline">{{sensor.templateName}}</span></span>
                     </div>
                 </td>
-                <td>{{energiarter[sensor.energiartskode]}}</td>
+                <td>{{energiarter[sensor.energiartskode ?? sensor.energiart]}}</td>
 
                 <td>
                     <div class="flex col">
 
-                        <span v-if="sensor.lastObservation == '0000-00-00 00:00:00'" class="red small flex">
+                        <span v-if="sensor.lastObservation == null || sensor.lastObservation == '0000-00-00 00:00:00'" class="red small flex">
                             <IconDownload :scale="0.8" /> <span>Ingen import</span>
                         </span>
                         <span v-else class="randers small flex">
@@ -151,7 +151,7 @@
             </tr>
 
             <tr v-else class="nohover">
-                <td :colspan="showEditButton ? 6 : 5">Der er ingen målere at vise.</td>
+                <td :colspan="6">Der er ingen målere at vise.</td>
             </tr>
         </table>
     </Content>

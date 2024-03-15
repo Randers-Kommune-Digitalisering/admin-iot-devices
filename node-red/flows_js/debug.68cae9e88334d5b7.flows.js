@@ -1,18 +1,17 @@
 const Node = {
-  "id": "f4fe574b19518461",
+  "id": "68cae9e88334d5b7",
   "type": "debug",
   "z": "7b3a886e00fb2ea6",
-  "name": "Opret sensor",
+  "name": "debug 11",
   "active": true,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
-  "complete": "payload",
-  "targetType": "msg",
+  "complete": "false",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1390,
-  "y": 880,
+  "x": 720,
+  "y": 1600,
   "wires": []
 }
 

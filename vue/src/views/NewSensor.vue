@@ -13,6 +13,7 @@
 
     import SelectTemplate from '@/components/sensor/SelectTemplate.vue'
     import EditSensor from '@/components/sensor/EditSensor.vue'
+    import ListSensors from '@/components/sensor/ListSensors.vue'
 
     // Import Icons
     import IconNewSensor from '@/components/icons/IconEditItem.vue'
@@ -125,6 +126,7 @@
         isTemplate.value = setAsTemplate
     }   
 
+    // Reset previous values when loading the page 
 
     resetAll()
 
@@ -211,6 +213,7 @@
 </div>
 <div v-else>
 
+    <!-- Register sucess -->
     <h2 id="start">{{
             isTemplate ? 'Skabelon oprettet' :
             ( currentSensorCount > 1 ? 'Målere registreret' : 'Måler registreret' )
@@ -221,16 +224,18 @@
                 <IconOK />
         </template>
         <template #heading>
-            <span :class="httpResponse.affectedRows >= 1 ? 'green' : 'red'">
-                <span class="heavy">
+            <span :class="httpResponse.dbResponse.affectedRows >= 1 ? '' : 'red'">
+                <span>
                     {{
                         isTemplate ? 'Ny skabelon blev oprettet' :
-                        ( JSON.stringify( httpResponse.affectedRows ) + ( currentSensorCount > 1 ? ' nye målere blev registreret' : ' ny måler blev registreret' ))
+                        ( JSON.stringify( httpResponse.dbResponse.affectedRows ) + ( currentSensorCount > 1 ? ' nye målere blev registreret' : ' ny måler blev registreret' ))
                     }}
                 </span>
             </span>
         </template>
-        
+
+        <ListSensors :sensors="httpResponse.requestBody" />
+
         <button class="addsensor" @click="resetAll()">Registrér en ny måler</button>
         
     </Content>
@@ -273,6 +278,7 @@
         }
 
     .addsensor {
+        margin-top: 2.5rem;
         font-size: 0.9em;
         height: 7.5rem;
         width: 20rem;

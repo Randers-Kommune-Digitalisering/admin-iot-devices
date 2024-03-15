@@ -19,7 +19,19 @@ const Node = {
 }
 
 Node.template = `
-SELECT * FROM {{global.metadataTablename.maalepunkt}} WHERE deviceUid = {{devUid}}
+SELECT * FROM {{global.metadataTablename.maalepunkt}} as t1 WHERE deviceUid = {{devUid}}
+/*
+-- Left join med seneste dataobservation og træk
+LEFT JOIN 
+(
+    SELECT
+        lastObservation as lastObservation,
+        lastExport as lastExport
+    FROM {{global.metadataTablename.maaler}}
+    
+) AS t2 
+    ON t1.defaultValuesTemplateUid = t2.templateUid;
+*/
 `
 
 module.exports = Node;
