@@ -8,6 +8,7 @@
 
     import Content from '@/components/Content.vue'
 
+    import IconMeasurementPoint from '@/components/icons/IconCircle.vue'
     import IconEdit from '@/components/icons/IconEditSimple.vue'
     import IconNewItem from '@/components/icons/IconNewItem.vue'
     import IconUpload from '@/components/icons/IconUpload.vue'
@@ -41,6 +42,7 @@
     
     <Content>
         <template #icon>
+            <IconMeasurementPoint />
         </template>
         <template #heading>Målepunkter</template>
 
@@ -51,16 +53,22 @@
         <table>
             <thead>
                 <tr class="nohover">
+                    <th></th>
                     <th>Navn</th>
                     <th>Enhed</th>
                     <th>Energiart</th>
                     <th>Type</th>
                     <th>Seneste data</th>
-                    <th></th>
                 </tr>
             </thead>
 
             <tr v-if="measurementPoints != null && measurementPoints.length > 0" v-for="measurement in measurementPoints">
+
+                <td class="sensorTypeTd"> <!-- Measurement point status (if data is being imported and exported) -->
+                    <span class="red">
+                        <IconMeasurementPoint scale="0.8" />
+                    </span>
+                </td>
 
                 <td>{{measurement.name}}</td>
                 <td>{{measurement.enhed}}</td>
@@ -85,7 +93,7 @@
                     </div>
                 </td>
 
-                <td>
+                <!--td>
                     <router-link :to="'/sensors/' + measurement.uid">
                         <button @click="" class="rowbutton wide">
                             <IconEdit />
@@ -94,7 +102,7 @@
                             </span>
                         </button>
                     </router-link>
-                </td>
+                </td-->
 
             </tr>
 
@@ -103,14 +111,14 @@
             </tr>
 
 
-            <tr> <!-- Add sensor row -->
+            <tr class="nohover"> <!-- Add sensor row -->
                 <td colspan="5"></td>
                 <td>
                     <router-link :to="'/editsensor/'">
                         <button @click="" class="rowbutton blue wide">
                             <IconNewItem />
                             <span>
-                                Tilføj
+                                Tilføj målepunkt
                             </span>
                         </button>
                     </router-link>
@@ -139,7 +147,7 @@
     }
     .rowbutton 
     {
-        width: 4rem;
+        width: 5rem;
         height: 4.5rem;
         padding: 0.5rem;
         margin-bottom: 0rem;
@@ -147,7 +155,7 @@
     }
     .rowbutton.wide
     {
-        width: 5rem;
+        width: 10rem;
     }
     .rowbutton.ext
     {
@@ -160,7 +168,7 @@
             width:100%;
             text-align: center;
             bottom: 0.5rem;
-            font-size: 0.6em;
+            font-size: 0.7em;
         }
         .rowbutton svg
         {
@@ -200,5 +208,23 @@
             display:block;
             height: 100%;
         }
+
+    
+    .sensorTypeTd
+    {
+        max-width: 1.5rem;
+        padding-right:0rem;
+    }
+    .sensorTypeTd > span
+    {
+        transform: translateY(0.3rem);
+    }
+
+
+    tr:not(.nohover):hover
+    {
+        cursor:pointer;
+        background-color: var(--color-bg)
+    }
 
 </style>

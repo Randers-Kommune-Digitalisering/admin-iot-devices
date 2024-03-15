@@ -7,10 +7,10 @@
 
     const route = useRoute()
 
-
     import ListMeasurementPoints from '@/components/sensor/ListMeasurementPoints.vue'
     import EditSensor from '@/components/sensor/EditSensor.vue'
 
+    import IconEditSimple from '@/components/icons/IconEditSimple.vue'
 
     const sensor = ref(null)
     const measurementPoints = ref(null)
@@ -37,4 +37,26 @@
     <ListMeasurementPoints :measurementPoints="measurementPoints" />
     <EditSensor :sensor="sensor" :lockEui="true" />
 
+    <Content>
+        <button :class="'addsensor ' + (isTemplate ? ' orange' : '')">
+            <span>Gem ændringer</span>
+            <br /><IconEditSimple />
+        </button>
+    </Content>
+
 </template>
+
+
+
+<style scoped>
+    .addsensor {
+        font-size: 0.9em;
+        height: 7.5rem;
+        width: 20rem;
+        font-weight: 300;
+    }
+    .addsensor svg
+    {
+        margin-top: 1rem;
+    }
+</style>

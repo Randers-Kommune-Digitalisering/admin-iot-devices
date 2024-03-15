@@ -122,7 +122,7 @@
                 <td>
                     <div class="flex col">
                         <span>{{sensor.name}}</span>
-                        <span v-if="sensor.defaultValuesTemplateUid != -1" class="tiny blue">Baseret på skabelon <span style="text-decoration: underline">denne skabelon</span></span>
+                        <span v-if="sensor.defaultValuesTemplateUid != -1" class="tiny blue">Baseret på skabelon <span style="text-decoration: underline">{{sensor.templateName}}</span></span>
                     </div>
                 </td>
                 <td>{{energiarter[sensor.energiartskode]}}</td>
@@ -168,37 +168,6 @@
     {
         font-size: 1em;
     }
-    .rowbutton 
-    {
-        width: 4rem;
-        height: 4.5rem;
-        padding: 0.5rem;
-        margin-bottom: 0rem;
-        position:relative;
-    }
-    .rowbutton.wide
-    {
-        width: 5rem;
-    }
-    .rowbutton.ext
-    {
-        margin-left: 0.2rem;
-    }
-        .rowbutton > span
-        {
-            position:absolute;
-            left:0px;
-            width:100%;
-            text-align: center;
-            bottom: 0.5rem;
-            font-size: 0.6em;
-        }
-        .rowbutton svg
-        {
-            position:absolute;
-            left: calc(50% - 10px);
-            bottom: calc(50% - 4px);
-        }
         
     .small
     {

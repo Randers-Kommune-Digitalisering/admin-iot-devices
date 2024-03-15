@@ -93,6 +93,7 @@
         sensorList.value[0].energiart = current.energiartskode
         sensorList.value[0].serviceProfile = current.serviceProfileUid
         sensorList.value[0].payloadDecoder = current.serviceProfileUid
+        sensorList.value[0].templateUid = current.defaultValuesTemplateUid
         //console.log("Updated sensor data: ")
         console.log(current)
     })
@@ -173,7 +174,7 @@
     </template>
     <template #heading>Beskrivelse</template>
 
-        <div v-if="!quickAddMode">
+        <div v-if="!quickAddMode && (sensorList[0].templateUid == -1)">
             <input type="checkbox" id="istemplate" name="One" value="One" style="margin-bottom: 2.5rem" v-model="isTemplate">
             <label v-if="isTemplate" for="istemplate" class="orange">Markeret som skabelon</label>
             <label v-else for="istemplate" class="randers">Markér som skabelon</label>
@@ -226,7 +227,7 @@
                     Energiart
 
                 </label>
-                <select name="template" id="template" v-model="sensorList[0].energiart" :disabled="lockSharedProperties" required>
+                <select name="template" id="template" v-model="sensorList[0].energiart" :disabled="lockSharedProperties || (sensorList[0] != null && sensorList[0].templateUid != -1)" required>
                     <option value="-1" disabled>Vælg fra liste ..</option>
 
                     <option v-for="(energiart, index) in energiarter" :value="index">{{ energiart }}</option>
@@ -240,9 +241,9 @@
 
     <!-- Sensor configuration -->
 
-    <hr v-if="!quickAddMode" />
+<hr v-if="!quickAddMode && (sensorList[0].templateUid == -1)" />
 
-<Content v-if="!quickAddMode">
+<Content v-if="!quickAddMode && (sensorList[0].templateUid == -1)">
     <template #icon>
         <IconSettings />
     </template>
@@ -252,35 +253,35 @@
     
     <div class="flexbox">
             
-            <div>
-                <label for="deviceprofile_0" class="capitalize">
+        <div>
+            <label for="deviceprofile_0" class="capitalize">
 
-                    Serviceprofil
+                Serviceprofil
 
-                </label>
-                <select name="template" id="template" v-model="sensorList[0].serviceProfile">
-                    <option value="-1" disabled>Vælg fra liste ..</option>
+            </label>
+            <select name="template" id="template" v-model="sensorList[0].serviceProfile">
+                <option value="-1" disabled>Vælg fra liste ..</option>
 
-                    <option v-for="(profile, index) in serviceProfile" :value="index">{{ profile }}</option>
-                </select>
-
-            </div>
-            
-            <div>
-                <label for="deviceprofile_0" class="capitalize">
-
-                    Dekoder
-
-                </label>
-                <select name="template" id="template" v-model="sensorList[0].payloadDecoder">
-                    <option value="-1" disabled>Vælg fra liste ..</option>
-
-                    <option v-for="(decoder, index) in payloadDecoder" :value="index">{{ decoder }}</option>
-                </select>
-
-            </div>
+                <option v-for="(profile, index) in serviceProfile" :value="index">{{ profile }}</option>
+            </select>
 
         </div>
+        
+        <div>
+            <label for="deviceprofile_0" class="capitalize">
+
+                Dekoder
+
+            </label>
+            <select name="template" id="template" v-model="sensorList[0].payloadDecoder">
+                <option value="-1" disabled>Vælg fra liste ..</option>
+
+                <option v-for="(decoder, index) in payloadDecoder" :value="index">{{ decoder }}</option>
+            </select>
+
+        </div>
+
+    </div>
 
 
 </Content>

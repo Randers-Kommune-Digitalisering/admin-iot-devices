@@ -38,7 +38,7 @@ CREATE TABLE if not exists {{global.metadataTablename.maaler}}
 	payloadDecoderUid SMALLINT,
 
 	isTemplate BOOL DEFAULT false,
-	defaultValuesTemplateUid MEDIUMINT,
+	defaultValuesTemplateUid MEDIUMINT DEFAULT -1,
 
 	lastObservation TIMESTAMP,
 	dataTablename VARCHAR(255),

@@ -231,7 +231,7 @@
             </span>
         </template>
         
-        <button @click="resetAll()">Registrér en ny måler</button>
+        <button class="addsensor" @click="resetAll()">Registrér en ny måler</button>
         
     </Content>
 

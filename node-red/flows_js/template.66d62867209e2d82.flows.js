@@ -19,7 +19,20 @@ const Node = {
 }
 
 Node.template = `
-SELECT * FROM {{global.metadataTablename.maaler}} WHERE isTemplate = false
+SELECT
+    *
+FROM
+    {{global.metadataTablename.maaler}} AS t1
+    
+LEFT JOIN
+(
+    SELECT
+        uid as templateUid,
+        name as templateName
+    FROM {{global.metadataTablename.maaler}}
+    
+) AS t2 
+    ON t1.defaultValuesTemplateUid = t2.templateUid;
 `
 
 module.exports = Node;
