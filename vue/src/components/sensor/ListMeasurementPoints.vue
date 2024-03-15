@@ -7,6 +7,7 @@
     //const router = useRouter()
 
     import Content from '@/components/Content.vue'
+    import EditMeasurementPoint from '@/components/sensor/EditMeasurementPoint.vue'
 
     import IconMeasurementPoint from '@/components/icons/IconCircle.vue'
     import IconEdit from '@/components/icons/IconEditSimple.vue'
@@ -36,6 +37,18 @@
 
     })
 
+    // Editing functionality
+
+    const editingMeasurementPoint = ref(false)
+    const measurementPointSelected = ref(null)
+
+    function selectMeasurementPoint(uid)
+    {
+        console.log("Editing measurement point #" + uid)
+        editingMeasurementPoint.value = true
+        measurementPointSelected.value = uid
+    }
+
 </script>
 
 <template>
@@ -62,11 +75,11 @@
                 </tr>
             </thead>
 
-            <tr v-if="measurementPoints != null && measurementPoints.length > 0" v-for="measurement in measurementPoints">
+            <tr v-if="measurementPoints != null && measurementPoints.length > 0" v-for="measurement in measurementPoints" @click="selectMeasurementPoint(measurement.uid)">
 
                 <td class="sensorTypeTd"> <!-- Measurement point status (if data is being imported and exported) -->
                     <span class="red">
-                        <IconMeasurementPoint scale="0.8" />
+                        <IconMeasurementPoint :scale="0.8" />
                     </span>
                 </td>
 
@@ -80,14 +93,14 @@
                     <div class="flex col">
 
                         <span v-if="measurement.lastObservation == null" class="red small flex">
-                            <IconDownload scale="0.8" /> <span>Ingen import</span>
+                            <IconDownload :scale="0.8" /> <span>Ingen import</span>
                         </span>
                         <span v-else class="randers small flex">
-                            <IconDownload scale="0.8" /> <span>{{ dayjs(measurement.lastObservation).format("DD/MM-YYYY") }}</span>
+                            <IconDownload :scale="0.8" /> <span>{{ dayjs(measurement.lastObservation).format("DD/MM-YYYY") }}</span>
                         </span>
 
                         <span class="red small flex">
-                            <IconUpload scale="0.8" /> <span>Ingen export</span>
+                            <IconUpload :scale="0.8" /> <span>Ingen export</span>
                         </span>
                         
                     </div>

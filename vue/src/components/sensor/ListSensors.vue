@@ -112,10 +112,10 @@
 
                 <td class="sensorTypeTd"> <!-- Sensor type (if based on template or not) -->
                     <span class="randers" v-if="sensor.defaultValuesTemplateUid == -1">
-                        <IconUniqueSensor scale="0.8" />
+                        <IconUniqueSensor :scale="0.8" />
                     </span>
                     <span class="blue" v-else>
-                        <IconTemplateSensor scale="0.8" />
+                        <IconTemplateSensor :scale="0.8" />
                     </span>
                 </td>
 
@@ -131,14 +131,14 @@
                     <div class="flex col">
 
                         <span v-if="sensor.lastObservation == '0000-00-00 00:00:00'" class="red small flex">
-                            <IconDownload scale="0.8" /> <span>Ingen import</span>
+                            <IconDownload :scale="0.8" /> <span>Ingen import</span>
                         </span>
                         <span v-else class="randers small flex">
-                            <IconDownload scale="0.8" /> <span>{{ dayjs(sensor.lastObservation).format("DD/MM-YYYY") }}</span>
+                            <IconDownload :scale="0.8" /> <span>{{ dayjs(sensor.lastObservation).format("DD/MM-YYYY") }}</span>
                         </span>
 
                         <span class="red small flex">
-                            <IconUpload scale="0.8" /> <span>Ingen export</span>
+                            <IconUpload :scale="0.8" /> <span>Ingen export</span>
                         </span>
                         <!--span :class="true ? 'red' : 'blue'">{{true ? 'Ingen data' : 'X minutter siden'}}</span-->
                     </div>
