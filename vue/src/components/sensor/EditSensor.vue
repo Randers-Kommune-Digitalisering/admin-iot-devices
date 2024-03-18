@@ -25,6 +25,7 @@
     function resetSensorList()
     {
         sensorList.value = []
+        isTemplate.value = false
         //newSensor()
     }
 
@@ -82,11 +83,6 @@
 
     watch( () =>  props.sensor, (current, previous) => {
         
-        if(current.isTemplate)
-        {
-            isTemplate.value = true
-        }
-
         sensorList.value[0].uid = current.uid
         sensorList.value[0].devEui = current.deviceEui
         sensorList.value[0].appKey = current.applicationKey
@@ -95,6 +91,8 @@
         sensorList.value[0].serviceProfile = current.serviceProfileUid
         sensorList.value[0].payloadDecoder = current.serviceProfileUid
         sensorList.value[0].templateUid = current.defaultValuesTemplateUid
+        sensorList.value[0].isTemplate = current.isTemplate
+        isTemplate.value = current.isTemplate == 1 ? true : false
         
         //console.log("Updated sensor data: ")
         console.log(current)

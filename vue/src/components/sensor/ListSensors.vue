@@ -111,7 +111,7 @@
             <tr v-if="sensors != null && sensors.length > 0" v-for="sensor in sensors" @click="clickSensor(sensor.uid)" :class="!allowClick ? 'nohover' : ''">
 
                 <td class="sensorTypeTd"> <!-- Sensor type (if based on template or not) -->
-                    <span class="randers" v-if="sensor.defaultValuesTemplateUid == -1">
+                    <span :class="sensor.isTemplate ? 'orange' : 'randers'" v-if="sensor.defaultValuesTemplateUid == -1">
                         <IconUniqueSensor :scale="0.8" />
                     </span>
                     <span class="blue" v-else>
@@ -122,7 +122,8 @@
                 <td>
                     <div class="flex col">
                         <span>{{sensor.name}}</span>
-                        <span v-if="sensor.defaultValuesTemplateUid != -1" class="tiny blue">Baseret på skabelon <span style="text-decoration: underline">{{sensor.templateName}}</span></span>
+                        <span v-if="sensor.defaultValuesTemplateUid != -1" class="tiny blue">Baseret på <span style="text-decoration: underline">{{sensor.templateName}}</span></span>
+                        <span v-if="sensor.isTemplate" class="tiny orange">Markeret som skabelon</span>
                     </div>
                 </td>
                 <td>{{energiarter[sensor.energiartskode ?? sensor.energiart]}}</td>
