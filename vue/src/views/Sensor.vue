@@ -51,6 +51,8 @@
 
     <h2>{{sensor != null ? sensor.name : 'Måler'}}</h2>
 
+    <span v-if="sensor != null && sensor.defaultValuesTemplateUid != -1" class="underheader blue">Baseret på <span style="text-decoration: underline">{{sensor.templateName}}</span></span>
+
     <ListMeasurementPoints :measurementPoints="measurementPoints" />
     <EditSensor :sensor="sensor" :lockEui="true" />
 
@@ -75,5 +77,10 @@
     .addsensor svg
     {
         margin-top: 1rem;
+    }
+    .underheader
+    {
+        font-size: 0.8em;
+        transform: translateY(-1.5rem) translateX(0.5rem);
     }
 </style>
