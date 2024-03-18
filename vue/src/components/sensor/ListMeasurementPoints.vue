@@ -17,11 +17,16 @@
     
     import energiarter from '@/data/energiarter.json'
     import typekoder from '@/data/typekoder.json'
+    import measurementPointMetadata from '@/data/measurementPointMetadata.json'
 
     const props = defineProps({
         measurementPoints: {
             type: Array,
             required: false
+        },
+        deviceUid: {
+            type: Number,
+            required: true
         }
     })
 
@@ -44,8 +49,33 @@
 
     function selectMeasurementPoint(point)
     {
+        if(measurementPointSelected.value == point)
+        {
+            measurementPointSelected.value = null
+            editingMeasurementPoint.value = false
+            return
+        }
+        else if(editingMeasurementPoint.value && point.uid != -1)
+            return; // Don't swap if creating new measurement point
+        
         console.log("Editing measurement point #" + point.uid)
+        console.log(point)
+
         measurementPointSelected.value = point
+        editingMeasurementPoint.value = true
+    }
+
+    // Add new
+
+    function newMeasurementPoint()
+    {
+        //measurementPointSelected.value = {}
+        //console.log(measurementPointSelected.value)
+        measurementPointSelected.value = JSON.parse(JSON.stringify(measurementPointMetadata))
+
+        // Update refs in object
+        measurementPointSelected.value.devUid = props.deviceUid
+
         editingMeasurementPoint.value = true
     }
 
@@ -75,7 +105,7 @@
                 </tr>
             </thead>
 
-            <tr v-if="measurementPoints != null && measurementPoints.length > 0" v-for="measurement in measurementPoints" @click="selectMeasurementPoint(measurement)">
+            <tr v-if="measurementPoints != null && measurementPoints.length > 0" v-for="measurement in measurementPoints" @click="selectMeasurementPoint(measurement)" :class="(editingMeasurementPoint && measurementPointSelected.uid == -1) ? ' nohover' : ''">
 
                 <td class="sensorTypeTd"> <!-- Measurement point status (if data is being imported and exported) -->
                     <span class="red">
@@ -114,25 +144,25 @@
             </tr>
 
 
-            <tr class="nohover"> <!-- Add sensor row -->
-                <td colspan="5"></td>
-                <td>
-                    <router-link :to="'/editsensor/'">
-                        <button @click="" class="rowbutton blue wide">
-                            <IconNewItem />
-                            <span>
-                                Tilføj målepunkt
-                            </span>
-                        </button>
-                    </router-link>
+            <tr v-if="editingMeasurementPoint" class="nohover">
+                <td colspan="6">
+                <EditMeasurementPoint :measurementPoint="measurementPointSelected" :deviceUid="deviceUid" />
                 </td>
             </tr>
 
+            <tr v-else class="nohover"> <!-- Add sensor row -->
+                <td colspan="5"></td>
+                <td>
+                    <button @click="newMeasurementPoint()" class="rowbutton blue wide">
+                        <IconNewItem />
+                        <span>
+                            Tilføj målepunkt
+                        </span>
+                    </button>
+                </td>
+            </tr>
 
         </table>
-
-
-        <EditMeasurementPoint v-if="editingMeasurementPoint" :measurementPoint="measurementPointSelected" />
         
     </Content>
 
@@ -154,8 +184,8 @@
     }
     .rowbutton 
     {
-        width: 5rem;
-        height: 4.5rem;
+        width: 8rem;
+        height: 4.8rem;
         padding: 0.5rem;
         margin-bottom: 0rem;
         position:relative;
@@ -174,14 +204,14 @@
             left:0px;
             width:100%;
             text-align: center;
-            bottom: 0.5rem;
+            bottom: 0.6rem;
             font-size: 0.7em;
         }
         .rowbutton svg
         {
             position:absolute;
             left: calc(50% - 10px);
-            bottom: calc(50% - 4px);
+            bottom: calc(50% - 3px);
         }
         
     .small

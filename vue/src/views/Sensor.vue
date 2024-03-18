@@ -53,7 +53,7 @@
 
     <span v-if="sensor != null && sensor.defaultValuesTemplateUid != -1" class="underheader blue">Baseret på <span style="text-decoration: underline">{{sensor.templateName}}</span></span>
 
-    <ListMeasurementPoints :measurementPoints="measurementPoints" />
+    <ListMeasurementPoints :measurementPoints="measurementPoints" :deviceUid="sensor != null ? sensor.uid : null" />
     <EditSensor :sensor="sensor" :lockEui="true" />
 
     <Content>

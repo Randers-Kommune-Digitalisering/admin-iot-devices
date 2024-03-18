@@ -7,17 +7,32 @@
     import typekoder from '@/data/typekoder.json'
 
     const props = defineProps({
-        uid: {
-            type: Number,
-            required: false
-        },
         measurementPoint: {
             type: Object,
             required: true
+        },
+        
+        deviceUid: {
+            type: Number,
+            required: false
         }
     })
 
     const measurementPoint = ref(props.measurementPoint)
+
+    // Watch when changing props
+
+    watch( () => props.measurementPoint, (current, previous) => {
+
+        measurementPoint.value = current
+
+        if(measurementPoint.valuedeviceUid == -1)
+            measurementPoint.valuedeviceUid = props.deviceUid
+
+        console.log("New measurementPoint retrieved:")
+        console.log(measurementPoint.value)
+
+    })
 
 </script>
 
@@ -25,25 +40,41 @@
 
      <!-- Sensor description -->
     
-        <div class="flexbox" v-if="measurementPoint != null">
+    <div class="card orange">
+        <div class="header">
+            {{measurementPoint.uid == -1 ? 'Nyt målepunkt' : 'Redigér målepunkt'}} <!-- - deviceUid: {{measurementPoint.deviceUid == -1 ? props.deviceUid : measurementPoint.deviceUid}} -->
+        </div>
+
+        <div class="card-body flexbox">
+
             
             <div>
-                <label for="name_0" class="capitalize">
+                <label for="name" class="capitalize">
 
                     Navn
 
                 </label>
-                <input type="text" :placeholder="isTemplate ? 'F.eks. `Brunata Minomess vandmåler`' : 'F.eks. `El-måler Grønhøjskolen`'" id="name_0" v-model="measurementPoint.name" required>
+                <input type="text" placeholder="F.eks. `El-import`" id="name" v-model="measurementPoint.name" required>
             </div>
 
             
             <div>
-                <label for="energiart_0" class="capitalize">
+                <label for="valuekey" class="capitalize">
+
+                    Nøgle
+
+                </label>
+                <input type="text" placeholder="..." id="valuekey" v-model="measurementPoint.valuekey" required>
+            </div>
+
+            
+            <div>
+                <label for="energiart" class="capitalize">
 
                     Energiart
 
                 </label>
-                <select name="template" id="template" v-model="measurementPoint.energiartskode" :disabled="lockSharedProperties" required>
+                <select name="energiart" id="template" v-model="measurementPoint.energiartskode" required>
                     <option value="-1" disabled>Vælg fra liste ..</option>
 
                     <option v-for="(energiart, index) in energiarter" :value="index">{{ energiart }}</option>
@@ -52,12 +83,12 @@
             </div>         
 
             <div>
-                <label for="type_0" class="capitalize">
+                <label for="type" class="capitalize">
 
                     Type
 
                 </label>
-                <select name="template" id="template" v-model="measurementPoint.typekode" required>
+                <select name="type" id="template" v-model="measurementPoint.typekode" required>
                     <option value="-1" disabled>Vælg fra liste ..</option>
 
                     <option v-for="(type, index) in typekoder" :value="index">{{ type }}</option>
@@ -65,6 +96,39 @@
 
             </div>
 
-        </div>    
+        </div>
+    </div>    
 
 </template>
+
+<style scoped>
+.card {
+    width: 100%!important;
+    margin-bottom: 2rem;
+    
+    animation: fadein 400ms;
+}
+.hidden
+{
+    max-height: 0rem;
+    transform: scaleY(0) translateY(-60%);
+    opacity: 0;
+    overflow: hidden;
+}
+
+@keyframes fadein
+{
+  from {
+    max-height: 0rem;
+    transform: scaleY(0) translateY(-60%);
+    opacity: 0;
+    overflow: hidden; 
+    }
+  to { 
+    max-height: 50rem;
+    transform: scaleY(1) translateY(0%);
+    opacity: 1;
+    overflow: auto; 
+  }
+}
+</style>

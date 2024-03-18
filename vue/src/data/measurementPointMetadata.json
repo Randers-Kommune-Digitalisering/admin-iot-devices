@@ -1,11 +1,12 @@
 {
-    "devUid": "",
+    "deviceUid": -1,
+    "uid": -1,
     "name": "",
-    "inputUnit": "",
-    "convertedUnit": "",
-    "energiart": -1,
-    "type": -1,
-    "key": "",
+    "enhed": "",
+    "energiartskode": -1,
+    "typekode": -1,
+    "valuekey": "",
+    "inputenhed": "",
     "operator": "",
-    "operationValue": -1
+    "operationvalue": -1
 }

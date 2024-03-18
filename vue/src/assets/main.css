@@ -231,7 +231,7 @@ hr {
     justify-content: flex-start;
     align-items: start;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0rem 1rem;
 }
 .flexbox.grow > *
 {
