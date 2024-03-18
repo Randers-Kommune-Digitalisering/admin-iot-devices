@@ -2,6 +2,7 @@ const Node = {
   "id": "c163091bbf248015",
   "type": "template",
   "z": "7b3a886e00fb2ea6",
+  "g": "d775d098207c37e7",
   "name": " (ServiceProfiles) Service profiler",
   "field": "sql",
   "fieldType": "msg",

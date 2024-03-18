@@ -1,14 +1,15 @@
 const Node = {
-  "id": "40ded6d612e42d98",
+  "id": "a3e56662a0e9282e",
   "type": "link in",
   "z": "7b3a886e00fb2ea6",
-  "name": "DB: Add sensor",
+  "name": "DB: Edit sensor",
   "links": [],
   "x": 55,
-  "y": 840,
+  "y": 1020,
   "wires": [
     [
-      "9f4ad71f76a13a20"
+      "9c2375a079403450",
+      "d0fe758c2c1153c4"
     ]
   ]
 }

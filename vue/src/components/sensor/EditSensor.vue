@@ -78,7 +78,7 @@
         emit(_emi, value)
     }
 
-    // Watch when editing sensorEui
+    // Watch when editing sensor data
 
     watch( () =>  props.sensor, (current, previous) => {
         
@@ -87,6 +87,7 @@
             isTemplate.value = true
         }
 
+        sensorList.value[0].uid = current.uid
         sensorList.value[0].devEui = current.deviceEui
         sensorList.value[0].appKey = current.applicationKey
         sensorList.value[0].name = current.name
@@ -94,6 +95,7 @@
         sensorList.value[0].serviceProfile = current.serviceProfileUid
         sensorList.value[0].payloadDecoder = current.serviceProfileUid
         sensorList.value[0].templateUid = current.defaultValuesTemplateUid
+        
         //console.log("Updated sensor data: ")
         console.log(current)
     })
@@ -201,6 +203,8 @@
                 </label>
                 <input type="text" placeholder="..." :id="'app_' + index" v-model="sensor.appKey" required>
             </div>
+
+            <input type="hidden" v-model="sensor.uid" /> <!-- Hidden sensor UID when editiing sensor -->
 
         </div>
         <button @click="newSensor()" v-if="quickAddMode" type="button" class="gray">Tilføj måler</button>

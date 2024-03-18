@@ -2,6 +2,7 @@ const Node = {
   "id": "1179142b07233780",
   "type": "template",
   "z": "7b3a886e00fb2ea6",
+  "g": "d775d098207c37e7",
   "name": " (Location) Lokation metadata",
   "field": "sql",
   "fieldType": "msg",

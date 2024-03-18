@@ -2,6 +2,7 @@ const Node = {
   "id": "fe7afd00b3a6a111",
   "type": "template",
   "z": "7b3a886e00fb2ea6",
+  "g": "d775d098207c37e7",
   "name": "(Device) Måler metadata",
   "field": "sql",
   "fieldType": "msg",

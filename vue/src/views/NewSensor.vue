@@ -6,7 +6,7 @@
     const router = useRouter()
 
     // Import scripts
-    import CreateSensor from '@/components/connector/CreateSensor.vue'
+    import Device from '@/components/connector/Device.vue'
 
     // Import components
     import Content from '@/components/Content.vue'
@@ -73,7 +73,7 @@
         console.log("Creating sensor")
 
         // Create sensor in Node-RED
-        CreateSensor.create(EditSensor.getSensorList())
+        Device.create(EditSensor.getSensorList())
         .then(response => httpResponse.value = response)
         .then(response => console.log(response))
     }

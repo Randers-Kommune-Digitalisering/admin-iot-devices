@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "payload[0] ~> | $ | {\t    \"uid\": $$.sensor.uid,\t    \"name\": $$.sensor.name,\t    \"deviceEui\": $$.sensor.deviceEui,\t    \"applicationKey\": $$.sensor.applicationKey,\t    \"isTemplate\": 0,\t    \"defaultValuesTemplateUid\": $$.sensor.defaultValuesTemplateUid,\t    \"dataTablename\": $$.sensor.dataTablename,\t    \"lastObservation\": $$.sensor.lastObservation,\t    \"templateName\": name,\t    \"templateUid\": uid\t} |",
+      "to": "payload[0] ~> | $ | {\t    \"uid\": $$.sensor.uid,\t    \"name\": $$.sensor.name,\t    \"deviceEui\": $$.sensor.deviceEui,\t    \"applicationKey\": $$.sensor.applicationKey,\t    \"defaultValuesTemplateUid\": $$.sensor.defaultValuesTemplateUid,\t    \"dataTablename\": $$.sensor.dataTablename,\t    \"lastObservation\": $$.sensor.lastObservation,\t\t    \"isTemplate\": 0,\t    \"templateName\": name,\t    \"templateUid\": uid\t} |",
       "tot": "jsonata"
     }
   ],

@@ -5,7 +5,7 @@ const Node = {
   "name": "Get measurement point (msg.uid)",
   "links": [],
   "x": 55,
-  "y": 1520,
+  "y": 1640,
   "wires": [
     [
       "b110bcfd6f872c88"

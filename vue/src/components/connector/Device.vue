@@ -1,11 +1,12 @@
 <script>
 import { ref } from 'vue'
 
-async function create(metadata)
+async function updateDevice(metadata, newDevice = false)
 {
     const status = ref(null)
+    const url = newDevice == true ? '/api/devices/add' : '/api/devices/edit'
 
-    const response = fetch('/api/devices/add', {
+    const response = fetch(url, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -23,8 +24,17 @@ async function create(metadata)
     return response
 }
 
+async function create(metadata)
+{
+    return updateDevice(metadata, true)
+}
+async function update(metadata)
+{
+    return updateDevice(metadata)
+}
+
 export default {
-    create
+    create, update
 }
 
 

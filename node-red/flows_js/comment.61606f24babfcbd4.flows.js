@@ -5,7 +5,7 @@ const Node = {
   "name": "Indsæt måler",
   "info": "",
   "x": 810,
-  "y": 880,
+  "y": 820,
   "wires": []
 }
 

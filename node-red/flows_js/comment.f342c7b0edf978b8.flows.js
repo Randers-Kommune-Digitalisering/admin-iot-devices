@@ -4,8 +4,8 @@ const Node = {
   "z": "7b3a886e00fb2ea6",
   "name": "Hent templates",
   "info": "",
-  "x": 120,
-  "y": 1080,
+  "x": 220,
+  "y": 1240,
   "wires": []
 }
 

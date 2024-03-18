@@ -84,7 +84,7 @@
                 </td>
 
                 <td>{{measurement.name}}</td>
-                <td>{{measurement.enhed}}</td>
+                <td>{{measurement.enhed == "" ? measurement.inputenhed : (measurement.inputenhed + " → " + measurement.enhed)}}</td>
 
                 <td>{{energiarter[measurement.energiartskode]}}</td>
                 <td>{{typekoder[measurement.typekode]}}</td>

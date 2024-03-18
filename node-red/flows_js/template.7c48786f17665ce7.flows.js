@@ -3,6 +3,7 @@ const Node = {
   "type": "template",
   "z": "7b3a886e00fb2ea6",
   "d": true,
+  "g": "d775d098207c37e7",
   "name": " (History) Historik data",
   "field": "sql",
   "fieldType": "msg",

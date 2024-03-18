@@ -1,6 +1,9 @@
 <script setup>
     import { ref } from 'vue'
     import { useRoute } from 'vue-router'
+    
+    // Import scripts
+    import Device from '@/components/connector/Device.vue'
 
     import Content from '@/components/Content.vue'
     import IconTable from '@/components/icons/IconTable.vue'
@@ -12,8 +15,10 @@
 
     import IconEditSimple from '@/components/icons/IconEditSimple.vue'
 
+    // Set refs for state
     const sensor = ref(null)
     const measurementPoints = ref(null)
+    const httpResponse = ref(null)
 
     // Fetch sensor
 
@@ -27,6 +32,18 @@
         .then(response => response = response.json())
         .then(value => sensor.value = value)
 
+    // Update sensor changes
+
+    function updateSensor(useTemplate = false)
+    {
+        console.log("Updating sensor")
+
+        // Update sensor in Node-RED
+        Device.update(EditSensor.getSensorList())
+        .then(response => httpResponse.value = response)
+        .then(response => console.log(response))
+    }
+
 
 </script>
 
@@ -38,7 +55,7 @@
     <EditSensor :sensor="sensor" :lockEui="true" />
 
     <Content>
-        <button :class="'addsensor ' + (isTemplate ? ' orange' : '')">
+        <button @click="updateSensor()" :class="'addsensor ' + (isTemplate ? ' orange' : '')">
             <span>Gem ændringer</span>
             <br /><IconEditSimple />
         </button>

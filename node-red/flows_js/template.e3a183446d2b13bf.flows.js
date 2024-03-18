@@ -2,6 +2,7 @@ const Node = {
   "id": "e3a183446d2b13bf",
   "type": "template",
   "z": "7b3a886e00fb2ea6",
+  "g": "d775d098207c37e7",
   "name": "(Metric) Målepunkt metadata",
   "field": "sql",
   "fieldType": "msg",
