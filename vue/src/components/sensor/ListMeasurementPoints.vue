@@ -42,11 +42,11 @@
     const editingMeasurementPoint = ref(false)
     const measurementPointSelected = ref(null)
 
-    function selectMeasurementPoint(uid)
+    function selectMeasurementPoint(point)
     {
-        console.log("Editing measurement point #" + uid)
+        console.log("Editing measurement point #" + point.uid)
+        measurementPointSelected.value = point
         editingMeasurementPoint.value = true
-        measurementPointSelected.value = uid
     }
 
 </script>
@@ -75,7 +75,7 @@
                 </tr>
             </thead>
 
-            <tr v-if="measurementPoints != null && measurementPoints.length > 0" v-for="measurement in measurementPoints" @click="selectMeasurementPoint(measurement.uid)">
+            <tr v-if="measurementPoints != null && measurementPoints.length > 0" v-for="measurement in measurementPoints" @click="selectMeasurementPoint(measurement)">
 
                 <td class="sensorTypeTd"> <!-- Measurement point status (if data is being imported and exported) -->
                     <span class="red">
@@ -106,16 +106,6 @@
                     </div>
                 </td>
 
-                <!--td>
-                    <router-link :to="'/sensors/' + measurement.uid">
-                        <button @click="" class="rowbutton wide">
-                            <IconEdit />
-                            <span>
-                                Redigér
-                            </span>
-                        </button>
-                    </router-link>
-                </td-->
 
             </tr>
 
@@ -140,6 +130,10 @@
 
 
         </table>
+
+
+        <EditMeasurementPoint v-if="editingMeasurementPoint" :measurementPoint="measurementPointSelected" />
+        
     </Content>
 
 </template>

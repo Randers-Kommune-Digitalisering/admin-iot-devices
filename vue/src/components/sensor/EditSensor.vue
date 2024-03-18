@@ -168,7 +168,7 @@
 
 <!-- DevEUI + AppKey list + Name + Energiart -->
 
-<Content :id="id">
+<Content :id="props.id">
     <template #icon>
         <IconEditSimple />
     </template>
