@@ -2,8 +2,8 @@
 
     // Import vue
     import { ref, watch } from 'vue'
-    import { useRouter } from 'vue-router'
-    const router = useRouter()
+    //import { useRouter } from 'vue-router'
+    //const router = useRouter()
 
     // Import scripts
     import Device from '@/components/connector/Device.vue'
@@ -97,7 +97,7 @@
     {
         setTimeout(function() {
         
-            router.push({ hash: '#' + id })
+            //router.push({ hash: '#' + id })
             const item = document.getElementById(id);
             let rect = item.getBoundingClientRect();
             let count = rect.top- window.scrollY - 120

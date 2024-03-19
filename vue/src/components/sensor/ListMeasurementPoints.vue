@@ -72,6 +72,8 @@
         measurementPointSelected.value = point
         measurementPointPreviousValues.value = JSON.parse(JSON.stringify(point))
         editingMeasurementPoint.value = true
+
+        scrollTo("editMeasurementPoint")
     }
 
     // Start adding new
@@ -125,6 +127,23 @@
         editingMeasurementPoint.value = false
     }
 
+    
+    // Helper functions
+
+    function scrollTo(id)
+    {
+        setTimeout(function() {
+        
+            const item = document.getElementById(id)
+            let rect = item.getBoundingClientRect()
+            let viewportHeight = window.innerHeight || document.documentElement.clientHeight
+            let calc = rect.bottom - viewportHeight + 15
+            console.log("Scroll by: " + calc)
+            window.scrollBy(0, calc)
+        
+        }, 300) // Wait for animations before scrolling
+    }
+
 </script>
 
 <template>
@@ -151,8 +170,12 @@
                 </tr>
             </thead>
 
-            <tr v-if="measurementPoints != null && measurementPoints.length > 0" v-for="measurement in measurementPoints" @click="selectMeasurementPoint(measurement)"
-                :class="editingMeasurementPoint && measurementPointSelected.uid == measurement.uid ? 'orange' : ((editingMeasurementPoint && measurementPointSelected.uid == -1) || measurement.deviceUid != props.deviceUid ? ' nohover' : '')">
+            <tr v-if="measurementPoints != null && measurementPoints.length > 0"
+                v-for="measurement in measurementPoints"
+                @click="selectMeasurementPoint(measurement)"
+                :id="measurement.uid"
+                :class="editingMeasurementPoint && measurementPointSelected.uid == measurement.uid ? 'orange' : ((editingMeasurementPoint && measurementPointSelected.uid == -1) || measurement.deviceUid != props.deviceUid ? ' nohover' : '')"
+            >
 
                 <td class="sensorTypeTd"> <!-- Measurement point status (if data is being imported and exported) -->
                     <span :class="measurement.deviceUid != props.deviceUid ? 'blue' : 'red'">
@@ -198,7 +221,13 @@
 
             <tr v-if="editingMeasurementPoint" class="nohover">
                 <td colspan="6">
-                <EditMeasurementPoint :measurementPoint="measurementPointSelected" :deviceUid="deviceUid" @onSaveEdit="saveEdit()" @onCancelEdit="cancelEdit()" />
+                <EditMeasurementPoint
+                    id="editMeasurementPoint"
+                    :measurementPoint="measurementPointSelected"
+                    :deviceUid="deviceUid"
+                    @onSaveEdit="saveEdit()"
+                    @onCancelEdit="cancelEdit()"
+                />
                 </td>
             </tr>
 
