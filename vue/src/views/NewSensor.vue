@@ -97,11 +97,10 @@
     {
         setTimeout(function() {
         
-            //router.push({ hash: '#' + id })
-            const item = document.getElementById(id);
-            let rect = item.getBoundingClientRect();
-            let count = rect.top- window.scrollY - 120
-            window.scrollBy(0, count)
+            const item = document.getElementById(id)
+            let rect = item.getBoundingClientRect()
+            let calc = rect.top - 120
+            window.scrollBy(0, calc)
         
         }, 400) // Wait for animations before scrolling
     }

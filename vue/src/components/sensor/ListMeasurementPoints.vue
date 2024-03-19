@@ -138,7 +138,6 @@
             let rect = item.getBoundingClientRect()
             let viewportHeight = window.innerHeight || document.documentElement.clientHeight
             let calc = rect.bottom - viewportHeight + 15
-            console.log("Scroll by: " + calc)
             window.scrollBy(0, calc)
         
         }, 300) // Wait for animations before scrolling
