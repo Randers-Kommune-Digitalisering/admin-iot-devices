@@ -5,7 +5,7 @@ const Node = {
   "name": "Add measurement point (payload.devUid)",
   "links": [],
   "x": 55,
-  "y": 1860,
+  "y": 1880,
   "wires": [
     [
       "bbdb7f36cd11a351"

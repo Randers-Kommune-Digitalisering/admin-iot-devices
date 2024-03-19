@@ -1,8 +1,8 @@
 const Node = {
-  "id": "5eb990830f2569a4",
+  "id": "ab44989e86200e29",
   "type": "debug",
   "z": "7b3a886e00fb2ea6",
-  "name": "Opret målepunkt",
+  "name": "debug 13",
   "active": true,
   "tosidebar": true,
   "console": false,
@@ -11,8 +11,8 @@ const Node = {
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 750,
-  "y": 1840,
+  "x": 260,
+  "y": 2040,
   "wires": []
 }
 

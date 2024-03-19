@@ -10,7 +10,7 @@ const Node = {
   "template": "",
   "output": "str",
   "x": 290,
-  "y": 1860,
+  "y": 1880,
   "wires": [
     [
       "3b2e68563dfd78b7"
@@ -35,13 +35,13 @@ VALUES
 (
 	{{payload.devUid}},
 	'{{payload.name}}',
-	'{{payload.inputUnit}}',
-	'{{payload.convertedUnit}}',
-	{{payload.energiart}},
-	{{payload.type}},
-	'{{payload.key}}',
+	'{{payload.inputenhed}}',
+	'{{payload.enhed}}',
+	{{payload.energiartskode}},
+	{{payload.typekode}},
+	'{{payload.valuekey}}',
 	'{{payload.operator}}',
-	'{{payload.operationValue}}'
+	{{payload.operationvalue}}
 )
 `
 

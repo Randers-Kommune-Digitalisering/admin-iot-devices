@@ -102,8 +102,8 @@
                     <th></th>
                     <th>Målernavn</th>
                     <th>Energiart</th>
-                    <th>Seneste data</th>
                     <th>Målepunkter</th>
+                    <th>Seneste data</th>
                     <!--th></th-->
                 </tr>
             </thead>
@@ -123,10 +123,14 @@
                     <div class="flex col">
                         <span>{{sensor.name}}</span>
                         <span v-if="sensor.defaultValuesTemplateUid != -1" class="tiny blue">Baseret på <span style="text-decoration: underline">{{sensor.templateName}}</span></span>
-                        <span v-if="sensor.isTemplate" class="tiny orange">Markeret som skabelon</span>
+                        <span v-if="sensor.isTemplate" class="tiny orange">Skabelon</span>
                     </div>
                 </td>
                 <td>{{energiarter[sensor.energiartskode ?? sensor.energiart]}}</td>
+
+                <td>
+                    {{0}}
+                </td>
 
                 <td>
                     <div class="flex col">
@@ -143,10 +147,6 @@
                         </span>
                         <!--span :class="true ? 'red' : 'blue'">{{true ? 'Ingen data' : 'X minutter siden'}}</span-->
                     </div>
-                </td>
-
-                <td>
-                    {{0}}
                 </td>
 
             </tr>

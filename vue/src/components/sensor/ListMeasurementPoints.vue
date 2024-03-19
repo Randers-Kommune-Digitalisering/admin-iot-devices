@@ -8,6 +8,7 @@
 
     import Content from '@/components/Content.vue'
     import EditMeasurementPoint from '@/components/sensor/EditMeasurementPoint.vue'
+    import MeasurementPoint from '@/components/connector/MeasurementPoint.vue'
 
     import IconMeasurementPoint from '@/components/icons/IconCircle.vue'
     import IconEdit from '@/components/icons/IconEditSimple.vue'
@@ -46,6 +47,7 @@
 
     const editingMeasurementPoint = ref(false)
     const measurementPointSelected = ref(null)
+    const measurementPointPreviousValues = ref(null)
 
     function selectMeasurementPoint(point)
     {
@@ -62,21 +64,50 @@
         console.log(point)
 
         measurementPointSelected.value = point
+        measurementPointPreviousValues.value = JSON.parse(JSON.stringify(point))
         editingMeasurementPoint.value = true
     }
 
-    // Add new
+    // Start adding new
 
     function newMeasurementPoint()
     {
-        //measurementPointSelected.value = {}
-        //console.log(measurementPointSelected.value)
+        // Select empty measurement point
         measurementPointSelected.value = JSON.parse(JSON.stringify(measurementPointMetadata))
 
         // Update refs in object
         measurementPointSelected.value.devUid = props.deviceUid
 
         editingMeasurementPoint.value = true
+    }
+
+    // Save / cancel
+
+    function saveEdit()
+    {
+        console.log("Saving")
+        
+        if(measurementPointSelected.value.uid == -1)
+        {
+            MeasurementPoint.create(measurementPointSelected.value)
+            measurementPoints.value.push(measurementPointSelected.value)
+        }
+        else
+            MeasurementPoint.update(measurementPointSelected.value)
+
+        // Remove selection
+        measurementPointSelected.value = null
+        editingMeasurementPoint.value = false
+    }
+
+    function cancelEdit()
+    {
+        // Reset changes
+        measurementPoints.value[measurementPoints.value.findIndex(x => x.uid == measurementPointPreviousValues.value.uid)] = measurementPointPreviousValues.value
+
+        // Remove selection
+        measurementPointSelected.value = null
+        editingMeasurementPoint.value = false
     }
 
 </script>
@@ -146,7 +177,7 @@
 
             <tr v-if="editingMeasurementPoint" class="nohover">
                 <td colspan="6">
-                <EditMeasurementPoint :measurementPoint="measurementPointSelected" :deviceUid="deviceUid" />
+                <EditMeasurementPoint :measurementPoint="measurementPointSelected" :deviceUid="deviceUid" @onSaveEdit="saveEdit()" @onCancelEdit="cancelEdit()" />
                 </td>
             </tr>
 

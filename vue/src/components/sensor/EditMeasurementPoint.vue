@@ -19,6 +19,7 @@
     })
 
     const measurementPoint = ref(props.measurementPoint)
+    const httpResponse = ref(null)
 
     // Watch when changing props
 
@@ -34,12 +35,32 @@
 
     })
 
+    // Define emit for save and cancel
+
+    const emit = defineEmits(['onSaveEdit', 'onCancelEdit'])
+
+    const setEmit = (_emi) => {
+        emit(_emi)
+    }
+
+    function cancelEdit()
+    {
+        setEmit('onCancelEdit')
+    }
+    function saveEdit()
+    {
+        console.log(measurementPoint.value)
+        setEmit('onSaveEdit')
+    }
+
 </script>
 
 <template>
 
      <!-- Sensor description -->
-    
+    <form @submit.prevent="saveEdit">
+        <fieldset>
+
     <div class="card orange">
         <div class="header">
             {{measurementPoint.uid == -1 ? 'Nyt målepunkt' : 'Redigér målepunkt'}} <!-- - deviceUid: {{measurementPoint.deviceUid == -1 ? props.deviceUid : measurementPoint.deviceUid}} -->
@@ -96,8 +117,26 @@
 
             </div>
 
+            
+            <button @click="" class="blue">
+                <IconNewItem />
+                <span>
+                    {{measurementPoint.uid == -1 ? 'Tilføj målepunkt' : 'Gem ændringer'}}
+                </span>
+            </button>
+
+            <button type="button" @click="cancelEdit()" class="gray">
+                <IconNewItem />
+                <span>
+                    Anullér
+                </span>
+            </button>
+
         </div>
-    </div>    
+    </div>
+
+        </fieldset>
+    </form>
 
 </template>
 
@@ -130,5 +169,17 @@
     opacity: 1;
     overflow: auto; 
   }
+}
+
+button ~ button {
+    margin-left: 0rem;
+}
+button.gray
+{
+    background-color: var(--color-border);
+}
+button.gray:hover
+{
+    background-color: var(--color-border-dark);
 }
 </style>
