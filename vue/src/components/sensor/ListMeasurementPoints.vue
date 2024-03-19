@@ -310,10 +310,16 @@
     tr.orange
     {
         background-color: var(--color-orange-light)
+        
     }
     tr.orange:hover
     {
         background-color: var(--color-orange)
     }
+
+    tr.orange td:first-child { border-top-left-radius: 10px; }
+    tr.orange td:last-child { border-top-right-radius: 10px; }
+    tr.orange td:first-child { border-bottom-left-radius: 10px; }
+    tr.orange td:last-child { border-bottom-right-radius: 10px; }
 
 </style>

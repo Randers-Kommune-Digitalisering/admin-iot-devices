@@ -116,6 +116,7 @@
 
     newSensor()
     cleanSensorList()
+    lockSharedProperties.value = false
 
     // Clean sensor list when changing mode
 
@@ -133,7 +134,6 @@
             lockSharedProperties.value = false
         }
     })
-
 
     // Helper functions
 

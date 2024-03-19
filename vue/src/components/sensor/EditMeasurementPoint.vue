@@ -119,14 +119,12 @@
 
             
             <button @click="" class="blue">
-                <IconNewItem />
                 <span>
                     {{measurementPoint.uid == -1 ? 'Tilføj målepunkt' : 'Gem ændringer'}}
                 </span>
             </button>
 
             <button type="button" @click="cancelEdit()" class="gray">
-                <IconNewItem />
                 <span>
                     Anullér
                 </span>

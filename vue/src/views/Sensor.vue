@@ -57,7 +57,7 @@
     <EditSensor :sensor="sensor" :lockEui="true" />
 
     <Content>
-        <button @click="updateSensor()" :class="'addsensor ' + (isTemplate ? ' orange' : '')">
+        <button @click="updateSensor()" :class="'addsensor ' + (sensor != null && sensor.isTemplate ? ' orange' : '')">
             <span>Gem ændringer</span>
             <br /><IconEditSimple />
         </button>
