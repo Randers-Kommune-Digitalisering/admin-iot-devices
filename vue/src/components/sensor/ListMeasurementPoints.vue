@@ -57,8 +57,11 @@
             editingMeasurementPoint.value = false
             return
         }
-        else if(editingMeasurementPoint.value && point.uid != -1)
+        else if(editingMeasurementPoint.value && measurementPointSelected.value.uid == -1 && point.uid != -1)
+        {
+            console.log("this runs")
             return; // Don't swap if creating new measurement point
+        }
         
         console.log("Editing measurement point #" + point.uid)
         console.log(point)
@@ -90,14 +93,22 @@
         if(measurementPointSelected.value.uid == -1)
         {
             MeasurementPoint.create(measurementPointSelected.value)
-            measurementPoints.value.push(measurementPointSelected.value)
+            .then(response => measurementPointSelected.value.uid = response.dbResponse.insertId)
+            .then(response => measurementPoints.value.push(measurementPointSelected.value))
+            .then(response => {
+                // Remove selection
+                measurementPointSelected.value = null
+                editingMeasurementPoint.value = false
+            })
+                
         }
         else
             MeasurementPoint.update(measurementPointSelected.value)
-
-        // Remove selection
-        measurementPointSelected.value = null
-        editingMeasurementPoint.value = false
+            .then(response => {
+                // Remove selection
+                measurementPointSelected.value = null
+                editingMeasurementPoint.value = false
+            })
     }
 
     function cancelEdit()
@@ -136,7 +147,8 @@
                 </tr>
             </thead>
 
-            <tr v-if="measurementPoints != null && measurementPoints.length > 0" v-for="measurement in measurementPoints" @click="selectMeasurementPoint(measurement)" :class="(editingMeasurementPoint && measurementPointSelected.uid == -1) ? ' nohover' : ''">
+            <tr v-if="measurementPoints != null && measurementPoints.length > 0" v-for="measurement in measurementPoints" @click="selectMeasurementPoint(measurement)"
+                :class="editingMeasurementPoint && measurementPointSelected.uid == measurement.uid ? 'orange' : (editingMeasurementPoint && measurementPointSelected.uid == -1) ? ' nohover' : ''">
 
                 <td class="sensorTypeTd"> <!-- Measurement point status (if data is being imported and exported) -->
                     <span class="red">
@@ -292,7 +304,16 @@
     tr:not(.nohover):hover
     {
         cursor:pointer;
-        background-color: var(--color-bg)
+        background-color: var(--color-bg);
+        transition: 200ms;
+    }
+    tr.orange
+    {
+        background-color: var(--color-orange-light)
+    }
+    tr.orange:hover
+    {
+        background-color: var(--color-orange)
     }
 
 </style>
