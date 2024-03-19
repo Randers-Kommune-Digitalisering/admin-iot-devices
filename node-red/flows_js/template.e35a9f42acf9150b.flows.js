@@ -9,7 +9,7 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 290,
+  "x": 930,
   "y": 1700,
   "wires": [
     [
@@ -19,7 +19,7 @@ const Node = {
 }
 
 Node.template = `
-SELECT * FROM {{global.metadataTablename.maalepunkt}} as t1 WHERE deviceUid = {{devUid}}
+SELECT * FROM {{global.metadataTablename.maalepunkt}} as t1 WHERE {{{whereClause}}}
 /*
 -- Left join med seneste dataobservation og træk
 LEFT JOIN 

@@ -51,16 +51,19 @@
 
     function selectMeasurementPoint(point)
     {
-        if(measurementPointSelected.value == point)
+        if(point.deviceUid != props.deviceUid) // If click on template measurement point
+        {
+            return;
+        }
+        else if(measurementPointSelected.value == point) // If clicking already selected point
         {
             measurementPointSelected.value = null
             editingMeasurementPoint.value = false
             return
         }
-        else if(editingMeasurementPoint.value && measurementPointSelected.value.uid == -1 && point.uid != -1)
+        else if(editingMeasurementPoint.value && measurementPointSelected.value.uid == -1 && point.uid != -1) // Don't allow click if currently creating new measurement point
         {
-            console.log("this runs")
-            return; // Don't swap if creating new measurement point
+            return; 
         }
         
         console.log("Editing measurement point #" + point.uid)
@@ -148,15 +151,20 @@
             </thead>
 
             <tr v-if="measurementPoints != null && measurementPoints.length > 0" v-for="measurement in measurementPoints" @click="selectMeasurementPoint(measurement)"
-                :class="editingMeasurementPoint && measurementPointSelected.uid == measurement.uid ? 'orange' : (editingMeasurementPoint && measurementPointSelected.uid == -1) ? ' nohover' : ''">
+                :class="editingMeasurementPoint && measurementPointSelected.uid == measurement.uid ? 'orange' : ((editingMeasurementPoint && measurementPointSelected.uid == -1) || measurement.deviceUid != props.deviceUid ? ' nohover' : '')">
 
                 <td class="sensorTypeTd"> <!-- Measurement point status (if data is being imported and exported) -->
-                    <span class="red">
+                    <span :class="measurement.deviceUid != props.deviceUid ? 'blue' : 'red'">
                         <IconMeasurementPoint :scale="0.8" />
                     </span>
                 </td>
 
-                <td>{{measurement.name}}</td>
+                <td>
+                    <div class="flex col">
+                        <span>{{measurement.name}}</span>
+                        <span v-if="measurement.deviceUid != props.deviceUid" class="tiny blue">Indlæst fra skabelon</span>
+                    </div>
+                </td>
                 <td>{{measurement.enhed == "" ? measurement.inputenhed : (measurement.inputenhed + " → " + measurement.enhed)}}</td>
 
                 <td>{{energiarter[measurement.energiartskode]}}</td>
@@ -317,9 +325,9 @@
         background-color: var(--color-orange)
     }
 
-    tr.orange td:first-child { border-top-left-radius: 10px; }
-    tr.orange td:last-child { border-top-right-radius: 10px; }
-    tr.orange td:first-child { border-bottom-left-radius: 10px; }
-    tr.orange td:last-child { border-bottom-right-radius: 10px; }
+    tr.orange td:first-child { border-top-left-radius: 0.5rem; }
+    tr.orange td:last-child { border-top-right-radius: 0.5rem; }
+    tr.orange td:first-child { border-bottom-left-radius: 0.5rem; }
+    tr.orange td:last-child { border-bottom-right-radius: 0.5rem; }
 
 </style>

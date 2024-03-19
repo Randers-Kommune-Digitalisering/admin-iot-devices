@@ -141,7 +141,6 @@
 <style scoped>
 .card {
     width: 100%!important;
-    margin-bottom: 2rem;
     
     animation: fadein 400ms;
 }
