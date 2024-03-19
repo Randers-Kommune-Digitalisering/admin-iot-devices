@@ -87,6 +87,8 @@
         measurementPointSelected.value.devUid = props.deviceUid
 
         editingMeasurementPoint.value = true
+
+        scrollTo("editMeasurementPoint")
     }
 
     // Save / cancel
@@ -138,8 +140,9 @@
             let rect = item.getBoundingClientRect()
             let viewportHeight = window.innerHeight || document.documentElement.clientHeight
             let calc = rect.bottom - viewportHeight + 15
-            window.scrollBy(0, calc)
-        
+
+            if(calc > 0)
+                window.scrollBy(0, calc)
         }, 300) // Wait for animations before scrolling
     }
 
