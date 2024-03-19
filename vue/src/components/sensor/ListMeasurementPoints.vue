@@ -117,7 +117,8 @@
     function cancelEdit()
     {
         // Reset changes
-        measurementPoints.value[measurementPoints.value.findIndex(x => x.uid == measurementPointPreviousValues.value.uid)] = measurementPointPreviousValues.value
+        if(measurementPointSelected.value.uid != -1)
+            measurementPoints.value[measurementPoints.value.findIndex(x => x.uid == measurementPointPreviousValues.value.uid)] = measurementPointPreviousValues.value
 
         // Remove selection
         measurementPointSelected.value = null
