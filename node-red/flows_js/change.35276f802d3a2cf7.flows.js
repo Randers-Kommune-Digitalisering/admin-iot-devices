@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "templateUid",
       "pt": "msg",
-      "to": "payload.templateUid = -1 ? uid : payload[0].templateUid",
+      "to": "payload.templateUid = -1 ? devUid : payload[0].templateUid",
       "tot": "jsonata"
     },
     {
@@ -17,6 +17,11 @@ const Node = {
       "pt": "msg",
       "to": "templateUid ~> $exists() ? 'deviceUid = ' & devUid & ' OR deviceUid = ' & templateUid :  'deviceUid = ' & devUid'",
       "tot": "jsonata"
+    },
+    {
+      "t": "delete",
+      "p": "payload",
+      "pt": "msg"
     }
   ],
   "action": "",

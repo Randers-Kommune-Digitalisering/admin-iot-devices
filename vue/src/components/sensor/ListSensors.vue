@@ -129,7 +129,7 @@
                 <td>{{energiarter[sensor.energiartskode ?? sensor.energiart]}}</td>
 
                 <td>
-                    {{0}}
+                    {{sensor.maalepunktCount}}
                 </td>
 
                 <td>

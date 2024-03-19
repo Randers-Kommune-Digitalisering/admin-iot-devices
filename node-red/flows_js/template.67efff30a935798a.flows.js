@@ -19,7 +19,9 @@ const Node = {
 }
 
 Node.template = `
-SELECT * FROM {{global.metadataTablename.maaler}} WHERE uid = {{uid}}
+SELECT *
+FROM {{global.metadataTablename.maaler}}    
+WHERE uid = {{uid}}
 `
 
 module.exports = Node;
