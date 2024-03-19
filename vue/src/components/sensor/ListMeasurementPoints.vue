@@ -318,17 +318,20 @@
     }
     tr.orange
     {
-        background-color: var(--color-orange-light)
+        background-color: var(--color-bg);
         
     }
+    tr.orange td {
+        border-bottom-color: var(--color-orange);
+    }
+/*
     tr.orange:hover
     {
         background-color: var(--color-orange)
     }
-
     tr.orange td:first-child { border-top-left-radius: 0.5rem; }
     tr.orange td:last-child { border-top-right-radius: 0.5rem; }
     tr.orange td:first-child { border-bottom-left-radius: 0.5rem; }
-    tr.orange td:last-child { border-bottom-right-radius: 0.5rem; }
+    tr.orange td:last-child { border-bottom-right-radius: 0.5rem; }*/
 
 </style>
