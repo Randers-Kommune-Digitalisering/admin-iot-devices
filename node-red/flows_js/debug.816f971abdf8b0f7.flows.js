@@ -1,17 +1,18 @@
 const Node = {
-  "id": "93c6e7d6d3334905",
+  "id": "816f971abdf8b0f7",
   "type": "debug",
-  "z": "dc028cb1b3d1491a",
-  "name": "debug 8",
+  "z": "7b3a886e00fb2ea6",
+  "name": "Opdatér målepunkt",
   "active": true,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
-  "complete": "false",
+  "complete": "payload",
+  "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1060,
-  "y": 840,
+  "x": 750,
+  "y": 1960,
   "wires": []
 }
 
