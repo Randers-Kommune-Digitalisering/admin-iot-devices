@@ -8,14 +8,14 @@ const Node = {
       "t": "set",
       "p": "templateUid",
       "pt": "msg",
-      "to": "payload.templateUid = -1 ? devUid : payload[0].templateUid",
+      "to": "payload.templateUid != -1 ? payload[0].templateUid",
       "tot": "jsonata"
     },
     {
       "t": "set",
       "p": "whereClause",
       "pt": "msg",
-      "to": "templateUid ~> $exists() ? 'deviceUid = ' & devUid & ' OR deviceUid = ' & templateUid :  'deviceUid = ' & devUid'",
+      "to": "templateUid ~> $exists() ? 'deviceUid = ' & devUid & ' OR deviceUid = ' & templateUid :  'deviceUid = ' & devUid",
       "tot": "jsonata"
     },
     {
@@ -30,10 +30,11 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 720,
-  "y": 1700,
+  "y": 1720,
   "wires": [
     [
-      "e35a9f42acf9150b"
+      "f93a874dcf53e163",
+      "9875efa66077ed45"
     ]
   ]
 }

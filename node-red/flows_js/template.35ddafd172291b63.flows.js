@@ -2,14 +2,14 @@ const Node = {
   "id": "35ddafd172291b63",
   "type": "template",
   "z": "bd0288d62c2263f6",
-  "name": "Forespørgsel ↓\\n Opdater metadata tabel",
+  "name": "Forespørgsel ↓\\n Opdater device metadata tabel",
   "field": "sql",
   "fieldType": "msg",
   "format": "sql",
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 270,
+  "x": 290,
   "y": 1540,
   "wires": [
     [
@@ -19,9 +19,10 @@ const Node = {
 }
 
 Node.template = `
-UPDATE {{global.metadataTablename.maaler}}
-SET lastObservation = '{{data.observedAt}}'
-WHERE deviceEui = '{{data.deviceEui}}';
+UPDATE {{global.metadataTablename.maaler}} SET
+    lastObservation = '{{data.observedAt}}',
+    dataTablename = '{{data.tablename}}'
+WHERE deviceEui = '{{data.deviceEui}}'
 `
 
 module.exports = Node;

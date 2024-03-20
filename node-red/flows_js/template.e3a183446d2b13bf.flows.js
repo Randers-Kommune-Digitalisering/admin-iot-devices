@@ -39,6 +39,8 @@ CREATE TABLE if not exists {{global.metadataTablename.maalepunkt}}
 	operator VARCHAR(255),
 	operationvalue SMALLINT,
 
+	lastExport TIMESTAMP,
+
 	-- isTemplate BOOL DEFAULT false,
 	-- defaultValuesTemplateUid MEDIUMINT,
 

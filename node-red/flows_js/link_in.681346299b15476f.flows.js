@@ -5,7 +5,7 @@ const Node = {
   "name": "DB: Edit measurement point (payload.uid)",
   "links": [],
   "x": 55,
-  "y": 2000,
+  "y": 2120,
   "wires": [
     [
       "4973b1d8feb7397e"

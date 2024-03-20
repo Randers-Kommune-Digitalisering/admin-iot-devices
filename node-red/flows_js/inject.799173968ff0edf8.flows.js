@@ -1,16 +1,11 @@
 const Node = {
-  "id": "7b19148f41c89422",
+  "id": "799173968ff0edf8",
   "type": "inject",
   "z": "7b3a886e00fb2ea6",
-  "name": "",
+  "name": "test",
   "props": [
     {
-      "p": "devEui",
-      "v": "Template",
-      "vt": "str"
-    },
-    {
-      "p": "uid",
+      "p": "devUid",
       "v": "1",
       "vt": "num"
     }
@@ -20,15 +15,13 @@ const Node = {
   "once": false,
   "onceDelay": 0.1,
   "topic": "",
-  "x": 75,
-  "y": 680,
+  "x": 110,
+  "y": 1760,
   "wires": [
     [
-      "cb62915abe36898f",
-      "67efff30a935798a"
+      "b5b4c71b36e3db7c"
     ]
-  ],
-  "l": false
+  ]
 }
 
 module.exports = Node;
