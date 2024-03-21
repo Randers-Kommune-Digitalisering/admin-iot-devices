@@ -21,13 +21,12 @@ const Node = {
 Node.template = `
 SELECT
     t1.*,
-    t2.templateUid,
     t2.templateName,
     IFNULL(t3.maalepunktCount, 0) + IFNULL(t4.maalepunktCount, 0) as maalepunktCount
 FROM
     {{global.metadataTablename.maaler}} AS t1
     
-LEFT JOIN
+LEFT JOIN --
 (
     SELECT
         uid as templateUid,
