@@ -5,7 +5,7 @@ const Node = {
   "name": "DB: Get template (msg.uid)",
   "links": [],
   "x": 155,
-  "y": 1260,
+  "y": 1240,
   "wires": [
     [
       "f45d502f925d5d93"

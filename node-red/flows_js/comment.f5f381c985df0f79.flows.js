@@ -6,7 +6,8 @@ const Node = {
   "info": "",
   "x": 130,
   "y": 220,
-  "wires": []
+  "wires": [],
+  "icon": "node-red/leveldb.png"
 }
 
 module.exports = Node;
