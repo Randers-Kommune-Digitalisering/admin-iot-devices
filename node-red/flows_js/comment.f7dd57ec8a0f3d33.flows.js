@@ -4,8 +4,8 @@ const Node = {
   "z": "dc028cb1b3d1491a",
   "name": "Templates",
   "info": "",
-  "x": 160,
-  "y": 360,
+  "x": 120,
+  "y": 780,
   "wires": []
 }
 

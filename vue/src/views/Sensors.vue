@@ -10,7 +10,7 @@
 
     // Fetch sensors
 
-    fetch('/api/devices/get')
+    fetch('/api/devices')
         .then(response => response = response.json())
         .then(value => sensors.value = value)
         //.then(value => console.log(value))

@@ -28,7 +28,7 @@
 
     // Fetch measurement points
 
-    fetch('/api/devices/get/' + route.params.uid + '/')
+    fetch('/api/devices/' + route.params.uid + '/')
         .then(response => response = response.json())
         .then(value => sensor.value = value)
 
