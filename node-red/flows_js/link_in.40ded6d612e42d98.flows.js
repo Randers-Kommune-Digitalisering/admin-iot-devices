@@ -5,7 +5,7 @@ const Node = {
   "name": "DB: Add sensor",
   "links": [],
   "x": 55,
-  "y": 840,
+  "y": 800,
   "wires": [
     [
       "9f4ad71f76a13a20"

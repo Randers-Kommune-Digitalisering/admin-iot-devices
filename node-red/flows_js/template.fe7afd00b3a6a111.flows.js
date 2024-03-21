@@ -16,32 +16,46 @@ const Node = {
     [
       "32c7a57618f2acb5"
     ]
-  ]
+  ],
+  "info": ""
 }
+
+Node.info = `
+Device data model: https://github.com/smart-data-models/dataModel.Device/blob/master/Device/doc/spec.md
+
+DeviceMeasurement data model: https://github.com/smart-data-models/dataModel.Device/blob/master/DeviceMeasurement/doc/spec.md
+`
 
 Node.template = `
 CREATE TABLE if not exists {{global.metadataTablename.maaler}}
 (
+	-- Identifikator
 	uid MEDIUMINT NOT NULL AUTO_INCREMENT,
-	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	lastUpdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-
-	name VARCHAR(255),
 	deviceEui VARCHAR(255),
 	applicationKey VARCHAR(255),
+
+	-- NGSIv2 data
+	name VARCHAR(255),
+	type VARCHAR(255) DEFAULT 'Device',
+	deviceCategory VARCHAR(255) DEFAULT 'Meter',
+	dateCreated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	dateFirstUsed TIMESTAMP,
+	dateModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	supportedProtocol VARCHAR(255) DEFAULT 'lora',
+
+	-- EnergyKey
 	installationsnummer VARCHAR(255),
 	energiartskode SMALLINT,
 
-	lokationUid SMALLINT,
-
+	-- OS2 konfiguration
 	deviceProfileUid SMALLINT,
 	serviceProfileUid SMALLINT,
 	payloadDecoderUid SMALLINT,
+	lastObservation TIMESTAMP,
 
+	-- Metadata
 	isTemplate BOOL DEFAULT false,
 	defaultValuesTemplateUid MEDIUMINT DEFAULT -1,
-
-	lastObservation TIMESTAMP,
 	dataTablename VARCHAR(255),
 
 	UNIQUE (uid, deviceEui)

@@ -33,6 +33,7 @@ CREATE TABLE if not exists {{global.metadataTablename.maalepunkt}}
 	energiartskode SMALLINT,
 	typekode SMALLINT,
 
+	controlledProperty VARCHAR(255),
 	valuekey VARCHAR(255),
 
 	inputenhed VARCHAR(255),

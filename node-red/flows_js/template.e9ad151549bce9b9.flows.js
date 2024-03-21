@@ -10,7 +10,7 @@ const Node = {
   "template": "",
   "output": "str",
   "x": 500,
-  "y": 1020,
+  "y": 960,
   "wires": [
     [
       "24eef3f14c107709"

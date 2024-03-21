@@ -5,7 +5,7 @@ const Node = {
   "name": "Kombinér med skabelondata",
   "info": "",
   "x": 720,
-  "y": 600,
+  "y": 580,
   "wires": []
 }
 

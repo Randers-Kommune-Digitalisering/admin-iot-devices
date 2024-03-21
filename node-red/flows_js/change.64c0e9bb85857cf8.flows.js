@@ -1,14 +1,14 @@
 const Node = {
-  "id": "32d553462f98b537",
+  "id": "64c0e9bb85857cf8",
   "type": "change",
-  "z": "7b3a886e00fb2ea6",
-  "name": "",
+  "z": "dc028cb1b3d1491a",
+  "name": "Params",
   "rules": [
     {
       "t": "set",
-      "p": "payload",
+      "p": "deviceUid",
       "pt": "msg",
-      "to": "payload[0]",
+      "to": "req.params.device",
       "tot": "msg"
     }
   ],
@@ -17,13 +17,10 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 860,
-  "y": 1200,
+  "x": 520,
+  "y": 860,
   "wires": [
-    [
-      "7c26e921f914748e",
-      "c8b145b82d5b2b61"
-    ]
+    []
   ]
 }
 

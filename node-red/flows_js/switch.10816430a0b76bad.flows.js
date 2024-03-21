@@ -1,15 +1,13 @@
 const Node = {
-  "id": "550a4b5545fc0f86",
+  "id": "10816430a0b76bad",
   "type": "switch",
   "z": "7b3a886e00fb2ea6",
-  "name": "Baseret på skabelon?",
-  "property": "payload.defaultValuesTemplateUid",
+  "name": "",
+  "property": "payload",
   "propertyType": "msg",
   "rules": [
     {
-      "t": "gt",
-      "v": "0",
-      "vt": "num"
+      "t": "empty"
     },
     {
       "t": "else"
@@ -18,14 +16,14 @@ const Node = {
   "checkall": "true",
   "repair": false,
   "outputs": 2,
-  "x": 700,
-  "y": 620,
+  "x": 1330,
+  "y": 1720,
   "wires": [
     [
-      "d4c9376b5eb61668"
+      "ab28fd7e70bf721e"
     ],
     [
-      "49293fabb0fc27ff"
+      "2e76629a4d8e56b3"
     ]
   ]
 }

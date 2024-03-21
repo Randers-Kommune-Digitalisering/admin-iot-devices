@@ -6,12 +6,13 @@ const Node = {
   "name": "Opret device profil? Link til standarder",
   "info": "",
   "x": 570,
-  "y": 900,
+  "y": 860,
   "wires": []
 }
 
 Node.info = `
 https://github.com/smart-data-models/dataModel.Device?tab=readme-ov-file
+https://fiware-datamodels.readthedocs.io/en/stable/ngsi-ld_faq/index.html
 `
 
 module.exports = Node;

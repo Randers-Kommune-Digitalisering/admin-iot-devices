@@ -1,29 +1,27 @@
 const Node = {
-  "id": "ef9c7722c8437d4b",
+  "id": "845250f709c0ef1e",
   "type": "template",
   "z": "bd0288d62c2263f6",
-  "name": "Forespørgsel ↓\\n Tjek om måler eksisterer \\n i metadata tabel",
+  "name": "Forespørgsel ↓\\n Opdater målerens dateFirstUsed",
   "field": "sql",
   "fieldType": "msg",
   "format": "sql",
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 370,
-  "y": 520,
+  "x": 630,
+  "y": 840,
   "wires": [
     [
-      "20c08bb0215dca1e"
+      "626a5393bcb3d6fd"
     ]
   ]
 }
 
 Node.template = `
-SELECT
-    lastObservation
-FROM {{global.metadataTablename.maaler}}
+UPDATE {{global.metadataTablename.maaler}} SET 
+    dateFirstUsed = CURRENT_TIMESTAMP
 WHERE deviceEui = '{{data.deviceEui}}'
-ORDER BY lastObservation DESC LIMIT 1
 `
 
 module.exports = Node;
