@@ -19,7 +19,7 @@ const Node = {
 }
 
 Node.template = `
-DROP TABLE {{global.metadataTablename.maaler}};
+DROP TABLE {{global.metadataTablename.maaler}}
 `
 
 module.exports = Node;
