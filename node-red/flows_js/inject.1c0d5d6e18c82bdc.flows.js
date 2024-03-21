@@ -13,7 +13,7 @@ const Node = {
   "once": false,
   "onceDelay": 0.1,
   "topic": "",
-  "payload": "{\"devUid\":1,\"name\":\"El-import (T1)\",\"inputenhed\":\"W\",\"enhed\":\"kW\",\"energiartskode\":0,\"typekode\":1,\"valuekey\":\"Active_Energy_Import_T1\",\"operator\":\"/\",\"operationvalue\":1000}",
+  "payload": "{\"deviceUid\":1,\"name\":\"El-import (T1)\",\"inputenhed\":\"W\",\"enhed\":\"kW\",\"energiartskode\":0,\"typekode\":1,\"valuekey\":\"Active_Energy_Import_T1\",\"operator\":\"/\",\"operationvalue\":1000}",
   "payloadType": "json",
   "x": 160,
   "y": 620,

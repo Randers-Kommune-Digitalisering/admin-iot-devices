@@ -15,7 +15,7 @@ const Node = {
       "t": "set",
       "p": "whereClause",
       "pt": "msg",
-      "to": "templateUid ~> $exists() ? 'deviceUid = ' & devUid & ' OR deviceUid = ' & templateUid :  'deviceUid = ' & devUid",
+      "to": "templateUid ~> $exists() ? 'deviceUid = ' & deviceUid & ' OR deviceUid = ' & templateUid :  'deviceUid = ' & deviceUid",
       "tot": "jsonata"
     },
     {

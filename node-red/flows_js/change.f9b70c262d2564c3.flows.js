@@ -6,7 +6,7 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "devUid",
+      "p": "deviceUid",
       "pt": "msg",
       "to": "req.params.device",
       "tot": "msg"

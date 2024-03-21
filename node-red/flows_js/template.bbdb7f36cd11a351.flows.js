@@ -33,7 +33,7 @@ INSERT INTO {{global.metadataTablename.maalepunkt}}
 )
 VALUES
 (
-	{{payload.devUid}},
+	{{payload.deviceUid}},
 	'{{payload.name}}',
 	'{{payload.inputenhed}}',
 	'{{payload.enhed}}',

@@ -1,25 +1,25 @@
 <script setup>
     import { ref, watch } from 'vue'
-    //import { useRouter } from 'vue-router'
-
     import * as dayjs from 'dayjs'
 
-    //const router = useRouter()
-
+    // Components
     import Content from '@/components/Content.vue'
     import EditMeasurementPoint from '@/components/sensor/EditMeasurementPoint.vue'
     import MeasurementPoint from '@/components/connector/MeasurementPoint.vue'
 
+    // Icons
     import IconMeasurementPoint from '@/components/icons/IconCircle.vue'
     import IconEdit from '@/components/icons/IconEditSimple.vue'
     import IconNewItem from '@/components/icons/IconNewItem.vue'
     import IconUpload from '@/components/icons/IconUpload.vue'
     import IconDownload from '@/components/icons/IconDownload.vue'
     
+    // Data
     import energiarter from '@/data/energiarter.json'
     import typekoder from '@/data/typekoder.json'
     import measurementPointMetadata from '@/data/measurementPointMetadata.json'
 
+    // Props
     const props = defineProps({
         measurementPoints: {
             type: Array,
@@ -66,11 +66,9 @@
             return; 
         }
         
-        console.log("Editing measurement point #" + point.uid)
-        console.log(point)
-
-        measurementPointSelected.value = point
-        measurementPointPreviousValues.value = JSON.parse(JSON.stringify(point))
+        //console.log("Editing measurement point #" + point.uid)
+        measurementPointSelected.value = point // Set selection
+        measurementPointPreviousValues.value = JSON.parse(JSON.stringify(point)) // Copy values of selected item
         editingMeasurementPoint.value = true
 
         scrollTo("editMeasurementPoint")
@@ -84,7 +82,8 @@
         measurementPointSelected.value = JSON.parse(JSON.stringify(measurementPointMetadata))
 
         // Update refs in object
-        measurementPointSelected.value.devUid = props.deviceUid
+        measurementPointSelected.value.deviceUid = props.deviceUid
+        console.log("New deviceUid: " + measurementPointSelected.value.deviceUid)
 
         editingMeasurementPoint.value = true
 
@@ -94,11 +93,10 @@
     // Save / cancel
 
     function saveEdit()
-    {
-        console.log("Saving")
-        
-        if(measurementPointSelected.value.uid == -1)
+    {        
+        if(measurementPointSelected.value.uid == -1) // New measurement point
         {
+            console.log("Creating new measurement point with deviceUid: " + measurementPointSelected.value.deviceUid)
             MeasurementPoint.create(measurementPointSelected.value)
             .then(response => measurementPointSelected.value.uid = response.dbResponse.insertId)
             .then(response => measurementPoints.value.push(measurementPointSelected.value))
@@ -109,7 +107,7 @@
             })
                 
         }
-        else
+        else // Editing existing measurement point
             MeasurementPoint.update(measurementPointSelected.value)
             .then(response => {
                 // Remove selection
@@ -176,7 +174,8 @@
                 v-for="measurement in measurementPoints"
                 @click="selectMeasurementPoint(measurement)"
                 :id="measurement.uid"
-                :class="editingMeasurementPoint && measurementPointSelected.uid == measurement.uid ? 'orange' : ((editingMeasurementPoint && measurementPointSelected.uid == -1) || measurement.deviceUid != props.deviceUid ? ' nohover' : '')"
+                :class="editingMeasurementPoint && measurementPointSelected.uid == measurement.uid ? 'orange'
+                        : ((editingMeasurementPoint && measurementPointSelected.uid == -1) || measurement.deviceUid != props.deviceUid ? ' nohover' : '')"
             >
 
                 <td class="sensorTypeTd"> <!-- Measurement point status (if data is being imported and exported) -->
@@ -188,7 +187,7 @@
                 <td>
                     <div class="flex col">
                         <span>{{measurement.name}}</span>
-                        <span v-if="measurement.deviceUid != props.deviceUid" class="tiny blue">Indlæst fra skabelon</span>
+                        <span v-if="measurement.deviceUid != props.deviceUid" class="tiny blue">Indlæst fra skabelon ({{measurement.deviceUid}} / {{props.deviceUid}})</span>
                     </div>
                 </td>
                 <td>{{measurement.enhed == "" ? measurement.inputenhed : (measurement.inputenhed + " → " + measurement.enhed)}}</td>
