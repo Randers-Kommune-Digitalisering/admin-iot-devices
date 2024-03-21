@@ -5,7 +5,7 @@ const Node = {
   "name": "DB: Get device (msg.uid)",
   "links": [],
   "x": 55,
-  "y": 620,
+  "y": 640,
   "wires": [
     [
       "67efff30a935798a"

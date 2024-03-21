@@ -4,8 +4,8 @@ const Node = {
   "z": "7b3a886e00fb2ea6",
   "name": "DB: Get template (msg.uid)",
   "links": [],
-  "x": 175,
-  "y": 1200,
+  "x": 155,
+  "y": 1260,
   "wires": [
     [
       "f45d502f925d5d93"
