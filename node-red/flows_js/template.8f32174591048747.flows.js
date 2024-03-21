@@ -22,7 +22,7 @@ Node.template = `
 SELECT
     *
 FROM {{global.metadataTablename.maaler}}
-WHERE isTemplate = true AND uid = {{payload.defaultValuesTemplateUid}}
+WHERE isTemplate = true AND uid = {{payload.templateUid}}
 `
 
 module.exports = Node;

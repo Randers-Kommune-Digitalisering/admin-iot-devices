@@ -33,7 +33,7 @@ CREATE TABLE if not exists {{global.metadataTablename.lokation}}
 	note VARCHAR(255),
 
 	isTemplate BOOL DEFAULT false,
-	defaultValuesTemplateUid MEDIUMINT,
+	templateUid MEDIUMINT,
 
 	UNIQUE (uid)
 );

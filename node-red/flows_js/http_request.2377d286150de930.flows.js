@@ -6,7 +6,7 @@ const Node = {
   "method": "POST",
   "ret": "obj",
   "paytoqs": "ignore",
-  "url": "localhost:1880/devices/add",
+  "url": "localhost:1880/devices",
   "tls": "",
   "persist": false,
   "proxy": "",

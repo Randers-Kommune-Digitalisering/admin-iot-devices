@@ -55,7 +55,7 @@ CREATE TABLE if not exists {{global.metadataTablename.maaler}}
 
 	-- Metadata
 	isTemplate BOOL DEFAULT false,
-	defaultValuesTemplateUid MEDIUMINT DEFAULT -1,
+	templateUid MEDIUMINT NOT NULL DEFAULT -1,
 	dataTablename VARCHAR(255),
 
 	UNIQUE (uid, deviceEui)

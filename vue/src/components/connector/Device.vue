@@ -3,7 +3,7 @@ import { ref } from 'vue'
 
 async function updateDevice(_metadata, newDevice = false)
 {
-    const metadata = Array.isArray(_metadata) ? _metadata[0] : _metadata
+    const metadata = newDevice ? Array.isArray(_metadata) ? _metadata :_metadata[0] : _metadata
 
     const status = ref(null)
     const url = newDevice ? '/api/devices' : ('/api/devices/' + metadata.uid)

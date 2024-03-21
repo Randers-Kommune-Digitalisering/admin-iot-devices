@@ -3,7 +3,7 @@ const Node = {
   "type": "switch",
   "z": "7b3a886e00fb2ea6",
   "name": "Baseret på skabelon?",
-  "property": "payload.defaultValuesTemplateUid",
+  "property": "payload.templateUid",
   "propertyType": "msg",
   "rules": [
     {

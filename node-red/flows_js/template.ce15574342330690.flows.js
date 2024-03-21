@@ -31,7 +31,7 @@ INSERT INTO {{global.metadataTablename.maaler}}
 	serviceProfileUid,
 	payloadDecoderUid,
 	isTemplate,
-	defaultValuesTemplateUid
+	templateUid
 )
 VALUES
 (

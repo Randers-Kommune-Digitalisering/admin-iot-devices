@@ -1,19 +1,19 @@
 const Node = {
-  "id": "cc6a19093947b872",
+  "id": "57dfe8c7c2f66098",
   "type": "template",
   "z": "7b3a886e00fb2ea6",
-  "name": "Select alle devices",
+  "name": "Select device",
   "field": "sql",
   "fieldType": "msg",
   "format": "sql",
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 250,
-  "y": 480,
+  "x": 230,
+  "y": 640,
   "wires": [
     [
-      "0997bd3fd2b806e2"
+      "00152d6dbca958e1"
     ]
   ]
 }
@@ -21,12 +21,13 @@ const Node = {
 Node.template = `
 SELECT
     t1.*,
+    t2.templateUid,
     t2.templateName,
     IFNULL(t3.maalepunktCount, 0) + IFNULL(t4.maalepunktCount, 0) as maalepunktCount
 FROM
     {{global.metadataTablename.maaler}} AS t1
     
-LEFT JOIN --
+LEFT JOIN
 (
     SELECT
         uid as templateUid,
@@ -57,6 +58,8 @@ LEFT JOIN
     
 ) AS t4
     ON t1.templateUid = t4.deviceUid
+    
+WHERE uid = {{uid}}
 `
 
 module.exports = Node;

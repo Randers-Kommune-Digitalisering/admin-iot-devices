@@ -90,7 +90,7 @@
         sensorList.value[0].energiart = current.energiartskode
         sensorList.value[0].serviceProfile = current.serviceProfileUid
         sensorList.value[0].payloadDecoder = current.serviceProfileUid
-        sensorList.value[0].templateUid = current.defaultValuesTemplateUid
+        sensorList.value[0].templateUid = current.templateUid
         sensorList.value[0].isTemplate = current.isTemplate
         isTemplate.value = current.isTemplate == 1 ? true : false
         
