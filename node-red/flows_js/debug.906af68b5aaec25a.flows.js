@@ -1,8 +1,8 @@
 const Node = {
-  "id": "b22066da262fd374",
+  "id": "906af68b5aaec25a",
   "type": "debug",
   "z": "7b3a886e00fb2ea6",
-  "name": "debug 18",
+  "name": "debug 19",
   "active": true,
   "tosidebar": true,
   "console": false,
@@ -10,8 +10,8 @@ const Node = {
   "complete": "false",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1340,
-  "y": 1680,
+  "x": 750,
+  "y": 1580,
   "wires": []
 }
 

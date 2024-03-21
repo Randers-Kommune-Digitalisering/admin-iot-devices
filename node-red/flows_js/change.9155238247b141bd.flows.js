@@ -1,15 +1,16 @@
 const Node = {
-  "id": "d0fe758c2c1153c4",
+  "id": "9155238247b141bd",
   "type": "change",
-  "z": "7b3a886e00fb2ea6",
-  "name": "",
+  "z": "dc028cb1b3d1491a",
+  "name": "Save request",
   "rules": [
     {
       "t": "set",
-      "p": "payload",
+      "p": "requestBody",
       "pt": "msg",
-      "to": "payload[0]",
-      "tot": "msg"
+      "to": "payload",
+      "tot": "msg",
+      "dc": true
     }
   ],
   "action": "",
@@ -17,11 +18,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 280,
-  "y": 960,
+  "x": 590,
+  "y": 400,
   "wires": [
     [
-      "e9ad151549bce9b9"
+      "89eb90d261faf829"
     ]
   ]
 }

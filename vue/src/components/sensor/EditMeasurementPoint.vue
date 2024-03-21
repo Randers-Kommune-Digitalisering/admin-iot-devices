@@ -80,12 +80,12 @@
 
             
             <div>
-                <label for="valuekey" class="capitalize">
+                <label for="propertyName" class="capitalize">
 
                     Nøgle
 
                 </label>
-                <input type="text" placeholder="..." id="valuekey" v-model="measurementPoint.valuekey" required>
+                <input type="text" placeholder="..." id="propertyName" v-model="measurementPoint.propertyName" required>
             </div>
 
             

@@ -4,8 +4,8 @@ const Node = {
   "z": "1b1f52cac1d78ec2",
   "name": "Instantiate DB",
   "info": "",
-  "x": 170,
-  "y": 240,
+  "x": 330,
+  "y": 260,
   "wires": []
 }
 

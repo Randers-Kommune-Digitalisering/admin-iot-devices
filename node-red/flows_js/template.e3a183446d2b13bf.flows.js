@@ -22,28 +22,29 @@ const Node = {
 Node.template = `
 CREATE TABLE if not exists {{global.metadataTablename.maalepunkt}}
 (
+	-- Identifikator
 	deviceUid MEDIUMINT,
-
 	uid MEDIUMINT NOT NULL AUTO_INCREMENT,
-	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	lastUpdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-
+	propertyName VARCHAR(255),
+	
+	-- NGSIv2 data
 	name VARCHAR(255),
+	dateCreated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	dateModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	controlledProperty VARCHAR(255),
+
+	-- EnergyKey
 	enhed VARCHAR(255),
 	energiartskode SMALLINT,
 	typekode SMALLINT,
 
-	controlledProperty VARCHAR(255),
-	valuekey VARCHAR(255),
-
+	-- Export data conversion
 	inputenhed VARCHAR(255),
 	operator VARCHAR(255),
 	operationvalue SMALLINT,
 
+	-- Metadata
 	lastExport TIMESTAMP,
-
-	-- isTemplate BOOL DEFAULT false,
-	-- defaultValuesTemplateUid MEDIUMINT,
 
 	UNIQUE (uid)
 );

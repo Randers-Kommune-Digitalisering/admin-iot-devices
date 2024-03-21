@@ -6,7 +6,7 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "sensor",
+      "p": "device",
       "pt": "msg",
       "to": "payload",
       "tot": "msg",

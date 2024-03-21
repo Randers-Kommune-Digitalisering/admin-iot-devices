@@ -19,7 +19,10 @@ const Node = {
 }
 
 Node.template = `
-SELECT * FROM {{global.metadataTablename.maaler}} WHERE isTemplate = true AND uid = {{payload.defaultValuesTemplateUid}}
+SELECT
+    *
+FROM {{global.metadataTablename.maaler}}
+WHERE isTemplate = true AND uid = {{payload.defaultValuesTemplateUid}}
 `
 
 module.exports = Node;

@@ -4,7 +4,7 @@ const Node = {
   "z": "1b1f52cac1d78ec2",
   "name": "Instantiate a sensor",
   "info": "",
-  "x": 190,
+  "x": 350,
   "y": 340,
   "wires": []
 }

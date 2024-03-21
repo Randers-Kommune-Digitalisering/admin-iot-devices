@@ -19,14 +19,14 @@ const Node = {
 }
 
 Node.template = `
-UPDATE {{global.metadataTablename.maalepunkt}} SET
-
+UPDATE {{global.metadataTablename.maalepunkt}}
+SET
 	name = '{{payload.name}}',
 	inputenhed = '{{payload.inputenhed}}',
 	enhed = '{{payload.enhed}}',
 	energiartskode = {{payload.energiartskode}},
 	typekode = {{payload.typekode}},
-	valuekey = '{{payload.valuekey}}',
+	propertyName = '{{payload.propertyName}}',
 	operator = '{{payload.operator}}',
 	operationvalue = {{payload.operationvalue}}
 

@@ -9,13 +9,11 @@ const Node = {
   "once": false,
   "onceDelay": 0.1,
   "topic": "",
-  "x": 115,
-  "y": 140,
+  "x": 285,
+  "y": 120,
   "wires": [
     [
-      "ad858d75c34662a7",
-      "209f1eec1ad15796",
-      "db83667438710c8c"
+      "ffda845dd9aaf7b5"
     ]
   ],
   "l": false

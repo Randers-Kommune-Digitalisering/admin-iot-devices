@@ -1,10 +1,12 @@
 <script>
 import { ref } from 'vue'
 
-async function updateDevice(metadata, newDevice = false)
+async function updateDevice(_metadata, newDevice = false)
 {
+    const metadata = Array.isArray(_metadata) ? _metadata[0] : _metadata
+
     const status = ref(null)
-    const url = newDevice == true ? '/api/devices/add' : '/api/devices/edit'
+    const url = newDevice ? '/api/devices' : ('/api/devices/' + metadata.uid)
 
     const response = fetch(url, {
         method: "POST",

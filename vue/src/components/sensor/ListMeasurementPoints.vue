@@ -187,7 +187,7 @@
                 <td>
                     <div class="flex col">
                         <span>{{measurement.name}}</span>
-                        <span v-if="measurement.deviceUid != props.deviceUid" class="tiny blue">Indlæst fra skabelon ({{measurement.deviceUid}} / {{props.deviceUid}})</span>
+                        <span v-if="measurement.deviceUid != props.deviceUid" class="tiny blue">Indlæst fra skabelon</span>
                     </div>
                 </td>
                 <td>{{measurement.enhed == "" ? measurement.inputenhed : (measurement.inputenhed + " → " + measurement.enhed)}}</td>

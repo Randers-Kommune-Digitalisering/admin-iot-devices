@@ -8,8 +8,8 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "payload[0]",
-      "tot": "msg",
+      "to": "payload ~> $count() > 0 ? payload[0] : {}",
+      "tot": "jsonata",
       "dc": true
     }
   ],

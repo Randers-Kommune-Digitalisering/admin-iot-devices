@@ -27,7 +27,7 @@ INSERT INTO {{global.metadataTablename.maalepunkt}}
 	enhed,
 	energiartskode,
 	typekode,
-	valuekey,
+	propertyName,
 	operator,
 	operationvalue
 )
@@ -39,7 +39,7 @@ VALUES
 	'{{payload.enhed}}',
 	{{payload.energiartskode}},
 	{{payload.typekode}},
-	'{{payload.valuekey}}',
+	'{{payload.propertyName}}',
 	'{{payload.operator}}',
 	{{payload.operationvalue}}
 )
