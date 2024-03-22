@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "payload[0] ~> | $ | {\t    \"uid\": $$.device.uid,\t    \"name\": $$.device.name,\t    \"deviceEui\": $$.device.deviceEui,\t    \"applicationKey\": $$.device.applicationKey,\t    \"templateUid\": $$.device.templateUid,\t    \"dataTablename\": $$.device.dataTablename,\t    \"lastObservation\": $$.device.lastObservation,\t\t    \"isTemplate\": 0,\t    \"templateName\": name\t} |",
+      "to": "payload[0] ~> | $ | {\t    \"uid\": $$.device.uid,\t    \"deviceEui\": $$.device.deviceEui,\t    \"applicationKey\": $$.device.applicationKey,\t\t    \"name\": $$.device.name,\t    \"type\": $$.device.type,\t    \"deviceCategory\": $$.device.deviceCategory,\t    \"dateCreated\": $$.device.dateCreated,\t    \"dateFirstUsed\": $$.device.dateFirstUsed,\t    \"dateModified\": $$.device.dateModified,\t    \"rssi\": $$.device.rssi,\t    \"batteryLevel\": $$.device.batteryLevel,\t\t    \"isTemplate\": 0,\t    \"templateName\": name,\t    \"templateUid\": $$.device.templateUid,\t    \"dataTablename\": $$.device.dataTablename,\t    \"lastObservation\": $$.device.lastObservation\t\t} |",
       "tot": "jsonata"
     }
   ],

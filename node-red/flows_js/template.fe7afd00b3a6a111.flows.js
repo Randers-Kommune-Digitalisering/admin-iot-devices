@@ -53,12 +53,12 @@ CREATE TABLE if not exists {{global.metadataTablename.maaler}}
 	deviceProfileUid SMALLINT,
 	serviceProfileUid SMALLINT,
 	payloadDecoderUid SMALLINT,
-	lastObservation TIMESTAMP,
 
 	-- Metadata
 	isTemplate BOOL DEFAULT false,
 	templateUid MEDIUMINT NOT NULL DEFAULT -1,
 	dataTablename VARCHAR(255),
+	lastObservation TIMESTAMP,
 
 	UNIQUE (uid, deviceEui)
 );

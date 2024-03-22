@@ -6,7 +6,7 @@ function getTemplates()
     const data = ref(null)
     const status = ref(null)
 
-    fetch('/api/devices/templates/get', {
+    fetch('/api/templates', {
         method: "GET",
         headers: {
             "Accept": "application/json"
@@ -26,7 +26,7 @@ async function getTemplate(uid)
 {
     const status = ref(null)
 
-    const response = fetch('/api/devices/templates/get/' + uid, {
+    const response = fetch('/api/templates/' + uid, {
         method: "GET",
         headers: {
             "Accept": "application/json"

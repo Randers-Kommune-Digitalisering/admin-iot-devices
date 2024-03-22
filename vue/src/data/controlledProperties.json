@@ -1,0 +1,51 @@
+[
+    {
+        "localeName": "Strømforbrug",
+        "propertyName": "electricityConsumption",
+        "energyType": "El",
+        "energyTypeUid": 0
+    },
+    {
+        "localeName": "Vandforbrug",
+        "propertyName": "waterConsumption",
+        "energyType": "Vand",
+        "energyTypeUid": 1
+    },    
+    {
+        "localeName": "Centralvarme (Strømforbrug)",
+        "propertyName": "electricityConsumption",
+        "energyType": "Centralvarme",
+        "energyTypeUid": 2
+    },
+    {
+        "localeName": "Fjernvarme (Strømforbrug)",
+        "propertyName": "electricityConsumption",
+        "energyType": "Fjernvarme",
+        "energyTypeUid": 3
+    },
+    {
+        "localeName": "Olieforbrug (Energi)",
+        "propertyName": "energy",
+        "energyType": "Olie",
+        "energyTypeUid": 4
+    },
+    {
+        "localeName": "Gasforbrug",
+        "propertyName": "gasConsumption",
+        "energyType": "Gas",
+        "energyTypeUid": 5
+    },
+    {
+        "localeName": "Køling",
+        "propertyName": "temperature",
+        "energyType": "Køling",
+        "energyTypeUid": 6
+    },
+    {
+        "localeName": "Trykluft",
+        "propertyName": "pressure",
+        "energyType": "Trykluft",
+        "energyTypeUid": 7
+    }
+
+]
