@@ -4,7 +4,7 @@ import { ref } from 'vue'
 async function updateMeasurementPoint(metadata, newMeasurementPoint = false)
 {
     const status = ref(null)
-    const url = newMeasurementPoint == true ? '/api/devices/measurements/add' : '/api/devices/measurements/edit'
+    const url = newMeasurementPoint ? '/api/measurements' : ('/api/measurements/' + metadata.uid)
 
     const response = fetch(url, {
         method: "POST",

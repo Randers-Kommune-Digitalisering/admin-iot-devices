@@ -2,7 +2,7 @@ const Node = {
   "id": "681346299b15476f",
   "type": "link in",
   "z": "7b3a886e00fb2ea6",
-  "name": "DB: Edit measurement point (payload.uid)",
+  "name": "DB: Edit measurement point (msg.uid)",
   "links": [],
   "x": 55,
   "y": 2120,

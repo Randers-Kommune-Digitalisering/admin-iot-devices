@@ -1,18 +1,18 @@
 const Node = {
-  "id": "d12d540aa4e92903",
+  "id": "c90aa7ed17af7761",
   "type": "link call",
   "z": "dc028cb1b3d1491a",
   "name": "",
   "links": [
-    "2328fe4527670054"
+    "681346299b15476f"
   ],
   "linkType": "static",
   "timeout": "30",
-  "x": 730,
-  "y": 1040,
+  "x": 850,
+  "y": 840,
   "wires": [
     [
-      "cb833d8dc20a955a"
+      "e8f674d3b575cf83"
     ]
   ]
 }

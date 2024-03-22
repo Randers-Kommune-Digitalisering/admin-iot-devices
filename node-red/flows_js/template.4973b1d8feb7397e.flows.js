@@ -30,7 +30,7 @@ SET
 	operator = '{{payload.operator}}',
 	operationvalue = {{payload.operationvalue}}
 
-WHERE uid = {{payload.uid}}
+WHERE uid = {{uid}}
 `
 
 module.exports = Node;

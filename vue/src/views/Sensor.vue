@@ -22,13 +22,13 @@
 
     // Fetch sensor
 
-    fetch('/api/devices/get/' + route.params.uid + '/measurements/get')
+    fetch('/api/devices/' + route.params.uid + '/measurements')
         .then(response => response = response.json())
         .then(value => measurementPoints.value = value)
 
     // Fetch measurement points
 
-    fetch('/api/devices/' + route.params.uid + '/')
+    fetch('/api/devices/' + route.params.uid)
         .then(response => response = response.json())
         .then(value => sensor.value = value)
 

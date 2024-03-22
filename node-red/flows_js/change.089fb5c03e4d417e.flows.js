@@ -1,15 +1,16 @@
 const Node = {
-  "id": "f9b70c262d2564c3",
+  "id": "089fb5c03e4d417e",
   "type": "change",
   "z": "dc028cb1b3d1491a",
-  "name": "Params",
+  "name": "Save request",
   "rules": [
     {
       "t": "set",
-      "p": "deviceUid",
+      "p": "requestBody",
       "pt": "msg",
-      "to": "req.params.device",
-      "tot": "msg"
+      "to": "payload",
+      "tot": "msg",
+      "dc": true
     }
   ],
   "action": "",
@@ -17,11 +18,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 480,
-  "y": 1000,
+  "x": 570,
+  "y": 800,
   "wires": [
     [
-      "e998ee9e20b70593"
+      "4aa0f6977ef717d5"
     ]
   ]
 }
