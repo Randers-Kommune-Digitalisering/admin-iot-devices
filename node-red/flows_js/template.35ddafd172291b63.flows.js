@@ -21,7 +21,9 @@ const Node = {
 Node.template = `
 UPDATE {{global.metadataTablename.maaler}} SET
     lastObservation = '{{data.observedAt}}',
-    dataTablename = '{{data.tablename}}'
+    dataTablename = '{{data.tablename}}',
+    rssi = {{data.rssi}},
+    batteryLevel = {{data.batteryLevel}}
 WHERE deviceEui = '{{data.deviceEui}}'
 `
 

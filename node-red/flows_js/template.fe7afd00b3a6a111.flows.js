@@ -42,6 +42,8 @@ CREATE TABLE if not exists {{global.metadataTablename.maaler}}
 	dateFirstUsed TIMESTAMP,
 	dateModified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	supportedProtocol VARCHAR(255) DEFAULT 'lora',
+	rssi SMALLINT,
+	batteryLevel SMALLINT,
 
 	-- EnergyKey
 	installationsnummer VARCHAR(255),
