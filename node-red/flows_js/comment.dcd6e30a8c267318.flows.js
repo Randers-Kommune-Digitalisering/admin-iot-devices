@@ -5,7 +5,7 @@ const Node = {
   "name": "Redigér måler eller template",
   "info": "",
   "x": 160,
-  "y": 900,
+  "y": 960,
   "wires": []
 }
 

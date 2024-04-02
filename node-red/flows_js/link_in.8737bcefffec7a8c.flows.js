@@ -5,7 +5,7 @@ const Node = {
   "name": "DB: Get templates",
   "links": [],
   "x": 155,
-  "y": 1100,
+  "y": 1160,
   "wires": [
     [
       "d37357e01a05b4fa"

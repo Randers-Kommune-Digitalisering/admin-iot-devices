@@ -5,7 +5,7 @@ const Node = {
   "name": "Alle målere (uden template values)",
   "info": "",
   "x": 180,
-  "y": 440,
+  "y": 500,
   "wires": []
 }
 

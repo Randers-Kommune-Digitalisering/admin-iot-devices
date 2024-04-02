@@ -5,7 +5,7 @@ const Node = {
   "name": "DB: Get devices",
   "links": [],
   "x": 55,
-  "y": 480,
+  "y": 540,
   "wires": [
     [
       "cc6a19093947b872"

@@ -5,7 +5,7 @@ const Node = {
   "name": "Specifik måler (msg.uid) med evt. template values",
   "info": "",
   "x": 220,
-  "y": 600,
+  "y": 660,
   "wires": []
 }
 

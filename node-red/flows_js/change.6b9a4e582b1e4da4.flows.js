@@ -46,6 +46,13 @@ const Node = {
       "pt": "global",
       "to": "iot_decoder_metadata",
       "tot": "str"
+    },
+    {
+      "t": "set",
+      "p": "metadataTablename.os2status",
+      "pt": "global",
+      "to": "iot_os2_requests",
+      "tot": "str"
     }
   ],
   "action": "",
