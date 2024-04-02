@@ -6,7 +6,7 @@ const Node = {
   "method": "POST",
   "ret": "obj",
   "paytoqs": "ignore",
-  "url": "localhost:1880/devices/measurements/add",
+  "url": "localhost:1880/measurements",
   "tls": "",
   "persist": false,
   "proxy": "",
@@ -17,7 +17,9 @@ const Node = {
   "x": 600,
   "y": 540,
   "wires": [
-    []
+    [
+      "cf6c8843fd865f69"
+    ]
   ]
 }
 
