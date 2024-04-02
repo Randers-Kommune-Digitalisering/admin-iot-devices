@@ -15,7 +15,7 @@ const Node = {
   "once": false,
   "onceDelay": 0.1,
   "topic": "",
-  "x": 330,
+  "x": 110,
   "y": 1660,
   "wires": [
     [
