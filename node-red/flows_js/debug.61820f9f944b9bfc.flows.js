@@ -1,9 +1,9 @@
 const Node = {
-  "id": "c8b145b82d5b2b61",
+  "id": "61820f9f944b9bfc",
   "type": "debug",
-  "z": "7b3a886e00fb2ea6",
-  "name": "Template",
-  "active": true,
+  "z": "d0465df3f1def3b2",
+  "name": "CSV",
+  "active": false,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
@@ -11,8 +11,8 @@ const Node = {
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1060,
-  "y": 1200,
+  "x": 1330,
+  "y": 540,
   "wires": []
 }
 
