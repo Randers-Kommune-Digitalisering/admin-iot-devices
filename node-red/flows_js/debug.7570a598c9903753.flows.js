@@ -1,9 +1,9 @@
 const Node = {
-  "id": "aa7dda6c92a1c175",
+  "id": "7570a598c9903753",
   "type": "debug",
   "z": "31eb0ab05cfa21a8",
-  "name": "CSV",
-  "active": true,
+  "name": "Datapunkter til eksport",
+  "active": false,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
@@ -11,7 +11,7 @@ const Node = {
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1530,
+  "x": 1280,
   "y": 340,
   "wires": []
 }

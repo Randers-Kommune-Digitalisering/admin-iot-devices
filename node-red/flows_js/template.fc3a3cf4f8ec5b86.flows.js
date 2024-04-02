@@ -9,8 +9,8 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 290,
-  "y": 260,
+  "x": 410,
+  "y": 180,
   "wires": [
     [
       "9d3a030fb48bed0d"
@@ -19,7 +19,29 @@ const Node = {
 }
 
 Node.template = `
-SELECT * FROM {{flow.maalepunkt_metadata_tablename}} WHERE maalernummer = '{{maaler.nummer}}';
+SELECT
+    t1.*,
+    t2.deviceName,
+    t2.dataTablename,
+    t2.installationsnummer,
+    t2.deviceEui
+FROM
+    {{global.metadataTablename.maalepunkt}} AS t1
+    
+LEFT JOIN
+(
+    SELECT
+        uid as deviceUid,
+        name as deviceName,
+        energiartskode as deviceEnergiartskode,
+        dataTablename,
+        installationsnummer,
+        deviceEui
+    FROM
+        {{global.metadataTablename.maaler}}
+    
+) AS t2 
+    ON t1.deviceUid = t2.deviceUid
 `
 
 module.exports = Node;

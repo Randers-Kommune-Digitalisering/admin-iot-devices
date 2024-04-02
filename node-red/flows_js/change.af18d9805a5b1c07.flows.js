@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "[ $distinct( payload.observedAt ) @ $timestamp .\t(\t    maalepunkter.key @ $key . \t    {\t        \"observedAt\": $timestamp,\t        $key: $$.payload[ observedAt = $timestamp and type = $key ].value\t    }\t    ~> $merge()\t) ]",
+      "to": "[ $distinct( payload.observedAt ) @ $timestamp .\t(\t    measurementPoint.propertyName @ $key . \t    {\t        \"observedAt\": $timestamp,\t        $key: $$.payload[ observedAt = $timestamp and type = $key ].value\t    }\t    ~> $merge()\t) ]",
       "tot": "jsonata"
     }
   ],
@@ -18,7 +18,7 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 470,
-  "y": 400,
+  "y": 500,
   "wires": [
     [
       "6c319c813ef0163d"

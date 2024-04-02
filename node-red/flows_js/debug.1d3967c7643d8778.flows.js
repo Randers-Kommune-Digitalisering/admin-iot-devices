@@ -1,18 +1,18 @@
 const Node = {
-  "id": "aa7dda6c92a1c175",
+  "id": "1d3967c7643d8778",
   "type": "debug",
   "z": "31eb0ab05cfa21a8",
-  "name": "CSV",
-  "active": true,
+  "name": "Målepunkt til eksport",
+  "active": false,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
-  "complete": "payload",
+  "complete": "measurementPoint",
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1530,
-  "y": 340,
+  "x": 260,
+  "y": 380,
   "wires": []
 }
 
