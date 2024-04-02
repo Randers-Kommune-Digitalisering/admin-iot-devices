@@ -1,12 +1,12 @@
 const Node = {
-  "id": "ab14f36a3da43ac7",
+  "id": "318b48ea61734480",
   "type": "inject",
   "z": "7b3a886e00fb2ea6",
   "name": "test",
   "props": [
     {
-      "p": "uid",
-      "v": "1",
+      "p": "deviceUid",
+      "v": "2",
       "vt": "num"
     }
   ],
@@ -15,11 +15,11 @@ const Node = {
   "once": false,
   "onceDelay": 0.1,
   "topic": "",
-  "x": 330,
-  "y": 1660,
+  "x": 130,
+  "y": 2360,
   "wires": [
     [
-      "b110bcfd6f872c88"
+      "f4ad89407b80b421"
     ]
   ]
 }

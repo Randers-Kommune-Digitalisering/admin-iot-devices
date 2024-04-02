@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "deviceUid",
       "pt": "msg",
-      "to": "req.params.sensor",
+      "to": "req.params.device",
       "tot": "msg"
     },
     {

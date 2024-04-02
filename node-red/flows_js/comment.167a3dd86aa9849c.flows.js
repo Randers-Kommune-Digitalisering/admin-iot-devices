@@ -1,11 +1,11 @@
 const Node = {
-  "id": "b9e0731366a07eda",
+  "id": "167a3dd86aa9849c",
   "type": "comment",
   "z": "7b3a886e00fb2ea6",
-  "name": "Redigér målepunkt",
+  "name": "Hent dimensioner (typer for datapunkter)",
   "info": "",
-  "x": 130,
-  "y": 2100,
+  "x": 300,
+  "y": 2280,
   "wires": []
 }
 

@@ -1,14 +1,14 @@
 const Node = {
-  "id": "681346299b15476f",
+  "id": "9c7025384970c18c",
   "type": "link in",
   "z": "7b3a886e00fb2ea6",
-  "name": "DB: Edit measurement point (msg.uid)",
+  "name": "DB: Get dimensions (msg.deviceUid)",
   "links": [],
-  "x": 55,
-  "y": 2140,
+  "x": 155,
+  "y": 2320,
   "wires": [
     [
-      "4973b1d8feb7397e"
+      "f4ad89407b80b421"
     ]
   ]
 }

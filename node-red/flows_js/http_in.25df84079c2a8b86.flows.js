@@ -3,11 +3,11 @@ const Node = {
   "type": "http in",
   "z": "dc028cb1b3d1491a",
   "name": "",
-  "url": "/devices/get/:device/datatype/get/",
+  "url": "/devices/:device/dimensions",
   "method": "get",
   "upload": false,
   "swaggerDoc": "",
-  "x": 190,
+  "x": 290,
   "y": 1560,
   "wires": [
     [
