@@ -24,7 +24,8 @@ SELECT
     t2.deviceName,
     t2.dataTablename,
     t2.installationsnummer,
-    t2.deviceEui
+    t2.deviceEui,
+    t2.deviceEnergiartskode
 FROM
     {{global.metadataTablename.maalepunkt}} AS t1
     

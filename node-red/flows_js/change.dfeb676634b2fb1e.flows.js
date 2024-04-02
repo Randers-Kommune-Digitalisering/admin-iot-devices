@@ -15,7 +15,7 @@ const Node = {
       "t": "set",
       "p": "template.header",
       "pt": "msg",
-      "to": "[\t    {\t        \"col\": 0,\t        \"type\": \"tekst\",\t        \"description\": \"Benyttes som navn for måler ved oprettelse. Hvis ikke angivet benyttes målernummer som navn.\",\t\t        \"value\": {\t            \"obj\": \"measurementPoint\",\t            \"key\": \"deviceName\"\t        }\t    },\t    {\t        \"col\": [1, 2, 3, 4, 5],\t        \"description\": \"Benyttes ikke i header\"\t    }\t]",
+      "to": "[\t    {\t        \"col\": 0,\t        \"type\": \"tekst\",\t        \"description\": \"Benyttes som navn for måler ved oprettelse. Hvis ikke angivet benyttes målernummer som navn.\",\t\t        \"value\": {\t            \"obj\": \"device\",\t            \"key\": \"name\"\t        }\t    },\t    {\t        \"col\": [1, 2, 3, 4, 5],\t        \"description\": \"Benyttes ikke i header\"\t    }\t]",
       "tot": "jsonata"
     },
     {
@@ -29,7 +29,7 @@ const Node = {
       "t": "set",
       "p": "template.body",
       "pt": "msg",
-      "to": "[\t    {\t       \"col\": 0,\t       \"type\": \"tekst\",\t       \"description\": \"Installationsnummer\",\t       \"note\": \"Benyttes som unik nøgle. Hvis installationsnummeret ikke er angivet, benyttes målernummeret alene som unik nøgle i EnergyKey\",\t       \t        \"value\": {\t            \"obj\": \"measurementPoint\",\t            \"key\": \"installationsnummer\"\t        }\t    },\t    {\t       \"col\": 1,\t       \"type\": \"tekst\",\t       \"description\": \"Målernummer\",\t       \"note\": \"Benyttes som unik nøgle\",\t       \t        \"value\": {\t            \"obj\": \"measurementPoint\",\t            \"key\": \"deviceEui\"\t        }\t    },\t    {\t       \"col\": 2,\t       \"type\": \"energiartskode\",\t       \"description\": \"Energiart for måler (valgfrit)\",\t       \"note\": \"Benyttes for kombineret unik nøgle. Det er muligt at benytte energiarten for kombineret unik nøgle i EnergyKey sammen med installations- og/eller målernummeret. Dette kræver speciel konfiguration i EnergyKey løsningen\",\t       \t        \"value\": {\t            \"obj\": \"measurementPoint\",\t            \"key\": \"energiartskode\"\t        }\t    },\t    {\t       \"col\": 3,\t       \"type\": \"tidspunkt\",\t       \"description\": \"Tidspunkt for aflæsning\",\t       \t        \"value\": {\t            \"obj\": \"@data\",\t            \"key\": \"observedAt\"\t        }\t    },\t    {\t       \"col\": 4,\t       \"type\": \"tidspunkt\",\t       \"description\": \"Fra tidspunkt for aflæsning\",\t       \"note\": \"Benyttes hvis værdi er forbrug/produktion/faktor for en periode\"\t    },\t    {\t       \"col\": 5,\t       \"type\": \"tekst\",\t       \"description\": \"Kommentar/mærkning/status til aflæsning\",\t       \"note\": \"Benyttes som `låst` tekst note for aflæsningen i EnergyKey\"\t    }\t]",
+      "to": "[\t    {\t       \"col\": 0,\t       \"type\": \"tekst\",\t       \"description\": \"Installationsnummer\",\t       \"note\": \"Benyttes som unik nøgle. Hvis installationsnummeret ikke er angivet, benyttes målernummeret alene som unik nøgle i EnergyKey\",\t       \t        \"value\": {\t            \"obj\": \"@maaler\",\t            \"key\": \"installationsnummer\"\t        }\t    },\t    {\t       \"col\": 1,\t       \"type\": \"tekst\",\t       \"description\": \"Målernummer\",\t       \"note\": \"Benyttes som unik nøgle\",\t       \t        \"value\": {\t            \"obj\": \"@maaler\",\t            \"key\": \"eui\"\t        }\t    },\t    {\t       \"col\": 2,\t       \"type\": \"energiartskode\",\t       \"description\": \"Energiart for måler (valgfrit)\",\t       \"note\": \"Benyttes for kombineret unik nøgle. Det er muligt at benytte energiarten for kombineret unik nøgle i EnergyKey sammen med installations- og/eller målernummeret. Dette kræver speciel konfiguration i EnergyKey løsningen\",\t       \t        \"value\": {\t            \"obj\": \"@maaler\",\t            \"key\": \"energiartskode\"\t        }\t    },\t    {\t       \"col\": 3,\t       \"type\": \"tidspunkt\",\t       \"description\": \"Tidspunkt for aflæsning\",\t       \t        \"value\": {\t            \"obj\": \"@data\",\t            \"key\": \"observedAt\"\t        }\t    },\t    {\t       \"col\": 4,\t       \"type\": \"tidspunkt\",\t       \"description\": \"Fra tidspunkt for aflæsning\",\t       \"note\": \"Benyttes hvis værdi er forbrug/produktion/faktor for en periode\"\t    },\t    {\t       \"col\": 5,\t       \"type\": \"tekst\",\t       \"description\": \"Kommentar/mærkning/status til aflæsning\",\t       \"note\": \"Benyttes som `låst` tekst note for aflæsningen i EnergyKey\"\t    }\t]",
       "tot": "jsonata"
     }
   ],
@@ -38,8 +38,8 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 240,
-  "y": 500,
+  "x": 560,
+  "y": 760,
   "wires": [
     [
       "af18d9805a5b1c07"
