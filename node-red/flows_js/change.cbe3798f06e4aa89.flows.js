@@ -14,13 +14,6 @@ const Node = {
     },
     {
       "t": "set",
-      "p": "measurementPoint.title",
-      "pt": "msg",
-      "to": "(\t    $energiarter := [\t        \"El\",\t        \"Vand\",\t        \"Centralvarme\",\t        \"Fjernvarme\",\t        \"Olie\",\t        \"Gas\",\t        \"Køling\",\t        \"Trykluft\"\t    ];\t    \t    $energiarter[$$.measurementPoint.energiartskode]\t)",
-      "tot": "jsonata"
-    },
-    {
-      "t": "set",
       "p": "measurementPoint.installationsnummer",
       "pt": "msg",
       "to": "measurementPoint.installationsnummer = null ? '' : measurementPoint.installationsnummer",
