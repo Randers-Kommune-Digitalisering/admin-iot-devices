@@ -208,7 +208,7 @@
                         <span v-if="measurement.lastExport == null || measurement.lastExport == '0000-00-00 00:00:00'" class="red small flex">
                             <IconUpload :scale="0.8" /> <span>Ingen export</span>
                         </span>
-                        <span v-else class="randers small flex">
+                        <span v-else class="green small flex">
                             <IconUpload :scale="0.8" /> <span>{{ dayjs(measurement.lastExport).format("DD/MM-YYYY") }}</span>
                         </span>
                         

@@ -1,4 +1,4 @@
-<script>
+<!--script>
 
     const filters = {
         Inactive: "inactive",
@@ -9,8 +9,7 @@
 
     export default { filters }
 
-</script>
-
+</script-->
 <script setup>
     import { ref, watch } from 'vue'
     import { useRouter } from 'vue-router'
@@ -37,7 +36,7 @@
         filter: {
             type: String,
             required: false,
-            default: filters.NoFilter
+            //default: filters.NoFilter
         },
         allowClick: {
             type: Boolean,
@@ -142,10 +141,12 @@
                             <IconDownload :scale="0.8" /> <span>{{ dayjs(sensor.lastObservation).format("DD/MM-YYYY") }}</span>
                         </span>
 
-                        <span class="red small flex">
+                        <span v-if="sensor.lastExport == null || sensor.lastExport == '0000-00-00 00:00:00'" class="red small flex">
                             <IconUpload :scale="0.8" /> <span>Ingen export</span>
                         </span>
-                        <!--span :class="true ? 'red' : 'blue'">{{true ? 'Ingen data' : 'X minutter siden'}}</span-->
+                        <span v-else class="green small flex">
+                            <IconUpload :scale="0.8" /> <span>{{ dayjs(sensor.lastExport).format("DD/MM-YYYY") }}</span>
+                        </span>
                     </div>
                 </td>
 
