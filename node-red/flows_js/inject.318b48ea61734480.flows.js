@@ -6,7 +6,7 @@ const Node = {
   "props": [
     {
       "p": "deviceUid",
-      "v": "2",
+      "v": "1",
       "vt": "num"
     }
   ],

@@ -1,14 +1,14 @@
 const Node = {
-  "id": "9b49a82b74178a0a",
+  "id": "9670b2c8ae7ff284",
   "type": "change",
-  "z": "fa50bce83191652b",
-  "name": "Divide values for \\n pulse to m2 conversion",
+  "z": "1b1f52cac1d78ec2",
+  "name": "list unit names",
   "rules": [
     {
       "t": "set",
-      "p": "data",
+      "p": "payload",
       "pt": "msg",
-      "to": "data ~> | $.values | {\t    \"value\": value * 0.1\t} |",
+      "to": "payload.abbr",
       "tot": "jsonata"
     }
   ],
@@ -17,10 +17,12 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 610,
-  "y": 140,
+  "x": 580,
+  "y": 980,
   "wires": [
-    []
+    [
+      "b2887d435b12c492"
+    ]
   ]
 }
 

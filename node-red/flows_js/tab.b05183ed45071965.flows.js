@@ -1,7 +1,7 @@
 const Node = {
-  "id": "bd0288d62c2263f6",
+  "id": "b05183ed45071965",
   "type": "tab",
-  "label": "OS2 Import v2",
+  "label": "OS2 Request",
   "disabled": false,
   "info": "",
   "env": []
