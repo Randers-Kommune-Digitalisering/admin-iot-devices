@@ -1,0 +1,27 @@
+const Node = {
+  "id": "172bcf93654c8e3f",
+  "type": "inject",
+  "z": "7b3a886e00fb2ea6",
+  "name": "test",
+  "props": [
+    {
+      "p": "uid",
+      "v": "1",
+      "vt": "num"
+    }
+  ],
+  "repeat": "",
+  "crontab": "",
+  "once": false,
+  "onceDelay": 0.1,
+  "topic": "",
+  "x": 110,
+  "y": 2420,
+  "wires": [
+    [
+      "54e719d6c42906a2"
+    ]
+  ]
+}
+
+module.exports = Node;

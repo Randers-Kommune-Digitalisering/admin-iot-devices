@@ -1,27 +1,31 @@
 const Node = {
-  "id": "ebf6784601e91c48",
+  "id": "10aba16c20afe8d3",
   "type": "template",
   "z": "7b3a886e00fb2ea6",
-  "name": "Select types",
+  "name": "Select data \\n since lastExport",
   "field": "sql",
   "fieldType": "msg",
   "format": "sql",
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 370,
-  "y": 2240,
+  "x": 920,
+  "y": 2620,
   "wires": [
     [
-      "87c059c5de65236a"
+      "df9cefd4fdbd07f2"
     ]
   ]
 }
 
 Node.template = `
-SELECT DISTINCT
-    type
-FROM {{payload.dataTablename}}
+SELECT
+    *
+FROM
+    {{payload.dataTablename}}
+WHERE
+    type = '{{payload.propertyName}}'
+AND observedAt > '{{payload.lastExport}}'
 `
 
 module.exports = Node;

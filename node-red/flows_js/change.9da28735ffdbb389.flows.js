@@ -1,15 +1,15 @@
 const Node = {
-  "id": "1eb80abe600d5169",
+  "id": "9da28735ffdbb389",
   "type": "change",
-  "z": "dc028cb1b3d1491a",
-  "name": "",
+  "z": "7b3a886e00fb2ea6",
+  "name": "Udpak array",
   "rules": [
     {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "",
-      "tot": "str"
+      "to": "payload[0]",
+      "tot": "msg"
     }
   ],
   "action": "",
@@ -17,11 +17,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1160,
-  "y": 1300,
+  "x": 710,
+  "y": 2460,
   "wires": [
     [
-      "feb25fde646f8bf3"
+      "70b4f531e6e2eff3"
     ]
   ]
 }
