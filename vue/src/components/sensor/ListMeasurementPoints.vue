@@ -179,7 +179,10 @@
             >
 
                 <td class="sensorTypeTd"> <!-- Measurement point status (if data is being imported and exported) -->
-                    <span :class="measurement.deviceUid != props.deviceUid ? 'blue' : 'red'">
+                    <span :class="measurement.deviceUid != props.deviceUid ? 'blue'
+                                : measurement.lastExport != null && measurement.lastExport != '0000-00-00 00:00:00' ?  'green'
+                                : measurement.lastObservation != null && measurement.lastObservation != '0000-00-00 00:00:00' ?  'randers'
+                                : 'red'">
                         <IconMeasurementPoint :scale="0.8" />
                     </span>
                 </td>
