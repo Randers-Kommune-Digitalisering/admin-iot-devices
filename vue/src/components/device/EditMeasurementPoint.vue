@@ -132,7 +132,7 @@
 
                 </label>
                 <select name="inputenhed" id="template" v-model="measurementPoint.inputenhed" @change="selectUnit()" required>
-                    <option value="-1" disabled>Vælg fra liste ..</option>
+                    <option value="" disabled>Vælg fra liste ..</option>
 
                     <option v-for="enhed in enheder" :value="enhed">{{ enhed }}</option>
                 </select>
@@ -146,7 +146,7 @@
 
                 </label>
                 <select name="enhed" id="template" v-model="measurementPoint.enhed" required>
-                    <option value="-1" disabled>Vælg fra liste ..</option>
+                    <option value="" disabled>Vælg fra liste ..</option>
 
                     <option v-for="enhed in enheder" :value="enhed">{{ enhed }}</option>
                 </select>
