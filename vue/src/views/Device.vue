@@ -51,8 +51,11 @@
 
     <h2>{{device != null ? device.name : 'Måler'}}</h2>
 
+    <!--span v-if="device != null" class="paragraph">
+        <div :class="'tag ' + (device.rssi <= -100 ? 'red' : device.rssi <= -70 ? 'orange' : 'green')">RSSI {{device.rssi}}</div>
+    </span-->
     <span v-if="device != null && device.templateUid != -1" class="underheader blue">Baseret på <span style="text-decoration: underline">{{device.templateName}}</span></span>
-
+    
     <ListMeasurementPoints :measurementPoints="measurementPoints" :deviceUid="device != null ? device.uid : -1" />
     <EditDevice :device="device" :lockEui="true" />
 

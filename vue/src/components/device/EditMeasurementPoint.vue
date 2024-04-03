@@ -5,6 +5,7 @@
 
     import energiarter from '@/data/energiarter.json'
     import typekoder from '@/data/typekoder.json'
+    import enheder from '@/data/enheder.json'
 
     const props = defineProps({
         measurementPoint: {
@@ -34,6 +35,13 @@
         console.log(measurementPoint.value)
 
     })
+
+    // Set export unit to the same as newly selected input unit
+
+    function selectUnit()
+    {
+        measurementPoint.value.enhed = measurementPoint.value.inputenhed
+    }
 
     // Define emit for save and cancel
 
@@ -117,7 +125,37 @@
 
             </div>
 
-            
+            <div>
+                <label for="inputenhed" class="capitalize">
+
+                    Enhed
+
+                </label>
+                <select name="inputenhed" id="template" v-model="measurementPoint.inputenhed" @change="selectUnit()" required>
+                    <option value="-1" disabled>Vælg fra liste ..</option>
+
+                    <option v-for="enhed in enheder" :value="enhed">{{ enhed }}</option>
+                </select>
+
+            </div>
+
+            <div>
+                <label for="enhed" class="capitalize">
+
+                    Eksportenhed
+
+                </label>
+                <select name="enhed" id="template" v-model="measurementPoint.enhed" required>
+                    <option value="-1" disabled>Vælg fra liste ..</option>
+
+                    <option v-for="enhed in enheder" :value="enhed">{{ enhed }}</option>
+                </select>
+
+            </div>  
+
+
+            <!-- Save / cancel -->
+
             <button @click="" class="blue">
                 <span>
                     {{measurementPoint.uid == -1 ? 'Tilføj målepunkt' : 'Gem ændringer'}}
@@ -164,7 +202,6 @@
     max-height: 50rem;
     transform: scaleY(1) translateY(0%);
     opacity: 1;
-    overflow: auto; 
   }
 }
 

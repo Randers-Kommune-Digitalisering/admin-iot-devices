@@ -193,7 +193,7 @@
                         <span v-if="measurement.deviceUid != props.deviceUid" class="tiny blue">Indlæst fra skabelon</span>
                     </div>
                 </td>
-                <td>{{measurement.enhed == "" ? measurement.inputenhed : (measurement.inputenhed + " → " + measurement.enhed)}}</td>
+                <td>{{measurement.enhed == measurement.inputenhed ? measurement.inputenhed : (measurement.inputenhed + " → " + measurement.enhed)}}</td>
 
                 <td>{{energiarter[measurement.energiartskode]}}</td>
                 <td>{{typekoder[measurement.typekode]}}</td>
