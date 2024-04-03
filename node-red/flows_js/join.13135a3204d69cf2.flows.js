@@ -1,5 +1,5 @@
 const Node = {
-  "id": "fd15e90129960d14",
+  "id": "13135a3204d69cf2",
   "type": "join",
   "z": "31eb0ab05cfa21a8",
   "name": "",
@@ -18,11 +18,11 @@ const Node = {
   "reduceInit": "",
   "reduceInitType": "",
   "reduceFixup": "",
-  "x": 370,
-  "y": 520,
+  "x": 1390,
+  "y": 320,
   "wires": [
     [
-      "8ddbaacc7ca980d4"
+      "16be8d37ce09e083"
     ]
   ]
 }

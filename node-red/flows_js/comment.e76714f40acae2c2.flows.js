@@ -5,7 +5,7 @@ const Node = {
   "name": "Split for hver device",
   "info": "",
   "x": 230,
-  "y": 680,
+  "y": 620,
   "wires": []
 }
 

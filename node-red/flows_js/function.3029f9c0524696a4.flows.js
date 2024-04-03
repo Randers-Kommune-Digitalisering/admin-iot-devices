@@ -9,8 +9,8 @@ const Node = {
   "initialize": "",
   "finalize": "",
   "libs": [],
-  "x": 360,
-  "y": 720,
+  "x": 340,
+  "y": 660,
   "wires": [
     [
       "dfeb676634b2fb1e"
