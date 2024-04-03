@@ -23,6 +23,7 @@ SELECT
     t1.*,
     t3.lastExport,
     t3.controlledProperty,
+    t3.unit,
     t2.templateName,
     IFNULL(t3.maalepunktCount, 0) + IFNULL(t4.maalepunktCount, 0) as maalepunktCount
 FROM
@@ -44,7 +45,8 @@ LEFT JOIN -- measurementPoints data
         deviceUid,
         COUNT(*) as maalepunktCount,
         MAX(lastExport) as lastExport,
-        controlledProperty
+        controlledProperty,
+        enhed as unit
     FROM {{global.metadataTablename.maalepunkt}}
     GROUP BY deviceUid
     
