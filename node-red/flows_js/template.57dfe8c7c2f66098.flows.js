@@ -21,12 +21,14 @@ const Node = {
 Node.template = `
 SELECT
     t1.*,
+    t3.lastExport,
+    t3.controlledProperty,
     t2.templateName,
     IFNULL(t3.maalepunktCount, 0) + IFNULL(t4.maalepunktCount, 0) as maalepunktCount
 FROM
     {{global.metadataTablename.maaler}} AS t1
     
-LEFT JOIN --
+LEFT JOIN -- template data
 (
     SELECT
         uid as templateUid,
@@ -36,18 +38,20 @@ LEFT JOIN --
 ) AS t2 
     ON t1.templateUid = t2.templateUid
 
-LEFT JOIN
+LEFT JOIN -- measurementPoint data
 (
     SELECT
         deviceUid,
-        COUNT(*) as maalepunktCount
+        COUNT(*) as maalepunktCount,
+        MAX(lastExport) as lastExport,
+        controlledProperty
     FROM {{global.metadataTablename.maalepunkt}}
     GROUP BY deviceUid
     
 ) AS t3
     ON t1.uid = t3.deviceUid
 
-LEFT JOIN
+LEFT JOIN -- template measurementPoints data
 (
     SELECT
         deviceUid,

@@ -21,13 +21,14 @@ const Node = {
 Node.template = `
 SELECT
     t1.*,
+    t3.lastExport,
+    t3.controlledProperty,
     t2.templateName,
-    IFNULL(t3.maalepunktCount, 0) + IFNULL(t4.maalepunktCount, 0) as maalepunktCount,
-    t5.lastExport
+    IFNULL(t3.maalepunktCount, 0) + IFNULL(t4.maalepunktCount, 0) as maalepunktCount
 FROM
     {{global.metadataTablename.maaler}} AS t1
     
-LEFT JOIN -- template uid + name
+LEFT JOIN -- template data
 (
     SELECT
         uid as templateUid,
@@ -37,18 +38,20 @@ LEFT JOIN -- template uid + name
 ) AS t2 
     ON t1.templateUid = t2.templateUid
 
-LEFT JOIN -- maalepunktCount
+LEFT JOIN -- measurementPoints data
 (
     SELECT
         deviceUid,
-        COUNT(*) as maalepunktCount
+        COUNT(*) as maalepunktCount,
+        MAX(lastExport) as lastExport,
+        controlledProperty
     FROM {{global.metadataTablename.maalepunkt}}
     GROUP BY deviceUid
     
 ) AS t3
     ON t1.uid = t3.deviceUid
 
-LEFT JOIN -- maalepunktCount
+LEFT JOIN -- template measurementPoints data
 (
     SELECT
         deviceUid,
@@ -58,16 +61,6 @@ LEFT JOIN -- maalepunktCount
     
 ) AS t4
     ON t1.templateUid = t4.deviceUid
-
-LEFT JOIN -- lastExport
-(
-    SELECT
-        deviceUid,
-        MAX(lastExport) as lastExport
-    FROM {{global.metadataTablename.maalepunkt}}
-    GROUP BY deviceUid
-) AS t5
-    ON t1.uid = t5.deviceUid
 `
 
 module.exports = Node;
