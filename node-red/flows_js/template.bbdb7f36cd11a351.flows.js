@@ -9,8 +9,8 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 290,
-  "y": 2020,
+  "x": 490,
+  "y": 1880,
   "wires": [
     [
       "3b2e68563dfd78b7"
@@ -28,6 +28,7 @@ INSERT INTO {{global.metadataTablename.maalepunkt}}
 	energiartskode,
 	typekode,
 	propertyName,
+	controlledProperty,
 	operator,
 	operationvalue
 )
@@ -40,6 +41,7 @@ VALUES
 	{{payload.energiartskode}},
 	{{payload.typekode}},
 	'{{payload.propertyName}}',
+	'{{payload.controlledProperty}}',
 	'{{payload.operator}}',
 	{{payload.operationvalue}}
 )

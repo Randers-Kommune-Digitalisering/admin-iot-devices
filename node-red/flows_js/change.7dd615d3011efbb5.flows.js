@@ -1,14 +1,14 @@
 const Node = {
-  "id": "c60657ac38144114",
+  "id": "7dd615d3011efbb5",
   "type": "change",
   "z": "7b3a886e00fb2ea6",
-  "name": "Objekt -> liste",
+  "name": "sæt controlledProperty",
   "rules": [
     {
       "t": "set",
-      "p": "payload",
+      "p": "payload.controlledProperty",
       "pt": "msg",
-      "to": "payload.type",
+      "to": "($globalContext(\"controlledProperties\"))[energyTypeUid = $$.payload.energiartskode].propertyName",
       "tot": "jsonata"
     }
   ],
@@ -17,12 +17,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 840,
-  "y": 2240,
+  "x": 220,
+  "y": 1880,
   "wires": [
     [
-      "4d04d39bdb3280cf",
-      "2820a5142186ab15"
+      "bbdb7f36cd11a351"
     ]
   ]
 }

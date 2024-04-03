@@ -1,18 +1,18 @@
 const Node = {
-  "id": "b90841aad1d610a5",
+  "id": "f0ca37ad3e5adf1c",
   "type": "debug",
   "z": "7b3a886e00fb2ea6",
   "g": "39a84f62ba24489c",
-  "name": "Table names set",
+  "name": "ControlledProperties set",
   "active": true,
   "tosidebar": false,
   "console": false,
   "tostatus": false,
-  "complete": "$globalContext(\"metadataTablename\")",
+  "complete": "$globalContext(\"controlledProperties\")",
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
-  "x": 540,
+  "x": 1270,
   "y": 60,
   "wires": []
 }

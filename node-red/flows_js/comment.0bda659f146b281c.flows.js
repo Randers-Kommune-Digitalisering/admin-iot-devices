@@ -5,7 +5,7 @@ const Node = {
   "name": "Læs specifikt template",
   "info": "",
   "x": 240,
-  "y": 1260,
+  "y": 1220,
   "wires": []
 }
 

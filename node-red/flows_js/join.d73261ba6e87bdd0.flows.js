@@ -19,7 +19,7 @@ const Node = {
   "reduceInitType": "num",
   "reduceFixup": "",
   "x": 1230,
-  "y": 1880,
+  "y": 1760,
   "wires": [
     [
       "ab28fd7e70bf721e",

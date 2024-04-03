@@ -9,8 +9,8 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 290,
-  "y": 2140,
+  "x": 490,
+  "y": 2000,
   "wires": [
     [
       "ac1f18388bc3cec6"
@@ -27,6 +27,7 @@ SET
 	energiartskode = {{payload.energiartskode}},
 	typekode = {{payload.typekode}},
 	propertyName = '{{payload.propertyName}}',
+	controlledProperty = '{{payload.controlledProperty}}',
 	operator = '{{payload.operator}}',
 	operationvalue = {{payload.operationvalue}}
 

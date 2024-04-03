@@ -1,8 +1,8 @@
 const Node = {
-  "id": "68cae9e88334d5b7",
+  "id": "347f1e6f398945ad",
   "type": "debug",
   "z": "7b3a886e00fb2ea6",
-  "name": "Målepunkter",
+  "name": "Redigér måler",
   "active": true,
   "tosidebar": true,
   "console": false,
@@ -11,8 +11,8 @@ const Node = {
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1490,
-  "y": 1800,
+  "x": 740,
+  "y": 940,
   "wires": []
 }
 
