@@ -2,7 +2,7 @@ const Node = {
   "id": "a3e56662a0e9282e",
   "type": "link in",
   "z": "7b3a886e00fb2ea6",
-  "name": "DB: Edit sensor",
+  "name": "DB: Edit device",
   "links": [],
   "x": 55,
   "y": 1000,

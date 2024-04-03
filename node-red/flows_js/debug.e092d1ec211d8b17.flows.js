@@ -7,7 +7,7 @@ const Node = {
   "tosidebar": true,
   "console": true,
   "tostatus": false,
-  "complete": "{\t    $flowContext(\"maaler_metadata_tablename\"): \"data export requested\",\t    \"sensorCount\": payload ~> $count(),\t    \"sensorList\": payload   \t}",
+  "complete": "{\t    $flowContext(\"maaler_metadata_tablename\"): \"data export requested\",\t    \"deviceCount\": payload ~> $count(),\t    \"deviceList\": payload   \t}",
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",

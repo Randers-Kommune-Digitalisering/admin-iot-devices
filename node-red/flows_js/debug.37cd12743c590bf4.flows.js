@@ -7,7 +7,7 @@ const Node = {
   "tosidebar": true,
   "console": true,
   "tostatus": false,
-  "complete": "{\t    $flowContext(\"metadata_tablename\"): \"metadata created for sensor\",\t    \"sensorUid\": data.id\t}",
+  "complete": "{\t    $flowContext(\"metadata_tablename\"): \"metadata created for device\",\t    \"deviceUid\": data.id\t}",
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",

@@ -4,7 +4,7 @@
 
     // Components
     import Content from '@/components/Content.vue'
-    import EditMeasurementPoint from '@/components/sensor/EditMeasurementPoint.vue'
+    import EditMeasurementPoint from '@/components/device/EditMeasurementPoint.vue'
     import MeasurementPoint from '@/components/connector/MeasurementPoint.vue'
 
     // Icons
@@ -178,7 +178,7 @@
                         : ((editingMeasurementPoint && measurementPointSelected.uid == -1) || measurement.deviceUid != props.deviceUid ? ' nohover' : '')"
             >
 
-                <td class="sensorTypeTd"> <!-- Measurement point status (if data is being imported and exported) -->
+                <td class="deviceTypeTd"> <!-- Measurement point status (if data is being imported and exported) -->
                     <span :class="measurement.deviceUid != props.deviceUid ? 'blue'
                                 : measurement.lastExport != null && measurement.lastExport != '0000-00-00 00:00:00' ?  'green'
                                 : measurement.lastObservation != null && measurement.lastObservation != '0000-00-00 00:00:00' ?  'randers'
@@ -238,7 +238,7 @@
                 </td>
             </tr>
 
-            <tr v-else class="nohover"> <!-- Add sensor row -->
+            <tr v-else class="nohover"> <!-- Add device row -->
                 <td colspan="5"></td>
                 <td>
                     <button @click="newMeasurementPoint()" class="rowbutton blue wide">
@@ -335,12 +335,12 @@
         }
 
     
-    .sensorTypeTd
+    .deviceTypeTd
     {
         max-width: 1.5rem;
         padding-right:0rem;
     }
-    .sensorTypeTd > span
+    .deviceTypeTd > span
     {
         transform: translateY(0.3rem);
     }

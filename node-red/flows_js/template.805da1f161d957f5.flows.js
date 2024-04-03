@@ -2,7 +2,7 @@ const Node = {
   "id": "805da1f161d957f5",
   "type": "template",
   "z": "6f89a22d2f227f45",
-  "name": "Forespørgsel ↓\\n Tjek om sensor eksisterer \\n i metadata tabel",
+  "name": "Forespørgsel ↓\\n Tjek om device eksisterer \\n i metadata tabel",
   "field": "sql",
   "fieldType": "msg",
   "format": "sql",

@@ -6,16 +6,16 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "sensorId",
+      "p": "deviceId",
       "pt": "msg",
-      "to": "req.params.sensor",
+      "to": "req.params.device",
       "tot": "msg"
     },
     {
       "t": "set",
-      "p": "sensorId",
+      "p": "deviceId",
       "pt": "msg",
-      "to": "sensorId ~> $replace(\"-\", \"_\")",
+      "to": "deviceId ~> $replace(\"-\", \"_\")",
       "tot": "jsonata"
     },
     {

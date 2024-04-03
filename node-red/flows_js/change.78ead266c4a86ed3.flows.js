@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "maaler",
       "pt": "msg",
-      "to": "{\t   \"navn\": \"emu-sensor_0f65\",\t   \"installationsnummer\": \"\",\t   \"nummer\": \"emu-sensor_0f65\",\t   \"energiartskode\": 1\t}",
+      "to": "{\t   \"navn\": \"emu-device_0f65\",\t   \"installationsnummer\": \"\",\t   \"nummer\": \"emu-device_0f65\",\t   \"energiartskode\": 1\t}",
       "tot": "jsonata"
     },
     {

@@ -24,8 +24,8 @@ CREATE TABLE if not exists {{flow.metadata_tablename}} (
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	last_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	tablename VARCHAR(255),
-	sensor_type VARCHAR(255),
-	sensor_location VARCHAR(255),
+	device_type VARCHAR(255),
+	device_location VARCHAR(255),
 	last_observation TIMESTAMP,
 	UNIQUE (uid)
 	);

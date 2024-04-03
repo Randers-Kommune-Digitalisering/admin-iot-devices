@@ -3,7 +3,7 @@ const Node = {
   "type": "prometheus-metric-config",
   "name": "lastDatabaseInsertCount",
   "help": "Last insert to database count (rows inserted)",
-  "labels": "sensor",
+  "labels": "device",
   "mtype": "counter"
 }
 

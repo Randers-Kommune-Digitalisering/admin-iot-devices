@@ -8,14 +8,14 @@ const Node = {
       "t": "set",
       "p": "baseurl",
       "pt": "msg",
-      "to": "https://os2iot.prototypes.randers.dk/sensor/",
+      "to": "https://os2iot.prototypes.randers.dk/device/",
       "tot": "str"
     },
     {
       "t": "set",
       "p": "baseurl",
       "pt": "msg",
-      "to": "localhost:1880/sensor/",
+      "to": "localhost:1880/device/",
       "tot": "str"
     },
     {

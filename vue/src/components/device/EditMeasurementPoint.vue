@@ -57,7 +57,7 @@
 
 <template>
 
-     <!-- Sensor description -->
+     <!-- Device description -->
     <form @submit.prevent="saveEdit">
         <fieldset>
 

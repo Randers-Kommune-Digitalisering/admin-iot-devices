@@ -2,7 +2,7 @@ const Node = {
   "id": "088ddfc8df3e9919",
   "type": "template",
   "z": "dc028cb1b3d1491a",
-  "name": "Forespørgsel ↓\\n Træk sensordata",
+  "name": "Forespørgsel ↓\\n Træk devicedata",
   "field": "sql",
   "fieldType": "msg",
   "format": "sql",
@@ -19,7 +19,7 @@ const Node = {
 }
 
 Node.template = `
-SELECT * FROM os2iot_{{sensorId}} {{{limit}}}
+SELECT * FROM os2iot_{{deviceId}} {{{limit}}}
 `
 
 module.exports = Node;

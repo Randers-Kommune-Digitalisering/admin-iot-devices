@@ -8,9 +8,9 @@ import App from './App.vue'
 // Import af views til routing
 
 import Start from '@/views/Start.vue'
-import NewSensor from '@/views/NewSensor.vue'
-import Sensors from '@/views/Sensors.vue'
-import Sensor from '@/views/Sensor.vue'
+import NewDevice from '@/views/NewDevice.vue'
+import Devices from '@/views/Devices.vue'
+import Device from '@/views/Device.vue'
 import Templates from '@/views/Templates.vue'
 
 // Opsætning af URL routing
@@ -24,19 +24,19 @@ const router = createRouter({
             component: Start
         },        
         {
-            path: '/newsensor', 
+            path: '/newdevice', 
             name: "Ny måler",
-            component: NewSensor
+            component: NewDevice
         },        
         {
-            path: '/sensors', 
+            path: '/devices', 
             name: "Målere",
-            component: Sensors
+            component: Devices
         },
         {
-            path: '/sensors/:uid', 
+            path: '/devices/:uid', 
             name: "Måler",
-            component: Sensor
+            component: Device
         },
         {
             path: '/templates', 

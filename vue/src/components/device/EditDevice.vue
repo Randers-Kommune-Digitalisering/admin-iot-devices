@@ -1,37 +1,37 @@
 <script>
     import { ref, watch  } from 'vue'
 
-    const sensorList = ref([])
+    const deviceList = ref([])
     const isTemplate = ref(false)
     const lockSharedProperties = ref(false)
 
-    // Retrieve sensor data
+    // Retrieve device data
 
-    function getSensorList()
+    function getDeviceList()
     {
-        return sensorList.value
+        return deviceList.value
     }
 
     function setTemplateValues(template)
     {
         // Update value(s) for properties shared with template
-        sensorList.value[0].templateUid = template.uid
-        sensorList.value[0].energiart = template.energiartskode
-        sensorList.value[0].installationsnummer = template.installationsnummer
+        deviceList.value[0].templateUid = template.uid
+        deviceList.value[0].energiart = template.energiartskode
+        deviceList.value[0].installationsnummer = template.installationsnummer
         
         // Lock input fields
         lockSharedProperties.value = true
     }
 
-    function resetSensorList()
+    function resetDeviceList()
     {
-        sensorList.value = []
+        deviceList.value = []
         isTemplate.value = false
-        //newSensor()
+        //newDevice()
     }
 
     export default {
-        getSensorList, setTemplateValues, resetSensorList
+        getDeviceList, setTemplateValues, resetDeviceList
     }
 
 </script>
@@ -42,11 +42,11 @@
     import IconEditSimple from '../icons/IconEditSimple.vue'
     import IconSettings from '../icons/IconSettings.vue'
 
-    import sensorMetadata from '@/data/sensorMetadata.json'
+    import deviceMetadata from '@/data/deviceMetadata.json'
     import energiarter from '@/data/energiarter.json'
 
     const props = defineProps({
-        sensor: {
+        device: {
             type: Object,
             required: false
         },
@@ -71,39 +71,39 @@
         }
     })
 
-    // Define emit update in sensor count
+    // Define emit update in device count
     // Define emit update set as template
 
-    const emit = defineEmits(['onUpdateSensorCount', 'onUpdateSetAsTemplate'])
+    const emit = defineEmits(['onUpdateDeviceCount', 'onUpdateSetAsTemplate'])
 
     const setEmit = (_emi, value) => {
         emit(_emi, value)
     }
 
-    // Watch when editing sensor data
+    // Watch when editing device data
 
-    watch( () =>  props.sensor, (current, previous) => {
+    watch( () =>  props.device, (current, previous) => {
         
-        sensorList.value[0].uid = current.uid
-        sensorList.value[0].devEui = current.deviceEui
-        sensorList.value[0].appKey = current.applicationKey
-        sensorList.value[0].name = current.name
-        sensorList.value[0].energiart = current.energiartskode
-        sensorList.value[0].serviceProfile = current.serviceProfileUid
-        sensorList.value[0].payloadDecoder = current.serviceProfileUid
-        sensorList.value[0].templateUid = current.templateUid
-        sensorList.value[0].isTemplate = current.isTemplate
-        sensorList.value[0].installationsnummer = current.installationsnummer
+        deviceList.value[0].uid = current.uid
+        deviceList.value[0].devEui = current.deviceEui
+        deviceList.value[0].appKey = current.applicationKey
+        deviceList.value[0].name = current.name
+        deviceList.value[0].energiart = current.energiartskode
+        deviceList.value[0].serviceProfile = current.serviceProfileUid
+        deviceList.value[0].payloadDecoder = current.serviceProfileUid
+        deviceList.value[0].templateUid = current.templateUid
+        deviceList.value[0].isTemplate = current.isTemplate
+        deviceList.value[0].installationsnummer = current.installationsnummer
         isTemplate.value = current.isTemplate == 1 ? true : false
         
-        //console.log("Updated sensor data: ")
+        //console.log("Updated device data: ")
         console.log(current)
     })
 
     // Watch when toggling template
 
     watch( () => isTemplate.value, (current, previous) => {
-        sensorList.value[0].isTemplate = current
+        deviceList.value[0].isTemplate = current
         setEmit('onUpdateSetAsTemplate', current)
     })
 
@@ -114,23 +114,23 @@
             isTemplate.value = false
     })
 
-    // Initialize blank sensor
+    // Initialize blank device
 
-    newSensor()
-    cleanSensorList()
+    newDevice()
+    cleanDeviceList()
     lockSharedProperties.value = false
 
-    // Clean sensor list when changing mode
+    // Clean device list when changing mode
 
     watch( () => props.quickAddMode, (current, previous) => {
         
         if(current !== previous)
         {
-            cleanSensorList()
+            cleanDeviceList()
 
             // Update value(s) for properties shared with template
-            sensorList.value[0].templateUid = -1
-            sensorList.value[0].energiart = -1
+            deviceList.value[0].templateUid = -1
+            deviceList.value[0].energiart = -1
             
             // Unlock input fields
             lockSharedProperties.value = false
@@ -139,24 +139,24 @@
 
     // Helper functions
 
-    function newSensor() // Adds a sensor to the list
+    function newDevice() // Adds a device to the list
     {
-        sensorList.value.push( JSON.parse(JSON.stringify (sensorMetadata)) )
-        setEmit('onUpdateSensorCount', sensorList.value.length)
+        deviceList.value.push( JSON.parse(JSON.stringify (deviceMetadata)) )
+        setEmit('onUpdateDeviceCount', deviceList.value.length)
     }
 
-    function deleteSensor(id) // Deletes sensor from list
+    function deleteDevice(id) // Deletes device from list
     {
-        const firstPart = sensorList.value.slice(0, id)
-        const lastPart = sensorList.value.slice(id+1)
-        sensorList.value = firstPart.concat(lastPart)
-        setEmit('onUpdateSensorCount', sensorList.value.length)
+        const firstPart = deviceList.value.slice(0, id)
+        const lastPart = deviceList.value.slice(id+1)
+        deviceList.value = firstPart.concat(lastPart)
+        setEmit('onUpdateDeviceCount', deviceList.value.length)
     }
 
-    function cleanSensorList() // Removes all sensors but index 0
+    function cleanDeviceList() // Removes all devices but index 0
     {
-        sensorList.value = [sensorList.value[0]]
-        setEmit('onUpdateSensorCount', sensorList.value.length)
+        deviceList.value = [deviceList.value[0]]
+        setEmit('onUpdateDeviceCount', deviceList.value.length)
     }
 
     // Test data
@@ -176,42 +176,42 @@
     </template>
     <template #heading>Beskrivelse</template>
 
-        <div v-if="!quickAddMode && (sensorList[0].templateUid == -1)">
+        <div v-if="!quickAddMode && (deviceList[0].templateUid == -1)">
             <input type="checkbox" id="istemplate" name="One" value="One" style="margin-bottom: 2.5rem" v-model="isTemplate">
             <label v-if="isTemplate" for="istemplate" class="orange">Markeret som skabelon</label>
             <label v-else for="istemplate" class="randers">Markér som skabelon</label>
         </div>
 
 
-        <div class="flexbox" v-if="!isTemplate" v-for="(sensor, index) in sensorList">
+        <div class="flexbox" v-if="!isTemplate" v-for="(device, index) in deviceList">
             <div>
                 <label :for="'eui_' + index" class="capitalize">
-                    <span class="uid" v-if="sensorList.length > 1">#{{index+1}}</span>
+                    <span class="uid" v-if="deviceList.length > 1">#{{index+1}}</span>
 
                     Enheds EUI (DevEUI)
 
                 </label>
-                <input type="text" placeholder="..." :id="'eui_' + index" v-model="sensor.devEui" :disabled="lockEui" required>
+                <input type="text" placeholder="..." :id="'eui_' + index" v-model="device.devEui" :disabled="lockEui" required>
             </div>
             <div>
                 <label :for="'app_' + index" class="capitalize">
-                    <span class="uid" v-if="sensorList.length > 1">#{{index+1}}</span>
+                    <span class="uid" v-if="deviceList.length > 1">#{{index+1}}</span>
 
                     OTAA Application Key (AppKey)
 
-                    <div @click="deleteSensor(index)" class="float-right tag tagbutton" v-if="sensorList.length > 1">Slet</div>
+                    <div @click="deleteDevice(index)" class="float-right tag tagbutton" v-if="deviceList.length > 1">Slet</div>
                 </label>
-                <input type="text" placeholder="..." :id="'app_' + index" v-model="sensor.appKey" required>
+                <input type="text" placeholder="..." :id="'app_' + index" v-model="device.appKey" required>
             </div>
 
-            <input type="hidden" v-model="sensor.uid" /> <!-- Hidden sensor UID when editiing sensor -->
+            <input type="hidden" v-model="device.uid" /> <!-- Hidden device UID when editiing device -->
 
         </div>
-        <button @click="newSensor()" v-if="quickAddMode" type="button" class="gray">Tilføj måler</button>
+        <button @click="newDevice()" v-if="quickAddMode" type="button" class="gray">Tilføj måler</button>
 
 
         
-        <!-- Sensor description -->
+        <!-- Device description -->
     
         <div class="flexbox" :style="( quickAddMode ? 'margin-top:2rem;' : '' )">
             
@@ -221,7 +221,7 @@
                     Navn
 
                 </label>
-                <input type="text" :placeholder="isTemplate ? 'F.eks. `Brunata Minomess vandmåler`' : 'F.eks. `El-måler Grønhøjskolen`'" id="name_0" v-model="sensorList[0].name" required>
+                <input type="text" :placeholder="isTemplate ? 'F.eks. `Brunata Minomess vandmåler`' : 'F.eks. `El-måler Grønhøjskolen`'" id="name_0" v-model="deviceList[0].name" required>
             </div>
 
             
@@ -231,7 +231,7 @@
                     Energiart
 
                 </label>
-                <select name="template" id="template" v-model="sensorList[0].energiart" :disabled="lockSharedProperties || (sensorList[0] != null && sensorList[0].templateUid != -1)" required>
+                <select name="template" id="template" v-model="deviceList[0].energiart" :disabled="lockSharedProperties || (deviceList[0] != null && deviceList[0].templateUid != -1)" required>
                     <option value="-1" disabled>Vælg fra liste ..</option>
 
                     <option v-for="(energiart, index) in energiarter" :value="index">{{ energiart }}</option>
@@ -243,11 +243,11 @@
 
 </Content>
 
-    <!-- Sensor configuration -->
+    <!-- Device configuration -->
 
-<hr v-if="!quickAddMode && (sensorList[0].templateUid == -1)" />
+<hr v-if="!quickAddMode && (deviceList[0].templateUid == -1)" />
 
-<Content v-if="!quickAddMode && (sensorList[0].templateUid == -1)">
+<Content v-if="!quickAddMode && (deviceList[0].templateUid == -1)">
     <template #icon>
         <IconSettings />
     </template>
@@ -263,7 +263,7 @@
                 Installationsnummer
 
             </label>
-            <input type="text" placeholder="..." id="name_0" v-model="sensorList[0].installationsnummer" :disabled="lockSharedProperties || (sensorList[0] != null && sensorList[0].templateUid != -1)">
+            <input type="text" placeholder="..." id="name_0" v-model="deviceList[0].installationsnummer" :disabled="lockSharedProperties || (deviceList[0] != null && deviceList[0].templateUid != -1)">
             
 
         </div>
@@ -274,7 +274,7 @@
                 Serviceprofil
 
             </label>
-            <select name="template" id="template" v-model="sensorList[0].serviceProfile">
+            <select name="template" id="template" v-model="deviceList[0].serviceProfile">
                 <option value="-1" disabled>Vælg fra liste ..</option>
 
                 <option v-for="(profile, index) in serviceProfile" :value="index">{{ profile }}</option>
@@ -288,7 +288,7 @@
                 Dekoder
 
             </label>
-            <select name="template" id="template" v-model="sensorList[0].payloadDecoder">
+            <select name="template" id="template" v-model="deviceList[0].payloadDecoder">
                 <option value="-1" disabled>Vælg fra liste ..</option>
 
                 <option v-for="(decoder, index) in payloadDecoder" :value="index">{{ decoder }}</option>

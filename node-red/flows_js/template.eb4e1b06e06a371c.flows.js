@@ -19,7 +19,7 @@ const Node = {
 }
 
 Node.template = `
-SELECT * FROM {{flow.maaler_metadata_tablename}} WHERE nummer = '{{sensorId}}';
+SELECT * FROM {{flow.maaler_metadata_tablename}} WHERE nummer = '{{deviceId}}';
 `
 
 module.exports = Node;

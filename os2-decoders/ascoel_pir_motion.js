@@ -48,17 +48,17 @@ function decode(payload, metadata)
     if(payload.fPort != 20 && payload.fPort != 9)
         return;
 
-    /* Find timestamp + sensor ID */
+    /* Find timestamp + device ID */
     let timestamp = payload.rxInfo[0].time != null ?
                     payload.rxInfo[0].time :
                     new Date().toJSON();
-    let sensorId =  payload.devEUI.slice(-4);
+    let deviceId =  payload.devEUI.slice(-4);
 
     /* Skab retur-objekt */
     let res = {};
 
-    res.id = "pir-" + sensorId + "-ascoel";
-    res.type=  "motion-sensor";
+    res.id = "pir-" + deviceId + "-ascoel";
+    res.type=  "motion-device";
 
     res.observedAt = timestamp;
     res.name = metadata.name;

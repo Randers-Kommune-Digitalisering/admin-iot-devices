@@ -7,7 +7,7 @@ const Node = {
   "tosidebar": true,
   "console": true,
   "tostatus": false,
-  "complete": "payload ~> $count() > 0 ?\t{\t    $flowContext(\"metadata_tablename\"): \"metadata exists for sensor\",\t    \"sensorUid\": maaler.nummer,\t    \"lastPull\": payload[0].lastPull\t}\t:\t{\t    $flowContext(\"metadata_tablename\"): \"metadata created for sensor\",\t    \"sensorUid\": maaler.nummer\t}",
+  "complete": "payload ~> $count() > 0 ?\t{\t    $flowContext(\"metadata_tablename\"): \"metadata exists for device\",\t    \"deviceUid\": maaler.nummer,\t    \"lastPull\": payload[0].lastPull\t}\t:\t{\t    $flowContext(\"metadata_tablename\"): \"metadata created for device\",\t    \"deviceUid\": maaler.nummer\t}",
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",

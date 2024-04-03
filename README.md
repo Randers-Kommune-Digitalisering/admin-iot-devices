@@ -6,7 +6,7 @@ Formålet med applikationen er at modtage og lagre store mængder IoT bygningsda
 
 
 ## Dataflow
-Sensordata pushes fra OS2IoT til applikationen via en POST request med basic authentication.
+Devicedata pushes fra OS2IoT til applikationen via en POST request med basic authentication.
 
 Applikationen modtager dataobjekter som følger denne JSON objekt struktur:
 
@@ -24,7 +24,7 @@ Applikationen modtager dataobjekter som følger denne JSON objekt struktur:
 		    ]
 	    }
     ]
-Applikationen gemmer data i MariaDB. Metadata for alle sensorer gemmes i samlet metadata tabel. Hver individuel sensors data gennes i egen tabel hvor hver datatype gemmes i separat række (timestamp, datatype, værdi). Her antages det at sensorens **id** er en unik værdi. 
+Applikationen gemmer data i MariaDB. Metadata for alle devices gemmes i samlet metadata tabel. Hver individuel devices data gennes i egen tabel hvor hver datatype gemmes i separat række (timestamp, datatype, værdi). Her antages det at deviceens **id** er en unik værdi. 
 
 ## Afhængigheder
 Løsningen er afhængig af en række :gear: software komponenter og :cloud: netværksadgange til eksterne ressourcer for at fungere.

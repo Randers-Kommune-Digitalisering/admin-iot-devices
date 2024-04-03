@@ -20,8 +20,8 @@
 
     const router = useRouter()
 
-    import IconUniqueSensor from '@/components/icons/IconEditItem.vue'
-    import IconTemplateSensor from '@/components/icons/IconDuplicateItem.vue'
+    import IconUniqueDevice from '@/components/icons/IconEditItem.vue'
+    import IconTemplateDevice from '@/components/icons/IconDuplicateItem.vue'
     import IconNewItem from '@/components/icons/IconNewItem.vue'
     import IconUpload from '@/components/icons/IconUpload.vue'
     import IconDownload from '@/components/icons/IconDownload.vue'
@@ -29,7 +29,7 @@
     import energiarter from '@/data/energiarter.json'
 
     const props = defineProps({
-        sensors: {
+        devices: {
             type: Array,
             required: false
         },
@@ -49,14 +49,14 @@
         }
     })
 
-    const sensors = ref(props.sensors)
+    const devices = ref(props.devices)
 
     // Watch when changing props
 
-    watch( () => props.sensors, (current, previous) => {
+    watch( () => props.devices, (current, previous) => {
 
-        sensors.value = current
-        console.log("New sensor-list retrieved:")
+        devices.value = current
+        console.log("New device-list retrieved:")
         console.log(current)
 
     })
@@ -69,17 +69,17 @@
 
     // Filter function
 
-    function filterSensors(filter)
+    function filterDevices(filter)
     {
         if(filter == filter.Inactive)
-            sensors.value = sensors.value.filter(item => item.maalepunktCount > 0)
+            devices.value = devices.value.filter(item => item.maalepunktCount > 0)
     }
 
     // Click
 
-    function clickSensor(uid)
+    function clickDevice(uid)
     {
-        router.push('/sensors/' + uid)
+        router.push('/devices/' + uid)
     }
 
 </script>
@@ -107,45 +107,45 @@
                 </tr>
             </thead>
 
-            <tr v-if="sensors != null && sensors.length > 0" v-for="sensor in sensors" @click="clickSensor(sensor.uid)" :class="!allowClick ? 'nohover' : ''">
+            <tr v-if="devices != null && devices.length > 0" v-for="device in devices" @click="clickDevice(device.uid)" :class="!allowClick ? 'nohover' : ''">
 
-                <td class="sensorTypeTd"> <!-- Sensor type (if based on template or not) -->
-                    <span :class="sensor.isTemplate ? 'orange' : 'randers'" v-if="sensor.templateUid == -1">
-                        <IconUniqueSensor :scale="0.8" />
+                <td class="deviceTypeTd"> <!-- Device type (if based on template or not) -->
+                    <span :class="device.isTemplate ? 'orange' : 'randers'" v-if="device.templateUid == -1">
+                        <IconUniqueDevice :scale="0.8" />
                     </span>
                     <span class="blue" v-else>
-                        <IconTemplateSensor :scale="0.8" />
+                        <IconTemplateDevice :scale="0.8" />
                     </span>
                 </td>
 
                 <td>
                     <div class="flex col">
-                        <span>{{sensor.name}}</span>
-                        <span v-if="sensor.templateUid != -1" class="tiny blue">Baseret på <span style="text-decoration: underline">{{sensor.templateName}}</span></span>
-                        <span v-if="sensor.isTemplate" class="tiny orange">Skabelon</span>
+                        <span>{{device.name}}</span>
+                        <span v-if="device.templateUid != -1" class="tiny blue">Baseret på <span style="text-decoration: underline">{{device.templateName}}</span></span>
+                        <span v-if="device.isTemplate" class="tiny orange">Skabelon</span>
                     </div>
                 </td>
-                <td>{{energiarter[sensor.energiartskode ?? sensor.energiart]}}</td>
+                <td>{{energiarter[device.energiartskode ?? device.energiart]}}</td>
 
                 <td>
-                    {{sensor.maalepunktCount}}
+                    {{device.maalepunktCount}}
                 </td>
 
                 <td>
                     <div class="flex col">
 
-                        <span v-if="sensor.lastObservation == null || sensor.lastObservation == '0000-00-00 00:00:00'" class="red small flex">
+                        <span v-if="device.lastObservation == null || device.lastObservation == '0000-00-00 00:00:00'" class="red small flex">
                             <IconDownload :scale="0.8" /> <span>Ingen import</span>
                         </span>
                         <span v-else class="randers small flex">
-                            <IconDownload :scale="0.8" /> <span>{{ dayjs(sensor.lastObservation).format("DD/MM-YYYY") }}</span>
+                            <IconDownload :scale="0.8" /> <span>{{ dayjs(device.lastObservation).format("DD/MM-YYYY") }}</span>
                         </span>
 
-                        <span v-if="sensor.lastExport == null || sensor.lastExport == '0000-00-00 00:00:00'" class="red small flex">
+                        <span v-if="device.lastExport == null || device.lastExport == '0000-00-00 00:00:00'" class="red small flex">
                             <IconUpload :scale="0.8" /> <span>Ingen export</span>
                         </span>
                         <span v-else class="green small flex">
-                            <IconUpload :scale="0.8" /> <span>{{ dayjs(sensor.lastExport).format("DD/MM-YYYY") }}</span>
+                            <IconUpload :scale="0.8" /> <span>{{ dayjs(device.lastExport).format("DD/MM-YYYY") }}</span>
                         </span>
                     </div>
                 </td>
@@ -204,12 +204,12 @@
         }
 
     
-    .sensorTypeTd
+    .deviceTypeTd
     {
         max-width: 1.5rem;
         padding-right:0rem;
     }
-    .sensorTypeTd > span
+    .deviceTypeTd > span
     {
         transform: translateY(0.3rem);
     }

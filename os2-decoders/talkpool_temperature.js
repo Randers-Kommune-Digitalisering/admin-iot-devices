@@ -32,17 +32,17 @@ function decode(payload, metadata)
         hum =  (((buf[1] << 4) | (buf[2] &   0xf)) - 250)/10;
         //raw = payload.data;
 
-        /* Find timestamp + sensor ID */
+        /* Find timestamp + device ID */
         timestamp = payload.rxInfo[0].time != null ?
                     payload.rxInfo[0].time :
                     new Date().toJSON();
-        let sensorId = payload.devEUI.slice(-4);
+        let deviceId = payload.devEUI.slice(-4);
 
         /* Skab retur-objekt */
         let res = {};
 
-        res.id = "refrigerator-sensor_" + sensorId + "-talkpool";
-        res.type=  "refrigerator-sensor";
+        res.id = "refrigerator-device_" + deviceId + "-talkpool";
+        res.type=  "refrigerator-device";
 
         res.observedAt = timestamp;
         res.name = metadata.name;

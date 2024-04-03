@@ -101,7 +101,7 @@ function DecodeElsysPayload(payload)
             value = (payload[i + 1] << 8) | (payload[i + 2]);
             i += 2;
             break;
-        case TYPE_MOTION: //Motion sensor(PIR)
+        case TYPE_MOTION: //Motion device(PIR)
             type = "motion";
             value = (payload[i + 1]);
             i += 1;
@@ -152,7 +152,7 @@ function DecodeElsysPayload(payload)
             value = (payload[i + 1]);
             i += 1;
             break;
-        case TYPE_EXT_DISTANCE: //Distance sensor input
+        case TYPE_EXT_DISTANCE: //Distance device input
             type = "distance";
             value = (payload[i + 1] << 8) | (payload[i + 2]);
             i += 2;
@@ -272,17 +272,17 @@ function base64ToHex(str) {
 
    function decode(payload, metadata)
    {
-       /* Find timestamp + sensor ID */
+       /* Find timestamp + device ID */
         timestamp = payload.rxInfo[0].time != null ?
                     payload.rxInfo[0].time :
                     new Date().toJSON();
-        let sensorId = payload.devEUI.slice(-4);
+        let deviceId = payload.devEUI.slice(-4);
 
         /* Skab retur-objekt */
         let res = {};
 
-        res.id = "elsys-sensor_" + sensorId;
-        res.type=  "multipurpose-sensor";
+        res.id = "elsys-device_" + deviceId;
+        res.type=  "multipurpose-device";
 
         res.observedAt = timestamp;
         res.name = metadata.name;

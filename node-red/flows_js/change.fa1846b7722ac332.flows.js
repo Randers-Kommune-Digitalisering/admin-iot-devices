@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "headers",
       "pt": "msg",
-      "to": "{\t    \"Content-Disposition\": \"attachment;filename=\" & req.params.sensor & \".\" & req.params.format\t}",
+      "to": "{\t    \"Content-Disposition\": \"attachment;filename=\" & req.params.device & \".\" & req.params.format\t}",
       "tot": "jsonata"
     }
   ],

@@ -2,7 +2,7 @@ const Node = {
   "id": "b31a1ed434826951",
   "type": "template",
   "z": "5f6ef472b7d9e1e9",
-  "name": "Forespørgsel ↓\\n Eksisterer dataeksport metadata for sensor?",
+  "name": "Forespørgsel ↓\\n Eksisterer dataeksport metadata for device?",
   "field": "sql",
   "fieldType": "msg",
   "format": "sql",

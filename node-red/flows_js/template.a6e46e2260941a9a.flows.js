@@ -19,7 +19,7 @@ const Node = {
 }
 
 Node.template = `
-SELECT DISTINCT type FROM os2iot_{{sensorId}}
+SELECT DISTINCT type FROM os2iot_{{deviceId}}
 `
 
 module.exports = Node;

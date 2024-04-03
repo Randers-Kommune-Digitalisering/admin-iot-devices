@@ -3,16 +3,16 @@
     import Content from '@/components/Content.vue'
     import IconTable from '@/components/icons/IconTable.vue'
 
-    import ListSensors from '@/components/sensor/ListSensors.vue'
+    import ListDevices from '@/components/device/ListDevices.vue'
 
 
-    const sensors = ref(null)
+    const devices = ref(null)
 
-    // Fetch sensors
+    // Fetch devices
 
     fetch('/api/devices')
         .then(response => response = response.json())
-        .then(value => sensors.value = value)
+        .then(value => devices.value = value)
         //.then(value => console.log(value))
 
 
@@ -22,6 +22,6 @@
 
     <h2>Målere</h2>
 
-    <ListSensors :sensors="sensors" />
+    <ListDevices :devices="devices" />
 
 </template>

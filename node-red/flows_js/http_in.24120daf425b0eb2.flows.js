@@ -3,7 +3,7 @@ const Node = {
   "type": "http in",
   "z": "330fa4345482a521",
   "name": "",
-  "url": "/sensordimensions/:sensor",
+  "url": "/devicedimensions/:device",
   "method": "get",
   "upload": false,
   "swaggerDoc": "",

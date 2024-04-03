@@ -33,16 +33,16 @@ function decode(payload, metadata)
     payloadHEX = base64ToHex(data.payload.data);
     data.payload.data = Decoder(getHex(payloadHEX), payload.fPort );
 
-    /* Find timestamp + sensor ID */
+    /* Find timestamp + device ID */
     timestamp = payload.rxInfo[0].time != null ?
                 payload.rxInfo[0].time :
                 new Date().toJSON();
-    let sensorId = payload.devEUI.slice(-4);
+    let deviceId = payload.devEUI.slice(-4);
 
     /* Skab retur-objekt */
     let res = {};
 
-    res.id = "people-counter" + sensorId + "-talkpool";
+    res.id = "people-counter" + deviceId + "-talkpool";
     res.type=  "people-counter";
 
     res.observedAt = timestamp;
@@ -157,20 +157,20 @@ function Decoder(bytes, fPort) {
             d.battery_voltage = readUInt16BE(p.bytes, p.bytes.length - 12) / 100;
             d.counter_a = readUInt16BE(p.bytes, p.bytes.length - 10);
             d.counter_b = readUInt16BE(p.bytes, p.bytes.length - 8);
-            d.sensor_status = p.bytes[p.bytes.length - 6];
+            d.device_status = p.bytes[p.bytes.length - 6];
             d.total_counter_a = readUInt16BE(p.bytes, p.bytes.length - 5);
             d.total_counter_b = readUInt16BE(p.bytes, p.bytes.length - 3);
             d.payload_counter = p.bytes[p.bytes.length - 1];
             break;
         case 0x07:
-            d.sensor_status = p.bytes[p.bytes.length - 5];
+            d.device_status = p.bytes[p.bytes.length - 5];
             d.total_counter_a = readUInt16BE(p.bytes, p.bytes.length - 4);
             d.total_counter_b = readUInt16BE(p.bytes, p.bytes.length - 2);
             break;
         case 0x08:
             d.device_status = p.bytes[p.bytes.length - 4];
             d.battery_voltage = readUInt16BE(p.bytes, p.bytes.length - 3) / 100;
-            d.sensor_status = p.bytes[p.bytes.length - 1];
+            d.device_status = p.bytes[p.bytes.length - 1];
             break;
     }
   

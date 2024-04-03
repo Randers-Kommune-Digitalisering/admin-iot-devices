@@ -10,17 +10,17 @@
 
     const route = useRoute()
 
-    import ListMeasurementPoints from '@/components/sensor/ListMeasurementPoints.vue'
-    import EditSensor from '@/components/sensor/EditSensor.vue'
+    import ListMeasurementPoints from '@/components/device/ListMeasurementPoints.vue'
+    import EditDevice from '@/components/device/EditDevice.vue'
 
     import IconEditSimple from '@/components/icons/IconEditSimple.vue'
 
     // Set refs for state
-    const sensor = ref(null)
+    const device = ref(null)
     const measurementPoints = ref(null)
     const httpResponse = ref(null)
 
-    // Fetch sensor
+    // Fetch device
 
     fetch('/api/devices/' + route.params.uid + '/measurements')
         .then(response => response = response.json())
@@ -30,16 +30,16 @@
 
     fetch('/api/devices/' + route.params.uid)
         .then(response => response = response.json())
-        .then(value => sensor.value = value)
+        .then(value => device.value = value)
 
-    // Update sensor changes
+    // Update device changes
 
-    function updateSensor(useTemplate = false)
+    function updateDevice(useTemplate = false)
     {
-        console.log("Updating sensor")
+        console.log("Updating device")
 
-        // Update sensor in Node-RED
-        Device.update(EditSensor.getSensorList())
+        // Update device in Node-RED
+        Device.update(EditDevice.getDeviceList())
         .then(response => httpResponse.value = response)
         .then(response => console.log(response))
     }
@@ -49,15 +49,15 @@
 
 <template>
 
-    <h2>{{sensor != null ? sensor.name : 'Måler'}}</h2>
+    <h2>{{device != null ? device.name : 'Måler'}}</h2>
 
-    <span v-if="sensor != null && sensor.templateUid != -1" class="underheader blue">Baseret på <span style="text-decoration: underline">{{sensor.templateName}}</span></span>
+    <span v-if="device != null && device.templateUid != -1" class="underheader blue">Baseret på <span style="text-decoration: underline">{{device.templateName}}</span></span>
 
-    <ListMeasurementPoints :measurementPoints="measurementPoints" :deviceUid="sensor != null ? sensor.uid : -1" />
-    <EditSensor :sensor="sensor" :lockEui="true" />
+    <ListMeasurementPoints :measurementPoints="measurementPoints" :deviceUid="device != null ? device.uid : -1" />
+    <EditDevice :device="device" :lockEui="true" />
 
     <Content>
-        <button @click="updateSensor()" :class="'addsensor ' + (sensor != null && sensor.isTemplate ? ' orange' : '')">
+        <button @click="updateDevice()" :class="'adddevice ' + (device != null && device.isTemplate ? ' orange' : '')">
             <span>Gem ændringer</span>
             <br /><IconEditSimple />
         </button>
@@ -68,13 +68,13 @@
 
 
 <style scoped>
-    .addsensor {
+    .adddevice {
         font-size: 0.9em;
         height: 7.5rem;
         width: 20rem;
         font-weight: 300;
     }
-    .addsensor svg
+    .adddevice svg
     {
         margin-top: 1rem;
     }

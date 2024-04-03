@@ -11,14 +11,14 @@
     // Import components
     import Content from '@/components/Content.vue'
 
-    import SelectTemplate from '@/components/sensor/SelectTemplate.vue'
-    import EditSensor from '@/components/sensor/EditSensor.vue'
-    import ListSensors from '@/components/sensor/ListSensors.vue'
+    import SelectTemplate from '@/components/device/SelectTemplate.vue'
+    import EditDevice from '@/components/device/EditDevice.vue'
+    import ListDevices from '@/components/device/ListDevices.vue'
 
     // Import Icons
-    import IconNewSensor from '@/components/icons/IconEditItem.vue'
+    import IconNewDevice from '@/components/icons/IconEditItem.vue'
     import IconNewItem from '@/components/icons/IconNewItem.vue'
-    import IconTemplateSensor from '@/components/icons/IconDuplicateItem.vue'
+    import IconTemplateDevice from '@/components/icons/IconDuplicateItem.vue'
     import IconOK from '@/components/icons/IconOK.vue'
 
     // Set refs for state
@@ -26,7 +26,7 @@
     const startUsingTemplate = ref(null)
     const hasSelectedTemplate = ref(false)
     const isTemplate = ref(false)
-    const currentSensorCount = ref(1)
+    const currentDeviceCount = ref(1)
     const httpResponse = ref(null)
 
     // Functions to continue flow
@@ -44,7 +44,7 @@
             if(useTemplate)
                 scrollTo("selectTemplate")
             else
-                scrollTo("editSensor")
+                scrollTo("editDevice")
         }
 
         // If previous starting point was undone
@@ -59,21 +59,21 @@
 
     function selectTemplate(template)
     {
-        // Update shared properties in EditSensor.vue component
+        // Update shared properties in EditDevice.vue component
         // Lock input fields for shared properties
-        EditSensor.setTemplateValues(template)
+        EditDevice.setTemplateValues(template)
 
         // Update state and scroll
         hasSelectedTemplate.value = true
-        scrollTo("editSensor")
+        scrollTo("editDevice")
     }
 
-    function createSensor(useTemplate = false)
+    function createDevice(useTemplate = false)
     {
-        console.log("Creating sensor")
+        console.log("Creating device")
 
-        // Create sensor in Node-RED
-        Device.create(EditSensor.getSensorList())
+        // Create device in Node-RED
+        Device.create(EditDevice.getDeviceList())
         .then(response => httpResponse.value = response)
         .then(response => console.log(response))
     }
@@ -84,10 +84,10 @@
         startUsingTemplate.value = null
         hasSelectedTemplate.value = false
         isTemplate.value = false
-        currentSensorCount.value = 1
+        currentDeviceCount.value = 1
         httpResponse.value = null
 
-        EditSensor.resetSensorList()
+        EditDevice.resetDeviceList()
     }
 
 
@@ -112,10 +112,10 @@
         console.log("Receieved metadata: " + JSON.stringify(metadata))
     }
 
-    // Function to update count on sensor edit
+    // Function to update count on device edit
 
-    const updateSensorCount = (count) => {
-        currentSensorCount.value = count
+    const updateDeviceCount = (count) => {
+        currentDeviceCount.value = count
     }
 
     // Function to on set as template
@@ -150,7 +150,7 @@
                             " @click="selectStartingPoint(false)">
                 Opret
                 <br /><span class="big">ny måler</span>
-                <br /><IconNewSensor :scale="startingPointSelected ? 0.85 : 1.7" />
+                <br /><IconNewDevice :scale="startingPointSelected ? 0.85 : 1.7" />
             </button>
 
             <button style="width: 22rem" :class="'buttomFromTemplate'
@@ -159,14 +159,14 @@
                             " @click="selectStartingPoint(true)">
                 Registrer måler
                 <br /><span class="big">med skabelon</span>
-                <br /><IconTemplateSensor :scale="startingPointSelected ? 1 : 2" />
+                <br /><IconTemplateDevice :scale="startingPointSelected ? 1 : 2" />
             </button>
 
         </Content>
     </div>
 
             
-    <form @submit.prevent="createSensor">
+    <form @submit.prevent="createDevice">
         <fieldset>
 
             <!-- Template -->
@@ -177,20 +177,20 @@
                 <SelectTemplate id="selectTemplate" @onSelectTemplate="selectTemplate" />
             </div>
 
-            <!-- Sensor metadata -->
+            <!-- Device metadata -->
 
             <div :style="startingPointSelected ? 'transition-delay: 300ms' : ''"  :class="( startingPointSelected ? ( startUsingTemplate ? ( hasSelectedTemplate ? ' anim' : ' anim hidden' ) : ' anim' ) : ' anim hidden' )">
                 <hr />
-                <EditSensor id="editSensor" @onUpdateSensorCount="updateSensorCount" @onUpdateSetAsTemplate="updateSetAsTemplate" :forceNoTemplate="startUsingTemplate" :quickAddMode="( startUsingTemplate ? true : false )" />
+                <EditDevice id="editDevice" @onUpdateDeviceCount="updateDeviceCount" @onUpdateSetAsTemplate="updateSetAsTemplate" :forceNoTemplate="startUsingTemplate" :quickAddMode="( startUsingTemplate ? true : false )" />
             </div>
 
-            <!-- Register sensor(s) button -->
+            <!-- Register device(s) button -->
 
             <div :style="startingPointSelected ? 'transition-delay: 600ms' : ''" :class="( startingPointSelected ? ( startUsingTemplate ? ( hasSelectedTemplate ? ' anim' : ' anim hidden' ) : ' anim' ) : ' anim hidden' )">
                 <Content>
-                    <button :class="'addsensor' + (startUsingTemplate ? ' blue' : isTemplate ? ' orange' : '')">
+                    <button :class="'adddevice' + (startUsingTemplate ? ' blue' : isTemplate ? ' orange' : '')">
                         <span v-if="startUsingTemplate">
-                            <span v-if="currentSensorCount > 1">
+                            <span v-if="currentDeviceCount > 1">
                                 Registrér målere
                             </span>
                             <span v-else>
@@ -215,7 +215,7 @@
     <!-- Register sucess -->
     <h2 id="start">{{
             isTemplate ? 'Skabelon oprettet' :
-            ( currentSensorCount > 1 ? 'Målere registreret' : 'Måler registreret' )
+            ( currentDeviceCount > 1 ? 'Målere registreret' : 'Måler registreret' )
         }}</h2>
     
     <Content>
@@ -227,15 +227,15 @@
                 <span>
                     {{
                         isTemplate ? 'Ny skabelon blev oprettet' :
-                        ( JSON.stringify( httpResponse.dbResponse.affectedRows ) + ( currentSensorCount > 1 ? ' nye målere blev registreret' : ' ny måler blev registreret' ))
+                        ( JSON.stringify( httpResponse.dbResponse.affectedRows ) + ( currentDeviceCount > 1 ? ' nye målere blev registreret' : ' ny måler blev registreret' ))
                     }}
                 </span>
             </span>
         </template>
 
-        <ListSensors :sensors="httpResponse.requestBody" />
+        <ListDevices :devices="httpResponse.requestBody" />
 
-        <button class="addsensor" @click="resetAll()">Registrér en ny måler</button>
+        <button class="adddevice" @click="resetAll()">Registrér en ny måler</button>
         
     </Content>
 
@@ -276,14 +276,14 @@
             margin-top: 0.5rem;
         }
 
-    .addsensor {
+    .adddevice {
         margin-top: 2.5rem;
         font-size: 0.9em;
         height: 7.5rem;
         width: 20rem;
         font-weight: 300;
     }
-    .addsensor svg
+    .adddevice svg
     {
         margin-top: 1rem;
     }

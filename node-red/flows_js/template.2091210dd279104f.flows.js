@@ -2,7 +2,7 @@ const Node = {
   "id": "2091210dd279104f",
   "type": "template",
   "z": "6f89a22d2f227f45",
-  "name": "Forespørgsel ↓\\n Opret sensor tabel hvis der ikke \\n eksisterer en i forvejen ",
+  "name": "Forespørgsel ↓\\n Opret device tabel hvis der ikke \\n eksisterer en i forvejen ",
   "field": "sql",
   "fieldType": "msg",
   "format": "sql",

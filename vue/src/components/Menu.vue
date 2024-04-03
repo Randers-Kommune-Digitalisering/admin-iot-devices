@@ -12,11 +12,11 @@
         },
         {
             "title": "Målere",
-            "url": "/sensors"
+            "url": "/devices"
         },
         {
             "title": "Ny måler",
-            "url": "/newsensor"
+            "url": "/newdevice"
         }
     ])
 
