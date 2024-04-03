@@ -17,6 +17,7 @@
         // Update value(s) for properties shared with template
         sensorList.value[0].templateUid = template.uid
         sensorList.value[0].energiart = template.energiartskode
+        sensorList.value[0].installationsnummer = template.installationsnummer
         
         // Lock input fields
         lockSharedProperties.value = true
@@ -92,6 +93,7 @@
         sensorList.value[0].payloadDecoder = current.serviceProfileUid
         sensorList.value[0].templateUid = current.templateUid
         sensorList.value[0].isTemplate = current.isTemplate
+        sensorList.value[0].installationsnummer = current.installationsnummer
         isTemplate.value = current.isTemplate == 1 ? true : false
         
         //console.log("Updated sensor data: ")
@@ -254,6 +256,17 @@
 
     
     <div class="flexbox">
+
+        <div>
+            <label for="deviceprofile_0" class="capitalize">
+
+                Installationsnummer
+
+            </label>
+            <input type="text" placeholder="..." id="name_0" v-model="sensorList[0].installationsnummer" :disabled="lockSharedProperties || (sensorList[0] != null && sensorList[0].templateUid != -1)">
+            
+
+        </div>
             
         <div>
             <label for="deviceprofile_0" class="capitalize">

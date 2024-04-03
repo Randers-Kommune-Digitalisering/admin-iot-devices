@@ -5,6 +5,7 @@
 
     "name": "",
     "energiart": -1,
+    "installationsnummer": "",
     "serviceProfile": -1,
     "payloadDecoder": -1,
 
