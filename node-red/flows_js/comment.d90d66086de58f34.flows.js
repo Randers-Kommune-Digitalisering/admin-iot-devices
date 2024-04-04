@@ -1,11 +1,11 @@
 const Node = {
-  "id": "b403350c2e067ee7",
+  "id": "d90d66086de58f34",
   "type": "comment",
   "z": "dc028cb1b3d1491a",
-  "name": "Device dimensions (available data types)",
+  "name": "Get recent",
   "info": "",
-  "x": 220,
-  "y": 1180,
+  "x": 120,
+  "y": 1060,
   "wires": []
 }
 
