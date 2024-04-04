@@ -1,5 +1,5 @@
 const Node = {
-  "id": "0b1e1bb4a958dea3",
+  "id": "a7378fc2aea88774",
   "type": "change",
   "z": "7b3a886e00fb2ea6",
   "name": "Udpak array",
@@ -9,6 +9,20 @@ const Node = {
       "p": "payload",
       "pt": "msg",
       "to": "payload[0]",
+      "tot": "msg"
+    },
+    {
+      "t": "set",
+      "p": "name",
+      "pt": "msg",
+      "to": "payload.name",
+      "tot": "msg"
+    },
+    {
+      "t": "set",
+      "p": "unit",
+      "pt": "msg",
+      "to": "payload.unit",
       "tot": "msg"
     }
   ],
@@ -21,7 +35,8 @@ const Node = {
   "y": 2620,
   "wires": [
     [
-      "10aba16c20afe8d3"
+      "10aba16c20afe8d3",
+      "59a9a10e9af5a808"
     ]
   ]
 }

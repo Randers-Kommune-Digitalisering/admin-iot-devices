@@ -10,6 +10,20 @@ const Node = {
       "pt": "msg",
       "to": "payload[0]",
       "tot": "msg"
+    },
+    {
+      "t": "set",
+      "p": "name",
+      "pt": "msg",
+      "to": "payload.name",
+      "tot": "msg"
+    },
+    {
+      "t": "set",
+      "p": "unit",
+      "pt": "msg",
+      "to": "payload.unit",
+      "tot": "msg"
     }
   ],
   "action": "",

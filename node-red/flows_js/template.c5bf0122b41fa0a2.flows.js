@@ -22,6 +22,8 @@ Node.template = `
 SELECT
     t1.deviceUid,
     t1.propertyName,
+    t1.enhed as unit,
+    t1.name,
     t2.dataTablename,
     t1.lastExport
 FROM 
