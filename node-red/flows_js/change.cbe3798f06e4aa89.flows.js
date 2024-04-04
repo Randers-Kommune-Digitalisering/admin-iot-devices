@@ -26,6 +26,11 @@ const Node = {
       "pt": "msg",
       "to": "measurementPoint.installationsnummer = null ? '' : measurementPoint.installationsnummer",
       "tot": "jsonata"
+    },
+    {
+      "t": "delete",
+      "p": "payload",
+      "pt": "msg"
     }
   ],
   "action": "",

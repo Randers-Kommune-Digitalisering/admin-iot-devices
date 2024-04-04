@@ -1,18 +1,17 @@
 const Node = {
-  "id": "7570a598c9903753",
+  "id": "f01621cd14b22388",
   "type": "debug",
   "z": "31eb0ab05cfa21a8",
-  "name": "Datapunkter til eksport",
+  "name": "debug 24",
   "active": true,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
-  "complete": "payload",
-  "targetType": "msg",
+  "complete": "false",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1260,
-  "y": 280,
+  "x": 1020,
+  "y": 600,
   "wires": []
 }
 
