@@ -1,8 +1,8 @@
 const Node = {
-  "id": "28e095d114d603f6",
+  "id": "15db4349f0252676",
   "type": "debug",
   "z": "31eb0ab05cfa21a8",
-  "name": "Måler til eksport",
+  "name": "debug 24",
   "active": true,
   "tosidebar": true,
   "console": false,
@@ -11,8 +11,8 @@ const Node = {
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 220,
-  "y": 720,
+  "x": 960,
+  "y": 600,
   "wires": []
 }
 

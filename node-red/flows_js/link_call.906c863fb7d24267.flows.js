@@ -1,11 +1,15 @@
 const Node = {
-  "id": "8398ebee807d031f",
-  "type": "subflow:b7d8f938218d0b30",
+  "id": "906c863fb7d24267",
+  "type": "link call",
   "z": "31eb0ab05cfa21a8",
-  "d": true,
   "name": "",
-  "x": 980,
-  "y": 300,
+  "links": [
+    "6277bd80c50f09d4"
+  ],
+  "linkType": "static",
+  "timeout": "30",
+  "x": 810,
+  "y": 340,
   "wires": [
     [
       "7570a598c9903753",

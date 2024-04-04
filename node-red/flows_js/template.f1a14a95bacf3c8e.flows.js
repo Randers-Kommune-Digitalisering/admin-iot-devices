@@ -2,6 +2,7 @@ const Node = {
   "id": "f1a14a95bacf3c8e",
   "type": "template",
   "z": "31eb0ab05cfa21a8",
+  "d": true,
   "name": "Forespørgsel ↓\\n Hent data for målepunkt",
   "field": "sql",
   "fieldType": "msg",
@@ -10,7 +11,7 @@ const Node = {
   "template": "",
   "output": "str",
   "x": 730,
-  "y": 340,
+  "y": 300,
   "wires": [
     [
       "8398ebee807d031f"

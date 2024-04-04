@@ -6,6 +6,14 @@ const Node = {
   "rules": [
     {
       "t": "set",
+      "p": "uid",
+      "pt": "msg",
+      "to": "payload.uid",
+      "tot": "msg",
+      "dc": true
+    },
+    {
+      "t": "set",
       "p": "measurementPoint",
       "pt": "msg",
       "to": "payload",
@@ -30,7 +38,8 @@ const Node = {
   "wires": [
     [
       "f1a14a95bacf3c8e",
-      "1d3967c7643d8778"
+      "1d3967c7643d8778",
+      "906c863fb7d24267"
     ]
   ]
 }
