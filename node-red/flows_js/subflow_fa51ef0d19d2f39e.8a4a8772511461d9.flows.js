@@ -1,14 +1,13 @@
 const Node = {
-  "id": "8398ebee807d031f",
-  "type": "subflow:b7d8f938218d0b30",
+  "id": "8a4a8772511461d9",
+  "type": "subflow:fa51ef0d19d2f39e",
   "z": "31eb0ab05cfa21a8",
   "d": true,
   "name": "",
-  "x": 980,
+  "x": 930,
   "y": 300,
   "wires": [
     [
-      "7570a598c9903753",
       "eadbee3188bc80e3"
     ]
   ]
