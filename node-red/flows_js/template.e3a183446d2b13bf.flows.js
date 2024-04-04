@@ -35,13 +35,9 @@ CREATE TABLE if not exists {{global.metadataTablename.maalepunkt}}
 
 	-- EnergyKey
 	enhed VARCHAR(255),
+	inputenhed VARCHAR(255),
 	energiartskode SMALLINT,
 	typekode SMALLINT,
-
-	-- Export data conversion
-	inputenhed VARCHAR(255),
-	operator VARCHAR(255),
-	operationvalue SMALLINT,
 
 	-- Metadata
 	lastExport TIMESTAMP,

@@ -24,6 +24,7 @@ services:
       SFTP_PASS: ${SFTP_PASS}
       BACKEND_URL: http://localhost:1880
       VUE_PORT: 3000
+      OS2IOT_API_KEY: ${OS2IOT_API_KEY}
 
     # Bind mount fra codespace til den kørende containers /data.
     # Det gør det muligt at comitte ændringer i flows til repositoriet
