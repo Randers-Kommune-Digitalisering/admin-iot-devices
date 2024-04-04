@@ -19,10 +19,10 @@ const Node = {
       "tot": "msg"
     },
     {
-      "t": "move",
-      "p": "unit",
+      "t": "set",
+      "p": "payload.unit",
       "pt": "msg",
-      "to": "payload.unit",
+      "to": "unit",
       "tot": "msg"
     }
   ],
@@ -31,12 +31,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1380,
+  "x": 1260,
   "y": 2460,
   "wires": [
     [
-      "d716c7114d485aef",
-      "f6c00f8410763722"
+      "092bb2335c5632fd"
     ]
   ]
 }

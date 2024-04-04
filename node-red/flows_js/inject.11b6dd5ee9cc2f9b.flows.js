@@ -15,13 +15,14 @@ const Node = {
   "once": false,
   "onceDelay": 0.1,
   "topic": "",
-  "x": 110,
-  "y": 2580,
+  "x": 75,
+  "y": 2560,
   "wires": [
     [
       "c5bf0122b41fa0a2"
     ]
-  ]
+  ],
+  "l": false
 }
 
 module.exports = Node;

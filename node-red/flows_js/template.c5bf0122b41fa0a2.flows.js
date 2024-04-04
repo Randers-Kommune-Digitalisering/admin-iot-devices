@@ -10,7 +10,7 @@ const Node = {
   "template": "",
   "output": "str",
   "x": 290,
-  "y": 2620,
+  "y": 2600,
   "wires": [
     [
       "aa442f5455e68998"
@@ -23,6 +23,7 @@ SELECT
     t1.deviceUid,
     t1.propertyName,
     t1.enhed as unit,
+    t1.inputenhed as startUnit,
     t1.name,
     t2.dataTablename,
     t1.lastExport

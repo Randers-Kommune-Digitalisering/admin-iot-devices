@@ -24,6 +24,13 @@ const Node = {
       "pt": "msg",
       "to": "payload.unit",
       "tot": "msg"
+    },
+    {
+      "t": "set",
+      "p": "startUnit",
+      "pt": "msg",
+      "to": "payload.startUnit",
+      "tot": "msg"
     }
   ],
   "action": "",
@@ -31,7 +38,7 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 710,
+  "x": 670,
   "y": 2460,
   "wires": [
     [

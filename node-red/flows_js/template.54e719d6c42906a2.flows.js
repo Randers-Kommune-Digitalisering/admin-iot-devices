@@ -23,6 +23,7 @@ SELECT
     t1.deviceUid,
     t1.propertyName,
     t1.enhed as unit,
+    t1.inputenhed as startUnit,
     t1.name,
     t2.dataTablename
 FROM 
