@@ -60,8 +60,8 @@
     <EditDevice :device="device" :lockEui="true" />
 
     <Content>
-        <button @click="updateDevice()" :class="'adddevice ' + (device != null && device.isTemplate ? ' orange' : '')">
-            <span>Gem ændringer</span>
+        <button @click="updateDevice()" :class="'adddevice ' + (httpResponse != null ? ' gray' : device != null && device.isTemplate ? ' orange' : '')">
+            <span>{{httpResponse == null ? 'Gem ændringer' : 'Ændringer gemt'}}</span>
             <br /><IconEditSimple />
         </button>
     </Content>
@@ -85,5 +85,13 @@
     {
         font-size: 0.8em;
         transform: translateY(-1.5rem) translateX(0.5rem);
+    }
+        button.gray
+    {
+        background-color: var(--color-border);
+    }
+    button.gray:hover
+    {
+        background-color: var(--color-border-dark);
     }
 </style>
