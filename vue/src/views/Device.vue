@@ -1,5 +1,5 @@
 <script setup>
-    import { ref } from 'vue'
+    import { ref, watch } from 'vue'
     import { useRoute } from 'vue-router'
     
     // Import scripts
@@ -22,15 +22,29 @@
 
     // Fetch device
 
-    fetch('/api/devices/' + route.params.uid + '/measurements')
-        .then(response => response = response.json())
-        .then(value => measurementPoints.value = value)
+    function fetchDevice()
+    {
+        fetch('/api/devices/' + route.params.uid + '/measurements')
+            .then(response => response = response.json())
+            .then(value => measurementPoints.value = value)
 
-    // Fetch measurement points
+        // Fetch measurement points
 
-    fetch('/api/devices/' + route.params.uid)
-        .then(response => response = response.json())
-        .then(value => device.value = value)
+        fetch('/api/devices/' + route.params.uid)
+            .then(response => response = response.json())
+            .then(value => device.value = value)
+    }
+
+    // Fetch after loading
+
+    fetchDevice()
+
+    // Watch if device changes
+
+    watch( () => route.params.uid, (current, previous) => {
+
+        fetchDevice()
+    })
 
     // Update device changes
 
@@ -54,7 +68,9 @@
     <!--span v-if="device != null" class="paragraph">
         <div :class="'tag ' + (device.rssi <= -100 ? 'red' : device.rssi <= -70 ? 'orange' : 'green')">RSSI {{device.rssi}}</div>
     </span-->
-    <span v-if="device != null && device.templateUid != -1" class="underheader blue">Baseret på <span style="text-decoration: underline">{{device.templateName}}</span></span>
+    <span v-if="device != null && device.templateUid != -1" class="underheader blue">Baseret på
+        <router-link :to="'/devices/' + device.templateUid">{{device.templateName}}</router-link>
+    </span>
     
     <ListMeasurementPoints :measurementPoints="measurementPoints" :deviceUid="device != null ? device.uid : -1" />
     <EditDevice :device="device" :lockEui="true" />
