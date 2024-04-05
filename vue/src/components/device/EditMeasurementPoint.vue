@@ -20,25 +20,48 @@
     })
 
     const measurementPoint = ref(props.measurementPoint)
+    const dataDimensions = ref(null)
     const httpResponse = ref(null)
 
-    // Watch when changing props
+    // Watch when changing measurement point prop
 
     watch( () => props.measurementPoint, (current, previous) => {
 
         measurementPoint.value = current
 
-        if(measurementPoint.valuedeviceUid == -1)
-            measurementPoint.valuedeviceUid = props.deviceUid
+        if(measurementPoint.value.deviceUid == -1)
+            measurementPoint.value.deviceUid = props.deviceUid
 
-        console.log("New measurementPoint retrieved:")
-        console.log(measurementPoint.value)
+        console.log("This runs")
 
         // Fetch data dimensions
-
+        dataDimensions.value = fetchDimensions()
         
-
     })
+
+    // Fetch data dimensions
+
+    function fetchDimensions()
+    {
+        const data = ref(null)
+
+        const deviceUid = measurementPoint.value.deviceUid == -1 ? props.deviceUid : measurementPoint.value.deviceUid
+
+        fetch('/api/devices/' + props.deviceUid + '/dimensions', {
+            method: "GET",
+            headers: {
+                "Accept": "application/json"
+            }
+        })
+        .then(response => response = response.json())
+        .then(value => data.value = value)
+
+        return data
+    }
+    
+    // Fetch immediately after loading 
+
+    dataDimensions.value = fetchDimensions()
 
     // Set export unit to the same as newly selected input unit
 
@@ -97,7 +120,12 @@
                     Nøgle
 
                 </label>
-                <input type="text" placeholder="..." id="propertyName" v-model="measurementPoint.propertyName" required>
+                <input v-if="dataDimensions == null || (Array.isArray(dataDimensions.value) && dataDimensions.value.length == 0)" type="text" placeholder="..." id="propertyName" v-model="measurementPoint.propertyName" required>
+                <select v-else name="propertyName" id="propertyName" v-model="measurementPoint.propertyName" required>
+                    <option value="" disabled>Vælg fra liste ..</option>
+
+                    <option v-for="property in dataDimensions.value" :value="property">{{ property }}</option>
+                </select>
             </div>
 
             
