@@ -121,7 +121,7 @@
                 <td>
                     <div class="flex col">
                         <span>{{device.name}}</span>
-                        <span v-if="device.templateUid != -1" class="tiny blue">Baseret på {{device.templateName}}</span>
+                        <span v-if="device.templateUid != -1" class="tiny blue">Baseret på {{device.templateName ?? 'skabelon'}}</span>
                         <span v-if="device.isTemplate" class="tiny orange">Skabelon</span>
                     </div>
                 </td>

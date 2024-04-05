@@ -68,9 +68,25 @@
     <!--span v-if="device != null" class="paragraph">
         <div :class="'tag ' + (device.rssi <= -100 ? 'red' : device.rssi <= -70 ? 'orange' : 'green')">RSSI {{device.rssi}}</div>
     </span-->
-    <span v-if="device != null && device.templateUid != -1" class="underheader blue">Baseret på
-        <router-link :to="'/devices/' + device.templateUid">{{device.templateName}}</router-link>
-    </span>
+
+    <!-- Under header -->
+    <div v-if="device != null" class="underheader">
+
+        <span :class="'heavy ' + (device.isTemplate ? 'orange' : device.templateUid != -1 ? 'blue' : 'randers')">
+            <span :class="'tag ' + (device.isTemplate ? 'orange' : device.templateUid != -1 ? 'blue' : 'randers')">{{ device.isTemplate ? 'Skabelon' : 'Måler' }}</span>
+        </span>
+
+        <span v-if="device.templateUid != -1" class="blue">
+            &nbsp;baseret på
+            <router-link class="orange" :to="'/devices/' + device.templateUid">{{device.templateName}}</router-link>
+        </span>
+
+        <div v-if="!device.isTemplate" class="float-right">
+            <span :class="'tag ' + (device.rssi <= -100 ? 'red' : device.rssi <= -70 ? 'orange' : 'green')">RSSI {{device.rssi}}</span>
+            <span v-if="device.batteryLevel != -1" :class="'tag ' + (device.batteryLevel > 0.50 ? 'green' : device.batteryLevel > 0.25 ? 'orange' : 'red')">{{device.batteryLevel * 100}}% batteri</span>
+        </div>
+
+    </div>
     
     <ListMeasurementPoints :measurementPoints="measurementPoints" :deviceUid="device != null ? device.uid : -1" />
     <EditDevice :device="device" :lockEui="true" />
@@ -99,8 +115,9 @@
     }
     .underheader
     {
-        font-size: 0.8em;
+        font-size: 0.9em;
         transform: translateY(-1.5rem) translateX(0.5rem);
+        margin-bottom: 0.3rem;
     }
         button.gray
     {
@@ -109,5 +126,13 @@
     button.gray:hover
     {
         background-color: var(--color-border-dark);
+    }
+    a.orange
+    {
+        color: var(--color-orange)
+    }
+    a.orange:hover
+    {
+        color: var(--color-orange-light)
     }
 </style>
