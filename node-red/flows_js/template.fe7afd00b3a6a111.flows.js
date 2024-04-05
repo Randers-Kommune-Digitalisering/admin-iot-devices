@@ -50,8 +50,8 @@ CREATE TABLE if not exists {{global.metadataTablename.maaler}}
 	energiartskode SMALLINT,
 
 	-- OS2 konfiguration
+	deviceModelUid SMALLINT,
 	deviceProfileUid SMALLINT,
-	serviceProfileUid SMALLINT,
 	payloadDecoderUid SMALLINT,
 
 	-- Metadata

@@ -2,14 +2,14 @@ const Node = {
   "id": "4e2d7268111370eb",
   "type": "template",
   "z": "b05183ed45071965",
-  "name": "Indsæt dekoder",
+  "name": "Indsæt dekodere",
   "field": "sql",
   "fieldType": "msg",
   "format": "handlebars",
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 700,
+  "x": 710,
   "y": 380,
   "wires": [
     [

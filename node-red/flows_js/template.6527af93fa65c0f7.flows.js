@@ -1,25 +1,25 @@
 const Node = {
-  "id": "ad858d75c34662a7",
+  "id": "6527af93fa65c0f7",
   "type": "template",
-  "z": "1b1f52cac1d78ec2",
-  "name": "DROP",
+  "z": "7b3a886e00fb2ea6",
+  "name": "Select device profiles",
   "field": "sql",
   "fieldType": "msg",
   "format": "handlebars",
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 470,
-  "y": 100,
+  "x": 940,
+  "y": 2840,
   "wires": [
     [
-      "1f61fb9cdab32b2d"
+      "84a1ce1aef2c0c44"
     ]
   ]
 }
 
 Node.template = `
-DROP TABLE {{global.metadataTablename.maalepunkt}}
+SELECT * FROM {{global.metadataTablename.deviceprofile}}
 `
 
 module.exports = Node;

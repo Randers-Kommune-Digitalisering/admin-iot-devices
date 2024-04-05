@@ -27,8 +27,8 @@ INSERT INTO {{global.metadataTablename.maaler}}
 	installationsnummer,
 	energiartskode,
 	-- lokationUid,
-	-- deviceProfileUid,
-	serviceProfileUid,
+	-- deviceModelUid,
+	deviceProfileUid,
 	payloadDecoderUid,
 	isTemplate,
 	templateUid
@@ -41,8 +41,8 @@ VALUES
 	'{{payload.installationsnummer}}',
 	{{payload.energiart}},
 	-- lokationUid,
-	-- deviceProfileUid,
-	{{payload.serviceProfile}},
+	-- deviceModelUid,
+	{{payload.deviceProfile}},
 	{{payload.payloadDecoder}},
 	{{payload.isTemplate}},
 	{{payload.templateUid}}

@@ -27,8 +27,8 @@ UPDATE {{global.metadataTablename.maaler}} SET
 	installationsnummer = '{{payload.installationsnummer}}',
 	energiartskode = {{payload.energiart}},
 	-- lokationUid,
-	-- deviceProfileUid,
-	serviceProfileUid = {{payload.serviceProfile}},
+	-- deviceModelUid,
+	deviceProfileUid = {{payload.deviceProfile}},
 	payloadDecoderUid = {{payload.payloadDecoder}},
 	isTemplate = {{payload.isTemplate}}
 

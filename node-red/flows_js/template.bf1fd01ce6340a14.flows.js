@@ -1,25 +1,27 @@
 const Node = {
-  "id": "ad858d75c34662a7",
+  "id": "bf1fd01ce6340a14",
   "type": "template",
-  "z": "1b1f52cac1d78ec2",
-  "name": "DROP",
+  "z": "b05183ed45071965",
+  "name": "Indsæt profiler",
   "field": "sql",
   "fieldType": "msg",
   "format": "handlebars",
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 470,
-  "y": 100,
+  "x": 680,
+  "y": 840,
   "wires": [
     [
-      "1f61fb9cdab32b2d"
+      "926d4969ab7dfb4c"
     ]
   ]
 }
 
 Node.template = `
-DROP TABLE {{global.metadataTablename.maalepunkt}}
+INSERT INTO {{global.metadataTablename.deviceprofile}}
+    (os2uid, name)
+VALUES {{{values}}}
 `
 
 module.exports = Node;

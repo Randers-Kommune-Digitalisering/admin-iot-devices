@@ -1,21 +1,21 @@
 const Node = {
-  "id": "9aa56ce665664e46",
+  "id": "b9590935812fb132",
   "type": "change",
   "z": "b05183ed45071965",
-  "name": "Find relevante \\n \"Randers [2]\"-dekodere",
+  "name": "Find relevante \\n \"Randers\"-profiler",
   "rules": [
     {
       "t": "set",
-      "p": "decoders",
+      "p": "profiles",
       "pt": "msg",
-      "to": "payload.data[name ~> $contains(\"Randers [2]\")]",
+      "to": "payload.result[name ~> $contains(\"Randers\")]",
       "tot": "jsonata"
     },
     {
       "t": "set",
-      "p": "decoders",
+      "p": "profiles",
       "pt": "msg",
-      "to": "decoders ~> | $ | {\t    \"name\": name ~> $substring(11) ~> $trim()\t} |",
+      "to": "profiles ~> | $ | {\t    \"name\": name ~> $replace(\"-\", \" \")\t} |",
       "tot": "jsonata"
     }
   ],
@@ -25,10 +25,10 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 990,
-  "y": 100,
+  "y": 560,
   "wires": [
     [
-      "0754a8045dd921cf"
+      "d24b6cbba7415b14"
     ]
   ]
 }

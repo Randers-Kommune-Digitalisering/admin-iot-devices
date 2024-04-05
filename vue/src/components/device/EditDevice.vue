@@ -89,8 +89,8 @@
         deviceList.value[0].appKey = current.applicationKey
         deviceList.value[0].name = current.name
         deviceList.value[0].energiart = current.energiartskode
-        deviceList.value[0].serviceProfile = current.serviceProfileUid
-        deviceList.value[0].payloadDecoder = current.serviceProfileUid
+        deviceList.value[0].deviceProfile = current.deviceProfileUid
+        deviceList.value[0].payloadDecoder = current.payloadDecoderUid
         deviceList.value[0].templateUid = current.templateUid
         deviceList.value[0].isTemplate = current.isTemplate
         deviceList.value[0].installationsnummer = current.installationsnummer
@@ -159,16 +159,15 @@
         setEmit('onUpdateDeviceCount', deviceList.value.length)
     }
 
-    // service profiles and payload decoders
+    // Payload decoders
 
-    const serviceProfile = ["Test service profil A", "Test service profil B"]
     const payloadDecoder = ref(null)
 
     function fetchDecoders()
     {
         const data = ref(null)
 
-        fetch('/api/decoders/', {
+        fetch('/api/decoders', {
             method: "GET",
             headers: {
                 "Accept": "application/json"
@@ -181,6 +180,28 @@
     }
 
     payloadDecoder.value = fetchDecoders()
+
+    // Device profiles
+
+    const deviceProfile = ref(null)
+
+    function fetchDeviceProfiles()
+    {
+        const data = ref(null)
+
+        fetch('/api/deviceprofiles', {
+            method: "GET",
+            headers: {
+                "Accept": "application/json"
+            }
+        })
+        .then(response => response = response.json())
+        .then(value => data.value = value)
+
+        return data
+    }
+
+    deviceProfile.value = fetchDeviceProfiles()
 
 </script>
 
@@ -276,40 +297,46 @@
     <div class="flexbox">
 
         <div>
-            <label for="deviceprofile_0" class="capitalize">
+            <label for="installnumber" class="capitalize">
 
                 Installationsnummer
 
             </label>
-            <input type="text" placeholder="..." id="name_0" v-model="deviceList[0].installationsnummer" :disabled="lockSharedProperties || (deviceList[0] != null && deviceList[0].templateUid != -1)">
+            <input type="text" placeholder="..." id="installnumber" v-model="deviceList[0].installationsnummer" :disabled="lockSharedProperties || (deviceList[0] != null && deviceList[0].templateUid != -1)">
             
 
         </div>
             
         <div>
-            <label for="deviceprofile_0" class="capitalize">
+            <label for="deviceprofile" class="capitalize">
 
-                Serviceprofil
+                Enhedsprofil
 
             </label>
-            <select name="template" id="template" v-model="deviceList[0].serviceProfile">
+            <select v-if="deviceProfile == null || (Array.isArray(deviceProfile.value) && deviceProfile.value.length == 0)" >
+                <option value="-1" disabled>Indlæser ..</option>
+            </select>
+            <select v-else id="deviceprofile" v-model="deviceList[0].deviceProfile">
                 <option value="-1" disabled>Vælg fra liste ..</option>
 
-                <option v-for="(profile, index) in serviceProfile" :value="index">{{ profile }}</option>
+                <option v-for="profile in deviceProfile.value" :value="profile.uid">{{ profile.name }}</option>
             </select>
 
         </div>
         
         <div>
-            <label for="deviceprofile_0" class="capitalize">
+            <label for="decoder" class="capitalize">
 
                 Dekoder
 
             </label>
-            <select name="template" id="template" v-model="deviceList[0].payloadDecoder">
+            <select v-if="payloadDecoder == null || (Array.isArray(payloadDecoder.value) && payloadDecoder.value.length == 0)" >
+                <option value="-1" disabled>Indlæser ..</option>
+            </select>
+            <select v-else name="template" id="template" v-model="deviceList[0].payloadDecoder">
                 <option value="-1" disabled>Vælg fra liste ..</option>
 
-                <option v-for="(decoder, index) in payloadDecoder.value" :value="index">{{ decoder.name }}</option>
+                <option v-for="decoder in payloadDecoder.value" :value="decoder.uid">{{ decoder.name }}</option>
             </select>
 
         </div>

@@ -6,7 +6,7 @@
     "name": "",
     "energiart": -1,
     "installationsnummer": "",
-    "serviceProfile": -1,
+    "deviceProfile": -1,
     "payloadDecoder": -1,
 
     "isTemplate": false,

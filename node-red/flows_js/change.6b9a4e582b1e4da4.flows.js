@@ -35,9 +35,9 @@ const Node = {
     },
     {
       "t": "set",
-      "p": "metadataTablename.serviceprofile",
+      "p": "metadataTablename.deviceprofile",
       "pt": "global",
-      "to": "iot_serviceprofile_metadata",
+      "to": "iot_deviceprofile_metadata",
       "tot": "str"
     },
     {

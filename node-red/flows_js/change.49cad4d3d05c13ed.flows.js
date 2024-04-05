@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "[     {         \"appKey\": \"OtaaAppKeyTest\",         \"devEui\": \"102ceffffe010f65\",         \"name\": \"Emu El-måler Grønhøjskolen\",         \"energiart\": 0,         \"serviceProfile\": 0,         \"payloadDecoder\": 0,         \"isTemplate\": false,         \"templateUid\": -1     } ]",
+      "to": "[     {         \"appKey\": \"OtaaAppKeyTest\",         \"devEui\": \"102ceffffe010f65\",         \"name\": \"Emu El-måler Grønhøjskolen\",         \"energiart\": 0,         \"deviceProfile\": 0,         \"payloadDecoder\": 0,         \"isTemplate\": false,         \"templateUid\": -1     } ]",
       "tot": "json"
     }
   ],
