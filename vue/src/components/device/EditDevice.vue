@@ -64,7 +64,7 @@
             type: String,
             required: false
         },
-        lockEui: {
+        lockEui: { /* Locks EUI input and template switch */
             type: Boolean,
             required: false,
             default: false
@@ -176,7 +176,7 @@
     </template>
     <template #heading>Beskrivelse</template>
 
-        <div v-if="!quickAddMode && (deviceList[0].templateUid == -1)">
+        <div v-if="!quickAddMode && (deviceList[0].templateUid == -1) && !lockEui">
             <input type="checkbox" id="istemplate" name="One" value="One" style="margin-bottom: 2.5rem" v-model="isTemplate">
             <label v-if="isTemplate" for="istemplate" class="orange">Markeret som skabelon</label>
             <label v-else for="istemplate" class="randers">Markér som skabelon</label>

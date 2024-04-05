@@ -34,6 +34,10 @@
         console.log("New measurementPoint retrieved:")
         console.log(measurementPoint.value)
 
+        // Fetch data dimensions
+
+        
+
     })
 
     // Set export unit to the same as newly selected input unit
