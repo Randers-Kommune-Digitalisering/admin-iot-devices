@@ -16,7 +16,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "statusCode = 200 ? payload : { \"error\": \"NotFound\", \"message\": \"The requested device has not been found. Check the requested id.\" }",
+      "to": "statusCode = 200 ? payload : {\t   \"error\": \"NotFound\",\t   \"message\": \"The requested item has not been found. Check the requested id.\" \t}",
       "tot": "jsonata"
     }
   ],

@@ -1,29 +1,29 @@
 const Node = {
-  "id": "2c7753a24f545bef",
+  "id": "5224f6ac5429371d",
   "type": "switch",
   "z": "7b3a886e00fb2ea6",
-  "name": "Findes måler?",
-  "property": "payload",
+  "name": "Findes data?",
+  "property": "payload.dataTablename",
   "propertyType": "msg",
   "rules": [
     {
-      "t": "empty"
+      "t": "null"
     },
     {
-      "t": "else"
+      "t": "nnull"
     }
   ],
   "checkall": "true",
   "repair": false,
   "outputs": 2,
-  "x": 840,
-  "y": 2160,
+  "x": 250,
+  "y": 2260,
   "wires": [
     [
-      "2820a5142186ab15"
+      "3f05bd7a15304b43"
     ],
     [
-      "25075e5bbe559208"
+      "ebf6784601e91c48"
     ]
   ]
 }
