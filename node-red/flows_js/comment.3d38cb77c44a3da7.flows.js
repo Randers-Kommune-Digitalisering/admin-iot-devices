@@ -4,7 +4,7 @@ const Node = {
   "z": "b05183ed45071965",
   "name": "Læs lokale dekodere",
   "info": "",
-  "x": 390,
+  "x": 530,
   "y": 200,
   "wires": []
 }

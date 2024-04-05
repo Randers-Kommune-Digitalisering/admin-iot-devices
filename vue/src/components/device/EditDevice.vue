@@ -97,7 +97,7 @@
         isTemplate.value = current.isTemplate == 1 ? true : false
         
         //console.log("Updated device data: ")
-        console.log(current)
+        //console.log(current)
     })
 
     // Watch when toggling template
@@ -159,10 +159,28 @@
         setEmit('onUpdateDeviceCount', deviceList.value.length)
     }
 
-    // Test data
+    // service profiles and payload decoders
 
     const serviceProfile = ["Test service profil A", "Test service profil B"]
-    const payloadDecoder = ["Test payload decoder I", "Test payload decoder II"]
+    const payloadDecoder = ref(null)
+
+    function fetchDecoders()
+    {
+        const data = ref(null)
+
+        fetch('/api/decoders/', {
+            method: "GET",
+            headers: {
+                "Accept": "application/json"
+            }
+        })
+        .then(response => response = response.json())
+        .then(value => data.value = value)
+
+        return data
+    }
+
+    payloadDecoder.value = fetchDecoders()
 
 </script>
 
@@ -291,7 +309,7 @@
             <select name="template" id="template" v-model="deviceList[0].payloadDecoder">
                 <option value="-1" disabled>Vælg fra liste ..</option>
 
-                <option v-for="(decoder, index) in payloadDecoder" :value="index">{{ decoder }}</option>
+                <option v-for="(decoder, index) in payloadDecoder.value" :value="index">{{ decoder.name }}</option>
             </select>
 
         </div>

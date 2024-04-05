@@ -4,7 +4,7 @@ const Node = {
   "z": "b05183ed45071965",
   "name": "Hent dekodere fra OS2",
   "info": "",
-  "x": 400,
+  "x": 540,
   "y": 60,
   "wires": []
 }

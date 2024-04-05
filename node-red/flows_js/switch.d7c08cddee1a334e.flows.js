@@ -1,23 +1,25 @@
 const Node = {
-  "id": "9b0c5991c3a03aad",
+  "id": "d7c08cddee1a334e",
   "type": "switch",
   "z": "b05183ed45071965",
   "name": "",
-  "property": "decoders",
-  "propertyType": "msg",
+  "property": "DEV_ENV",
+  "propertyType": "env",
   "rules": [
     {
-      "t": "nnull"
+      "t": "neq",
+      "v": "true",
+      "vt": "str"
     }
   ],
   "checkall": "true",
   "repair": false,
   "outputs": 1,
-  "x": 1050,
-  "y": 240,
+  "x": 330,
+  "y": 100,
   "wires": [
     [
-      "4a91e726001d06ef"
+      "2596f518255035c3"
     ]
   ]
 }
