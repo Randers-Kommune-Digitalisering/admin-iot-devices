@@ -60,7 +60,7 @@ CREATE TABLE if not exists {{global.metadataTablename.maaler}}
 	dataTablename VARCHAR(255),
 	lastObservation TIMESTAMP,
 
-	UNIQUE (uid, deviceEui)
+	UNIQUE (uid)
 );
 `
 

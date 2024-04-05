@@ -28,9 +28,7 @@ INSERT INTO {{global.metadataTablename.maalepunkt}}
 	energiartskode,
 	typekode,
 	propertyName,
-	controlledProperty,
-	operator,
-	operationvalue
+	controlledProperty
 )
 VALUES
 (
@@ -41,9 +39,7 @@ VALUES
 	{{payload.energiartskode}},
 	{{payload.typekode}},
 	'{{payload.propertyName}}',
-	'{{payload.controlledProperty}}',
-	'{{payload.operator}}',
-	{{payload.operationvalue}}
+	'{{payload.controlledProperty}}'
 )
 `
 

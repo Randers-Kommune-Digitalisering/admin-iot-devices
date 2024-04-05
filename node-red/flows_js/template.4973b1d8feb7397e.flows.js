@@ -27,9 +27,7 @@ SET
 	energiartskode = {{payload.energiartskode}},
 	typekode = {{payload.typekode}},
 	propertyName = '{{payload.propertyName}}',
-	controlledProperty = '{{payload.controlledProperty}}',
-	operator = '{{payload.operator}}',
-	operationvalue = {{payload.operationvalue}}
+	controlledProperty = '{{payload.controlledProperty}}'
 
 WHERE uid = {{uid}}
 `

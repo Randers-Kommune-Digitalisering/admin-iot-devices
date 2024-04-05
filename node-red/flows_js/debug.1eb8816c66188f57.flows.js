@@ -7,7 +7,7 @@ const Node = {
   "tosidebar": true,
   "console": true,
   "tostatus": false,
-  "complete": "payload.warningCount > 0 ?\t{\t    data.tablename: \"data insert error\"\t}\t:\t{\t    data.tablename: \"new data inserted\",\t    \"rows\": payload.affectedRows\t}",
+  "complete": "payload.warningCount > 0 or error ~> $exists() ?\t{\t    data.tablename: \"data insert error\",\t    \"error\": error.message,\t    \"warning\": warning\t}\t:\t{\t    data.tablename: \"new data inserted\",\t    \"rows\": payload.affectedRows\t}",
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",

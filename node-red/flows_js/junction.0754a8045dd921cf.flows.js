@@ -1,0 +1,14 @@
+const Node = {
+  "id": "0754a8045dd921cf",
+  "type": "junction",
+  "z": "b05183ed45071965",
+  "x": 1040,
+  "y": 140,
+  "wires": [
+    [
+      "65dc3fdef56a4aa8"
+    ]
+  ]
+}
+
+module.exports = Node;
