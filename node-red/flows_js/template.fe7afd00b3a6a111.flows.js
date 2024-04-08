@@ -53,6 +53,7 @@ CREATE TABLE if not exists {{global.metadataTablename.maaler}}
 	deviceModelUid SMALLINT,
 	deviceProfileUid SMALLINT,
 	payloadDecoderUid SMALLINT,
+	os2uid MEDIUMINT,
 
 	-- Metadata
 	isTemplate BOOL DEFAULT false,
