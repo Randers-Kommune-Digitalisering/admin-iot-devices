@@ -1,16 +1,16 @@
 const Node = {
-  "id": "792b2379165cc3c3",
+  "id": "33d75372d8bb3b3c",
   "type": "join",
-  "z": "5f6ef472b7d9e1e9",
+  "z": "31eb0ab05cfa21a8",
   "name": "",
-  "mode": "auto",
-  "build": "object",
+  "mode": "custom",
+  "build": "string",
   "property": "payload",
   "propertyType": "msg",
   "key": "topic",
   "joiner": "\\n",
   "joinerType": "str",
-  "accumulate": true,
+  "accumulate": false,
   "timeout": "",
   "count": "",
   "reduceRight": false,
@@ -18,11 +18,11 @@ const Node = {
   "reduceInit": "",
   "reduceInitType": "",
   "reduceFixup": "",
-  "x": 330,
-  "y": 980,
+  "x": 930,
+  "y": 860,
   "wires": [
     [
-      "099cbfe3705e3105"
+      "d3e0e0c6a452cf5a"
     ]
   ]
 }

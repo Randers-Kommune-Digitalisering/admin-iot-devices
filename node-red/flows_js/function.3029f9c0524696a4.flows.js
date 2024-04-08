@@ -19,7 +19,11 @@ const Node = {
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
+  const parts = msg.parts;
+  const linkSource = msg._linkSource;
   msg = msg.payload;
+  msg.parts = parts;
+  msg._linkSource = linkSource;
   return msg;
 }
 

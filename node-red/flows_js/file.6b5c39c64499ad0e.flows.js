@@ -9,8 +9,8 @@ const Node = {
   "createDir": false,
   "overwriteFile": "true",
   "encoding": "none",
-  "x": 660,
-  "y": 1160,
+  "x": 720,
+  "y": 180,
   "wires": [
     [
       "03701452390e007d"

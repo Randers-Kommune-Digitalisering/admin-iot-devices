@@ -11,8 +11,8 @@ const Node = {
   "workdir": "",
   "savedir": "",
   "name": "",
-  "x": 670,
-  "y": 1300,
+  "x": 730,
+  "y": 300,
   "wires": [
     [
       "8bfcdaf66ddd8d25",
