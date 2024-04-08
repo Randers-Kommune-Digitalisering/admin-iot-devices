@@ -5,7 +5,7 @@ const Node = {
   "name": "Hent profiler fra OS2",
   "info": "",
   "x": 530,
-  "y": 520,
+  "y": 1160,
   "wires": []
 }
 

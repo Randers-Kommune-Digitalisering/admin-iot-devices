@@ -26,7 +26,7 @@ CREATE TABLE if not exists {{global.metadataTablename.os2status}}
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	lastUpdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
-	url VARCHAR(255),
+	endpoint VARCHAR(255),
 	requestBody VARCHAR(255),
 
 	lastRequest TIMESTAMP,
