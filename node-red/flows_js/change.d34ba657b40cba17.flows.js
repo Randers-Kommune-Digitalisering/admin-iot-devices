@@ -8,8 +8,8 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "{\"id\":\"device-010f65\",\"deviceEui\":\"102ceffffe010f65\",\"observedAt\":\"2024-03-23T09:58:52.710Z\",\"values\":[{\"type\":\"Active_Energy_Import_T1\",\"value\":2015155}],\"rssi\":-94,\"batteryLevel\":-1}",
-      "tot": "json"
+      "to": "{\t   \"id\": \"device-010f65\",\t   \"deviceEui\": testdeveui,\t   \"observedAt\": \"2024-03-23T09:58:52.710Z\",\t   \"values\": [\t       {\t           \"type\": \"Active_Energy_Import_T1\",\t           \"value\": 2015155        \t       }    \t   ],\t   \"rssi\": -94,\t   \"batteryLevel\": -1\t}",
+      "tot": "jsonata"
     }
   ],
   "action": "",

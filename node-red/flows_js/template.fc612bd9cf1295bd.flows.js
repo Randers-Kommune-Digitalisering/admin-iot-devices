@@ -10,7 +10,7 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 620,
+  "x": 520,
   "y": 240,
   "wires": [
     [
@@ -28,7 +28,7 @@ INSERT INTO
 VALUES
 (
     '{{endpoint}}', 
-    '{{requestBody}}'
+    '{{{requestBody}}}'
 )
 
 `

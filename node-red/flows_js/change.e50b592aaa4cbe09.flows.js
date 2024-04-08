@@ -8,8 +8,8 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "{\"id\":\"device-010f65\",\"deviceEui\":\"102ceffffe010f65\",\"observedAt\":\"2024-03-22T09:58:52.710Z\",\"values\":[{\"type\":\"Active_Energy_Import_T1\",\"value\":1949785},{\"type\":\"Active_Energy_Import_T2\",\"value\":0},{\"type\":\"Active_Energy_Export_T1\",\"value\":0},{\"type\":\"Active_Energy_Export_T2\",\"value\":0},{\"type\":\"errorcode\",\"value\":0}],\"rssi\":-94,\"batteryLevel\":-1}",
-      "tot": "json"
+      "to": "{\t   \"id\": \"device-010f64001\",\t   \"deviceEui\": testdeveui,\t   \"observedAt\": \"2024-03-22T09:58:52.710Z\",\t   \"values\": [\t       {\t           \"type\": \"Active_Energy_Import_T1\",\t           \"value\": 1949785        \t       },\t       {\t           \"type\": \"Active_Energy_Import_T2\",\t           \"value\": 0        \t       },\t       {\t           \"type\": \"Active_Energy_Export_T1\",\t           \"value\": 0        \t       },\t       {\t           \"type\": \"Active_Energy_Export_T2\",\t           \"value\": 0        \t       },\t       {\t           \"type\": \"errorcode\",\t           \"value\": 0        \t       }    \t   ],\t   \"rssi\": -94,\t   \"batteryLevel\": -1\t}",
+      "tot": "jsonata"
     }
   ],
   "action": "",

@@ -2,7 +2,6 @@ const Node = {
   "id": "48787cba96df272c",
   "type": "http request",
   "z": "b05183ed45071965",
-  "d": true,
   "g": "7dd315ad06879230",
   "name": "",
   "method": "POST",

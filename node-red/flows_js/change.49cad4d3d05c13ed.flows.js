@@ -8,8 +8,8 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "[     {         \"appKey\": \"OtaaAppKeyTest\",         \"devEui\": \"102ceffffe010f65\",         \"name\": \"Emu El-måler Grønhøjskolen\",         \"energiart\": 0,         \"deviceProfile\": 0,         \"payloadDecoder\": 0,         \"isTemplate\": false,         \"templateUid\": -1     } ]",
-      "tot": "json"
+      "to": "[\t   {\t       \"appKey\":\"de9ad4f466f45536d13e9527787ce8aa\",\t       \"devEui\": testdeveui,\t       \"name\":\"Emu El-måler Grønhøjskolen\",\t       \"energiart\":0,\t       \"deviceProfile\":1,\t       \"payloadDecoder\":3,\t       \"isTemplate\":false,\t       \"templateUid\":-1\t   }\t]",
+      "tot": "jsonata"
     }
   ],
   "action": "",
@@ -21,7 +21,8 @@ const Node = {
   "y": 380,
   "wires": [
     [
-      "2377d286150de930"
+      "2377d286150de930",
+      "ae9956f328944159"
     ]
   ]
 }

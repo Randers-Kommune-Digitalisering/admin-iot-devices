@@ -6,13 +6,6 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "appId",
-      "pt": "msg",
-      "to": "os2config.appId",
-      "tot": "global"
-    },
-    {
-      "t": "set",
       "p": "endpoint",
       "pt": "msg",
       "to": "iot-device",
@@ -22,7 +15,7 @@ const Node = {
       "t": "set",
       "p": "requestBody",
       "pt": "msg",
-      "to": "{\t  \"type\": \"LORAWAN\",\t  \"lorawanSettings\": {\t    \"skipFCntCheck\": false,\t    \"fCntUp\": 0,\t    \"nFCntDown\": 0,\t    \"devEUI\": \"test enheds eui\",\t    \"serviceProfileID\": \"142325a4-7941-42c8-bb02-63013a9e4748\",\t    \"deviceProfileID\": \"f11f1f28-dd86-4034-aa1b-5b90aaaf5b35\",\t    \"OTAAapplicationKey\": \"Test AppKey\",\t    \"activationType\": \"OTAA\"\t  },\t  \"mqttInternalBrokerSettings\": {},\t  \"mqttExternalBrokerSettings\": {},\t  \"applicationId\": 167,\t  \"name\": \"Test navn\",\t  \"comment\": \"\",\t  \"deviceModelId\": null,\t  \"metadata\": \"{\\\"deviceUid\\\":\\\"test device UID\\\"}\"\t}",
+      "to": "{\t  \"type\": \"LORAWAN\",\t  \"lorawanSettings\": {\t    \"skipFCntCheck\": false,\t    \"fCntUp\": 0,\t    \"nFCntDown\": 0,\t    \"devEUI\": payload.devEui,\t    \"serviceProfileID\": $globalContext(\"os2config\").serviceProfileId,\t    \"deviceProfileID\": payload.deviceProfileUid,\t    \"OTAAapplicationKey\": payload.appKey,\t    \"activationType\": \"OTAA\"\t  },\t  \"mqttInternalBrokerSettings\": {},\t  \"mqttExternalBrokerSettings\": {},\t  \"applicationId\": $globalContext(\"os2config\").appId,\t  \"name\": payload.name,\t  \"comment\": \"\",\t  \"deviceModelId\": null,\t  \"metadata\": \"{\\\"internalDeviceUid\\\":\\\"\" & payload.uid & \"\\\"}\"\t}",
       "tot": "jsonata"
     }
   ],
@@ -31,10 +24,12 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 680,
-  "y": 700,
+  "x": 420,
+  "y": 780,
   "wires": [
-    []
+    [
+      "cf39cb337407d753"
+    ]
   ]
 }
 

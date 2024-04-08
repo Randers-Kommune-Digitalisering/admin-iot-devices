@@ -1,17 +1,17 @@
 const Node = {
-  "id": "38cad9e74a3acf1a",
+  "id": "c7065cdf0e070a40",
   "type": "json",
   "z": "b05183ed45071965",
   "g": "7dd315ad06879230",
   "name": "",
   "property": "requestBody",
-  "action": "str",
+  "action": "obj",
   "pretty": false,
-  "x": 350,
+  "x": 870,
   "y": 240,
   "wires": [
     [
-      "fc612bd9cf1295bd"
+      "61400c0183c441fe"
     ]
   ]
 }

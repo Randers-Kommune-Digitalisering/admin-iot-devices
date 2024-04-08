@@ -22,9 +22,16 @@ const Node = {
     {
       "t": "set",
       "p": "os2config.appId",
-      "pt": "msg",
+      "pt": "global",
       "to": "167",
       "tot": "num"
+    },
+    {
+      "t": "set",
+      "p": "os2config.serviceProfileId",
+      "pt": "global",
+      "to": "142325a4-7941-42c8-bb02-63013a9e4748",
+      "tot": "str"
     }
   ],
   "action": "",
