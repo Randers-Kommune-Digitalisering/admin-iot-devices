@@ -2,6 +2,7 @@ const Node = {
   "id": "9f4ad71f76a13a20",
   "type": "switch",
   "z": "7b3a886e00fb2ea6",
+  "g": "0f8e00ef379b1e7c",
   "name": "Flere målere?",
   "property": "payload.length",
   "propertyType": "msg",

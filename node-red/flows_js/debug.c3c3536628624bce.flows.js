@@ -2,6 +2,7 @@ const Node = {
   "id": "c3c3536628624bce",
   "type": "debug",
   "z": "b05183ed45071965",
+  "g": "7dd315ad06879230",
   "name": "New OS2 Request",
   "active": true,
   "tosidebar": true,
@@ -11,8 +12,8 @@ const Node = {
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1400,
-  "y": 160,
+  "x": 1380,
+  "y": 280,
   "wires": []
 }
 

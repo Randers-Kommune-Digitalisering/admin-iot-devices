@@ -2,14 +2,16 @@ const Node = {
   "id": "126584dfb60d330d",
   "type": "change",
   "z": "b05183ed45071965",
+  "g": "7dd315ad06879230",
   "name": "URL",
   "rules": [
     {
       "t": "set",
       "p": "baseurl",
       "pt": "msg",
-      "to": "https://os2iot-backend.prod.os2iot.kmd.dk/api/v1/",
-      "tot": "str"
+      "to": "os2config.url",
+      "tot": "global",
+      "dc": true
     },
     {
       "t": "set",
@@ -24,8 +26,8 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 230,
-  "y": 260,
+  "x": 210,
+  "y": 380,
   "wires": [
     [
       "ce655379d3931feb"

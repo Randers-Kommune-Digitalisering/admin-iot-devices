@@ -2,6 +2,7 @@ const Node = {
   "id": "57dfe8c7c2f66098",
   "type": "template",
   "z": "7b3a886e00fb2ea6",
+  "g": "0f8e00ef379b1e7c",
   "name": "Select device",
   "field": "sql",
   "fieldType": "msg",

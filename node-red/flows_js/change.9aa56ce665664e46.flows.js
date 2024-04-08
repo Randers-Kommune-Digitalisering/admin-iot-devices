@@ -2,6 +2,7 @@ const Node = {
   "id": "9aa56ce665664e46",
   "type": "change",
   "z": "b05183ed45071965",
+  "g": "901a8796f39b5fb8",
   "name": "Find relevante \\n \"Randers [2]\"-dekodere",
   "rules": [
     {
@@ -24,8 +25,8 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 990,
-  "y": 740,
+  "x": 970,
+  "y": 1420,
   "wires": [
     [
       "0754a8045dd921cf"

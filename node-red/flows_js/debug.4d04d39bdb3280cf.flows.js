@@ -2,8 +2,9 @@ const Node = {
   "id": "4d04d39bdb3280cf",
   "type": "debug",
   "z": "7b3a886e00fb2ea6",
+  "g": "d3309108f1a755b6",
   "name": "Målerdimensioner",
-  "active": true,
+  "active": false,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
@@ -12,7 +13,7 @@ const Node = {
   "statusVal": "",
   "statusType": "auto",
   "x": 1090,
-  "y": 2280,
+  "y": 2240,
   "wires": []
 }
 

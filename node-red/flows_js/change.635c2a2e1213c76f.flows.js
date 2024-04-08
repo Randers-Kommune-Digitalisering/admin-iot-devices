@@ -2,6 +2,7 @@ const Node = {
   "id": "635c2a2e1213c76f",
   "type": "change",
   "z": "b05183ed45071965",
+  "g": "901a8796f39b5fb8",
   "name": "Frasorter lokale profiler",
   "rules": [
     {
@@ -17,8 +18,8 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 810,
-  "y": 1240,
+  "x": 790,
+  "y": 1920,
   "wires": [
     [
       "6d1f8f4ba324811d"

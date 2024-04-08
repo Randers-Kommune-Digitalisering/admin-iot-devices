@@ -2,8 +2,10 @@ const Node = {
   "id": "48787cba96df272c",
   "type": "http request",
   "z": "b05183ed45071965",
+  "d": true,
+  "g": "7dd315ad06879230",
   "name": "",
-  "method": "GET",
+  "method": "POST",
   "ret": "obj",
   "paytoqs": "ignore",
   "url": "",
@@ -14,8 +16,8 @@ const Node = {
   "authType": "",
   "senderr": false,
   "headers": [],
-  "x": 850,
-  "y": 260,
+  "x": 830,
+  "y": 380,
   "wires": [
     [
       "c9baa51691b3ec43"

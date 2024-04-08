@@ -2,6 +2,7 @@ const Node = {
   "id": "61400c0183c441fe",
   "type": "change",
   "z": "b05183ed45071965",
+  "g": "7dd315ad06879230",
   "name": "Gem ID",
   "rules": [
     {
@@ -17,8 +18,8 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1100,
-  "y": 120,
+  "x": 1020,
+  "y": 240,
   "wires": [
     [
       "e315ec4a052f9b98"

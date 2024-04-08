@@ -2,6 +2,7 @@ const Node = {
   "id": "5224f6ac5429371d",
   "type": "switch",
   "z": "7b3a886e00fb2ea6",
+  "g": "d3309108f1a755b6",
   "name": "Findes data?",
   "property": "payload.dataTablename",
   "propertyType": "msg",
@@ -17,7 +18,7 @@ const Node = {
   "repair": false,
   "outputs": 2,
   "x": 250,
-  "y": 2260,
+  "y": 2220,
   "wires": [
     [
       "3f05bd7a15304b43"

@@ -2,6 +2,7 @@ const Node = {
   "id": "bf1fd01ce6340a14",
   "type": "template",
   "z": "b05183ed45071965",
+  "g": "901a8796f39b5fb8",
   "name": "Indsæt profiler",
   "field": "sql",
   "fieldType": "msg",
@@ -9,8 +10,8 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 700,
-  "y": 1360,
+  "x": 680,
+  "y": 2040,
   "wires": [
     [
       "926d4969ab7dfb4c"

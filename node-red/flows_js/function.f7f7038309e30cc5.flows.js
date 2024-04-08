@@ -2,6 +2,7 @@ const Node = {
   "id": "f7f7038309e30cc5",
   "type": "function",
   "z": "7b3a886e00fb2ea6",
+  "g": "0f8e00ef379b1e7c",
   "name": "Sikr array",
   "func": "",
   "outputs": 1,

@@ -2,6 +2,7 @@ const Node = {
   "id": "1f61d0e1a1282582",
   "type": "change",
   "z": "b05183ed45071965",
+  "g": "7dd315ad06879230",
   "name": "Forbered forespørgsel",
   "rules": [
     {
@@ -38,8 +39,8 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1080,
-  "y": 420,
+  "x": 1060,
+  "y": 540,
   "wires": [
     [
       "78a419d353762b11"

@@ -2,6 +2,7 @@ const Node = {
   "id": "bbdb7f36cd11a351",
   "type": "template",
   "z": "7b3a886e00fb2ea6",
+  "g": "c73500befce19fee",
   "name": "Indsæt målepunkt",
   "field": "sql",
   "fieldType": "msg",
@@ -10,7 +11,7 @@ const Node = {
   "template": "",
   "output": "str",
   "x": 490,
-  "y": 1880,
+  "y": 1840,
   "wires": [
     [
       "3b2e68563dfd78b7"

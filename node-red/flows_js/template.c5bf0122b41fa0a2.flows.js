@@ -2,6 +2,7 @@ const Node = {
   "id": "c5bf0122b41fa0a2",
   "type": "template",
   "z": "7b3a886e00fb2ea6",
+  "g": "e26a157813bbe7fb",
   "name": "Select deviceUid, \\n propertyName &  \\n dataTablename",
   "field": "sql",
   "fieldType": "msg",
@@ -10,7 +11,7 @@ const Node = {
   "template": "",
   "output": "str",
   "x": 230,
-  "y": 2600,
+  "y": 2560,
   "wires": [
     [
       "aa442f5455e68998"

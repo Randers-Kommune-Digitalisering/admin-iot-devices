@@ -2,6 +2,7 @@ const Node = {
   "id": "4973b1d8feb7397e",
   "type": "template",
   "z": "7b3a886e00fb2ea6",
+  "g": "c73500befce19fee",
   "name": "Opdater målepunkt",
   "field": "sql",
   "fieldType": "msg",
@@ -10,7 +11,7 @@ const Node = {
   "template": "",
   "output": "str",
   "x": 490,
-  "y": 2000,
+  "y": 1960,
   "wires": [
     [
       "ac1f18388bc3cec6"

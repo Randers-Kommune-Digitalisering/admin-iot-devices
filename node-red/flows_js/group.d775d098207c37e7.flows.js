@@ -2,11 +2,11 @@ const Node = {
   "id": "d775d098207c37e7",
   "type": "group",
   "z": "7b3a886e00fb2ea6",
-  "name": "",
+  "name": "Initialize DB",
   "style": {
     "stroke": "none",
     "stroke-opacity": "0.6",
-    "fill": "#bfc7d7",
+    "fill": "#ffefbf",
     "fill-opacity": "0.6",
     "label": true
   },

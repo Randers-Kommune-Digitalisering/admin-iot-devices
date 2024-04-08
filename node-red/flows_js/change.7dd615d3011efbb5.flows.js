@@ -2,6 +2,7 @@ const Node = {
   "id": "7dd615d3011efbb5",
   "type": "change",
   "z": "7b3a886e00fb2ea6",
+  "g": "c73500befce19fee",
   "name": "sæt controlledProperty",
   "rules": [
     {
@@ -18,7 +19,7 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 220,
-  "y": 1880,
+  "y": 1840,
   "wires": [
     [
       "bbdb7f36cd11a351"

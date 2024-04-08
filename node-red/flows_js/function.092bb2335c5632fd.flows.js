@@ -2,6 +2,7 @@ const Node = {
   "id": "092bb2335c5632fd",
   "type": "function",
   "z": "7b3a886e00fb2ea6",
+  "g": "e26a157813bbe7fb",
   "name": "Convert units",
   "func": "",
   "outputs": 1,
@@ -15,7 +16,7 @@ const Node = {
     }
   ],
   "x": 1450,
-  "y": 2460,
+  "y": 2420,
   "wires": [
     [
       "f6c00f8410763722"

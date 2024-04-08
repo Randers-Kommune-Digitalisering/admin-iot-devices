@@ -2,6 +2,7 @@ const Node = {
   "id": "fc612bd9cf1295bd",
   "type": "template",
   "z": "b05183ed45071965",
+  "g": "7dd315ad06879230",
   "name": "Indsæt request",
   "field": "sql",
   "fieldType": "msg",
@@ -9,8 +10,8 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 640,
-  "y": 120,
+  "x": 620,
+  "y": 240,
   "wires": [
     [
       "573dddea186f0c44"

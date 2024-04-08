@@ -2,12 +2,12 @@ const Node = {
   "id": "39a84f62ba24489c",
   "type": "group",
   "z": "7b3a886e00fb2ea6",
-  "name": "",
+  "name": "Config",
   "style": {
     "stroke": "none",
     "stroke-opacity": "0.6",
     "label": true,
-    "fill": "#bfdbef",
+    "fill": "#e3f3d3",
     "fill-opacity": "0.6"
   },
   "nodes": [

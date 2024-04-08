@@ -2,6 +2,7 @@ const Node = {
   "id": "7dd03b9d25e819da",
   "type": "change",
   "z": "b05183ed45071965",
+  "g": "901a8796f39b5fb8",
   "name": "Frasorter lokale dekodere",
   "rules": [
     {
@@ -17,8 +18,8 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 790,
-  "y": 860,
+  "x": 770,
+  "y": 1540,
   "wires": [
     [
       "9b0c5991c3a03aad"

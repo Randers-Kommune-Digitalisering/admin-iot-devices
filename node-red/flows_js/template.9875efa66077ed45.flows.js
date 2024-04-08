@@ -2,6 +2,7 @@ const Node = {
   "id": "9875efa66077ed45",
   "type": "template",
   "z": "7b3a886e00fb2ea6",
+  "g": "c73500befce19fee",
   "name": "Select målepunkter \\n med device Uid",
   "field": "sql",
   "fieldType": "msg",
@@ -10,7 +11,7 @@ const Node = {
   "template": "",
   "output": "str",
   "x": 950,
-  "y": 1660,
+  "y": 1620,
   "wires": [
     [
       "25a3051c6505184c"

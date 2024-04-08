@@ -2,6 +2,7 @@ const Node = {
   "id": "35276f802d3a2cf7",
   "type": "change",
   "z": "7b3a886e00fb2ea6",
+  "g": "c73500befce19fee",
   "name": "Sæt SQL",
   "rules": [
     {
@@ -30,7 +31,7 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 700,
-  "y": 1660,
+  "y": 1620,
   "wires": [
     [
       "9875efa66077ed45"

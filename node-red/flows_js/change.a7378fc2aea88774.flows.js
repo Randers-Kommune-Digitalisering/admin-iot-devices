@@ -2,6 +2,7 @@ const Node = {
   "id": "a7378fc2aea88774",
   "type": "change",
   "z": "7b3a886e00fb2ea6",
+  "g": "e26a157813bbe7fb",
   "name": "Udpak array",
   "rules": [
     {
@@ -39,7 +40,7 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 630,
-  "y": 2560,
+  "y": 2520,
   "wires": [
     [
       "d94f4d78868420d8"

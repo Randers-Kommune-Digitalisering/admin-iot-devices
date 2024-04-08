@@ -2,6 +2,7 @@ const Node = {
   "id": "6527af93fa65c0f7",
   "type": "template",
   "z": "7b3a886e00fb2ea6",
+  "g": "943398ac0aaf500a",
   "name": "Select device profiles",
   "field": "sql",
   "fieldType": "msg",
@@ -10,7 +11,7 @@ const Node = {
   "template": "",
   "output": "str",
   "x": 940,
-  "y": 2840,
+  "y": 2800,
   "wires": [
     [
       "84a1ce1aef2c0c44"

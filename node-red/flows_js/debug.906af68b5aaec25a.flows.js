@@ -2,8 +2,9 @@ const Node = {
   "id": "906af68b5aaec25a",
   "type": "debug",
   "z": "7b3a886e00fb2ea6",
+  "g": "c73500befce19fee",
   "name": "Målepunkt",
-  "active": true,
+  "active": false,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
@@ -12,7 +13,7 @@ const Node = {
   "statusVal": "",
   "statusType": "auto",
   "x": 970,
-  "y": 1480,
+  "y": 1440,
   "wires": []
 }
 

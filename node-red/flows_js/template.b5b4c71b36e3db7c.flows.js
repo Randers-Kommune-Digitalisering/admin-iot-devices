@@ -2,6 +2,7 @@ const Node = {
   "id": "b5b4c71b36e3db7c",
   "type": "template",
   "z": "7b3a886e00fb2ea6",
+  "g": "c73500befce19fee",
   "name": "Select templateUid \\n med Uid",
   "field": "sql",
   "fieldType": "msg",
@@ -10,7 +11,7 @@ const Node = {
   "template": "",
   "output": "str",
   "x": 290,
-  "y": 1660,
+  "y": 1620,
   "wires": [
     [
       "632112509aa1a1b2"
