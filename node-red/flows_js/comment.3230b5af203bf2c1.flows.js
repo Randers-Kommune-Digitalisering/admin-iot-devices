@@ -4,8 +4,8 @@ const Node = {
   "z": "b05183ed45071965",
   "name": "Indsæt manglende dekodere",
   "info": "",
-  "x": 540,
-  "y": 1440,
+  "x": 560,
+  "y": 1320,
   "wires": []
 }
 

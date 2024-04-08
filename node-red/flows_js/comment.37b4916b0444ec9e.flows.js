@@ -5,7 +5,7 @@ const Node = {
   "name": "Retry - Async requests",
   "info": "",
   "x": 180,
-  "y": 400,
+  "y": 380,
   "wires": []
 }
 

@@ -4,8 +4,8 @@ const Node = {
   "z": "b05183ed45071965",
   "name": "Læs lokale profiler",
   "info": "",
-  "x": 510,
-  "y": 1300,
+  "x": 530,
+  "y": 1200,
   "wires": []
 }
 
