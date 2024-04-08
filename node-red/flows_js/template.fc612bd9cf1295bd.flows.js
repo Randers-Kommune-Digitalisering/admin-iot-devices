@@ -23,12 +23,13 @@ Node.template = `
 INSERT INTO
     {{global.metadataTablename.os2status}}
 (
-    endpoint, requestBody
+    endpoint, requestBody, method
 )
 VALUES
 (
     '{{endpoint}}', 
-    '{{{requestBody}}}'
+    '{{{requestBody}}}',
+    '{{method}}'
 )
 
 `

@@ -1,19 +1,17 @@
 const Node = {
-  "id": "f20827aaf69807c0",
+  "id": "1584240f0579614a",
   "type": "debug",
   "z": "b05183ed45071965",
-  "g": "7dd315ad06879230",
-  "name": "Added os2uid",
-  "active": false,
+  "name": "debug 40",
+  "active": true,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
-  "complete": "payload",
-  "targetType": "msg",
+  "complete": "false",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1680,
-  "y": 520,
+  "x": 550,
+  "y": 1000,
   "wires": []
 }
 

@@ -1,12 +1,11 @@
 const Node = {
-  "id": "26c8b2277f2b7982",
+  "id": "02f0c0ef0288849b",
   "type": "comment",
   "z": "b05183ed45071965",
-  "g": "7dd315ad06879230",
-  "name": "Opdater os2uid",
+  "name": "Edit",
   "info": "",
-  "x": 1680,
-  "y": 360,
+  "x": 110,
+  "y": 860,
   "wires": []
 }
 

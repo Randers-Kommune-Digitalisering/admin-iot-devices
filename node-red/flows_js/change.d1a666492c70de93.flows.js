@@ -1,5 +1,5 @@
 const Node = {
-  "id": "5bf9079e2b3dbf39",
+  "id": "d1a666492c70de93",
   "type": "change",
   "z": "b05183ed45071965",
   "name": "Sæt device profil id",
@@ -25,11 +25,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1330,
-  "y": 700,
+  "x": 1630,
+  "y": 860,
   "wires": [
     [
-      "7fd797532defa797"
+      "61be1130af410857"
     ]
   ]
 }

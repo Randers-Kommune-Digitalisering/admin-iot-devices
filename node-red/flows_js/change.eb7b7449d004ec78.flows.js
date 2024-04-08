@@ -1,14 +1,14 @@
 const Node = {
-  "id": "672958f0bb6d893f",
+  "id": "eb7b7449d004ec78",
   "type": "change",
   "z": "b05183ed45071965",
-  "name": "set msg.data",
+  "name": "",
   "rules": [
     {
-      "t": "move",
-      "p": "payload",
+      "t": "set",
+      "p": "data",
       "pt": "msg",
-      "to": "data",
+      "to": "payload.requestBody[0]",
       "tot": "msg"
     }
   ],
@@ -17,11 +17,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 670,
-  "y": 700,
+  "x": 330,
+  "y": 860,
   "wires": [
     [
-      "7fc0a594bd9390cd"
+      "4c8032bd0e7aac18"
     ]
   ]
 }

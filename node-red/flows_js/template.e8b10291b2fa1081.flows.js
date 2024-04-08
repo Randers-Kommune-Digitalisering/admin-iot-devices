@@ -1,5 +1,5 @@
 const Node = {
-  "id": "7fc0a594bd9390cd",
+  "id": "e8b10291b2fa1081",
   "type": "template",
   "z": "b05183ed45071965",
   "name": "Find uid for device profil",
@@ -9,11 +9,11 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 910,
-  "y": 700,
+  "x": 1210,
+  "y": 860,
   "wires": [
     [
-      "452917dcbfea2be6"
+      "c9fb95c708824d37"
     ]
   ]
 }

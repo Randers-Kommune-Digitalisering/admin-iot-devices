@@ -1,15 +1,16 @@
 const Node = {
-  "id": "672958f0bb6d893f",
+  "id": "c17e1c7e63505347",
   "type": "change",
   "z": "b05183ed45071965",
-  "name": "set msg.data",
+  "name": "Sæt os2uid",
   "rules": [
     {
-      "t": "move",
-      "p": "payload",
+      "t": "set",
+      "p": "data.os2uid",
       "pt": "msg",
-      "to": "data",
-      "tot": "msg"
+      "to": "payload.os2uid",
+      "tot": "jsonata",
+      "dc": true
     }
   ],
   "action": "",
@@ -17,11 +18,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 670,
-  "y": 700,
+  "x": 990,
+  "y": 860,
   "wires": [
     [
-      "7fc0a594bd9390cd"
+      "e8b10291b2fa1081"
     ]
   ]
 }

@@ -25,6 +25,13 @@ const Node = {
       "pt": "msg",
       "to": "payload",
       "tot": "msg"
+    },
+    {
+      "t": "set",
+      "p": "msg.method",
+      "pt": "msg",
+      "to": "method ~> $exists() ? method : 'POST'",
+      "tot": "jsonata"
     }
   ],
   "action": "",

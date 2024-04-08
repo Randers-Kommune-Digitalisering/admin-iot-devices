@@ -28,6 +28,7 @@ CREATE TABLE if not exists {{global.metadataTablename.os2status}}
 
 	endpoint VARCHAR(255),
 	requestBody LONGTEXT,
+	method VARCHAR(255) DEFAULT 'POST',
 
 	lastRequest TIMESTAMP,
 	requestCount SMALLINT DEFAULT 0,
