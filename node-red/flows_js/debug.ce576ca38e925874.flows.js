@@ -1,18 +1,18 @@
 const Node = {
-  "id": "8bfcdaf66ddd8d25",
+  "id": "ce576ca38e925874",
   "type": "debug",
   "z": "5f6ef472b7d9e1e9",
-  "name": "CSV uploaded",
+  "name": "Export initiated",
   "active": true,
   "tosidebar": true,
   "console": true,
   "tostatus": false,
-  "complete": "payload",
-  "targetType": "msg",
+  "complete": "{\t    \"sftp\": \"EnergyKey export initiated\",\t    \"timestamp\": $now()\t}",
+  "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
-  "x": 970,
-  "y": 260,
+  "x": 170,
+  "y": 220,
   "wires": []
 }
 

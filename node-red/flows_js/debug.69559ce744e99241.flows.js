@@ -8,7 +8,7 @@ const Node = {
   "tosidebar": true,
   "console": true,
   "tostatus": false,
-  "complete": "payload.affectedRows > 0 ?\t{\t    $globalContext(\"metadataTablename\").decoder: \"new decoder(s) inserted\",\t    \"count\": $$.payload.affectedRows,\t    \"decoderList\": $$.decoders\t}",
+  "complete": "payload.affectedRows > 0 ?\t{\t    $globalContext(\"metadataTablename\").decoder: \"new decoder(s) inserted\",\t    \"count\": $$.payload.affectedRows,\t    \"decoderList\": $$.decoders\t}\t:\t{\t    $globalContext(\"metadataTablename\").decoder: \"no decoders inserted\",\t    \"error\": $$.payload.error ~> $exists() ? $$.payload.error : $$.error\t}",
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",

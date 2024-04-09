@@ -3,7 +3,7 @@ const Node = {
   "type": "debug",
   "z": "31eb0ab05cfa21a8",
   "name": "Datapunkter til eksport",
-  "active": true,
+  "active": false,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
@@ -11,8 +11,8 @@ const Node = {
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1260,
-  "y": 280,
+  "x": 1200,
+  "y": 340,
   "wires": []
 }
 

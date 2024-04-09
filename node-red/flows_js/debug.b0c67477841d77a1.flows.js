@@ -7,12 +7,12 @@ const Node = {
   "tosidebar": true,
   "console": true,
   "tostatus": false,
-  "complete": "payload",
-  "targetType": "msg",
+  "complete": "{\t    \"sftp\": \"lastExport values updated for exported measurement points\",\t    \"measurementPointCount\": payload.affectedRows\t}",
+  "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
   "x": 760,
-  "y": 460,
+  "y": 500,
   "wires": []
 }
 
