@@ -1,0 +1,14 @@
+const Node = {
+  "id": "66af143f3138bb43",
+  "type": "link out",
+  "z": "b05183ed45071965",
+  "g": "7dd315ad06879230",
+  "name": "link out 4",
+  "mode": "return",
+  "links": [],
+  "x": 265,
+  "y": 260,
+  "wires": []
+}
+
+module.exports = Node;

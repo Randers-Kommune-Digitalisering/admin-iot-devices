@@ -1,23 +1,30 @@
 const Node = {
-  "id": "0c752769625d4d99",
+  "id": "97947878ff1392aa",
   "type": "switch",
-  "z": "5f6ef472b7d9e1e9",
+  "z": "b05183ed45071965",
+  "g": "7dd315ad06879230",
   "name": "Dev env?",
   "property": "payload.filename = undefined",
   "propertyType": "jsonata",
   "rules": [
     {
       "t": "false"
+    },
+    {
+      "t": "else"
     }
   ],
   "checkall": "true",
   "repair": false,
-  "outputs": 1,
+  "outputs": 2,
   "x": 180,
-  "y": 500,
+  "y": 240,
   "wires": [
     [
-      "82148cda2067c173"
+      "38cad9e74a3acf1a"
+    ],
+    [
+      "66af143f3138bb43"
     ]
   ]
 }
