@@ -1,24 +1,22 @@
 const Node = {
-  "id": "af5b72249a7680ba",
+  "id": "cefc09c47f0ce29a",
   "type": "inject",
   "z": "7b3a886e00fb2ea6",
-  "d": true,
-  "g": "0f8e00ef379b1e7c",
+  "g": "d775d098207c37e7",
   "name": "",
   "props": [],
   "repeat": "",
   "crontab": "",
-  "once": false,
-  "onceDelay": 0.1,
+  "once": true,
+  "onceDelay": "2",
   "topic": "",
-  "x": 75,
-  "y": 580,
+  "x": 110,
+  "y": 300,
   "wires": [
     [
-      "cc6a19093947b872"
+      "1fd627ed91781c9a"
     ]
-  ],
-  "l": false
+  ]
 }
 
 module.exports = Node;
