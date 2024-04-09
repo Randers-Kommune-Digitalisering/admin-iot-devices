@@ -5,13 +5,13 @@ const Node = {
   "name": "Export CSV",
   "active": true,
   "tosidebar": true,
-  "console": false,
+  "console": true,
   "tostatus": false,
   "complete": "payload",
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 730,
+  "x": 740,
   "y": 140,
   "wires": []
 }

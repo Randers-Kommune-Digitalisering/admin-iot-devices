@@ -4,7 +4,7 @@ const Node = {
   "name": "lastUploadStatus",
   "help": "Last upload to SFTP succes",
   "labels": "type",
-  "mtype": "counter"
+  "mtype": "gauge"
 }
 
 module.exports = Node;

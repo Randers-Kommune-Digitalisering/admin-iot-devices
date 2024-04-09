@@ -1,18 +1,18 @@
 const Node = {
-  "id": "0e678bf293d6a90f",
+  "id": "b0c67477841d77a1",
   "type": "debug",
-  "z": "bd0288d62c2263f6",
-  "name": "stdout",
+  "z": "5f6ef472b7d9e1e9",
+  "name": "lastExport updated",
   "active": true,
   "tosidebar": true,
   "console": true,
   "tostatus": false,
-  "complete": "{\t    data.deviceEui: \"no data inserted\"\t}",
-  "targetType": "jsonata",
+  "complete": "payload",
+  "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 560,
-  "y": 640,
+  "x": 760,
+  "y": 460,
   "wires": []
 }
 
