@@ -8,7 +8,7 @@ const Node = {
   "tosidebar": true,
   "console": true,
   "tostatus": false,
-  "complete": "payload.affectedRows > 0 ?\t{\t    $globalContext(\"metadataTablename\").decoder: \"new device profile(s) inserted\",\t    \"count\": $$.payload.affectedRows,\t    \"profileList\": $$.profiles\t}",
+  "complete": "payload.affectedRows > 0 ?\t{\t    $globalContext(\"metadataTablename\").deviceprofile: \"new device profile(s) inserted\",\t    \"count\": $$.payload.affectedRows,\t    \"profileList\": $$.profiles\t}\t:\t{\t    $globalContext(\"metadataTablename\").deviceprofile: \"no device profiles inserted\",\t    \"error\": $$.payload.error ~> $exists() ? $$.payload.error : $$.error\t}",
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
