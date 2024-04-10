@@ -2,7 +2,7 @@ const Node = {
   "id": "9bc763105c5c68a8",
   "type": "change",
   "z": "b05183ed45071965",
-  "name": "OS2 Request",
+  "name": "OS2 Request (Add device)",
   "rules": [
     {
       "t": "set",
@@ -31,7 +31,7 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 400,
+  "x": 440,
   "y": 780,
   "wires": [
     [

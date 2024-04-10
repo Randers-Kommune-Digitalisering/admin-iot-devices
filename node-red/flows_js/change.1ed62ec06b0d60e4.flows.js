@@ -28,6 +28,13 @@ const Node = {
     },
     {
       "t": "set",
+      "p": "os2config.dataTargetId",
+      "pt": "global",
+      "to": "207",
+      "tot": "num"
+    },
+    {
+      "t": "set",
       "p": "os2config.serviceProfileId",
       "pt": "global",
       "to": "142325a4-7941-42c8-bb02-63013a9e4748",
