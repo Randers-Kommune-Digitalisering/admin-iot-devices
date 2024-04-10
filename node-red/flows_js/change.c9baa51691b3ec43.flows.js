@@ -16,7 +16,7 @@ const Node = {
       "t": "set",
       "p": "requestSuccessful",
       "pt": "msg",
-      "to": "response.error ~> $exists() ? 0 : 1",
+      "to": "response.error ~> $exists() ? 0 :\t(\t    response.statusCode ~> $exists() ?\t    response.statusCode = 200 ? 1 : 0 : 1\t)",
       "tot": "jsonata"
     },
     {

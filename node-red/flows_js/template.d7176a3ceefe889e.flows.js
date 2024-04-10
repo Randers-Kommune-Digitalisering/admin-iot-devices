@@ -27,6 +27,7 @@ FROM
 WHERE
     requestSuccessful = 0
 AND requestCount > 0
+ORDER BY uid ASC
 `
 
 module.exports = Node;
