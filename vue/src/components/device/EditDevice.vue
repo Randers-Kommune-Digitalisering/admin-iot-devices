@@ -64,7 +64,7 @@
             type: String,
             required: false
         },
-        lockEui: { /* Locks EUI input and template switch */
+        lockEui: { /* Edit mode = Locks EUI input and template switch */
             type: Boolean,
             required: false,
             default: false
@@ -159,6 +159,31 @@
         setEmit('onUpdateDeviceCount', deviceList.value.length)
     }
 
+    // Visual representation of valid/invalid input
+
+    const devEuiIsValid = ref(null)
+    const appKeyIsValid = ref(null)
+    
+    function isValidLength(type, index) // Type == "appKey" or "devEui"
+    {
+        //console.log("This runs: " + type + " - " + index)
+        if(deviceList.value[index] == null)
+            return;
+
+        if(type == "appKey")
+        {
+            appKeyIsValid.value = deviceList.value[index].appKey.length >= 32
+            console.log("appKeyIsValid: " + appKeyIsValid.value)
+        }
+
+        else if(type == "devEui")
+        {
+            devEuiIsValid.value = deviceList.value[index].devEui.length >= 16
+            console.log("devEuiIsValid: " + devEuiIsValid.value)
+        }
+
+    }
+
     // Payload decoders
 
     const payloadDecoder = ref(null)
@@ -228,9 +253,18 @@
                     <span class="uid" v-if="deviceList.length > 1">#{{index+1}}</span>
 
                     Enheds EUI (DevEUI)
+                    
+                    <span :style="devEuiIsValid != null ? devEuiIsValid ? 'display:none' : '' : 'display:none'" class="small red">
+                        Mindst 16 tegn
+                    </span>
 
                 </label>
-                <input type="text" placeholder="..." :id="'eui_' + index" v-model="device.devEui" :disabled="lockEui" required>
+                <input  type="text" placeholder="..." :id="'eui_' + index"
+                        v-model="device.devEui"
+                        :disabled="lockEui"
+                        :class="devEuiIsValid != null ? devEuiIsValid ? 'green' : 'red' : ''"
+                        @focusout="isValidLength('devEui', index)"
+                        required>
             </div>
             <div>
                 <label :for="'app_' + index" class="capitalize">
@@ -238,9 +272,17 @@
 
                     OTAA Application Key (AppKey)
 
+                    <span :style="appKeyIsValid != null ? appKeyIsValid ? 'display:none' : '' : 'display:none'" class="small red">
+                        Mindst 32 tegn
+                    </span>
+
                     <div @click="deleteDevice(index)" class="float-right tag tagbutton" v-if="deviceList.length > 1">Slet</div>
                 </label>
-                <input type="text" placeholder="..." :id="'app_' + index" v-model="device.appKey" required>
+                <input  type="text" placeholder="..." :id="'app_' + index"
+                        v-model="device.appKey"
+                        :class="appKeyIsValid != null ? appKeyIsValid ? 'green' : 'red' : ''"
+                        @focusout="isValidLength('appKey', index)"
+                        required>
             </div>
 
             <input type="hidden" v-model="device.uid" /> <!-- Hidden device UID when editiing device -->
@@ -352,6 +394,14 @@
 </template>
 
 <style scoped>
+    .small
+    {
+        font-size: 0.8em;
+        text-transform: none;
+        float: right;
+        margin-top: 0.5rem;
+        margin-right: 0.5rem;
+    }
     .tagbutton
     {
         text-transform: uppercase;
@@ -376,5 +426,11 @@
     button.gray:hover
     {
         background-color: var(--color-border-dark);
+    }
+    input.green {
+        border-color: var(--color-green-light);
+    }
+    input.red {
+        border-color: var(--color-red-light);
     }
 </style>
