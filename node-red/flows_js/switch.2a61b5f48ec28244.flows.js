@@ -26,8 +26,7 @@ const Node = {
       "38cad9e74a3acf1a"
     ],
     [
-      "66af143f3138bb43",
-      "38cad9e74a3acf1a"
+      "66af143f3138bb43"
     ]
   ]
 }

@@ -64,7 +64,7 @@
             type: String,
             required: false
         },
-        lockEui: { /* Locks EUI input and template switch */
+        lockEui: { /* Edit mode = Locks EUI input and template switch */
             type: Boolean,
             required: false,
             default: false
@@ -74,9 +74,10 @@
     // Define emit update in device count
     // Define emit update set as template
 
-    const emit = defineEmits(['onUpdateDeviceCount', 'onUpdateSetAsTemplate'])
+    const emit = defineEmits(['onUpdateDeviceCount', 'onUpdateSetAsTemplate', 'onUpdateInputValidity'])
 
     const setEmit = (_emi, value) => {
+        console.log("Emitting '" + _emi + "' with value: " + JSON.stringify(value))
         emit(_emi, value)
     }
 
@@ -116,7 +117,7 @@
 
     // Initialize blank device
 
-    newDevice()
+    newDevice(false)
     cleanDeviceList()
     lockSharedProperties.value = false
 
@@ -139,24 +140,71 @@
 
     // Helper functions
 
-    function newDevice() // Adds a device to the list
+    function newDevice(isAdditionalDevice = true) // Adds a device to the list
     {
         deviceList.value.push( JSON.parse(JSON.stringify (deviceMetadata)) )
         setEmit('onUpdateDeviceCount', deviceList.value.length)
+
+        // Disable submit button as new device does not have valid length
+        if(isAdditionalDevice)
+            setEmit("onUpdateInputValidity", false)
     }
 
     function deleteDevice(id) // Deletes device from list
     {
+        // Slice device list to remove single item
+
         const firstPart = deviceList.value.slice(0, id)
         const lastPart = deviceList.value.slice(id+1)
         deviceList.value = firstPart.concat(lastPart)
+
+        // Emit new count
         setEmit('onUpdateDeviceCount', deviceList.value.length)
+
+        // Update input value validity
+        const devEui_firstPart = devEuiIsValid.value.slice(0, id)
+        const devEui_lastPart = devEuiIsValid.value.slice(id+1)
+        devEuiIsValid.value = devEui_firstPart.concat(devEui_lastPart)
+        const appKey_firstPart = appKeyIsValid.value.slice(0, id)
+        const appKey_lastPart = appKeyIsValid.value.slice(id+1)
+        appKeyIsValid.value = appKey_firstPart.concat(appKey_lastPart)
+
     }
 
     function cleanDeviceList() // Removes all devices but index 0
     {
         deviceList.value = [deviceList.value[0]]
         setEmit('onUpdateDeviceCount', deviceList.value.length)
+    }
+
+    // Input validity - visual representation of valid/invalid input
+
+    const devEuiIsValid = ref([null])
+    const appKeyIsValid = ref([null])
+    
+    function InputValidityCheck(type, index) // Type == "appKey" or "devEui"
+    {
+        //console.log("This runs: " + type + " - " + index)
+        if(deviceList.value[index] == null)
+            return;
+
+        if(type == "appKey")
+        {
+            deviceList.value[index].appKey = deviceList.value[index].appKey.replace(" " , "").trim()
+            appKeyIsValid.value[index] = deviceList.value[index].appKey.length >= 32
+            console.log("appKeyIsValid: " + appKeyIsValid.value[index])
+        }
+
+        else if(type == "devEui")
+        {
+            deviceList.value[index].devEui = deviceList.value[index].devEui.replace(" " , "").trim()
+            devEuiIsValid.value[index] = deviceList.value[index].devEui.length >= 16
+            console.log("devEuiIsValid: " + devEuiIsValid.value[index])
+        }
+
+        setEmit("onUpdateInputValidity", ( devEuiIsValid.value.some(x => x == false) == false
+                                        && appKeyIsValid.value.some(x => x == false) == false ))
+
     }
 
     // Payload decoders
@@ -227,26 +275,44 @@
                 <label :for="'eui_' + index" class="capitalize">
                     <span class="uid" v-if="deviceList.length > 1">#{{index+1}}</span>
 
-                    Enheds EUI (DevEUI)
+                    Enheds EUI (index: {{index}})
+
+                    <span :style="devEuiIsValid[index] != null ? devEuiIsValid[index] ? 'display:none' : '' : 'display:none'" class="small red">
+                        Mindst 16 tegn
+                    </span>
 
                 </label>
-                <input type="text" placeholder="..." :id="'eui_' + index" v-model="device.devEui" :disabled="lockEui" required>
+                <input  type="text" placeholder="..." :id="'eui_' + index"
+                        v-model="device.devEui"
+                        :disabled="lockEui"
+                        :class="devEuiIsValid[index] != null ? devEuiIsValid[index] ? 'green' : 'red' : ''"
+                        @focusout="InputValidityCheck('devEui', index)"
+                        required>
             </div>
             <div>
                 <label :for="'app_' + index" class="capitalize">
                     <span class="uid" v-if="deviceList.length > 1">#{{index+1}}</span>
 
-                    OTAA Application Key (AppKey)
+                    OTAA Application Key
 
                     <div @click="deleteDevice(index)" class="float-right tag tagbutton" v-if="deviceList.length > 1">Slet</div>
+
+                    <span :style="appKeyIsValid[index] != null ? appKeyIsValid[index] ? 'display:none' : '' : 'display:none'" class="small red">
+                        Mindst 32 tegn
+                    </span>
+
                 </label>
-                <input type="text" placeholder="..." :id="'app_' + index" v-model="device.appKey" required>
+                <input  type="text" placeholder="..." :id="'app_' + index"
+                        v-model="device.appKey"
+                        :class="appKeyIsValid[index] != null ? appKeyIsValid[index] ? 'green' : 'red' : ''"
+                        @focusout="InputValidityCheck('appKey', index)"
+                        required>
             </div>
 
             <input type="hidden" v-model="device.uid" /> <!-- Hidden device UID when editiing device -->
 
         </div>
-        <button @click="newDevice()" v-if="quickAddMode" type="button" class="gray">Tilføj måler</button>
+        <button @click="newDevice()" v-if="quickAddMode" type="button" class="blue">Tilføj måler</button>
 
 
         
@@ -352,10 +418,19 @@
 </template>
 
 <style scoped>
+    .small
+    {
+        font-size: 0.8em;
+        text-transform: none;
+        float: right;
+        margin-top: 0.5rem;
+        margin-right: 0.5rem;
+    }
     .tagbutton
     {
         text-transform: uppercase;
         font-size: 0.7em;
+        margin-top: 0.4rem;
     }
     .tagbutton:hover
     {
@@ -376,5 +451,11 @@
     button.gray:hover
     {
         background-color: var(--color-border-dark);
+    }
+    input.green {
+        border-color: var(--color-green-light);
+    }
+    input.red {
+        border-color: var(--color-red-light);
     }
 </style>

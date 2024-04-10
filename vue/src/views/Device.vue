@@ -19,6 +19,7 @@
     const device = ref(null)
     const measurementPoints = ref(null)
     const httpResponse = ref(null)
+    const inputValidity = ref(true)
 
     // Fetch device
 
@@ -58,16 +59,19 @@
         .then(response => console.log(response))
     }
 
+    // Function to update input validity (= submit button availability)
+
+    const updateInputVality = (value) => {
+        console.log("Input validity change detected: " + value)
+        inputValidity.value = value
+    }
+
 
 </script>
 
 <template>
 
     <h2>{{device != null ? device.name : 'Måler'}}</h2>
-
-    <!--span v-if="device != null" class="paragraph">
-        <div :class="'tag ' + (device.rssi <= -100 ? 'red' : device.rssi <= -70 ? 'orange' : 'green')">RSSI {{device.rssi}}</div>
-    </span-->
 
     <!-- Under header -->
     <div v-if="device != null" class="underheader">
@@ -82,17 +86,19 @@
         </span>
 
         <div v-if="!device.isTemplate" class="float-right">
-            <span :class="'tag ' + (device.rssi <= -100 ? 'red' : device.rssi <= -70 ? 'orange' : 'green')">RSSI {{device.rssi}}</span>
+            <span v-if="device.rssi != null" :class="'tag ' + (device.rssi <= -100 ? 'red' : device.rssi <= -70 ? 'orange' : 'green')">RSSI {{device.rssi}}</span>
             <span v-if="device.batteryLevel != -1" :class="'tag ' + (device.batteryLevel > 0.50 ? 'green' : device.batteryLevel > 0.25 ? 'orange' : 'red')">{{device.batteryLevel * 100}}% batteri</span>
         </div>
 
     </div>
     
     <ListMeasurementPoints :measurementPoints="measurementPoints" :deviceUid="device != null ? device.uid : -1" />
-    <EditDevice :device="device" :lockEui="true" />
+    <EditDevice :device="device" :lockEui="true" @onUpdateInputValidity="updateInputVality" />
 
     <Content>
-        <button @click="updateDevice()" :class="'adddevice ' + (httpResponse != null ? ' gray' : device != null && device.isTemplate ? ' orange' : '')">
+        <button :class="'adddevice ' + (httpResponse != null ? ' gray' : device != null && device.isTemplate ? ' orange' : '')"
+                @click="updateDevice()"
+                :disabled="inputValidity == false">
             <span>{{httpResponse == null ? 'Gem ændringer' : 'Ændringer gemt'}}</span>
             <br /><IconEditSimple />
         </button>

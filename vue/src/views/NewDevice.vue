@@ -28,6 +28,7 @@
     const isTemplate = ref(false)
     const currentDeviceCount = ref(1)
     const httpResponse = ref(null)
+    const inputValidity = ref(false)
 
     // Functions to continue flow
 
@@ -117,6 +118,12 @@
     const updateDeviceCount = (count) => {
         currentDeviceCount.value = count
     }
+    
+    // Function to update input validity (= submit button availability)
+
+    const updateInputVality = (value) => {
+        inputValidity.value = value
+    }
 
     // Function to on set as template
 
@@ -181,14 +188,20 @@
 
             <div :style="startingPointSelected ? 'transition-delay: 300ms' : ''"  :class="( startingPointSelected ? ( startUsingTemplate ? ( hasSelectedTemplate ? ' anim' : ' anim hidden' ) : ' anim' ) : ' anim hidden' )">
                 <hr />
-                <EditDevice id="editDevice" @onUpdateDeviceCount="updateDeviceCount" @onUpdateSetAsTemplate="updateSetAsTemplate" :forceNoTemplate="startUsingTemplate" :quickAddMode="( startUsingTemplate ? true : false )" />
+                <EditDevice id="editDevice"
+                            @onUpdateDeviceCount="updateDeviceCount"
+                            @onUpdateSetAsTemplate="updateSetAsTemplate"
+                            @onUpdateInputValidity="updateInputVality"
+                            :forceNoTemplate="startUsingTemplate"
+                            :quickAddMode="( startUsingTemplate ? true : false )" />
             </div>
 
             <!-- Register device(s) button -->
 
             <div :style="startingPointSelected ? 'transition-delay: 600ms' : ''" :class="( startingPointSelected ? ( startUsingTemplate ? ( hasSelectedTemplate ? ' anim' : ' anim hidden' ) : ' anim' ) : ' anim hidden' )">
                 <Content>
-                    <button :class="'adddevice' + (startUsingTemplate ? ' blue' : isTemplate ? ' orange' : '')">
+                    <button :class="'adddevice' + (startUsingTemplate ? ' blue' : isTemplate ? ' orange' : '')"
+                            :disabled="inputValidity == false">
                         <span v-if="startUsingTemplate">
                             <span v-if="currentDeviceCount > 1">
                                 Registrér målere
