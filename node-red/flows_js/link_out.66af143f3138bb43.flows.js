@@ -3,7 +3,7 @@ const Node = {
   "type": "link out",
   "z": "b05183ed45071965",
   "g": "7dd315ad06879230",
-  "name": "link out 4",
+  "name": "Return",
   "mode": "return",
   "links": [],
   "x": 265,
