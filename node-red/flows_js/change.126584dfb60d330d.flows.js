@@ -15,6 +15,13 @@ const Node = {
     },
     {
       "t": "set",
+      "p": "endpoint",
+      "pt": "msg",
+      "to": "endpoint ~> $replace(\"&#x2F;\", \"/\")",
+      "tot": "jsonata"
+    },
+    {
+      "t": "set",
       "p": "url",
       "pt": "msg",
       "to": "baseurl & endpoint",
