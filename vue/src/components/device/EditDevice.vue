@@ -74,9 +74,10 @@
     // Define emit update in device count
     // Define emit update set as template
 
-    const emit = defineEmits(['onUpdateDeviceCount', 'onUpdateSetAsTemplate'])
+    const emit = defineEmits(['onUpdateDeviceCount', 'onUpdateSetAsTemplate', 'onUpdateInputValidity'])
 
     const setEmit = (_emi, value) => {
+        console.log("Emitting '" + _emi + "' with value: " + JSON.stringify(value))
         emit(_emi, value)
     }
 
@@ -143,6 +144,9 @@
     {
         deviceList.value.push( JSON.parse(JSON.stringify (deviceMetadata)) )
         setEmit('onUpdateDeviceCount', deviceList.value.length)
+
+        // Disable submit button as new device does not have valid length
+        setEmit("onUpdateInputValidity", false)
     }
 
     function deleteDevice(id) // Deletes device from list
@@ -172,7 +176,7 @@
         setEmit('onUpdateDeviceCount', deviceList.value.length)
     }
 
-    // Visual representation of valid/invalid input
+    // Input validity - visual representation of valid/invalid input
 
     const devEuiIsValid = ref([null])
     const appKeyIsValid = ref([null])
@@ -194,6 +198,9 @@
             devEuiIsValid.value[index] = deviceList.value[index].devEui.length >= 16
             console.log("devEuiIsValid: " + devEuiIsValid.value[index])
         }
+
+        setEmit("onUpdateInputValidity", ( devEuiIsValid.value.some(x => x == false || x == null) == false
+                                        && appKeyIsValid.value.some(x => x == false || x == null) == false ))
 
     }
 
@@ -302,7 +309,7 @@
             <input type="hidden" v-model="device.uid" /> <!-- Hidden device UID when editiing device -->
 
         </div>
-        <button @click="newDevice()" v-if="quickAddMode" type="button" class="gray">Tilføj måler</button>
+        <button @click="newDevice()" v-if="quickAddMode" type="button" class="blue">Tilføj måler</button>
 
 
         
