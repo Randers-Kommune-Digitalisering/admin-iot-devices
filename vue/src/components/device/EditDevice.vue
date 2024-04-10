@@ -89,7 +89,7 @@
         deviceList.value[0].appKey = current.applicationKey
         deviceList.value[0].name = current.name
         deviceList.value[0].energiart = current.energiartskode
-        deviceList.value[0].deviceProfile = current.deviceProfileUid
+        //deviceList.value[0].deviceProfile = current.deviceProfileUid
         deviceList.value[0].payloadDecoder = current.payloadDecoderUid
         deviceList.value[0].templateUid = current.templateUid
         deviceList.value[0].isTemplate = current.isTemplate
@@ -183,7 +183,7 @@
 
     // Device profiles
 
-    const deviceProfile = ref(null)
+    /*const deviceProfile = ref(null) // DIsabled for now, as only 1 device profile is used
 
     function fetchDeviceProfiles()
     {
@@ -201,7 +201,7 @@
         return data
     }
 
-    deviceProfile.value = fetchDeviceProfiles()
+    deviceProfile.value = fetchDeviceProfiles()*/
 
 </script>
 
@@ -307,7 +307,7 @@
 
         </div>
             
-        <div>
+        <!--div>
             <label for="deviceprofile" class="capitalize">
 
                 Enhedsprofil
@@ -322,7 +322,7 @@
                 <option v-for="profile in deviceProfile.value" :value="profile.uid">{{ profile.name }}</option>
             </select>
 
-        </div>
+        </div-->
         
         <div>
             <label for="decoder" class="capitalize">

@@ -1,14 +1,16 @@
 const Node = {
-  "id": "97947878ff1392aa",
+  "id": "2a61b5f48ec28244",
   "type": "switch",
   "z": "b05183ed45071965",
   "g": "7dd315ad06879230",
   "name": "Dev env?",
-  "property": "payload.filename = undefined",
-  "propertyType": "jsonata",
+  "property": "DEV_ENV",
+  "propertyType": "env",
   "rules": [
     {
-      "t": "false"
+      "t": "neq",
+      "v": "true",
+      "vt": "str"
     },
     {
       "t": "else"

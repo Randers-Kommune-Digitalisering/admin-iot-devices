@@ -51,7 +51,7 @@ CREATE TABLE if not exists {{global.metadataTablename.maaler}}
 
 	-- OS2 konfiguration
 	deviceModelUid SMALLINT,
-	deviceProfileUid SMALLINT,
+	deviceProfileUid SMALLINT DEFAULT 3,
 	payloadDecoderUid SMALLINT,
 	os2uid MEDIUMINT,
 
