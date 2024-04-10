@@ -147,10 +147,23 @@
 
     function deleteDevice(id) // Deletes device from list
     {
+        // Slice device list to remove single item
+
         const firstPart = deviceList.value.slice(0, id)
         const lastPart = deviceList.value.slice(id+1)
         deviceList.value = firstPart.concat(lastPart)
+
+        // Emit new count
         setEmit('onUpdateDeviceCount', deviceList.value.length)
+
+        // Update input value validity
+        const devEui_firstPart = devEuiIsValid.value.slice(0, id)
+        const devEui_lastPart = devEuiIsValid.value.slice(id+1)
+        devEuiIsValid.value = devEui_firstPart.concat(devEui_lastPart)
+        const appKey_firstPart = appKeyIsValid.value.slice(0, id)
+        const appKey_lastPart = appKeyIsValid.value.slice(id+1)
+        appKeyIsValid.value = appKey_firstPart.concat(appKey_lastPart)
+
     }
 
     function cleanDeviceList() // Removes all devices but index 0
@@ -161,8 +174,8 @@
 
     // Visual representation of valid/invalid input
 
-    const devEuiIsValid = ref(null)
-    const appKeyIsValid = ref(null)
+    const devEuiIsValid = ref([null])
+    const appKeyIsValid = ref([null])
     
     function isValidLength(type, index) // Type == "appKey" or "devEui"
     {
@@ -172,14 +185,14 @@
 
         if(type == "appKey")
         {
-            appKeyIsValid.value = deviceList.value[index].appKey.length >= 32
-            console.log("appKeyIsValid: " + appKeyIsValid.value)
+            appKeyIsValid.value[index] = deviceList.value[index].appKey.length >= 32
+            console.log("appKeyIsValid: " + appKeyIsValid.value[index])
         }
 
         else if(type == "devEui")
         {
-            devEuiIsValid.value = deviceList.value[index].devEui.length >= 16
-            console.log("devEuiIsValid: " + devEuiIsValid.value)
+            devEuiIsValid.value[index] = deviceList.value[index].devEui.length >= 16
+            console.log("devEuiIsValid: " + devEuiIsValid.value[index])
         }
 
     }
@@ -252,9 +265,9 @@
                 <label :for="'eui_' + index" class="capitalize">
                     <span class="uid" v-if="deviceList.length > 1">#{{index+1}}</span>
 
-                    Enheds EUI (DevEUI)
-                    
-                    <span :style="devEuiIsValid != null ? devEuiIsValid ? 'display:none' : '' : 'display:none'" class="small red">
+                    Enheds EUI (index: {{index}})
+
+                    <span :style="devEuiIsValid[index] != null ? devEuiIsValid[index] ? 'display:none' : '' : 'display:none'" class="small red">
                         Mindst 16 tegn
                     </span>
 
@@ -262,7 +275,7 @@
                 <input  type="text" placeholder="..." :id="'eui_' + index"
                         v-model="device.devEui"
                         :disabled="lockEui"
-                        :class="devEuiIsValid != null ? devEuiIsValid ? 'green' : 'red' : ''"
+                        :class="devEuiIsValid[index] != null ? devEuiIsValid[index] ? 'green' : 'red' : ''"
                         @focusout="isValidLength('devEui', index)"
                         required>
             </div>
@@ -270,17 +283,18 @@
                 <label :for="'app_' + index" class="capitalize">
                     <span class="uid" v-if="deviceList.length > 1">#{{index+1}}</span>
 
-                    OTAA Application Key (AppKey)
+                    OTAA Application Key
 
-                    <span :style="appKeyIsValid != null ? appKeyIsValid ? 'display:none' : '' : 'display:none'" class="small red">
+                    <div @click="deleteDevice(index)" class="float-right tag tagbutton" v-if="deviceList.length > 1">Slet</div>
+
+                    <span :style="appKeyIsValid[index] != null ? appKeyIsValid[index] ? 'display:none' : '' : 'display:none'" class="small red">
                         Mindst 32 tegn
                     </span>
 
-                    <div @click="deleteDevice(index)" class="float-right tag tagbutton" v-if="deviceList.length > 1">Slet</div>
                 </label>
                 <input  type="text" placeholder="..." :id="'app_' + index"
                         v-model="device.appKey"
-                        :class="appKeyIsValid != null ? appKeyIsValid ? 'green' : 'red' : ''"
+                        :class="appKeyIsValid[index] != null ? appKeyIsValid[index] ? 'green' : 'red' : ''"
                         @focusout="isValidLength('appKey', index)"
                         required>
             </div>
@@ -406,6 +420,7 @@
     {
         text-transform: uppercase;
         font-size: 0.7em;
+        margin-top: 0.4rem;
     }
     .tagbutton:hover
     {
