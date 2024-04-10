@@ -2,7 +2,7 @@ const Node = {
   "id": "0c752769625d4d99",
   "type": "switch",
   "z": "5f6ef472b7d9e1e9",
-  "name": "Dev env?",
+  "name": "Success?",
   "property": "payload.filename = undefined",
   "propertyType": "jsonata",
   "rules": [

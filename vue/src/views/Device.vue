@@ -65,10 +65,6 @@
 
     <h2>{{device != null ? device.name : 'Måler'}}</h2>
 
-    <!--span v-if="device != null" class="paragraph">
-        <div :class="'tag ' + (device.rssi <= -100 ? 'red' : device.rssi <= -70 ? 'orange' : 'green')">RSSI {{device.rssi}}</div>
-    </span-->
-
     <!-- Under header -->
     <div v-if="device != null" class="underheader">
 
@@ -82,7 +78,7 @@
         </span>
 
         <div v-if="!device.isTemplate" class="float-right">
-            <span :class="'tag ' + (device.rssi <= -100 ? 'red' : device.rssi <= -70 ? 'orange' : 'green')">RSSI {{device.rssi}}</span>
+            <span v-if="device.rssi != null" :class="'tag ' + (device.rssi <= -100 ? 'red' : device.rssi <= -70 ? 'orange' : 'green')">RSSI {{device.rssi}}</span>
             <span v-if="device.batteryLevel != -1" :class="'tag ' + (device.batteryLevel > 0.50 ? 'green' : device.batteryLevel > 0.25 ? 'orange' : 'red')">{{device.batteryLevel * 100}}% batteri</span>
         </div>
 
