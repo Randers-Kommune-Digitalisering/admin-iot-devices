@@ -117,7 +117,7 @@
 
     // Initialize blank device
 
-    newDevice()
+    newDevice(false)
     cleanDeviceList()
     lockSharedProperties.value = false
 
@@ -140,13 +140,14 @@
 
     // Helper functions
 
-    function newDevice() // Adds a device to the list
+    function newDevice(isAdditionalDevice = true) // Adds a device to the list
     {
         deviceList.value.push( JSON.parse(JSON.stringify (deviceMetadata)) )
         setEmit('onUpdateDeviceCount', deviceList.value.length)
 
         // Disable submit button as new device does not have valid length
-        setEmit("onUpdateInputValidity", false)
+        if(isAdditionalDevice)
+            setEmit("onUpdateInputValidity", false)
     }
 
     function deleteDevice(id) // Deletes device from list
@@ -181,7 +182,7 @@
     const devEuiIsValid = ref([null])
     const appKeyIsValid = ref([null])
     
-    function isValidLength(type, index) // Type == "appKey" or "devEui"
+    function InputValidityCheck(type, index) // Type == "appKey" or "devEui"
     {
         //console.log("This runs: " + type + " - " + index)
         if(deviceList.value[index] == null)
@@ -189,18 +190,20 @@
 
         if(type == "appKey")
         {
+            deviceList.value[index].appKey = deviceList.value[index].appKey.replace(" " , "").trim()
             appKeyIsValid.value[index] = deviceList.value[index].appKey.length >= 32
             console.log("appKeyIsValid: " + appKeyIsValid.value[index])
         }
 
         else if(type == "devEui")
         {
+            deviceList.value[index].devEui = deviceList.value[index].devEui.replace(" " , "").trim()
             devEuiIsValid.value[index] = deviceList.value[index].devEui.length >= 16
             console.log("devEuiIsValid: " + devEuiIsValid.value[index])
         }
 
-        setEmit("onUpdateInputValidity", ( devEuiIsValid.value.some(x => x == false || x == null) == false
-                                        && appKeyIsValid.value.some(x => x == false || x == null) == false ))
+        setEmit("onUpdateInputValidity", ( devEuiIsValid.value.some(x => x == false) == false
+                                        && appKeyIsValid.value.some(x => x == false) == false ))
 
     }
 
@@ -283,7 +286,7 @@
                         v-model="device.devEui"
                         :disabled="lockEui"
                         :class="devEuiIsValid[index] != null ? devEuiIsValid[index] ? 'green' : 'red' : ''"
-                        @focusout="isValidLength('devEui', index)"
+                        @focusout="InputValidityCheck('devEui', index)"
                         required>
             </div>
             <div>
@@ -302,7 +305,7 @@
                 <input  type="text" placeholder="..." :id="'app_' + index"
                         v-model="device.appKey"
                         :class="appKeyIsValid[index] != null ? appKeyIsValid[index] ? 'green' : 'red' : ''"
-                        @focusout="isValidLength('appKey', index)"
+                        @focusout="InputValidityCheck('appKey', index)"
                         required>
             </div>
 

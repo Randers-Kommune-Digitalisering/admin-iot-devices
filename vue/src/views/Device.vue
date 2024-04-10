@@ -19,6 +19,7 @@
     const device = ref(null)
     const measurementPoints = ref(null)
     const httpResponse = ref(null)
+    const inputValidity = ref(true)
 
     // Fetch device
 
@@ -58,6 +59,13 @@
         .then(response => console.log(response))
     }
 
+    // Function to update input validity (= submit button availability)
+
+    const updateInputVality = (value) => {
+        console.log("Input validity change detected: " + value)
+        inputValidity.value = value
+    }
+
 
 </script>
 
@@ -85,10 +93,12 @@
     </div>
     
     <ListMeasurementPoints :measurementPoints="measurementPoints" :deviceUid="device != null ? device.uid : -1" />
-    <EditDevice :device="device" :lockEui="true" />
+    <EditDevice :device="device" :lockEui="true" @onUpdateInputValidity="updateInputVality" />
 
     <Content>
-        <button @click="updateDevice()" :class="'adddevice ' + (httpResponse != null ? ' gray' : device != null && device.isTemplate ? ' orange' : '')">
+        <button :class="'adddevice ' + (httpResponse != null ? ' gray' : device != null && device.isTemplate ? ' orange' : '')"
+                @click="updateDevice()"
+                :disabled="inputValidity == false">
             <span>{{httpResponse == null ? 'Gem ændringer' : 'Ændringer gemt'}}</span>
             <br /><IconEditSimple />
         </button>

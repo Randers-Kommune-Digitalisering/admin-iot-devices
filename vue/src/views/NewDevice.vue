@@ -122,7 +122,6 @@
     // Function to update input validity (= submit button availability)
 
     const updateInputVality = (value) => {
-        console.log("All input valid? " + value)
         inputValidity.value = value
     }
 
