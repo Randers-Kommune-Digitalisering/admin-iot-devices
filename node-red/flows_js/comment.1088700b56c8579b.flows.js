@@ -5,7 +5,7 @@ const Node = {
   "name": "**Measurement points**",
   "info": "",
   "x": 160,
-  "y": 660,
+  "y": 740,
   "wires": []
 }
 
