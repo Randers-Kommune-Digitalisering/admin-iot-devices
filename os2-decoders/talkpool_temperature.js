@@ -1,6 +1,6 @@
-/**
-
-Tilpasset af
+/*
+ *
+ * Tilpasset af
  __             __   ___  __   __     
 |__)  /\  |\ | |  \ |__  |__) /__`    
 |  \ /~~\ | \| |__/ |___ |  \ .__/    
@@ -8,6 +8,8 @@ Tilpasset af
 |__/ /  \  |\/|  |\/| |  | |\ | |__  
 |  \ \__/  |  |  |  | \__/ | \| |___ 
 
+* Benyttes til Talkpool temperatur- og luftfugtighedsmåling
+*
 */
 function base64ToBytes(str)
 {
@@ -26,26 +28,23 @@ function decode(payload, metadata)
     if (payload.fPort == 2)
     {
 
-        /* Konverter data */
-        buf = base64ToBytes(payload.data)
-        temp = (((buf[0] << 4) | (buf[2] >>    4)) - 800)/10;
-        hum =  (((buf[1] << 4) | (buf[2] &   0xf)) - 250)/10;
-        //raw = payload.data;
-
-        /* Find timestamp + device ID */
+        /* Find timestamp + sensor ID */
         timestamp = payload.rxInfo[0].time != null ?
                     payload.rxInfo[0].time :
                     new Date().toJSON();
-        let deviceId = payload.devEUI.slice(-4);
 
         /* Skab retur-objekt */
         let res = {};
 
-        res.id = "refrigerator-device_" + deviceId + "-talkpool";
-        res.type=  "refrigerator-device";
-
+        res.id = "device-" + payload.devEUI.slice(-6);
+        res.deviceEui = payload.devEUI;
         res.observedAt = timestamp;
-        res.name = metadata.name;
+
+        /* Konverter data */
+        buf = base64ToBytes(payload.data);
+        temp = (((buf[0] << 4) | (buf[2] >>    4)) - 800)/10;
+        hum =  (((buf[1] << 4) | (buf[2] &   0xf)) - 250)/10;
+        //raw = payload.data;
 
         res.values = [
             {
@@ -55,18 +54,22 @@ function decode(payload, metadata)
             {
                 "type": "humidity",
                 "value": hum
-            },
+            }
         ]
 
-        res.location = {
+        /*res.location = {
             "type": "GeoLocation",
             "value": {
                 "type": "Point",
                 "coordinates":[Number(metadata.location.coordinates[0]), Number(metadata.location.coordinates[1])]
             }        
-        }
+        }*/
 
-        return [res];
+        res.rssi = payload.rxInfo[0].rssi;
+        res.batteryLevel = metadata.lorawanSettings.deviceStatusBattery <= 100 ?
+                       metadata.lorawanSettings.deviceStatusBattery / 100 : -1;
+
+        return res;
 
     }
 }
