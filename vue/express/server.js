@@ -23,6 +23,7 @@ app.use(cors())
 
 // Serving dist directory from this script's parent directory
 app.use(express.static(path.join(__dirname, '..', 'dist')));
+app.use('*', express.static(path.join(__dirname, '..', 'dist')));
 
 app.get("/status", (request, response) => {
     const status = {
