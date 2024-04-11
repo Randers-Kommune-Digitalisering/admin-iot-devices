@@ -7,9 +7,17 @@ const Node = {
   "rules": [
     {
       "t": "set",
+      "p": "response",
+      "pt": "msg",
+      "to": "payload",
+      "tot": "msg",
+      "dc": true
+    },
+    {
+      "t": "set",
       "p": "requestCount",
       "pt": "msg",
-      "to": "requestCount ~> $exists() ? requestCount + 1  : 1",
+      "to": "requestCount ~> $exists() ? requestCount + 1 : 1",
       "tot": "jsonata"
     },
     {
@@ -18,13 +26,6 @@ const Node = {
       "pt": "msg",
       "to": "response.error ~> $exists() ? 0 :\t(\t    response.statusCode ~> $exists() ?\t    response.statusCode = 200 ? 1 : 0 : 1\t)",
       "tot": "jsonata"
-    },
-    {
-      "t": "set",
-      "p": "response",
-      "pt": "msg",
-      "to": "payload",
-      "tot": "msg"
     }
   ],
   "action": "",

@@ -24,7 +24,7 @@ UPDATE {{global.metadataTablename.maaler}}
 SET
     os2uid = {{response.id}}
 WHERE
-    deviceEui = {{response.deviceEUI}}
+    deviceEui = '{{response.deviceEUI}}'
 `
 
 module.exports = Node;
