@@ -6,7 +6,7 @@ const Node = {
   "name": "DB: Get device profiles",
   "links": [],
   "x": 755,
-  "y": 2800,
+  "y": 2920,
   "wires": [
     [
       "6527af93fa65c0f7"

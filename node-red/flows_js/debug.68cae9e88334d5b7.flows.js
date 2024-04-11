@@ -13,7 +13,7 @@ const Node = {
   "statusVal": "",
   "statusType": "auto",
   "x": 1490,
-  "y": 1760,
+  "y": 1880,
   "wires": []
 }
 

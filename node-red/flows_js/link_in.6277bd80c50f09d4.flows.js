@@ -6,7 +6,7 @@ const Node = {
   "name": "DB: Get latest data for measurement point (msg.uid)",
   "links": [],
   "x": 55,
-  "y": 2560,
+  "y": 2680,
   "wires": [
     [
       "c5bf0122b41fa0a2"
