@@ -1,6 +1,6 @@
-/**
-
-Tilpasset af
+/*
+ *
+ * Tilpasset af
  __             __   ___  __   __     
 |__)  /\  |\ | |  \ |__  |__) /__`    
 |  \ /~~\ | \| |__/ |___ |  \ .__/    
@@ -13,7 +13,37 @@ Use it as it is or remove the bugs :)
 www.elsys.se
 peter@elsys.se
 
+*
+*
 */
+
+function decode(payload, metadata)
+{
+    /* Find timestamp + sensor ID */
+    timestamp = payload.rxInfo[0].time != null ?
+                payload.rxInfo[0].time :
+                new Date().toJSON();
+
+    /* Skab retur-objekt */
+    let res = {};
+
+    res.id = "device-" + payload.devEUI.slice(-6);
+    res.deviceEui = payload.devEUI;
+    res.observedAt = timestamp;
+
+    res.values = base64ToHex(payload.data).toString();
+    res.values = DecodeElsysPayload(hexToBytes(res.values));
+
+    res.rssi = payload.rxInfo[0].rssi;
+    res.batteryLevel = metadata.lorawanSettings.deviceStatusBattery <= 100 ?
+                       metadata.lorawanSettings.deviceStatusBattery / 100 : -1;
+    
+    //res.location = payload.rxInfo[0].location;
+
+    return [res];
+}
+
+
 const TYPE_TEMP = 0x01; //temp 2 bytes -3276.8°C -->3276.7°C
 const TYPE_RH = 0x02; //Humidity 1 byte  0-100%
 const TYPE_ACC = 0x03; //acceleration 3 bytes X,Y,Z -128 --> 127 +/-63=1G
@@ -101,7 +131,7 @@ function DecodeElsysPayload(payload)
             value = (payload[i + 1] << 8) | (payload[i + 2]);
             i += 2;
             break;
-        case TYPE_MOTION: //Motion device(PIR)
+        case TYPE_MOTION: //Motion sensor(PIR)
             type = "motion";
             value = (payload[i + 1]);
             i += 1;
@@ -111,11 +141,11 @@ function DecodeElsysPayload(payload)
             value = (payload[i + 1] << 8) | (payload[i + 2]);
             i += 2;
             break;
-        case TYPE_VDD: //Battery level
+        /*case TYPE_VDD: //Battery level
             type = "battery";
             value = (payload[i + 1] << 8) | (payload[i + 2]);
             i += 2;
-            break;
+            break;*/
         case TYPE_ANALOG1: //Analog input 1
             type = "analog";
             value = (payload[i + 1] << 8) | (payload[i + 2]);
@@ -152,7 +182,7 @@ function DecodeElsysPayload(payload)
             value = (payload[i + 1]);
             i += 1;
             break;
-        case TYPE_EXT_DISTANCE: //Distance device input
+        case TYPE_EXT_DISTANCE: //Distance sensor input
             type = "distance";
             value = (payload[i + 1] << 8) | (payload[i + 2]);
             i += 2;
@@ -267,30 +297,4 @@ function base64ToHex(str) {
         result += (hex.length === 2 ? hex : '0' + hex);
         }
     return result.toUpperCase();
-    }
-    
-
-   function decode(payload, metadata)
-   {
-       /* Find timestamp + device ID */
-        timestamp = payload.rxInfo[0].time != null ?
-                    payload.rxInfo[0].time :
-                    new Date().toJSON();
-        let deviceId = payload.devEUI.slice(-4);
-
-        /* Skab retur-objekt */
-        let res = {};
-
-        res.id = "elsys-device_" + deviceId;
-        res.type=  "multipurpose-device";
-
-        res.observedAt = timestamp;
-        res.name = metadata.name;
-
-        res.values = base64ToHex(payload.data).toString();
-        res.values = DecodeElsysPayload(hexToBytes(res.values));
-        
-        res.location = payload.rxInfo[0].location;
-
-        return [res];
     }

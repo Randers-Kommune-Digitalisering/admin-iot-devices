@@ -1,6 +1,7 @@
-/**
+/*
+ *
+ * Bygget af
 
-Bygget af
  __             __   ___  __   __     
 |__)  /\  |\ | |  \ |__  |__) /__`    
 |  \ /~~\ | \| |__/ |___ |  \ .__/    
@@ -8,7 +9,48 @@ Bygget af
 |__/ /  \  |\/|  |\/| |  | |\ | |__  
 |  \ \__/  |  |  |  | \__/ | \| |___ 
 
+* Benyttes til dekodning af Ascoel bevægelsessensor
+*
 */
+
+function decode(payload, metadata)
+{
+    /* Ignorer hvis ikke fPort 20 eller 9 */
+    if(payload.fPort != 20 && payload.fPort != 9)
+        return;
+
+    /* Find timestamp + sensor ID */
+    let timestamp = payload.rxInfo[0].time != null ?
+                    payload.rxInfo[0].time :
+                    new Date().toJSON();
+
+    /* Skab retur-objekt */
+    let res = {};
+
+    res.id = "device-" + payload.devEUI.slice(-6);
+    res.deviceEui = payload.devEUI;
+    res.observedAt = timestamp;
+
+    /* Data */
+    let data = Decoder( base64ToBytes(payload.data), payload.fPort );
+    res.values = [];
+
+    for(let i = 0;i < Object.keys(data).length; i++)
+    {
+        let key = (Object.keys(data))[i];
+        res.values.push({
+            "type": key,
+            "value": data[key]
+        })
+    }
+
+    res.rssi = payload.rxInfo[0].rssi;
+    res.batteryLevel = metadata.lorawanSettings.deviceStatusBattery <= 100 ?
+                       metadata.lorawanSettings.deviceStatusBattery / 100 : -1;
+
+    return res;
+}
+
 function Decoder(bytes, port)
 {
     var decoded = {};
@@ -25,7 +67,7 @@ function Decoder(bytes, port)
     }
 
     // EVENT Unsigned char (8 bits)
-    decoded.batteryLow        = (bytes[n] & 0b00000100) >> 2; // ? 'low battery event (25%)' : 'battery OK';
+    //decoded.batteryLow        = (bytes[n] & 0b00000100) >> 2; // ? 'low battery event (25%)' : 'battery OK';
     decoded.tamperingDetected = (bytes[n] & 0b00000010) >> 1; // ? 'Tamper alarm' : 'No Tamper alarm';
     decoded.intrusionDetected = (bytes[n] & 0b00000001); // ? 'Intrusion alarm detected' : 'No Intrusion';
     n++;
@@ -41,40 +83,4 @@ function base64ToBytes(str) {
         .map(function (c) {
         return c.charCodeAt(0);
         });
-}
-function decode(payload, metadata)
-{
-    /* Ignorer hvis ikke fPort 20 eller 9 */
-    if(payload.fPort != 20 && payload.fPort != 9)
-        return;
-
-    /* Find timestamp + device ID */
-    let timestamp = payload.rxInfo[0].time != null ?
-                    payload.rxInfo[0].time :
-                    new Date().toJSON();
-    let deviceId =  payload.devEUI.slice(-4);
-
-    /* Skab retur-objekt */
-    let res = {};
-
-    res.id = "pir-" + deviceId + "-ascoel";
-    res.type=  "motion-device";
-
-    res.observedAt = timestamp;
-    res.name = metadata.name;
-
-    /* Data */
-    let data = Decoder( base64ToBytes(payload.data), payload.fPort );
-    res.values = [];
-
-    for(let i = 0;i < Object.keys(data).length; i++)
-    {
-        let key = (Object.keys(data))[i];
-        res.values.push({
-            "type": key,
-            "value": data[key]
-        })
-    }
-    
-    return res;
 }
