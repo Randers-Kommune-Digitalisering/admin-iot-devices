@@ -1,23 +1,31 @@
 const Node = {
-  "id": "d1a666492c70de93",
+  "id": "2deba40f3537060b",
   "type": "change",
   "z": "b05183ed45071965",
-  "name": "Sæt device profil id",
+  "name": "Sæt os2uid",
   "rules": [
     {
       "t": "set",
-      "p": "data.deviceProfileUid",
+      "p": "data.os2uid",
       "pt": "msg",
       "to": "payload[0].os2uid",
       "tot": "jsonata",
       "dc": true
     },
     {
-      "t": "move",
-      "p": "data",
+      "t": "set",
+      "p": "data.uid",
       "pt": "msg",
-      "to": "payload",
+      "to": "uid",
       "tot": "msg"
+    },
+    {
+      "t": "set",
+      "p": "payload",
+      "pt": "msg",
+      "to": "data",
+      "tot": "msg",
+      "dc": true
     }
   ],
   "action": "",
@@ -25,11 +33,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1630,
-  "y": 1120,
+  "x": 990,
+  "y": 1380,
   "wires": [
     [
-      "61be1130af410857"
+      "c93f4cce19f4e6de"
     ]
   ]
 }

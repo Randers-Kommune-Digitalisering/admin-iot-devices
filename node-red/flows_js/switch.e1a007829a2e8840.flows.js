@@ -3,20 +3,18 @@ const Node = {
   "type": "switch",
   "z": "b05183ed45071965",
   "g": "7dd315ad06879230",
-  "name": "New device?",
-  "property": "endpoint",
-  "propertyType": "msg",
+  "name": "Add/Edit device?",
+  "property": "endpoint = 'iot-device' and (method = 'PUT' or method = 'POST')",
+  "propertyType": "jsonata",
   "rules": [
     {
-      "t": "eq",
-      "v": "iot-device",
-      "vt": "str"
+      "t": "true"
     }
   ],
   "checkall": "true",
   "repair": false,
   "outputs": 1,
-  "x": 1670,
+  "x": 1690,
   "y": 400,
   "wires": [
     [

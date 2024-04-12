@@ -6,7 +6,7 @@ const Node = {
   "name": "Læs dimensioner (typer for eksisterende datapunkter)",
   "info": "",
   "x": 340,
-  "y": 2060,
+  "y": 2180,
   "wires": []
 }
 

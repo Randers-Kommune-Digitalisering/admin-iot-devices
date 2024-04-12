@@ -22,7 +22,6 @@
 
     import IconUniqueDevice from '@/components/icons/IconEditItem.vue'
     import IconTemplateDevice from '@/components/icons/IconDuplicateItem.vue'
-    import IconNewItem from '@/components/icons/IconNewItem.vue'
     import IconUpload from '@/components/icons/IconUpload.vue'
     import IconDownload from '@/components/icons/IconDownload.vue'
     
@@ -56,15 +55,16 @@
     watch( () => props.devices, (current, previous) => {
 
         devices.value = current
-        console.log("New device-list retrieved:")
-        console.log(current)
+        //console.log("New device-list retrieved:")
+        //console.log(current)
 
     })
 
+    /*
     watch( () => props.filter, (current, previous) => {
         
-        console.log("New filter set:")
-        console.log(current)
+        //console.log("New filter set:")
+        //console.log(current)
     })
 
     // Filter function
@@ -73,7 +73,7 @@
     {
         if(filter == filter.Inactive)
             devices.value = devices.value.filter(item => item.maalepunktCount > 0)
-    }
+    }*/
 
     // Click
 

@@ -5,7 +5,7 @@ const Node = {
   "name": "Device dimensions (available data types)",
   "info": "",
   "x": 220,
-  "y": 1180,
+  "y": 1260,
   "wires": []
 }
 

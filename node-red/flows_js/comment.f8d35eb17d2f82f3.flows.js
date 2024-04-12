@@ -6,7 +6,7 @@ const Node = {
   "name": "Læs dekodere",
   "info": "",
   "x": 110,
-  "y": 2720,
+  "y": 2840,
   "wires": []
 }
 

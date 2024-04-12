@@ -6,7 +6,7 @@ const Node = {
   "name": "Device profiles",
   "info": "",
   "x": 120,
-  "y": 1760,
+  "y": 2160,
   "wires": []
 }
 

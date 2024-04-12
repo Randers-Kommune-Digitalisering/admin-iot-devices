@@ -9,7 +9,7 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 910,
+  "x": 890,
   "y": 700,
   "wires": [
     [
@@ -20,7 +20,7 @@ const Node = {
 
 Node.template = `
 SELECT
-    os2uid
+    os2uid as deviceProfileUid
 FROM
     {{global.metadataTablename.deviceprofile}}
 WHERE

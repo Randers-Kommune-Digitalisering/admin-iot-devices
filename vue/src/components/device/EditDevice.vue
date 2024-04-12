@@ -77,7 +77,6 @@
     const emit = defineEmits(['onUpdateDeviceCount', 'onUpdateSetAsTemplate', 'onUpdateInputValidity'])
 
     const setEmit = (_emi, value) => {
-        console.log("Emitting '" + _emi + "' with value: " + JSON.stringify(value))
         emit(_emi, value)
     }
 
@@ -97,7 +96,7 @@
         deviceList.value[0].installationsnummer = current.installationsnummer
         isTemplate.value = current.isTemplate == 1 ? true : false
         
-        //console.log("Updated device data: ")
+        //console.log("Loaded device:")
         //console.log(current)
     })
 
@@ -275,7 +274,7 @@
                 <label :for="'eui_' + index" class="capitalize">
                     <span class="uid" v-if="deviceList.length > 1">#{{index+1}}</span>
 
-                    Enheds EUI (index: {{index}})
+                    Enheds EUI
 
                     <span :style="devEuiIsValid[index] != null ? devEuiIsValid[index] ? 'display:none' : '' : 'display:none'" class="small red">
                         Mindst 16 tegn

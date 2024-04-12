@@ -1,16 +1,15 @@
 const Node = {
-  "id": "c17e1c7e63505347",
+  "id": "a5a8ebd077be1506",
   "type": "change",
-  "z": "b05183ed45071965",
-  "name": "Sæt os2uid",
+  "z": "dc028cb1b3d1491a",
+  "name": "Params",
   "rules": [
     {
       "t": "set",
-      "p": "data.os2uid",
+      "p": "uid",
       "pt": "msg",
-      "to": "payload.os2uid",
-      "tot": "jsonata",
-      "dc": true
+      "to": "req.params.device",
+      "tot": "msg"
     }
   ],
   "action": "",
@@ -18,11 +17,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 990,
-  "y": 1120,
+  "x": 560,
+  "y": 500,
   "wires": [
     [
-      "e8b10291b2fa1081"
+      "e09e7f3ae0b6e0ad"
     ]
   ]
 }

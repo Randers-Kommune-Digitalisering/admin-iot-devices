@@ -1,6 +1,6 @@
 <script setup>
     import { ref, watch } from 'vue'
-    import { useRoute } from 'vue-router'
+    import { useRoute, useRouter } from 'vue-router'
     
     // Import scripts
     import Device from '@/components/connector/Device.vue'
@@ -9,6 +9,7 @@
     import IconTable from '@/components/icons/IconTable.vue'
 
     const route = useRoute()
+    const router = useRouter()
 
     import ListMeasurementPoints from '@/components/device/ListMeasurementPoints.vue'
     import EditDevice from '@/components/device/EditDevice.vue'
@@ -20,6 +21,8 @@
     const measurementPoints = ref(null)
     const httpResponse = ref(null)
     const inputValidity = ref(true)
+    const awaitingDeletionConfirmation = ref(false)
+    const isDeleting = ref(false)
 
     // Fetch device
 
@@ -66,6 +69,35 @@
         inputValidity.value = value
     }
 
+    // Delete device
+
+    function initiateDeletion()
+    {
+        awaitingDeletionConfirmation.value = true
+
+        // Cancel after 3 seconds
+        setTimeout(function (){
+            awaitingDeletionConfirmation.value = false
+        }, 3000)
+
+    }
+
+    function confirmDeletion()
+    {
+        isDeleting.value = true
+
+        fetch('/api/devices/' + route.params.uid, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+            }
+        })
+        .then(response => {
+            //response = response.json()
+            router.push('/devices')
+        })
+    }
+
 
 </script>
 
@@ -96,12 +128,20 @@
     <EditDevice :device="device" :lockEui="true" @onUpdateInputValidity="updateInputVality" />
 
     <Content>
-        <button :class="'adddevice ' + (httpResponse != null ? ' gray' : device != null && device.isTemplate ? ' orange' : '')"
-                @click="updateDevice()"
-                :disabled="inputValidity == false">
-            <span>{{httpResponse == null ? 'Gem ændringer' : 'Ændringer gemt'}}</span>
-            <br /><IconEditSimple />
-        </button>
+        <div class="flexbuttons">
+
+            <button :class="'adddevice ' + (httpResponse != null ? ' gray' : device != null && device.isTemplate ? ' orange' : '')"
+                    @click="updateDevice()"
+                    :disabled="inputValidity == false">
+                <span>{{httpResponse == null ? 'Gem ændringer' : 'Ændringer gemt'}}</span>
+                <br /><IconEditSimple />
+            </button>
+
+            <button class="red" @click="awaitingDeletionConfirmation ? confirmDeletion() : initiateDeletion()" :disabled="isDeleting">
+                {{ isDeleting ? 'Vent venligst ...' : awaitingDeletionConfirmation ? 'Tryk for at bekræfte sletning' : 'Slet måler' }}
+            </button>
+
+        </div>
     </Content>
 
 </template>
@@ -125,7 +165,7 @@
         transform: translateY(-1.5rem) translateX(0.5rem);
         margin-bottom: 0.3rem;
     }
-        button.gray
+    button.gray
     {
         background-color: var(--color-border);
     }
@@ -140,5 +180,12 @@
     a.orange:hover
     {
         color: var(--color-orange-light)
+    }
+    .flexbuttons
+    {
+        display:flex;
+        justify-content: space-between;
+        align-items:flex-end;
+        gap: 1rem;
     }
 </style>

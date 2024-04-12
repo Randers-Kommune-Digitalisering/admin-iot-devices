@@ -1,30 +1,29 @@
 const Node = {
-  "id": "4c8032bd0e7aac18",
+  "id": "509195e317ea764b",
   "type": "template",
-  "z": "b05183ed45071965",
-  "name": "Find os2uid for device",
+  "z": "7b3a886e00fb2ea6",
+  "g": "0f8e00ef379b1e7c",
+  "name": "Slet måler",
   "field": "sql",
   "fieldType": "msg",
-  "format": "sql",
+  "format": "handlebars",
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 560,
-  "y": 1120,
+  "x": 600,
+  "y": 1100,
   "wires": [
     [
-      "8ade3c89dcbd11aa"
+      "c37deddaa1c08606"
     ]
   ]
 }
 
 Node.template = `
-SELECT
-    *
-FROM
+DELETE FROM
     {{global.metadataTablename.maaler}}
 WHERE
-    deviceEui = '{{data.devEui}}'
+    uid = {{uid}}
 `
 
 module.exports = Node;
