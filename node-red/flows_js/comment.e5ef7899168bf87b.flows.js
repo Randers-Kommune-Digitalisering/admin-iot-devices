@@ -6,7 +6,7 @@ const Node = {
   "name": "Statisk data genindlæses hver dag kl. 03:00",
   "info": "",
   "x": 210,
-  "y": 1340,
+  "y": 1740,
   "wires": []
 }
 

@@ -15,7 +15,7 @@ const Node = {
       "t": "set",
       "p": "requestBody",
       "pt": "msg",
-      "to": "{\t  \"type\": \"LORAWAN\",\t  \"lorawanSettings\": {\t    \"skipFCntCheck\": false,\t    \"fCntUp\": 0,\t    \"nFCntDown\": 0,\t    \"devEUI\": payload.devEui,\t    \"serviceProfileID\": $globalContext(\"os2config\").serviceProfileId,\t    \"deviceProfileID\": payload.deviceProfileUid,\t    \"OTAAapplicationKey\": payload.appKey,\t    \"activationType\": \"OTAA\"\t  },\t  \"mqttInternalBrokerSettings\": {},\t  \"mqttExternalBrokerSettings\": {},\t  \"applicationId\": $globalContext(\"os2config\").appId,\t  \"name\": payload.name,\t  \"comment\": \"\",\t  \"deviceModelId\": null,\t  \"metadata\": \"{\\\"internalDeviceUid\\\":\\\"\" & payload.uid & \"\\\"}\"\t}",
+      "to": "{\t  \"type\": \"LORAWAN\",\t  \"lorawanSettings\": {\t    \"skipFCntCheck\": false,\t    \"fCntUp\": 0,\t    \"nFCntDown\": 0,\t    \"devEUI\": payload.devEui,\t    \"serviceProfileID\": $globalContext(\"os2config\").serviceProfileId,\t    \"deviceProfileID\": payload.deviceProfileOs2Uid,\t    \"OTAAapplicationKey\": payload.appKey,\t    \"activationType\": \"OTAA\"\t  },\t  \"mqttInternalBrokerSettings\": {},\t  \"mqttExternalBrokerSettings\": {},\t  \"applicationId\": $globalContext(\"os2config\").appId,\t  \"name\": payload.name,\t  \"comment\": \"\",\t  \"deviceModelId\": null,\t  \"metadata\": \"{\\\"internalDeviceUid\\\":\\\"\" & payload.uid & \"\\\"}\"\t}",
       "tot": "jsonata"
     },
     {

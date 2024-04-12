@@ -1,5 +1,5 @@
 const Node = {
-  "id": "c17e1c7e63505347",
+  "id": "2deba40f3537060b",
   "type": "change",
   "z": "b05183ed45071965",
   "name": "Sæt os2uid",
@@ -19,11 +19,9 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 990,
-  "y": 1120,
+  "y": 1500,
   "wires": [
-    [
-      "e8b10291b2fa1081"
-    ]
+    []
   ]
 }
 

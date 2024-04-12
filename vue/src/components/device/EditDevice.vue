@@ -96,8 +96,8 @@
         deviceList.value[0].installationsnummer = current.installationsnummer
         isTemplate.value = current.isTemplate == 1 ? true : false
         
-        //console.log("Updated device data: ")
-        //console.log(current)
+        console.log("Updated device data: ")
+        console.log(current)
     })
 
     // Watch when toggling template

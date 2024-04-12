@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "requestBody",
       "pt": "msg",
-      "to": "payload",
+      "to": "payload[0]",
       "tot": "msg",
       "dc": true
     }

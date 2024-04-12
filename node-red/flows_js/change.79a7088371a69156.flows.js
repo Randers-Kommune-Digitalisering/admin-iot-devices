@@ -20,11 +20,12 @@ const Node = {
       "tot": "env"
     },
     {
-      "t": "move",
-      "p": "requestBody",
+      "t": "set",
+      "p": "payload",
       "pt": "msg",
-      "to": "payload",
-      "tot": "msg"
+      "to": "requestBody",
+      "tot": "msg",
+      "dc": true
     },
     {
       "t": "set",

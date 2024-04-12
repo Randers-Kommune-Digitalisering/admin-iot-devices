@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "data",
       "pt": "msg",
-      "to": "payload.requestBody[0]",
+      "to": "payload.requestBody",
       "tot": "msg"
     }
   ],
@@ -18,10 +18,10 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 330,
-  "y": 1120,
+  "y": 1080,
   "wires": [
     [
-      "4c8032bd0e7aac18"
+      "f4bbf8119d59353d"
     ]
   ]
 }

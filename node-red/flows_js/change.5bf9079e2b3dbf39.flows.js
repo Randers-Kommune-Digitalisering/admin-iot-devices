@@ -6,9 +6,9 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "data.deviceProfileUid",
+      "p": "data.deviceProfileOs2Uid",
       "pt": "msg",
-      "to": "payload[0].os2uid",
+      "to": "payload[0].deviceProfileUid",
       "tot": "jsonata",
       "dc": true
     },
@@ -26,7 +26,7 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1330,
+  "x": 1310,
   "y": 700,
   "wires": [
     [

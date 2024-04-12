@@ -6,7 +6,7 @@ const Node = {
   "name": "Indsæt manglende dekodere",
   "info": "",
   "x": 540,
-  "y": 1620,
+  "y": 2020,
   "wires": []
 }
 

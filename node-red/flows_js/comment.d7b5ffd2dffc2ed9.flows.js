@@ -6,7 +6,7 @@ const Node = {
   "name": "Læs lokale profiler",
   "info": "",
   "x": 510,
-  "y": 1880,
+  "y": 2280,
   "wires": []
 }
 

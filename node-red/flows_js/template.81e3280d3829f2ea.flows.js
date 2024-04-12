@@ -1,19 +1,19 @@
 const Node = {
-  "id": "e8b10291b2fa1081",
+  "id": "81e3280d3829f2ea",
   "type": "template",
   "z": "b05183ed45071965",
-  "name": "Find uid for device profil",
+  "name": "Find os2uid for device",
   "field": "sql",
   "fieldType": "msg",
   "format": "sql",
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 1210,
-  "y": 1120,
+  "x": 560,
+  "y": 1500,
   "wires": [
     [
-      "c9fb95c708824d37"
+      "8bd564237826c627"
     ]
   ]
 }
@@ -22,9 +22,9 @@ Node.template = `
 SELECT
     os2uid
 FROM
-    {{global.metadataTablename.deviceprofile}}
+    {{global.metadataTablename.maaler}}
 WHERE
-    uid = {{data.deviceProfile}}
+    deviceEui = '{{data.devEui}}'
 `
 
 module.exports = Node;
