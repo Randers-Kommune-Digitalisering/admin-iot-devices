@@ -1,6 +1,6 @@
 <script setup>
     import { ref, watch } from 'vue'
-    import { useRoute } from 'vue-router'
+    import { useRoute, useRouter } from 'vue-router'
     
     // Import scripts
     import Device from '@/components/connector/Device.vue'
@@ -9,6 +9,7 @@
     import IconTable from '@/components/icons/IconTable.vue'
 
     const route = useRoute()
+    const router = useRouter()
 
     import ListMeasurementPoints from '@/components/device/ListMeasurementPoints.vue'
     import EditDevice from '@/components/device/EditDevice.vue'
@@ -83,6 +84,17 @@
     function confirmDeletion()
     {
         console.log("Deletion confirmed")
+
+        fetch('/api/devices/' + route.params.uid, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+            }
+        })
+        .then(response => {
+            //response = response.json()
+            router.push('/devices')
+        })
     }
 
 
