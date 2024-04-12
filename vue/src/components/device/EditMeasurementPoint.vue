@@ -21,8 +21,7 @@
 
     const measurementPoint = ref(props.measurementPoint)
     const dataDimensions = ref(null)
-    const httpResponse = ref(null)
-
+    
     // Watch when changing measurement point prop
 
     watch( () => props.measurementPoint, (current, previous) => {

@@ -9,7 +9,6 @@
 
     // Icons
     import IconMeasurementPoint from '@/components/icons/IconCircle.vue'
-    import IconEdit from '@/components/icons/IconEditSimple.vue'
     import IconNewItem from '@/components/icons/IconNewItem.vue'
     import IconUpload from '@/components/icons/IconUpload.vue'
     import IconDownload from '@/components/icons/IconDownload.vue'
@@ -38,8 +37,6 @@
     watch( () => props.measurementPoints, (current, previous) => {
 
         measurementPoints.value = current
-        console.log("New measurementPoints-list retrieved:")
-        console.log(measurementPoints.value)
 
     })
 
@@ -83,8 +80,6 @@
 
         // Update refs in object
         measurementPointSelected.value.deviceUid = props.deviceUid
-        console.log("New deviceUid: " + measurementPointSelected.value.deviceUid)
-
         editingMeasurementPoint.value = true
 
         scrollTo("editMeasurementPoint")
@@ -96,7 +91,8 @@
     {        
         if(measurementPointSelected.value.uid == -1) // New measurement point
         {
-            console.log("Creating new measurement point with deviceUid: " + measurementPointSelected.value.deviceUid)
+            //console.log("Creating new measurement point with deviceUid: " + measurementPointSelected.value.deviceUid)
+            
             MeasurementPoint.create(measurementPointSelected.value)
             .then(response => measurementPointSelected.value.uid = response.dbResponse.insertId)
             .then(response => measurementPoints.value.push(measurementPointSelected.value))

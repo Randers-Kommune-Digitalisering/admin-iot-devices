@@ -77,7 +77,6 @@
     const emit = defineEmits(['onUpdateDeviceCount', 'onUpdateSetAsTemplate', 'onUpdateInputValidity'])
 
     const setEmit = (_emi, value) => {
-        console.log("Emitting '" + _emi + "' with value: " + JSON.stringify(value))
         emit(_emi, value)
     }
 
