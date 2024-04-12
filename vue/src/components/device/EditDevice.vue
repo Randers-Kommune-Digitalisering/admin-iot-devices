@@ -274,7 +274,7 @@
                 <label :for="'eui_' + index" class="capitalize">
                     <span class="uid" v-if="deviceList.length > 1">#{{index+1}}</span>
 
-                    Enheds EUI (index: {{index}})
+                    Enheds EUI
 
                     <span :style="devEuiIsValid[index] != null ? devEuiIsValid[index] ? 'display:none' : '' : 'display:none'" class="small red">
                         Mindst 16 tegn

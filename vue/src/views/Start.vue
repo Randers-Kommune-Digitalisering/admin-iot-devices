@@ -7,22 +7,13 @@
 </script>
 
 <template>
-    <h2>Node-RED + Vue Template</h2>
-
-    <Content>
-        <template #icon>
-            <IconOK />
-        </template>
-        <template #heading>Sådan, det ser ud til at køre!</template>
-        
-        Du har nu succesfuldt startet et nyt projekt med <a href="https://github.com/Randers-Kommune-Digitalisering/node-red-vue-template" target="_blank" rel="noopener">Randers Kommune's Node-RED + Vue template</a>.
-    </Content>
+    <h2>IOT Administrationspanel</h2>
 
     <Content>
         <template #icon>
             <IconRSS />
         </template>
-        <template #heading>Status på opsætning</template>
+        <template #heading>Status</template>
         
         <Status />
     </Content>
