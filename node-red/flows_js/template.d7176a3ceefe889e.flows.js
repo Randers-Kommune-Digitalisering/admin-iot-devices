@@ -26,7 +26,7 @@ FROM
     {{global.metadataTablename.os2status}}
 WHERE
     requestSuccessful = 0
-AND requestCount > 0
+AND requestCount < 5
 ORDER BY uid ASC
 `
 

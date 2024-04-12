@@ -1,16 +1,16 @@
 const Node = {
-  "id": "61400c0183c441fe",
+  "id": "b90f3ff9b31ff47f",
   "type": "change",
   "z": "b05183ed45071965",
   "g": "7dd315ad06879230",
-  "name": "Gem ID",
+  "name": "",
   "rules": [
     {
       "t": "set",
-      "p": "insertId",
+      "p": "requestCount",
       "pt": "msg",
-      "to": "payload.insertId",
-      "tot": "msg"
+      "to": "0",
+      "tot": "num"
     }
   ],
   "action": "",
@@ -18,11 +18,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1020,
+  "x": 1220,
   "y": 240,
   "wires": [
     [
-      "b90f3ff9b31ff47f"
+      "e315ec4a052f9b98"
     ]
   ]
 }
