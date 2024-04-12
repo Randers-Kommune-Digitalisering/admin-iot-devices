@@ -5,10 +5,10 @@ const Node = {
   "name": "OS2: Delete device",
   "links": [],
   "x": 185,
-  "y": 1500,
+  "y": 1380,
   "wires": [
     [
-      "c5473f1f10a0e7ae"
+      "81e3280d3829f2ea"
     ]
   ]
 }

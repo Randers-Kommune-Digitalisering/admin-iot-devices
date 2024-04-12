@@ -22,6 +22,7 @@
     const httpResponse = ref(null)
     const inputValidity = ref(true)
     const awaitingDeletionConfirmation = ref(false)
+    const isDeleting = ref(false)
 
     // Fetch device
 
@@ -83,7 +84,7 @@
 
     function confirmDeletion()
     {
-        console.log("Deletion confirmed")
+        isDeleting.value = true
 
         fetch('/api/devices/' + route.params.uid, {
         method: "DELETE",
@@ -136,8 +137,8 @@
                 <br /><IconEditSimple />
             </button>
 
-            <button class="red" @click="awaitingDeletionConfirmation ? confirmDeletion() : initiateDeletion()">
-                {{ awaitingDeletionConfirmation ? 'Tryk for at bekræfte sletning' : 'Slet måler' }}
+            <button class="red" @click="awaitingDeletionConfirmation ? confirmDeletion() : initiateDeletion()" :disabled="isDeleting">
+                {{ isDeleting ? 'Vent venligst ...' : awaitingDeletionConfirmation ? 'Tryk for at bekræfte sletning' : 'Slet måler' }}
             </button>
 
         </div>

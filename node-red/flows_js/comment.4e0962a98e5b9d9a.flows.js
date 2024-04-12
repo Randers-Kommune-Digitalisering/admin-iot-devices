@@ -5,7 +5,7 @@ const Node = {
   "name": "Delete",
   "info": "",
   "x": 110,
-  "y": 1500,
+  "y": 1380,
   "wires": []
 }
 

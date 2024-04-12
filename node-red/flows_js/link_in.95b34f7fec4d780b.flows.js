@@ -5,7 +5,7 @@ const Node = {
   "name": "OS2: Edit device",
   "links": [],
   "x": 185,
-  "y": 1080,
+  "y": 1040,
   "wires": [
     [
       "eb7b7449d004ec78"

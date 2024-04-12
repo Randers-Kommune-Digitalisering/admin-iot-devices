@@ -6,14 +6,6 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "payload",
-      "pt": "msg",
-      "to": "data",
-      "tot": "msg",
-      "dc": true
-    },
-    {
-      "t": "set",
       "p": "endpoint",
       "pt": "msg",
       "to": "'iot-device-payload-decoder-data-target-connection/' &\tdata.dataTargetConnectionOs2uid",
@@ -40,7 +32,7 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 490,
-  "y": 1320,
+  "y": 1280,
   "wires": [
     [
       "317462fd17643853"

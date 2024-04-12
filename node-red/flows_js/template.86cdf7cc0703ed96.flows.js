@@ -4,13 +4,13 @@ const Node = {
   "z": "7b3a886e00fb2ea6",
   "g": "0f8e00ef379b1e7c",
   "name": "Slet målepunkter",
-  "field": "payload",
+  "field": "sql",
   "fieldType": "msg",
   "format": "handlebars",
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 810,
+  "x": 190,
   "y": 1100,
   "wires": [
     [

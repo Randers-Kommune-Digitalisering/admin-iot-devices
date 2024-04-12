@@ -1,5 +1,5 @@
 const Node = {
-  "id": "825743a244f3b18e",
+  "id": "7a2dde5cb3486b70",
   "type": "change",
   "z": "b05183ed45071965",
   "name": "Set data target connection id",
@@ -16,8 +16,7 @@ const Node = {
       "p": "payload",
       "pt": "msg",
       "to": "data",
-      "tot": "msg",
-      "dc": true
+      "tot": "msg"
     }
   ],
   "action": "",
@@ -26,10 +25,11 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 1040,
-  "y": 1200,
+  "y": 1460,
   "wires": [
     [
-      "a9a0a2b36d1eaa72"
+      "6b9afc7369bdc33f",
+      "f9f79a6d3d99260e"
     ]
   ]
 }

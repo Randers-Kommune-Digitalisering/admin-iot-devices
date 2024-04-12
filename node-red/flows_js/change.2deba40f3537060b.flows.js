@@ -8,8 +8,23 @@ const Node = {
       "t": "set",
       "p": "data.os2uid",
       "pt": "msg",
-      "to": "payload.os2uid",
+      "to": "payload[0].os2uid",
       "tot": "jsonata",
+      "dc": true
+    },
+    {
+      "t": "set",
+      "p": "data.uid",
+      "pt": "msg",
+      "to": "uid",
+      "tot": "msg"
+    },
+    {
+      "t": "set",
+      "p": "payload",
+      "pt": "msg",
+      "to": "data",
+      "tot": "msg",
       "dc": true
     }
   ],
@@ -19,9 +34,11 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 990,
-  "y": 1500,
+  "y": 1380,
   "wires": [
-    []
+    [
+      "c93f4cce19f4e6de"
+    ]
   ]
 }
 

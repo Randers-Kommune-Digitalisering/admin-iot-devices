@@ -1,5 +1,5 @@
 const Node = {
-  "id": "5d25e652c60de99d",
+  "id": "045234eab82191fe",
   "type": "change",
   "z": "b05183ed45071965",
   "name": "OS2 Request (Get data target connections)",
@@ -32,10 +32,10 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 490,
-  "y": 1200,
+  "y": 1460,
   "wires": [
     [
-      "871ac2086659cf01"
+      "f880dcf05175ebbf"
     ]
   ]
 }

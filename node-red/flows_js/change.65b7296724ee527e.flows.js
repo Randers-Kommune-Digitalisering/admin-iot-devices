@@ -1,28 +1,36 @@
 const Node = {
-  "id": "d88b7d370a28224b",
+  "id": "65b7296724ee527e",
   "type": "change",
   "z": "b05183ed45071965",
-  "name": "OS2 Request (Get data target connections)",
+  "name": "OS2 Request (Delete device)",
   "rules": [
+    {
+      "t": "set",
+      "p": "payload",
+      "pt": "msg",
+      "to": "data",
+      "tot": "msg",
+      "dc": true
+    },
     {
       "t": "set",
       "p": "endpoint",
       "pt": "msg",
-      "to": "iot-device-payload-decoder-data-target-connection",
-      "tot": "str"
+      "to": "'iot-device/' &\tdata.os2uid",
+      "tot": "jsonata"
     },
     {
       "t": "set",
       "p": "requestBody",
       "pt": "msg",
-      "to": "{\t    \"id\": null,\t    \"iotDeviceIds\": [\t        payload.os2uid\t    ],\t    \"payloadDecoderId\": payload.payloadDecoderOs2Uid,\t    \"dataTargetId\": $globalContext(\"os2config\").dataTargetId\t}",
+      "to": "{}",
       "tot": "jsonata"
     },
     {
       "t": "set",
       "p": "method",
       "pt": "msg",
-      "to": "PUT",
+      "to": "DELETE",
       "tot": "str"
     }
   ],
@@ -31,10 +39,12 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 430,
-  "y": 1580,
+  "x": 440,
+  "y": 1620,
   "wires": [
-    []
+    [
+      "22de05e931c8d6f3"
+    ]
   ]
 }
 

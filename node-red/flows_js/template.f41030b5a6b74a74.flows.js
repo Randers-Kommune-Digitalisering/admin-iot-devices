@@ -2,7 +2,7 @@ const Node = {
   "id": "f41030b5a6b74a74",
   "type": "template",
   "z": "7b3a886e00fb2ea6",
-  "g": "0f8e00ef379b1e7c",
+  "d": true,
   "name": "Select os2uid",
   "field": "payload",
   "fieldType": "msg",
@@ -10,8 +10,8 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 190,
-  "y": 1100,
+  "x": 380,
+  "y": 1060,
   "wires": [
     [
       "025a04762ecda90c"

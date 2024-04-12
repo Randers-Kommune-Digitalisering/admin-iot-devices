@@ -9,8 +9,8 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 560,
-  "y": 1500,
+  "x": 420,
+  "y": 1380,
   "wires": [
     [
       "8bd564237826c627"
@@ -20,11 +20,11 @@ const Node = {
 
 Node.template = `
 SELECT
-    os2uid
+    *
 FROM
     {{global.metadataTablename.maaler}}
 WHERE
-    deviceEui = '{{data.devEui}}'
+    uid = '{{uid}}'
 `
 
 module.exports = Node;
