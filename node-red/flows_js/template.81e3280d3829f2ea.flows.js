@@ -20,7 +20,8 @@ const Node = {
 
 Node.template = `
 SELECT
-    *
+    os2uid,
+    isTemplate
 FROM
     {{global.metadataTablename.maaler}}
 WHERE

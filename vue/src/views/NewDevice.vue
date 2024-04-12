@@ -201,7 +201,7 @@
             <div :style="startingPointSelected ? 'transition-delay: 600ms' : ''" :class="( startingPointSelected ? ( startUsingTemplate ? ( hasSelectedTemplate ? ' anim' : ' anim hidden' ) : ' anim' ) : ' anim hidden' )">
                 <Content>
                     <button :class="'adddevice' + (startUsingTemplate ? ' blue' : isTemplate ? ' orange' : '')"
-                            :disabled="inputValidity == false">
+                            :disabled="inputValidity == false && isTemplate == false">
                         <span v-if="startUsingTemplate">
                             <span v-if="currentDeviceCount > 1">
                                 Registrér målere
