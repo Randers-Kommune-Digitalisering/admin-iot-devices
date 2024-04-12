@@ -23,7 +23,7 @@ const Node = {
       "t": "set",
       "p": "url",
       "pt": "msg",
-      "to": "https://os2iot-backend.prod.os2iot.kmd.dk/api/v1/payload-decoder",
+      "to": "https://os2iot-backend.prod.os2iot.kmd.dk/api/v1/payload-decoder?limit=1000",
       "tot": "str"
     }
   ],

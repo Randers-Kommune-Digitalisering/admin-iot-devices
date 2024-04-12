@@ -23,7 +23,10 @@ SELECT
     t1.uid,
     t1.os2uid,
     t1.payloadDecoderUid,
-    t2.payloadDecoderOs2Uid
+    t2.payloadDecoderOs2Uid,
+    t3.templatePayloadDecoderUid,
+    t3.templateUid,
+    t4.templatePayloadDecoderOs2Uid
 FROM
     {{global.metadataTablename.maaler}} as t1
 
@@ -36,6 +39,26 @@ LEFT JOIN
         {{global.metadataTablename.decoder}}
 ) AS t2
     ON t1.payloadDecoderUid = t2.uid
+
+LEFT JOIN -- template data
+(
+    SELECT
+        uid as templateUid,
+        payloadDecoderUid as templatePayloadDecoderUid
+    FROM {{global.metadataTablename.maaler}}
+    
+) AS t3 
+    ON t1.templateUid = t3.templateUid
+
+LEFT JOIN
+(
+    SELECT
+        uid,
+        os2uid as templatePayloadDecoderOs2Uid
+    FROM
+        {{global.metadataTablename.decoder}}
+) AS t4
+    ON t3.templatePayloadDecoderUid = t4.uid
 
 WHERE
     t1.uid = {{data.uid}}

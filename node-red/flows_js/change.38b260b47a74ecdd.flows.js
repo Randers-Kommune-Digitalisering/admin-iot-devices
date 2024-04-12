@@ -15,8 +15,8 @@ const Node = {
       "t": "set",
       "p": "data.payloadDecoderOs2Uid",
       "pt": "msg",
-      "to": "payload[0].payloadDecoderOs2Uid",
-      "tot": "msg"
+      "to": "payload[0].payloadDecoderOs2Uid = null ?\tpayload[0].templatePayloadDecoderOs2Uid :\tpayload[0].payloadDecoderOs2Uid",
+      "tot": "jsonata"
     },
     {
       "t": "set",

@@ -22,10 +22,13 @@ Node.template = `
 SELECT
     t1.uid,
     t1.os2uid,
-    t1.payloadDecoderUid,
     t1.deviceProfileUid,
+    t1.payloadDecoderUid,
     t2.payloadDecoderOs2Uid,
-    t3.deviceProfileOs2Uid
+    t3.templatePayloadDecoderUid,
+    t3.templateUid,
+    t4.templatePayloadDecoderOs2Uid,
+    t5.deviceProfileOs2Uid
 FROM
     {{global.metadataTablename.maaler}} as t1
 
@@ -39,15 +42,35 @@ LEFT JOIN -- decoder
 ) AS t2
     ON t1.payloadDecoderUid = t2.uid
 
-LEFT JOIN -- device profile uid
+LEFT JOIN -- template decoder uid
+(
+    SELECT
+        uid as templateUid,
+        payloadDecoderUid as templatePayloadDecoderUid
+    FROM {{global.metadataTablename.maaler}}
+    
+) AS t3 
+    ON t1.templateUid = t3.templateUid
+
+LEFT JOIN -- template decoder os2uid
+(
+    SELECT
+        uid,
+        os2uid as templatePayloadDecoderOs2Uid
+    FROM
+        {{global.metadataTablename.decoder}}
+) AS t4
+    ON t3.templatePayloadDecoderUid = t4.uid
+    
+LEFT JOIN -- device profile os2uid
 (
     SELECT
         uid,
         os2uid as deviceProfileOs2Uid
     FROM
         {{global.metadataTablename.deviceprofile}}
-) AS t3
-    ON t1.deviceProfileUid = t3.uid
+) AS t5
+    ON t1.deviceProfileUid = t5.uid
 
 WHERE
     t1.uid = {{data.uid}}
