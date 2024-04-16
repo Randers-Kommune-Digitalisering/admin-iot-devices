@@ -9,6 +9,13 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
+      "to": "[payload[dataTablename != null]]",
+      "tot": "jsonata"
+    },
+    {
+      "t": "set",
+      "p": "payload",
+      "pt": "msg",
       "to": "payload[0]",
       "tot": "msg"
     }
