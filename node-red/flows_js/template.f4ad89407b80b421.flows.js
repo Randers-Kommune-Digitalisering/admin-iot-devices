@@ -25,6 +25,7 @@ SELECT DISTINCT
 FROM {{global.metadataTablename.maaler}}
 WHERE
     uid = '{{deviceUid}}'
+OR templateUid = '{{deviceUid}}'
 `
 
 module.exports = Node;

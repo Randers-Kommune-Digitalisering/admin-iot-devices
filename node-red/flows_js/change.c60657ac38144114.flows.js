@@ -9,7 +9,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "payload.type",
+      "to": "[payload.type]",
       "tot": "jsonata"
     }
   ],
