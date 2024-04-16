@@ -3,10 +3,8 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
-import * as dayjs from 'dayjs'
-Vue.use(dayjs)
-
 import App from './App.vue'
+import * as dayjs from 'dayjs'
 
 // Import af views til routing
 
@@ -49,6 +47,8 @@ const router = createRouter({
     ]
 })
 
-createApp(App)
-.use(router)
-.mount('#app')
+const app = createApp(App)
+            .use(router)
+            .mount('#app')
+
+app.component('dayjs', dayjs)
