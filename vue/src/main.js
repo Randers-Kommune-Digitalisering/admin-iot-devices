@@ -4,7 +4,6 @@ import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 import App from './App.vue'
-import * as dayjs from 'dayjs'
 
 // Import af views til routing
 
@@ -46,9 +45,6 @@ const router = createRouter({
         }
     ]
 })
-
-const app = createApp(App)
-            .use(router)
-            .mount('#app')
-
-app.component('dayjs', dayjs)
+createApp(App)
+    .use(router)
+    .mount('#app')
