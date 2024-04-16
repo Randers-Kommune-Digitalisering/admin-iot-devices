@@ -3,6 +3,9 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
+import * as dayjs from 'dayjs'
+Vue.use(dayjs)
+
 import App from './App.vue'
 
 // Import af views til routing
