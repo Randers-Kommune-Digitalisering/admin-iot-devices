@@ -129,7 +129,6 @@
 
     <Content>
         <div class="flexbuttons">
-
             <button :class="'adddevice ' + (httpResponse != null ? ' gray' : device != null && device.isTemplate ? ' orange' : '')"
                     @click="updateDevice()"
                     :disabled="inputValidity == false">
@@ -137,8 +136,15 @@
                 <br /><IconEditSimple />
             </button>
 
-            <button class="red" @click="awaitingDeletionConfirmation ? confirmDeletion() : initiateDeletion()" :disabled="isDeleting">
-                {{ isDeleting ? 'Vent venligst ...' : awaitingDeletionConfirmation ? 'Tryk for at bekræfte sletning' : 'Slet måler' }}
+            <button class="red" @click="awaitingDeletionConfirmation ? confirmDeletion() : initiateDeletion()"
+                    :disabled="isDeleting || (device != null && device.deviceCount > 0)">
+                {{ isDeleting ?
+                    'Vent venligst ...' :
+                    awaitingDeletionConfirmation ?
+                        'Tryk for at bekræfte sletning' :
+                        (device != null && device.isTemplate) ?
+                        'Slet skabelon' :
+                        'Slet måler' }}
             </button>
 
         </div>

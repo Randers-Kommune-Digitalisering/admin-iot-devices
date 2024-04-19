@@ -22,7 +22,8 @@ const Node = {
 Node.template = `
 SELECT
     *
-FROM {{global.metadataTablename.maaler}}
+FROM {{global.metadataTablename.maaler}} as t1
+
 WHERE isTemplate = true AND uid = {{payload.templateUid}}
 `
 
