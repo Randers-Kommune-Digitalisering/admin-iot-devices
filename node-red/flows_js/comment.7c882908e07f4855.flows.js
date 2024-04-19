@@ -4,8 +4,8 @@ const Node = {
   "z": "1b1f52cac1d78ec2",
   "name": "Instantiate a device",
   "info": "",
-  "x": 350,
-  "y": 340,
+  "x": 340,
+  "y": 440,
   "wires": []
 }
 

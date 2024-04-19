@@ -1,11 +1,11 @@
 const Node = {
-  "id": "2957335ec4d67424",
+  "id": "afcf1576e1016e09",
   "type": "comment",
   "z": "1b1f52cac1d78ec2",
-  "name": "Upload data",
+  "name": "Instantiate a template",
   "info": "",
-  "x": 320,
-  "y": 520,
+  "x": 360,
+  "y": 340,
   "wires": []
 }
 

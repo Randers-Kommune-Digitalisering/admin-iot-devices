@@ -1,22 +1,27 @@
 const Node = {
-  "id": "1c0d5d6e18c82bdc",
+  "id": "d432d61ef9ce6916",
   "type": "inject",
   "z": "1b1f52cac1d78ec2",
   "name": "",
-  "props": [],
+  "props": [
+    {
+      "p": "sql",
+      "v": "DROP TABLE iot_data_1234567890987654",
+      "vt": "str"
+    }
+  ],
   "repeat": "",
   "crontab": "",
   "once": false,
   "onceDelay": 0.1,
   "topic": "",
-  "x": 295,
-  "y": 640,
+  "x": 300,
+  "y": 1340,
   "wires": [
     [
-      "c42b1386c5718d27"
+      "06351c1cd40861fe"
     ]
-  ],
-  "l": false
+  ]
 }
 
 module.exports = Node;

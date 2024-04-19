@@ -1,5 +1,5 @@
 const Node = {
-  "id": "1c0d5d6e18c82bdc",
+  "id": "817df64272f6b237",
   "type": "inject",
   "z": "1b1f52cac1d78ec2",
   "name": "",
@@ -9,11 +9,11 @@ const Node = {
   "once": false,
   "onceDelay": 0.1,
   "topic": "",
-  "x": 295,
-  "y": 640,
+  "x": 305,
+  "y": 380,
   "wires": [
     [
-      "c42b1386c5718d27"
+      "9a6fa937949ae39b"
     ]
   ],
   "l": false

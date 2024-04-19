@@ -1,5 +1,5 @@
 const Node = {
-  "id": "b5aeadcb3e8bafd4",
+  "id": "ba08d561303244ce",
   "type": "delay",
   "z": "1b1f52cac1d78ec2",
   "name": "",
@@ -16,11 +16,11 @@ const Node = {
   "allowrate": false,
   "outputs": 1,
   "x": 120,
-  "y": 300,
+  "y": 380,
   "wires": [
     [
-      "c3c40393f2117111",
-      "ba08d561303244ce"
+      "15d3a416dd2a7836",
+      "a9e8f3d58b75576d"
     ]
   ]
 }

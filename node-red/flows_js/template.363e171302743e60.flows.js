@@ -24,7 +24,7 @@ CREATE TABLE if not exists {{data.tablename}} (
 	type VARCHAR(255),
 	value FLOAT SIGNED,
 	
-	UNIQUE(type, value)
+	UNIQUE(observedAt, type)
 );
 `
 

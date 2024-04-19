@@ -10,7 +10,7 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 950,
+  "x": 750,
   "y": 1740,
   "wires": [
     [
@@ -21,13 +21,8 @@ const Node = {
 
 Node.template = `
 SELECT
-    t1.*,
-    t2.dataTablename
+    t1.*
 FROM {{global.metadataTablename.maalepunkt}} as t1
-
-LEFT JOIN 
-    {{global.metadataTablename.maaler}} as t2
-    ON t1.deviceUid = t2.uid
 
 WHERE {{{whereClause}}}
 `

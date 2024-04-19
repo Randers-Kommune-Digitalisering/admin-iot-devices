@@ -1,12 +1,12 @@
 const Node = {
-  "id": "29e7d43764c0825e",
+  "id": "2f0e9b4febbc7c84",
   "type": "http request",
   "z": "1b1f52cac1d78ec2",
   "name": "",
   "method": "POST",
   "ret": "obj",
   "paytoqs": "ignore",
-  "url": "localhost:1880/measurements",
+  "url": "localhost:1880/devices",
   "tls": "",
   "persist": false,
   "proxy": "",
@@ -14,12 +14,10 @@ const Node = {
   "authType": "",
   "senderr": false,
   "headers": [],
-  "x": 590,
-  "y": 640,
+  "x": 600,
+  "y": 380,
   "wires": [
-    [
-      "cf6c8843fd865f69"
-    ]
+    []
   ]
 }
 
