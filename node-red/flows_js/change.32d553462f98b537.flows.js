@@ -9,8 +9,8 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "payload[0]",
-      "tot": "msg"
+      "to": "payload ~> $type() = \"array\" ? payload[0] : payload",
+      "tot": "jsonata"
     }
   ],
   "action": "",

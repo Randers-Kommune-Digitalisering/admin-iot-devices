@@ -7,9 +7,16 @@ const Node = {
   "rules": [
     {
       "t": "set",
+      "p": "payload",
+      "pt": "msg",
+      "to": "payload ~> $type() = \"array\" ? payload[0] : payload",
+      "tot": "jsonata"
+    },
+    {
+      "t": "set",
       "p": "data.lastObservation",
       "pt": "msg",
-      "to": "payload[0].lastObservation",
+      "to": "payload.lastObservation",
       "tot": "msg",
       "dc": true
     }
@@ -23,7 +30,8 @@ const Node = {
   "y": 1840,
   "wires": [
     [
-      "bb3e64bf0841a65c"
+      "bb3e64bf0841a65c",
+      "9ed3d3129fe88a2e"
     ]
   ]
 }

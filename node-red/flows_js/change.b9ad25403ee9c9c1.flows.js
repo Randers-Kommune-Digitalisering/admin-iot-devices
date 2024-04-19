@@ -9,7 +9,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "payload[0] ~> $exists() ?\tpayload[0] : {}",
+      "to": "payload ~> $type() = \"array\" ? payload[0] : payload",
       "tot": "jsonata"
     }
   ],

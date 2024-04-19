@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "data",
       "pt": "msg",
-      "to": "data ~> | $ | {\t    \"tablename\": \"iot_device_\" & deviceEui\t} |",
+      "to": "data ~> | $ | {\t    \"tablename\": \"iot_data_\" & deviceEui\t} |",
       "tot": "jsonata"
     }
   ],

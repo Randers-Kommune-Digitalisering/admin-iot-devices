@@ -1,9 +1,9 @@
 const Node = {
-  "id": "5f3bb1f8f2aa3eda",
+  "id": "ebd5cbd36a1aefeb",
   "type": "debug",
   "z": "7b3a886e00fb2ea6",
   "g": "c73500befce19fee",
-  "name": "Get last observation for measurement point",
+  "name": "Get measurement points",
   "active": true,
   "tosidebar": true,
   "console": true,
@@ -12,8 +12,8 @@ const Node = {
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
-  "x": 570,
-  "y": 1880,
+  "x": 980,
+  "y": 1700,
   "wires": []
 }
 

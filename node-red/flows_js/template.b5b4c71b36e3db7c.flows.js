@@ -20,7 +20,7 @@ const Node = {
 }
 
 Node.template = `
-SELECT templateUid as templateUid FROM {{global.metadataTablename.maaler}} WHERE uid = {{deviceUid}}
+SELECT templateUid FROM {{global.metadataTablename.maaler}} WHERE uid = {{deviceUid}}
 `
 
 module.exports = Node;

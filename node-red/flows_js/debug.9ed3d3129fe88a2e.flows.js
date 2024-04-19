@@ -1,18 +1,18 @@
 const Node = {
-  "id": "5f3bb1f8f2aa3eda",
+  "id": "9ed3d3129fe88a2e",
   "type": "debug",
   "z": "7b3a886e00fb2ea6",
   "g": "c73500befce19fee",
-  "name": "Get last observation for measurement point",
+  "name": "Measurement point with lastObservation",
   "active": true,
   "tosidebar": true,
   "console": true,
   "tostatus": false,
-  "complete": "{ \"sql\": sql, \"payload\": payload, \"error\": error }",
+  "complete": "data",
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
-  "x": 570,
+  "x": 1030,
   "y": 1880,
   "wires": []
 }
