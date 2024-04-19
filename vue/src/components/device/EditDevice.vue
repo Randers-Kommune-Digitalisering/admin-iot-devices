@@ -34,6 +34,14 @@
         getDeviceList, setTemplateValues, resetDeviceList
     }
 
+    // Decoding input
+    function decode(encodedString)
+    {
+        return encodedString.replace(/&#x([0-9a-fA-F]+);/g, function(match, p1) {
+            return String.fromCharCode(parseInt(p1, 16));
+        })
+    }
+
 </script>
 <script setup>
 
@@ -87,7 +95,7 @@
         deviceList.value[0].uid = current.uid
         deviceList.value[0].devEui = current.deviceEui
         deviceList.value[0].appKey = current.applicationKey
-        deviceList.value[0].name = current.name
+        deviceList.value[0].name = decode(current.name)
         deviceList.value[0].energiart = current.energiartskode
         //deviceList.value[0].deviceProfile = current.deviceProfileUid
         deviceList.value[0].payloadDecoder = current.payloadDecoderUid

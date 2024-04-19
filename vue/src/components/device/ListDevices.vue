@@ -11,7 +11,8 @@
 
 </script-->
 <script>
-function formatDate(isoDate) {
+function formatDate(isoDate)
+{
     // Create a date object from the ISO string
     let date = new Date(isoDate);
 
@@ -30,6 +31,14 @@ function formatDate(isoDate) {
 
     // Return the formatted date
     return `${day}/${month}-${year} ${hours}:${minutes}`;
+}
+
+// Decoding input
+function decode(encodedString)
+{
+    return encodedString.replace(/&#x([0-9a-fA-F]+);/g, function(match, p1) {
+        return String.fromCharCode(parseInt(p1, 16));
+    })
 }
 </script>
 <script setup>
@@ -140,7 +149,7 @@ function formatDate(isoDate) {
 
                 <td>
                     <div class="flex col">
-                        <span>{{device.name}}</span>
+                        <span>{{decode(device.name)}}</span>
                         <span v-if="device.templateUid != -1" class="tiny blue">Baseret på {{device.templateName ?? 'skabelon'}}</span>
                         <span v-if="device.isTemplate" class="tiny orange">Skabelon</span>
                     </div>

@@ -37,6 +37,7 @@
         fetch('/api/devices/' + route.params.uid)
             .then(response => response = response.json())
             .then(value => device.value = value)
+            //.then(device.value.name = decode(device.value.name))
     }
 
     // Fetch after loading
@@ -98,12 +99,20 @@
         })
     }
 
+    // Decoding input
+    function decode(encodedString)
+    {
+        return encodedString.replace(/&#x([0-9a-fA-F]+);/g, function(match, p1) {
+            return String.fromCharCode(parseInt(p1, 16));
+        })
+    }
+
 
 </script>
 
 <template>
 
-    <h2>{{device != null ? device.name : 'Måler'}}</h2>
+    <h2>{{device != null ? decode(device.name) : 'Måler'}}</h2>
 
     <!-- Under header -->
     <div v-if="device != null" class="underheader">
