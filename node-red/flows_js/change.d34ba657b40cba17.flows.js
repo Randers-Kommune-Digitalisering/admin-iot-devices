@@ -2,6 +2,7 @@ const Node = {
   "id": "d34ba657b40cba17",
   "type": "change",
   "z": "1b1f52cac1d78ec2",
+  "d": true,
   "name": "Testdata",
   "rules": [
     {

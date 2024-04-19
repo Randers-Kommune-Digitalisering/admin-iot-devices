@@ -2,6 +2,7 @@ const Node = {
   "id": "493f25c8b213c725",
   "type": "delay",
   "z": "1b1f52cac1d78ec2",
+  "d": true,
   "name": "",
   "pauseType": "delay",
   "timeout": "1",
