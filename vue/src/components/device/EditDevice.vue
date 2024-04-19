@@ -64,7 +64,7 @@
             type: String,
             required: false
         },
-        lockEui: { /* Edit mode = Locks EUI input and template switch */
+        lockEui: { /* Edit mode = Locks EUI input and template switch, and payload decoders for templates */
             type: Boolean,
             required: false,
             default: false
@@ -395,7 +395,7 @@
                 Dekoder
 
             </label>
-            <select v-if="payloadDecoder == null || (Array.isArray(payloadDecoder.value) && payloadDecoder.value.length == 0)" >
+            <select v-if="payloadDecoder == null || (Array.isArray(payloadDecoder.value) && payloadDecoder.value.length == 0)" :disabled="props.lockEui && isTemplate">
                 <option value="-1" disabled>Indlæser ..</option>
             </select>
             <select v-else name="template" id="template" v-model="deviceList[0].payloadDecoder">
