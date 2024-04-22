@@ -11,7 +11,7 @@ const Node = {
   "template": "",
   "output": "str",
   "x": 230,
-  "y": 2680,
+  "y": 2700,
   "wires": [
     [
       "aa442f5455e68998"
@@ -35,13 +35,16 @@ LEFT JOIN -- data table name from device data
 (
     SELECT
         uid,
+        templateUid,
         dataTablename
     FROM {{global.metadataTablename.maaler}}
     
 ) AS t2 
-    ON t1.deviceUid = t2.uid
+    ON t1.deviceUid = t2.templateUid
+    OR t1.deviceUid = t2.uid
 
 WHERE t1.uid = {{uid}}
+  AND t2.uid = {{deviceUid}}
 `
 
 module.exports = Node;

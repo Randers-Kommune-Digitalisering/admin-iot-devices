@@ -36,10 +36,17 @@ function formatDate(isoDate)
 // Decoding input
 function decode(encodedString)
 {
-    return encodedString.replace(/&#x([0-9a-fA-F]+);/g, function(match, p1) {
-        return String.fromCharCode(parseInt(p1, 16));
-    })
+    console.log("type: " + typeof(encodedString))
+    if(typeof(encodedString) == "string")
+    {
+        return encodedString.replace(/&#x([0-9a-fA-F]+);/g, function(match, p1) {
+            return String.fromCharCode(parseInt(p1, 16))
+        })
+    }
+    else
+        return encodedString
 }
+
 </script>
 <script setup>
     import { ref, watch } from 'vue'

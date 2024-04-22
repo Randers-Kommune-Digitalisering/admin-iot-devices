@@ -14,6 +14,13 @@ const Node = {
     },
     {
       "t": "set",
+      "p": "deviceUid",
+      "pt": "msg",
+      "to": "payload.deviceUid",
+      "tot": "msg"
+    },
+    {
+      "t": "set",
       "p": "measurementPoint",
       "pt": "msg",
       "to": "payload",

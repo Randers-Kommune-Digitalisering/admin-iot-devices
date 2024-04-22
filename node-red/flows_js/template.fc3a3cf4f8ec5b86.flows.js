@@ -21,6 +21,7 @@ const Node = {
 Node.template = `
 SELECT
     t1.*,
+    t2.deviceUid,
     t2.deviceName,
     t2.dataTablename,
     t2.installationsnummer,
@@ -37,12 +38,17 @@ LEFT JOIN
         energiartskode as deviceEnergiartskode,
         dataTablename,
         installationsnummer,
-        deviceEui
+        deviceEui,
+        isTemplate,
+        templateUid
     FROM
         {{global.metadataTablename.maaler}}
     
 ) AS t2 
-    ON t1.deviceUid = t2.deviceUid
+    ON t1.deviceUid = t2.templateUid
+    OR t1.deviceUid = t2.deviceUid
+
+WHERE isTemplate = 0
 `
 
 module.exports = Node;

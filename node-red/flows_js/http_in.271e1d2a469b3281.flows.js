@@ -1,17 +1,17 @@
 const Node = {
-  "id": "2b5c089fe6f80e50",
+  "id": "271e1d2a469b3281",
   "type": "http in",
   "z": "dc028cb1b3d1491a",
   "name": "",
-  "url": "/decoders",
+  "url": "/devices/:device/measurements/:uid",
   "method": "get",
   "upload": false,
   "swaggerDoc": "",
-  "x": 260,
-  "y": 1440,
+  "x": 220,
+  "y": 860,
   "wires": [
     [
-      "46158e07695c7d8d"
+      "0f2eeed01b59977b"
     ]
   ]
 }
