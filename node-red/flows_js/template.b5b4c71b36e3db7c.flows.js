@@ -3,14 +3,14 @@ const Node = {
   "type": "template",
   "z": "7b3a886e00fb2ea6",
   "g": "c73500befce19fee",
-  "name": "Select templateUid \\n med Uid",
+  "name": "Select templateUid, \\n + tablename med Uid",
   "field": "sql",
   "fieldType": "msg",
   "format": "sql",
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 290,
+  "x": 300,
   "y": 1740,
   "wires": [
     [
@@ -20,7 +20,13 @@ const Node = {
 }
 
 Node.template = `
-SELECT templateUid as templateUid FROM {{global.metadataTablename.maaler}} WHERE uid = {{deviceUid}}
+SELECT
+    templateUid,
+    dataTablename
+FROM
+    {{global.metadataTablename.maaler}}
+WHERE
+    uid = {{deviceUid}}
 `
 
 module.exports = Node;

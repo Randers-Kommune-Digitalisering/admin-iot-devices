@@ -4,8 +4,8 @@ const Node = {
   "z": "1b1f52cac1d78ec2",
   "name": "Opret målepunkt",
   "info": "",
-  "x": 340,
-  "y": 500,
+  "x": 330,
+  "y": 600,
   "wires": []
 }
 

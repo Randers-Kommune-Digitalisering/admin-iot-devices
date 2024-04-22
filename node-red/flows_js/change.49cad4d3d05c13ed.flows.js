@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "[\t   {\t       \"appKey\":\"de9ad4f466f45536d13e9527787ce8aa\",\t       \"devEui\": testdeveui,\t       \"name\":\"Emu El-måler Grønhøjskolen\",\t       \"energiart\":0,\t       \"deviceProfile\":3,\t       \"payloadDecoder\":1,\t       \"isTemplate\":false,\t       \"templateUid\":-1\t   }\t]",
+      "to": "[\t   {\t       \"appKey\":\"de9ad4f466f45536d13e9527787ce8aa\",\t       \"devEui\": testdeveui,\t       \"name\":\"Emu El-måler Grønhøjskolen\",\t       \"energiart\":0,\t       \"deviceProfile\":3,\t       \"payloadDecoder\":1,\t       \"isTemplate\":false,\t       \"templateUid\":1\t   }\t]",
       "tot": "jsonata"
     }
   ],
@@ -17,8 +17,8 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 410,
-  "y": 380,
+  "x": 400,
+  "y": 480,
   "wires": [
     [
       "2377d286150de930",

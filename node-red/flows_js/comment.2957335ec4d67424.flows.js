@@ -4,8 +4,8 @@ const Node = {
   "z": "1b1f52cac1d78ec2",
   "name": "Upload data",
   "info": "",
-  "x": 330,
-  "y": 420,
+  "x": 320,
+  "y": 520,
   "wires": []
 }
 

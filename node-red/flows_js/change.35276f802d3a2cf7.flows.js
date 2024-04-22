@@ -7,17 +7,31 @@ const Node = {
   "rules": [
     {
       "t": "set",
+      "p": "payload",
+      "pt": "msg",
+      "to": "payload ~> $type() = \"array\" ? payload[0] : payload",
+      "tot": "jsonata"
+    },
+    {
+      "t": "set",
       "p": "templateUid",
       "pt": "msg",
-      "to": "payload.templateUid != -1 ? payload[0].templateUid",
+      "to": "payload.templateUid != -1 ? payload.templateUid",
       "tot": "jsonata"
     },
     {
       "t": "set",
       "p": "whereClause",
       "pt": "msg",
-      "to": "templateUid ~> $exists() ? 'deviceUid = ' & deviceUid & ' OR deviceUid = ' & templateUid :  'deviceUid = ' & deviceUid",
+      "to": "templateUid ~> $exists() ?\t    'deviceUid = ' & deviceUid & ' OR deviceUid = ' & templateUid\t :  'deviceUid = ' & deviceUid",
       "tot": "jsonata"
+    },
+    {
+      "t": "set",
+      "p": "tablename",
+      "pt": "msg",
+      "to": "payload.dataTablename",
+      "tot": "msg"
     },
     {
       "t": "delete",
@@ -31,7 +45,7 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 700,
-  "y": 1740,
+  "y": 1680,
   "wires": [
     [
       "9875efa66077ed45"

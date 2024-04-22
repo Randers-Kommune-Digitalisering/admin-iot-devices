@@ -7,9 +7,16 @@ const Node = {
   "rules": [
     {
       "t": "set",
+      "p": "payload",
+      "pt": "msg",
+      "to": "payload ~> $type() = \"array\" ? payload[0] : payload",
+      "tot": "jsonata"
+    },
+    {
+      "t": "set",
       "p": "data.lastObservation",
       "pt": "msg",
-      "to": "payload[0].lastObservation",
+      "to": "payload.lastObservation",
       "tot": "msg",
       "dc": true
     }

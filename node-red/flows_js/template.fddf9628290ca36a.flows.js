@@ -3,14 +3,14 @@ const Node = {
   "type": "template",
   "z": "7b3a886e00fb2ea6",
   "g": "c73500befce19fee",
-  "name": "Select templateUid \\n med Uid",
+  "name": "Select lastObservation \\n med Uid",
   "field": "sql",
   "fieldType": "msg",
   "format": "sql",
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 490,
+  "x": 500,
   "y": 1840,
   "wires": [
     [
