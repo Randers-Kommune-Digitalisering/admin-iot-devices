@@ -65,7 +65,7 @@ LEFT JOIN -- template measurementPoints data
 ) AS t4
     ON t1.templateUid = t4.deviceUid
 
-ORDER BY t1.isTemplate, t1.templateUid, t1.uid DESC 
+ORDER BY t1.isTemplate DESC, t1.templateUid DESC, t1.uid DESC 
 `
 
 module.exports = Node;
