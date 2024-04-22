@@ -17,7 +17,6 @@
         // Update value(s) for properties shared with template
         deviceList.value[0].templateUid = template.uid
         deviceList.value[0].energiart = template.energiartskode
-        deviceList.value[0].installationsnummer = template.installationsnummer
         
         // Lock input fields
         lockSharedProperties.value = true
@@ -276,8 +275,21 @@
             <label v-else for="istemplate" class="randers">Markér som skabelon</label>
         </div>
 
+        <!-- Device description -->
+        <div class="flexbox" :style="( quickAddMode ? 'margin-top:2rem;' : '' )">
+            
+            <div>
+                <label for="name_0" class="capitalize">
 
-        <div class="flexbox" v-if="!isTemplate" v-for="(device, index) in deviceList">
+                    Navn
+
+                </label>
+                <input type="text" :placeholder="isTemplate ? 'F.eks. `Brunata Minomess vandmåler`' : 'F.eks. `El-måler Grønhøjskolen`'" id="name_0" v-model="deviceList[0].name" required>
+            </div>
+
+        </div>
+
+        <div class="flexbox triflex" v-if="!isTemplate" v-for="(device, index) in deviceList">
             <div>
                 <label :for="'eui_' + index" class="capitalize">
                     <span class="uid" v-if="deviceList.length > 1">#{{index+1}}</span>
@@ -296,13 +308,12 @@
                         @focusout="InputValidityCheck('devEui', index)"
                         required>
             </div>
+
             <div>
                 <label :for="'app_' + index" class="capitalize">
                     <span class="uid" v-if="deviceList.length > 1">#{{index+1}}</span>
 
                     OTAA Application Key
-
-                    <div @click="deleteDevice(index)" class="float-right tag tagbutton" v-if="deviceList.length > 1">Slet</div>
 
                     <span :style="appKeyIsValid[index] != null ? appKeyIsValid[index] ? 'display:none' : '' : 'display:none'" class="small red">
                         Mindst 32 tegn
@@ -316,42 +327,23 @@
                         required>
             </div>
 
+            <div>
+                <label :for="'installnumber_' + index" class="capitalize">
+
+                    Installationsnummer
+                    
+                    <div @click="deleteDevice(index)" class="float-right tag tagbutton" v-if="deviceList.length > 1">Slet</div>
+
+                    
+                </label>
+                <input type="text" placeholder="..." :id="'installnumber_' + index"
+                       v-model="device.installationsnummer">
+            </div>
+
             <input type="hidden" v-model="device.uid" /> <!-- Hidden device UID when editiing device -->
 
         </div>
         <button @click="newDevice()" v-if="quickAddMode" type="button" class="blue">Tilføj måler</button>
-
-
-        
-        <!-- Device description -->
-    
-        <div class="flexbox" :style="( quickAddMode ? 'margin-top:2rem;' : '' )">
-            
-            <div>
-                <label for="name_0" class="capitalize">
-
-                    Navn
-
-                </label>
-                <input type="text" :placeholder="isTemplate ? 'F.eks. `Brunata Minomess vandmåler`' : 'F.eks. `El-måler Grønhøjskolen`'" id="name_0" v-model="deviceList[0].name" required>
-            </div>
-
-            
-            <div>
-                <label for="energiart_0" class="capitalize">
-
-                    Energiart
-
-                </label>
-                <select name="template" id="template" v-model="deviceList[0].energiart" :disabled="lockSharedProperties || (deviceList[0] != null && deviceList[0].templateUid != -1)" required>
-                    <option value="-1" disabled>Vælg fra liste ..</option>
-
-                    <option v-for="(energiart, index) in energiarter" :value="index">{{ energiart }}</option>
-                </select>
-
-            </div>
-
-        </div>
 
 </Content>
 
@@ -370,13 +362,17 @@
     <div class="flexbox">
 
         <div>
-            <label for="installnumber" class="capitalize">
 
-                Installationsnummer
+            <label for="energiart_0" class="capitalize">
+
+                Energiart
 
             </label>
-            <input type="text" placeholder="..." id="installnumber" v-model="deviceList[0].installationsnummer" :disabled="lockSharedProperties || (deviceList[0] != null && deviceList[0].templateUid != -1)">
-            
+            <select name="template" id="template" v-model="deviceList[0].energiart" :disabled="lockSharedProperties || (deviceList[0] != null && deviceList[0].templateUid != -1)" required>
+                <option value="-1" disabled>Vælg fra liste ..</option>
+
+                <option v-for="(energiart, index) in energiarter" :value="index">{{ energiart }}</option>
+            </select>
 
         </div>
             
@@ -464,5 +460,21 @@
     }
     input.red {
         border-color: var(--color-red-light);
+    }
+    .triflex > *
+    {
+        flex-wrap:nowrap;
+    }
+    .triflex > :nth-child(1)
+    {
+        width: calc(28.5% - 0.5rem);
+    }
+    .triflex > :nth-child(2)
+    {
+        width: calc(42% - 0.5rem);
+    }
+    .triflex > :nth-child(3)
+    {
+        width: calc(28.5% - 0.5rem);
     }
 </style>
