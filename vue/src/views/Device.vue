@@ -171,6 +171,7 @@
         font-size: 0.9em;
         transform: translateY(-1.2rem) translateX(0.5rem);
         margin-bottom: 0.5rem;
+        margin-right: 1rem;
     }
     button.gray
     {
