@@ -10,51 +10,13 @@
     export default { filters }
 
 </script-->
-<script>
-function formatDate(isoDate)
-{
-    // Create a date object from the ISO string
-    let date = new Date(isoDate);
-
-    // Extract the day, month, year, hours, and minutes
-    let day = date.getUTCDate();
-    let month = date.getUTCMonth() + 1; // Months are 0-based in JavaScript
-    let year = date.getUTCFullYear().toString().substr(-2); // Get last two digits of year
-    let hours = date.getUTCHours();
-    let minutes = date.getUTCMinutes();
-
-    // Pad single digit day, month, hours and minutes with leading zeros
-    day = day < 10 ? '0' + day : day;
-    month = month < 10 ? '0' + month : month;
-    hours = hours < 10 ? '0' + hours : hours;
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-
-    // Return the formatted date
-    return `${day}/${month}-${year} ${hours}:${minutes}`;
-}
-
-// Decoding input
-function decode(encodedString)
-{
-    console.log("type: " + typeof(encodedString))
-    if(typeof(encodedString) == "string")
-    {
-        return encodedString.replace(/&#x([0-9a-fA-F]+);/g, function(match, p1) {
-            return String.fromCharCode(parseInt(p1, 16))
-        })
-    }
-    else
-        return encodedString
-}
-
-</script>
 <script setup>
     import { ref, watch } from 'vue'
     import { useRouter } from 'vue-router'
 
     import Content from '@/components/Content.vue'
-
-    const router = useRouter()
+    import DecodeHtml from '@/components/utility/DecodeHtml.vue'
+    import DateFormatter from '@/components/utility/DateFormatter.vue'
 
     import IconUniqueDevice from '@/components/icons/IconEditItem.vue'
     import IconTemplateDevice from '@/components/icons/IconDuplicateItem.vue'
@@ -62,6 +24,8 @@ function decode(encodedString)
     import IconDownload from '@/components/icons/IconDownload.vue'
     
     import energiarter from '@/data/energiarter.json'
+
+    const router = useRouter()
 
     const props = defineProps({
         devices: {
@@ -156,8 +120,8 @@ function decode(encodedString)
 
                 <td>
                     <div class="flex col">
-                        <span>{{decode(device.name)}}</span>
-                        <span v-if="device.templateUid != -1" class="tiny blue">Baseret på {{decode(device.templateName) ?? 'skabelon'}}</span>
+                        <span>{{DecodeHtml.decode(device.name)}}</span>
+                        <span v-if="device.templateUid != -1" class="tiny blue">Baseret på {{DecodeHtml.decode(device.templateName) ?? 'skabelon'}}</span>
                         <span v-if="device.isTemplate" class="tiny orange">Skabelon</span>
                     </div>
                 </td>
@@ -174,14 +138,14 @@ function decode(encodedString)
                             <IconDownload :scale="0.8" /> <span>Ingen import</span>
                         </span>
                         <span v-else class="randers small flex">
-                            <IconDownload :scale="0.8" /> <span>{{ formatDate(device.lastObservation) }}</span>
+                            <IconDownload :scale="0.8" /> <span>{{ DateFormatter.formatDate(device.lastObservation) }}</span>
                         </span>
 
                         <span v-if="device.lastExport == null || device.lastExport == '0000-00-00 00:00:00'" class="red small flex">
                             <IconUpload :scale="0.8" /> <span>Ingen export</span>
                         </span>
                         <span v-else class="green small flex">
-                            <IconUpload :scale="0.8" /> <span>{{ formatDate(device.lastExport) }}</span>
+                            <IconUpload :scale="0.8" /> <span>{{ DateFormatter.formatDate(device.lastExport) }}</span>
                         </span>
                     </div>
                 </td>

@@ -4,6 +4,7 @@
     
     // Import scripts
     import Device from '@/components/connector/Device.vue'
+    import DecodeHtml from '@/components/utility/DecodeHtml.vue'
 
     import Content from '@/components/Content.vue'
     import IconTable from '@/components/icons/IconTable.vue'
@@ -37,7 +38,7 @@
         fetch('/api/devices/' + route.params.uid)
             .then(response => response = response.json())
             .then(value => device.value = value)
-            //.then(device.value.name = decode(device.value.name))
+            //.then(device.value.name = DecodeHtml.decode(device.value.name))
     }
 
     // Fetch after loading
@@ -99,20 +100,11 @@
         })
     }
 
-    // Decoding input
-    function decode(encodedString)
-    {
-        return encodedString.replace(/&#x([0-9a-fA-F]+);/g, function(match, p1) {
-            return String.fromCharCode(parseInt(p1, 16));
-        })
-    }
-
-
 </script>
 
 <template>
 
-    <h2>{{device != null ? decode(device.name) : 'Måler'}}</h2>
+    <h2>{{device != null ? DecodeHtml.decode(device.name) : 'Måler'}}</h2>
 
     <!-- Under header -->
     <div v-if="device != null" class="underheader">
@@ -123,7 +115,7 @@
 
         <span v-if="device.templateUid != -1" class="blue" style="margin-left:1rem;font-size:0.85em">
             baseret på
-            <router-link class="blue" :to="'/devices/' + device.templateUid">{{decode(device.templateName)}}</router-link>
+            <router-link class="blue" :to="'/devices/' + device.templateUid">{{DecodeHtml.decode(device.templateName)}}</router-link>
         </span>
 
         <div v-if="!device.isTemplate" class="float-right">
