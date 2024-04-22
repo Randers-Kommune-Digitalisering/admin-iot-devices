@@ -150,7 +150,7 @@ function decode(encodedString)
                 <td>
                     <div class="flex col">
                         <span>{{decode(device.name)}}</span>
-                        <span v-if="device.templateUid != -1" class="tiny blue">Baseret på {{device.templateName ?? 'skabelon'}}</span>
+                        <span v-if="device.templateUid != -1" class="tiny blue">Baseret på {{decode(device.templateName) ?? 'skabelon'}}</span>
                         <span v-if="device.isTemplate" class="tiny orange">Skabelon</span>
                     </div>
                 </td>

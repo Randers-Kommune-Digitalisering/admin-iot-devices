@@ -121,9 +121,9 @@
             <span :class="'tag ' + (device.isTemplate ? 'orange' : device.templateUid != -1 ? 'blue' : 'randers')">{{ device.isTemplate ? 'Skabelon' : 'Måler' }}</span>
         </span>
 
-        <span v-if="device.templateUid != -1" class="blue">
-            &nbsp;baseret på
-            <router-link class="orange" :to="'/devices/' + device.templateUid">{{device.templateName}}</router-link>
+        <span v-if="device.templateUid != -1" class="blue" style="margin-left:1rem;font-size:0.85em">
+            baseret på
+            <router-link class="blue" :to="'/devices/' + device.templateUid">{{decode(device.templateName)}}</router-link>
         </span>
 
         <div v-if="!device.isTemplate" class="float-right">
@@ -177,8 +177,8 @@
     .underheader
     {
         font-size: 0.9em;
-        transform: translateY(-1.5rem) translateX(0.5rem);
-        margin-bottom: 0.3rem;
+        transform: translateY(-1.2rem) translateX(0.5rem);
+        margin-bottom: 0.5rem;
     }
     button.gray
     {
@@ -188,13 +188,13 @@
     {
         background-color: var(--color-border-dark);
     }
-    a.orange
+    a.blue
     {
-        color: var(--color-orange)
+        color: var(--color-blue)
     }
-    a.orange:hover
+    a.blue:hover
     {
-        color: var(--color-orange-light)
+        color: var(--color-blue-light)
     }
     .flexbuttons
     {
