@@ -391,10 +391,10 @@
         <div>
             <label for="decoder" class="capitalize">
 
-                Dekoder
+                Dekoder {{props.lockEui}} {{isTemplate}}
 
             </label>
-            <select v-if="payloadDecoder == null || (Array.isArray(payloadDecoder.value) && payloadDecoder.value.length == 0)" :disabled="props.lockEui && isTemplate">
+            <select v-if="payloadDecoder == null || (Array.isArray(payloadDecoder.value) && payloadDecoder.value.length == 0)" :disabled="(props.lockEui && isTemplate)">
                 <option value="-1" disabled>Indlæser ..</option>
             </select>
             <select v-else name="template" id="template" v-model="deviceList[0].payloadDecoder">
