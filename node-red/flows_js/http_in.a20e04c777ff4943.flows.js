@@ -3,12 +3,12 @@ const Node = {
   "type": "http in",
   "z": "dc028cb1b3d1491a",
   "name": "",
-  "url": "/measurements/:uid/data",
+  "url": "/devices/:device/measurements/:uid/data",
   "method": "get",
   "upload": false,
   "swaggerDoc": "",
-  "x": 300,
-  "y": 1140,
+  "x": 350,
+  "y": 1160,
   "wires": [
     [
       "f05621a5e58feb9b"

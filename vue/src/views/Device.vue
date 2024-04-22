@@ -4,6 +4,7 @@
     
     // Import scripts
     import Device from '@/components/connector/Device.vue'
+    import DecodeHtml from '@/components/utility/DecodeHtml.vue'
 
     import Content from '@/components/Content.vue'
     import IconTable from '@/components/icons/IconTable.vue'
@@ -37,7 +38,7 @@
         fetch('/api/devices/' + route.params.uid)
             .then(response => response = response.json())
             .then(value => device.value = value)
-            //.then(device.value.name = decode(device.value.name))
+            //.then(device.value.name = DecodeHtml.decode(device.value.name))
     }
 
     // Fetch after loading
@@ -99,20 +100,11 @@
         })
     }
 
-    // Decoding input
-    function decode(encodedString)
-    {
-        return encodedString.replace(/&#x([0-9a-fA-F]+);/g, function(match, p1) {
-            return String.fromCharCode(parseInt(p1, 16));
-        })
-    }
-
-
 </script>
 
 <template>
 
-    <h2>{{device != null ? decode(device.name) : 'Måler'}}</h2>
+    <h2>{{device != null ? DecodeHtml.decode(device.name) : 'Måler'}}</h2>
 
     <!-- Under header -->
     <div v-if="device != null" class="underheader">
@@ -121,9 +113,9 @@
             <span :class="'tag ' + (device.isTemplate ? 'orange' : device.templateUid != -1 ? 'blue' : 'randers')">{{ device.isTemplate ? 'Skabelon' : 'Måler' }}</span>
         </span>
 
-        <span v-if="device.templateUid != -1" class="blue">
-            &nbsp;baseret på
-            <router-link class="orange" :to="'/devices/' + device.templateUid">{{device.templateName}}</router-link>
+        <span v-if="device.templateUid != -1" class="blue" style="margin-left:1rem;font-size:0.85em">
+            baseret på
+            <router-link class="blue" :to="'/devices/' + device.templateUid">{{DecodeHtml.decode(device.templateName)}}</router-link>
         </span>
 
         <div v-if="!device.isTemplate" class="float-right">
@@ -177,8 +169,9 @@
     .underheader
     {
         font-size: 0.9em;
-        transform: translateY(-1.5rem) translateX(0.5rem);
-        margin-bottom: 0.3rem;
+        transform: translateY(-1.2rem) translateX(0.5rem);
+        margin-bottom: 0.5rem;
+        margin-right: 1rem;
     }
     button.gray
     {
@@ -188,13 +181,13 @@
     {
         background-color: var(--color-border-dark);
     }
-    a.orange
+    a.blue
     {
-        color: var(--color-orange)
+        color: var(--color-blue)
     }
-    a.orange:hover
+    a.blue:hover
     {
-        color: var(--color-orange-light)
+        color: var(--color-blue-light)
     }
     .flexbuttons
     {

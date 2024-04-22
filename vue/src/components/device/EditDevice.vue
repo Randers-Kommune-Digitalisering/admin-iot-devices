@@ -1,5 +1,7 @@
 <script>
     import { ref, watch  } from 'vue'
+    
+    import DecodeHtml from '@/components/utility/DecodeHtml.vue'
 
     const deviceList = ref([])
     const isTemplate = ref(false)
@@ -17,7 +19,6 @@
         // Update value(s) for properties shared with template
         deviceList.value[0].templateUid = template.uid
         deviceList.value[0].energiart = template.energiartskode
-        deviceList.value[0].installationsnummer = template.installationsnummer
         
         // Lock input fields
         lockSharedProperties.value = true
@@ -32,14 +33,6 @@
 
     export default {
         getDeviceList, setTemplateValues, resetDeviceList
-    }
-
-    // Decoding input
-    function decode(encodedString)
-    {
-        return encodedString.replace(/&#x([0-9a-fA-F]+);/g, function(match, p1) {
-            return String.fromCharCode(parseInt(p1, 16));
-        })
     }
 
 </script>
@@ -95,7 +88,7 @@
         deviceList.value[0].uid = current.uid
         deviceList.value[0].devEui = current.deviceEui
         deviceList.value[0].appKey = current.applicationKey
-        deviceList.value[0].name = decode(current.name)
+        deviceList.value[0].name = DecodeHtml.decode(current.name)
         deviceList.value[0].energiart = current.energiartskode
         //deviceList.value[0].deviceProfile = current.deviceProfileUid
         deviceList.value[0].payloadDecoder = current.payloadDecoderUid
@@ -276,8 +269,21 @@
             <label v-else for="istemplate" class="randers">Markér som skabelon</label>
         </div>
 
+        <!-- Device description -->
+        <div class="flexbox" :style="( quickAddMode ? 'margin-top:2rem;' : '' )">
+            
+            <div>
+                <label for="name_0" class="capitalize">
 
-        <div class="flexbox" v-if="!isTemplate" v-for="(device, index) in deviceList">
+                    Navn
+
+                </label>
+                <input type="text" :placeholder="isTemplate ? 'F.eks. `Brunata Minomess vandmåler`' : 'F.eks. `El-måler Grønhøjskolen`'" id="name_0" v-model="deviceList[0].name" required>
+            </div>
+
+        </div>
+
+        <div class="flexbox triflex" v-if="!isTemplate" v-for="(device, index) in deviceList">
             <div>
                 <label :for="'eui_' + index" class="capitalize">
                     <span class="uid" v-if="deviceList.length > 1">#{{index+1}}</span>
@@ -296,13 +302,12 @@
                         @focusout="InputValidityCheck('devEui', index)"
                         required>
             </div>
+
             <div>
                 <label :for="'app_' + index" class="capitalize">
                     <span class="uid" v-if="deviceList.length > 1">#{{index+1}}</span>
 
                     OTAA Application Key
-
-                    <div @click="deleteDevice(index)" class="float-right tag tagbutton" v-if="deviceList.length > 1">Slet</div>
 
                     <span :style="appKeyIsValid[index] != null ? appKeyIsValid[index] ? 'display:none' : '' : 'display:none'" class="small red">
                         Mindst 32 tegn
@@ -316,42 +321,24 @@
                         required>
             </div>
 
+            <div>
+                <label :for="'installnumber_' + index" class="capitalize">
+                    <span class="uid" v-if="deviceList.length > 1">#{{index+1}}</span>
+
+                    Installationsnr.
+                    
+                    <div @click="deleteDevice(index)" class="float-right tag tagbutton" v-if="deviceList.length > 1">Slet</div>
+
+                    
+                </label>
+                <input type="text" placeholder="..." :id="'installnumber_' + index"
+                       v-model="device.installationsnummer">
+            </div>
+
             <input type="hidden" v-model="device.uid" /> <!-- Hidden device UID when editiing device -->
 
         </div>
         <button @click="newDevice()" v-if="quickAddMode" type="button" class="blue">Tilføj måler</button>
-
-
-        
-        <!-- Device description -->
-    
-        <div class="flexbox" :style="( quickAddMode ? 'margin-top:2rem;' : '' )">
-            
-            <div>
-                <label for="name_0" class="capitalize">
-
-                    Navn
-
-                </label>
-                <input type="text" :placeholder="isTemplate ? 'F.eks. `Brunata Minomess vandmåler`' : 'F.eks. `El-måler Grønhøjskolen`'" id="name_0" v-model="deviceList[0].name" required>
-            </div>
-
-            
-            <div>
-                <label for="energiart_0" class="capitalize">
-
-                    Energiart
-
-                </label>
-                <select name="template" id="template" v-model="deviceList[0].energiart" :disabled="lockSharedProperties || (deviceList[0] != null && deviceList[0].templateUid != -1)" required>
-                    <option value="-1" disabled>Vælg fra liste ..</option>
-
-                    <option v-for="(energiart, index) in energiarter" :value="index">{{ energiart }}</option>
-                </select>
-
-            </div>
-
-        </div>
 
 </Content>
 
@@ -370,13 +357,17 @@
     <div class="flexbox">
 
         <div>
-            <label for="installnumber" class="capitalize">
 
-                Installationsnummer
+            <label for="energiart_0" class="capitalize">
+
+                Energiart
 
             </label>
-            <input type="text" placeholder="..." id="installnumber" v-model="deviceList[0].installationsnummer" :disabled="lockSharedProperties || (deviceList[0] != null && deviceList[0].templateUid != -1)">
-            
+            <select name="template" id="template" v-model="deviceList[0].energiart" :disabled="lockSharedProperties || (deviceList[0] != null && deviceList[0].templateUid != -1)" required>
+                <option value="-1" disabled>Vælg fra liste ..</option>
+
+                <option v-for="(energiart, index) in energiarter" :value="index">{{ energiart }}</option>
+            </select>
 
         </div>
             
@@ -403,7 +394,7 @@
                 Dekoder
 
             </label>
-            <select v-if="payloadDecoder == null || (Array.isArray(payloadDecoder.value) && payloadDecoder.value.length == 0)" :disabled="props.lockEui && isTemplate">
+            <select v-if="payloadDecoder == null || (Array.isArray(payloadDecoder.value) && payloadDecoder.value.length == 0)" :disabled="(props.lockEui && isTemplate)">
                 <option value="-1" disabled>Indlæser ..</option>
             </select>
             <select v-else name="template" id="template" v-model="deviceList[0].payloadDecoder">
@@ -464,5 +455,25 @@
     }
     input.red {
         border-color: var(--color-red-light);
+    }
+
+    @media screen and (min-width: 54rem) /* 640 px */
+    {
+        .triflex > *
+        {
+            flex-wrap:nowrap;
+        }
+        .triflex > :nth-child(1)
+        {
+            width: calc(28.5% - 0.5rem);
+        }
+        .triflex > :nth-child(2)
+        {
+            width: calc(42% - 0.5rem);
+        }
+        .triflex > :nth-child(3)
+        {
+            width: calc(28.5% - 0.5rem);
+        }
     }
 </style>

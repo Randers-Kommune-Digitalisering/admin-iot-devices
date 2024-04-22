@@ -17,13 +17,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 750,
+  "x": 990,
   "y": 860,
   "wires": [
     [
-      "33d75372d8bb3b3c"
+      "d3e0e0c6a452cf5a"
     ]
-  ]
+  ],
+  "icon": "node-red/parser-csv.svg"
 }
 
 module.exports = Node;

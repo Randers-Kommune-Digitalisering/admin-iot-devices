@@ -2,7 +2,7 @@ const Node = {
   "id": "58662f625a22816a",
   "type": "change",
   "z": "dc028cb1b3d1491a",
-  "name": "Hent params",
+  "name": "Params",
   "rules": [
     {
       "t": "set",
@@ -10,6 +10,13 @@ const Node = {
       "pt": "msg",
       "to": "req.params.uid",
       "tot": "msg"
+    },
+    {
+      "t": "set",
+      "p": "deviceUid",
+      "pt": "msg",
+      "to": "req.params.device",
+      "tot": "str"
     }
   ],
   "action": "",
@@ -17,8 +24,8 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 570,
-  "y": 1040,
+  "x": 640,
+  "y": 1060,
   "wires": [
     [
       "cf91229f325e4297"

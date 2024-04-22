@@ -9,6 +9,11 @@ const Node = {
       "p": "uid",
       "v": "1",
       "vt": "num"
+    },
+    {
+      "p": "deviceUid",
+      "v": "2",
+      "vt": "num"
     }
   ],
   "repeat": "",
@@ -17,7 +22,7 @@ const Node = {
   "onceDelay": 0.1,
   "topic": "",
   "x": 75,
-  "y": 2500,
+  "y": 2580,
   "wires": [
     [
       "54e719d6c42906a2"
