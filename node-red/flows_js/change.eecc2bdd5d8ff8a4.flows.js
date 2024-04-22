@@ -23,7 +23,8 @@ const Node = {
     [
       "33d75372d8bb3b3c"
     ]
-  ]
+  ],
+  "icon": "node-red/parser-csv.svg"
 }
 
 module.exports = Node;

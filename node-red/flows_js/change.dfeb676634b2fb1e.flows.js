@@ -44,7 +44,8 @@ const Node = {
     [
       "af18d9805a5b1c07"
     ]
-  ]
+  ],
+  "icon": "node-red/file.svg"
 }
 
 module.exports = Node;
