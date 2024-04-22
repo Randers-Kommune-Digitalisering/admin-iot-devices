@@ -329,8 +329,9 @@
 
             <div>
                 <label :for="'installnumber_' + index" class="capitalize">
+                    <span class="uid" v-if="deviceList.length > 1">#{{index+1}}</span>
 
-                    Installationsnummer
+                    Installationsnr.
                     
                     <div @click="deleteDevice(index)" class="float-right tag tagbutton" v-if="deviceList.length > 1">Slet</div>
 
