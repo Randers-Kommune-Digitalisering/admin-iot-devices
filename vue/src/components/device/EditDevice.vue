@@ -456,20 +456,24 @@
     input.red {
         border-color: var(--color-red-light);
     }
-    .triflex > *
+
+    @media screen and (min-width: 54rem) /* 640 px */
     {
-        flex-wrap:nowrap;
-    }
-    .triflex > :nth-child(1)
-    {
-        width: calc(28.5% - 0.5rem);
-    }
-    .triflex > :nth-child(2)
-    {
-        width: calc(42% - 0.5rem);
-    }
-    .triflex > :nth-child(3)
-    {
-        width: calc(28.5% - 0.5rem);
+        .triflex > *
+        {
+            flex-wrap:nowrap;
+        }
+        .triflex > :nth-child(1)
+        {
+            width: calc(28.5% - 0.5rem);
+        }
+        .triflex > :nth-child(2)
+        {
+            width: calc(42% - 0.5rem);
+        }
+        .triflex > :nth-child(3)
+        {
+            width: calc(28.5% - 0.5rem);
+        }
     }
 </style>
