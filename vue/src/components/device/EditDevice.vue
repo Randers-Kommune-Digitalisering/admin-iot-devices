@@ -391,7 +391,7 @@
         <div>
             <label for="decoder" class="capitalize">
 
-                Dekoder {{props.lockEui}} {{isTemplate}}
+                Dekoder
 
             </label>
             <select v-if="payloadDecoder == null || (Array.isArray(payloadDecoder.value) && payloadDecoder.value.length == 0)" :disabled="(props.lockEui && isTemplate)">
