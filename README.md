@@ -45,9 +45,9 @@ flowchart LR
 	                for målere i Node-RED
 	                ")
 	            end
-	            
-				M2[(MariaDB)]
 	        end
+
+		M2[(MariaDB)]
 	    end
 	end
 
