@@ -394,10 +394,11 @@
                 Dekoder
 
             </label>
-            <select v-if="payloadDecoder == null || (Array.isArray(payloadDecoder.value) && payloadDecoder.value.length == 0)" :disabled="(props.lockEui && isTemplate)">
+            <select v-if="payloadDecoder == null || (Array.isArray(payloadDecoder.value) && payloadDecoder.value.length == 0)"
+                    disabled>
                 <option value="-1" disabled>Indlæser ..</option>
             </select>
-            <select v-else name="template" id="template" v-model="deviceList[0].payloadDecoder">
+            <select v-else name="template" id="template" v-model="deviceList[0].payloadDecoder" :disabled="(props.lockEui && isTemplate)">
                 <option value="-1" disabled>Vælg fra liste ..</option>
 
                 <option v-for="decoder in payloadDecoder.value" :value="decoder.uid">{{ decoder.name }}</option>
