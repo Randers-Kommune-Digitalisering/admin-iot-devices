@@ -45,7 +45,7 @@ Applikationen udstiller et API som overholder NGSIv2 standarder for IoT-metadata
 |--|--|
 | [GET] devices | Liste over alle registrerede skabeloner og enheder |
 | [GET] devices/*{{uid}}* | Metadata for måler med uid *{{uid}}* |
-| [PUT] devices | Redigér skabelon eller enhed med uid *{{uid}}* |
+| [PUT] devices/*{{uid}}* | Redigér skabelon eller enhed med uid *{{uid}}* |
 | [POST] devices | Registrer ny skabelon eller enhed |
 | [GET] devices/*{{uid}}*/dimensions | Datatyper målt af enhed *{{uid}}* |
 | [GET] devices/*{{uid}}*/measurements | Liste over alle registerede målepunkter for enhed med uid *{{uid}}*
