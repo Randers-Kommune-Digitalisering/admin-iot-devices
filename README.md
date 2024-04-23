@@ -29,8 +29,8 @@ Herudover har applikationen til formål at konvertere og eksportere  målerdata 
 %% Upload af data %%
 flowchart LR
 
-	subgraph G1["admin-iot-devices"]
-	    subgraph SG2["Kubernetes miljø"]
+	subgraph G1["Kubernetes miljø"]
+	    subgraph SG2["admin-iot-devices"]
 	    
 	    A["Administrationspanel"] 
 	    
