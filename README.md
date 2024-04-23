@@ -1,3 +1,4 @@
+
 # admin-iot-devices `README.md`
 [**Formål**](#formål) | [**Beskrivelse**](#beskrivelse) | [**Afhængigheder**](#afh%C3%A6ngigheder)
 
@@ -9,12 +10,70 @@ Herudover har applikationen til formål at konvertere og eksportere  målerdata 
 
 ***OBS**: Målerdata lagres med sekundær applikation: [import-iot-data](https://github.com/Randers-Kommune-Digitalisering/import-iot-data).*
 
+```mermaid
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#3c3c3c',
+      'primaryTextColor': '#fff',
+      'primaryBorderColor': '#3c3c3c',
+      'lineColor': '#F8B229',
+      'secondaryColor': '#616161',
+      'tertiaryColor': '#616161',
+      'tertiaryTextColor': '#fff'
+    }
+  }
+}%%
+
+%% Upload af data %%
+flowchart LR
+
+	subgraph G1["admin-iot-devices"]
+	    subgraph SG2["Kubernetes miljø"]
+	    
+	    A["Administrationspanel"] 
+	    
+	        subgraph SG20 [ ]
+	            style SG20 stroke-dasharray: 0 1  
+	            subgraph SG21["Node-RED back-end"]
+
+                    M0["API"]
+	            
+	                M1("
+	                Håndtering af metadata
+	                for målere i Node-RED
+	                ")
+	            end
+	            
+				M2[(MariaDB)]
+	        end
+	    end
+	end
+
+	subgraph G2["KMD"]
+	    subgraph SG3["OS2IoT"]
+	        C[("Metadata")] 
+	    end
+	    
+	    subgraph SG4["EnergyKey"]
+	        D[("Målerdata")] 
+	    end
+    end
+    
+    A<-->M0
+    M0<-->M1
+    M1<-->M2
+	M1<-->C
+	M1-->D
+```
+
 
 ## Beskrivelse
 
 ### Håndtering af målere, målerskabeloner og målepunkter
 
-Applikationen udstiller et webinterface til at registrere, overvåge og håndtere målere, målerskabeloner og målepunkter.
+Applikationen udstiller et web-baseret administrationspanel til at registrere, overvåge og håndtere målere, målerskabeloner og målepunkter.
 
 **Målere** der registreres via applikationen lagres som metadata i SQL-database (MariaDB) og registreres derefter automatisk i OS2IoT via API. Applikationen håndterer ligeledes registrering af målerne på et specificeret OS2IoT data target.
 
@@ -37,7 +96,7 @@ Ligeledes hentes enhedsprofiler (device profiles) med specificeret organisations
 
 ---
 ### API
-Applikationen udstiller et API som overholder NGSIv2 standarder for IoT-metadata. API'et benyttes af webinterfacet til at håndtere applikationsdata, men kan også tilgås manuelt eller af andet system.
+Applikationen udstiller et API som overholder NGSIv2 standarder for IoT-metadata. API'et benyttes af administrationspanelet til at håndtere applikationsdata, men kan også tilgås manuelt eller af andet system.
 
 #### API'et udstiller blandt andet følgende endpoints under URL'en `/api/`
 
@@ -62,6 +121,6 @@ Applikationen udstiller et API som overholder NGSIv2 standarder for IoT-metadata
 
 :gear: | [Vue 3.3.4](https://vuejs.org), [Express.js 4.18.2](https://expressjs.com) (+`cors`, +`http-proxy-middleware`), [Vite 4.4.9](https://github.com/vitejs), [Axios 1.5.1](https://axios-http.com), [Node.js 18](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm),  [Node-RED 3.0.2](https://nodered.org/docs/getting-started/windows), Node-RED modul: `node-red-mysql-r2`
 
-:cloud: | Adgang til applikationens webinterface
+:cloud: | Adgang til applikationens administrationspanel
 
 :heavy_dollar_sign: | Miljøvariabler for database: 	`DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USER`, `DB_PASS`, for OS2IoT API: `OS2IOT_API_KEY`, samt for eksportering til SFTP-server: `SFTP_USER`, `SFTP_PASS`
