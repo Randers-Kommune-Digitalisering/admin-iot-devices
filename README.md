@@ -30,8 +30,10 @@ Herudover har applikationen til formål at konvertere og eksportere  målerdata 
 flowchart LR
 
 	subgraph G1["Kubernetes miljø"]
-	    subgraph SG2["admin-iot-devices"]
 	    
+        direction LR
+	    subgraph SG2["admin-iot-devices"]
+	
 	    A["Administrationspanel"] 
 	    
 	        subgraph SG20 [ ]
@@ -46,12 +48,13 @@ flowchart LR
 	                ")
 	            end
 	        end
-
-		M2[(MariaDB)]
 	    end
+	            
+        M2[(MariaDB)]
 	end
 
 	subgraph G2["KMD"]
+        direction LR
 	    subgraph SG3["OS2IoT"]
 	        C[("Metadata")] 
 	    end
