@@ -3,7 +3,8 @@ const Node = {
   "type": "sftp",
   "host": "sftp.randers.dk",
   "port": "22",
-  "username": "Energimonitorering",
+  "username": "n/a",
+  "password": "n/a",
   "hmac": [],
   "cipher": []
 }

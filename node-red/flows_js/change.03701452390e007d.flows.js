@@ -20,6 +20,13 @@ const Node = {
     },
     {
       "t": "set",
+      "p": "user",
+      "pt": "msg",
+      "to": "SFTP_USER",
+      "tot": "env"
+    },
+    {
+      "t": "set",
       "p": "password",
       "pt": "msg",
       "to": "SFTP_PASS",
