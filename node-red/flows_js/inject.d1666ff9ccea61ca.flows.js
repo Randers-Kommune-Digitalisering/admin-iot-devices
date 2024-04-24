@@ -1,12 +1,14 @@
 const Node = {
-  "id": "d432d61ef9ce6916",
+  "id": "d1666ff9ccea61ca",
   "type": "inject",
   "z": "1b1f52cac1d78ec2",
   "name": "",
   "props": [
     {
-      "p": "sql",
-      "v": "DROP TABLE iot_data_1234567890987654",
+      "p": "payload"
+    },
+    {
+      "p": "topic",
       "vt": "str"
     }
   ],
@@ -15,11 +17,13 @@ const Node = {
   "once": false,
   "onceDelay": 0.1,
   "topic": "",
-  "x": 300,
-  "y": 1340,
+  "payload": "",
+  "payloadType": "date",
+  "x": 180,
+  "y": 1240,
   "wires": [
     [
-      "06351c1cd40861fe"
+      "cafd7102a2a28b85"
     ]
   ]
 }

@@ -5,7 +5,7 @@ const Node = {
   "g": "39a84f62ba24489c",
   "name": "Sæt måletyper",
   "info": "",
-  "x": 720,
+  "x": 740,
   "y": 60,
   "wires": []
 }

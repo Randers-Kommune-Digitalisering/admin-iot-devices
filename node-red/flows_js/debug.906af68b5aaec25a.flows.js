@@ -4,7 +4,7 @@ const Node = {
   "z": "7b3a886e00fb2ea6",
   "g": "c73500befce19fee",
   "name": "Målepunkt",
-  "active": false,
+  "active": true,
   "tosidebar": true,
   "console": false,
   "tostatus": false,

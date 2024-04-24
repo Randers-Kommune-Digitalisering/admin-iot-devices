@@ -35,6 +35,27 @@ const Node = {
       "tot": "jsonata"
     },
     {
+      "t": "set",
+      "p": "measurementPoint.energiartskode",
+      "pt": "msg",
+      "to": "($globalContext(\"controlledProperties\"))[energyTypeUid = $$.measurementPoint.energiartskode].energyKeyUid",
+      "tot": "jsonata"
+    },
+    {
+      "t": "set",
+      "p": "measurementPoint.deviceEnergiartskode",
+      "pt": "msg",
+      "to": "($globalContext(\"controlledProperties\"))[energyTypeUid = $$.measurementPoint.deviceEnergiartskode].energyKeyUid",
+      "tot": "jsonata"
+    },
+    {
+      "t": "set",
+      "p": "measurementPoint.typekode",
+      "pt": "msg",
+      "to": "($globalContext(\"dataTypes\"))[typeUid = $$.measurementPoint.typekode].energyKeyUid",
+      "tot": "jsonata"
+    },
+    {
       "t": "delete",
       "p": "payload",
       "pt": "msg"
