@@ -1,15 +1,16 @@
 const Node = {
-  "id": "7610cbc0a3b47c7e",
+  "id": "0dc3a6520af8cc91",
   "type": "change",
   "z": "31eb0ab05cfa21a8",
   "name": "",
   "rules": [
     {
       "t": "set",
-      "p": "payload",
+      "p": "measurementPointUids",
       "pt": "msg",
-      "to": "",
-      "tot": "str"
+      "to": "measurementPointUids",
+      "tot": "flow",
+      "dc": true
     }
   ],
   "action": "",
@@ -17,8 +18,8 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1480,
-  "y": 340,
+  "x": 1530,
+  "y": 720,
   "wires": [
     [
       "12c6fa7580dd9c5e"

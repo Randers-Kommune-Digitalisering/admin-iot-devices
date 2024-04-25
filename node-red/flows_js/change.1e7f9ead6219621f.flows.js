@@ -1,15 +1,15 @@
 const Node = {
-  "id": "7610cbc0a3b47c7e",
+  "id": "1e7f9ead6219621f",
   "type": "change",
   "z": "31eb0ab05cfa21a8",
-  "name": "",
+  "name": "measurementPointUids",
   "rules": [
     {
       "t": "set",
-      "p": "payload",
-      "pt": "msg",
-      "to": "",
-      "tot": "str"
+      "p": "measurementPointUids",
+      "pt": "flow",
+      "to": "[]",
+      "tot": "jsonata"
     }
   ],
   "action": "",
@@ -17,11 +17,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1480,
-  "y": 340,
+  "x": 910,
+  "y": 180,
   "wires": [
     [
-      "12c6fa7580dd9c5e"
+      "fcf9c56dcd1aa02f"
     ]
   ]
 }
