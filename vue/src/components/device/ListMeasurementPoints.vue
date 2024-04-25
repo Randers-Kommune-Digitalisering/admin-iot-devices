@@ -201,7 +201,7 @@ function formatDate(isoDate) {
 
                 <td class="deviceTypeTd"> <!-- Measurement point status (if data is being imported and exported) -->
                     <span :class="!props.showDataStats ? 'orange'
-                                    : measurement.deviceUid != props.deviceUid ? 'blue'
+                                : measurement.deviceUid != props.deviceUid ? 'blue'
                                 : measurement.lastExport != null && measurement.lastExport != '0000-00-00 00:00:00' ?  'green'
                                 : measurement.lastObservation != null && measurement.lastObservation != '0000-00-00 00:00:00' ?  'randers'
                                 : 'red'">
