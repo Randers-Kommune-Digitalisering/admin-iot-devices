@@ -2,14 +2,14 @@ const Node = {
   "id": "82148cda2067c173",
   "type": "template",
   "z": "5f6ef472b7d9e1e9",
-  "name": "",
-  "field": "payload",
+  "name": "Forespørgsel",
+  "field": "sql",
   "fieldType": "msg",
   "format": "sql",
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 360,
+  "x": 590,
   "y": 500,
   "wires": [
     [
@@ -24,7 +24,7 @@ UPDATE
 SET
     lastExport = CURRENT_TIMESTAMP
 WHERE 
-    lastImport > lastExport
+    {{{whereClause}}}
 `
 
 module.exports = Node;
