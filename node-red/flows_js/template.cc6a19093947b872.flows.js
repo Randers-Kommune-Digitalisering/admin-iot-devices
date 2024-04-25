@@ -26,7 +26,7 @@ SELECT
     t3.controlledProperty,
     t3.unit,
     t2.templateName,
-    IFNULL(t3_2.maalepunktCount, 0) + IFNULL(t4.maalepunktCount, 0) as maalepunktCount
+    IFNULL(t3.maalepunktCount, 0) as maalepunktCount
 FROM
     {{global.metadataTablename.maaler}} AS t1
     
@@ -54,28 +54,6 @@ LEFT JOIN -- measurementPoints data
 ) AS t3
     ON t1.uid = t3.deviceUid
     OR t1.templateUid = t3.deviceUid
-
-    LEFT JOIN -- measurementPoints data (maalepunktCount)
-(
-    SELECT
-        deviceUid,
-        COUNT(*) as maalepunktCount
-    FROM {{global.metadataTablename.maalepunkt}}
-    GROUP BY deviceUid
-    
-) AS t3_2
-    ON t1.uid = t3_2.deviceUid
-
-LEFT JOIN -- template measurementPoints data
-(
-    SELECT
-        deviceUid,
-        COUNT(*) as maalepunktCount
-    FROM {{global.metadataTablename.maalepunkt}}
-    GROUP BY deviceUid
-    
-) AS t4
-    ON t1.templateUid = t4.deviceUid
 
 ORDER BY t1.isTemplate DESC, t1.templateUid DESC, t1.uid DESC 
 `
