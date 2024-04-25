@@ -132,7 +132,7 @@
                 </td>
 
                 <td>
-                    <div class="flex col">
+                    <div class="flex col" v-if="!device.isTemplate">
 
                         <span v-if="device.lastObservation == null || device.lastObservation == '0000-00-00 00:00:00'" class="red small flex">
                             <IconDownload :scale="0.8" /> <span>Ingen import</span>

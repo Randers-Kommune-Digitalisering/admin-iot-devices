@@ -2,7 +2,6 @@ const Node = {
   "id": "af5b72249a7680ba",
   "type": "inject",
   "z": "7b3a886e00fb2ea6",
-  "d": true,
   "g": "0f8e00ef379b1e7c",
   "name": "",
   "props": [],

@@ -125,7 +125,7 @@
 
     </div>
     
-    <ListMeasurementPoints :measurementPoints="measurementPoints" :deviceUid="device != null ? device.uid : -1" />
+    <ListMeasurementPoints :measurementPoints="measurementPoints" :deviceUid="device != null ? device.uid : -1" :showDataStats="device != null && !device.isTemplate" />
     <EditDevice :device="device" :lockEui="true" @onUpdateInputValidity="updateInputVality" />
 
     <Content>

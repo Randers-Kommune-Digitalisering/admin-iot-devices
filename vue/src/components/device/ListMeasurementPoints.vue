@@ -48,6 +48,10 @@ function formatDate(isoDate) {
         deviceUid: {
             type: Number,
             required: true
+        },
+        showDataStats: {
+            type: Boolean,
+            default: true
         }
     })
 
@@ -196,7 +200,8 @@ function formatDate(isoDate) {
             >
 
                 <td class="deviceTypeTd"> <!-- Measurement point status (if data is being imported and exported) -->
-                    <span :class="measurement.deviceUid != props.deviceUid ? 'blue'
+                    <span :class="!props.showDataStats ? 'orange'
+                                    : measurement.deviceUid != props.deviceUid ? 'blue'
                                 : measurement.lastExport != null && measurement.lastExport != '0000-00-00 00:00:00' ?  'green'
                                 : measurement.lastObservation != null && measurement.lastObservation != '0000-00-00 00:00:00' ?  'randers'
                                 : 'red'">
@@ -216,7 +221,7 @@ function formatDate(isoDate) {
                 <td>{{typekoder[measurement.typekode]}}</td>
 
                 <td>
-                    <div class="flex col">
+                    <div class="flex col" v-if="props.showDataStats">
 
                         <span v-if="measurement.lastObservation == null" class="red small flex">
                             <IconDownload :scale="0.8" /> <span>Ingen import</span>
