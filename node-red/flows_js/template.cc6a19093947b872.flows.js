@@ -53,6 +53,7 @@ LEFT JOIN -- measurementPoints data
     
 ) AS t3
     ON t1.uid = t3.deviceUid
+    OR t1.templateUid = t3.deviceUid
 
 LEFT JOIN -- template measurementPoints data
 (
