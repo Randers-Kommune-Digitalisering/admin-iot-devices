@@ -45,7 +45,7 @@ LEFT JOIN -- measurementPoint data
     SELECT
         deviceUid,
         COUNT(*) as maalepunktCount,
-        MAX(lastExport) as lastExport,
+        MAX(IFNULL(lastExport, 0)) as lastExport,
         controlledProperty,
         enhed as unit
     FROM {{global.metadataTablename.maalepunkt}}
@@ -59,7 +59,7 @@ LEFT JOIN -- template measurementPoints data
     SELECT
         deviceUid,
         COUNT(*) as maalepunktCount,
-        MAX(lastExport) as lastExport
+        MAX(IFNULL(lastExport, 0)) as lastExport
     FROM {{global.metadataTablename.maalepunkt}}
     GROUP BY deviceUid
     
