@@ -22,7 +22,7 @@ const Node = {
 Node.template = `
 SELECT
     t1.*,
-    GREATEST(t3.lastExport, t4.lastExport) as lastExport,
+    GREATEST(IFNULL(t3.lastExport, 0), IFNULL(t4.lastExport, 0)) as lastExport,
     t3.controlledProperty,
     t3.unit,
     t2.templateName,
@@ -45,7 +45,7 @@ LEFT JOIN -- measurementPoint data
     SELECT
         deviceUid,
         COUNT(*) as maalepunktCount,
-        MAX(IFNULL(lastExport, 0)) as lastExport,
+        MAX(lastExport) as lastExport,
         controlledProperty,
         enhed as unit
     FROM {{global.metadataTablename.maalepunkt}}
@@ -59,7 +59,7 @@ LEFT JOIN -- template measurementPoints data
     SELECT
         deviceUid,
         COUNT(*) as maalepunktCount,
-        MAX(IFNULL(lastExport, 0)) as lastExport
+        MAX(lastExport) as lastExport
     FROM {{global.metadataTablename.maalepunkt}}
     GROUP BY deviceUid
     
