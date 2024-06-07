@@ -22,7 +22,10 @@ const Node = {
 Node.template = `
 SELECT
     t1.*,
-    GREATEST(IFNULL(t3.lastExport, 0), IFNULL(t4.lastExport, 0)) as lastExport,
+    IF(
+        GREATEST(IFNULL(t3.lastExport, 0), IFNULL(t4.lastExport, 0)) = 0,
+        null,
+        GREATEST(IFNULL(t3.lastExport, 0), IFNULL(t4.lastExport, 0)) ) as lastExport,
     t3.controlledProperty,
     t3.unit,
     t2.templateName,
