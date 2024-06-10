@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "/* Edit each device */\tpayload ~> | $ | {\t    \t    /* Set each measurement point */\t    \"measurementPoints\": measurementPoints @ $measurement # $index .\t    (\t        /* To an edited version of that measurement point */ \t        $measurement ~> | $ | {\t\t            /* to add artskode = 100 + index */\t            \"artskode\": 100 + $index\t            \t        },[] |\t    )\t} |",
+      "to": "/* Edit each device */\tpayload ~> | $ | {\t    \t    /* Set each measurement point */\t    \"measurementPoints\": measurementPoints @ $measurement # $index .\t    (\t        /* To an edited version of that measurement point */ \t        $measurement ~> | $ | {\t\t            /* to add artskode = 100 + index */\t            \"artskode\": 101 + $index\t            \t        },[] |\t    )\t} |",
       "tot": "jsonata"
     }
   ],
