@@ -44,7 +44,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, co
       }
   
   // Automatic conversion for normal units
-  else
+  if(msg.unit != "puls")
   
       try {
           msg.payload.value = convert(msg.payload.value).from(msg.startUnit).to(msg.unit);

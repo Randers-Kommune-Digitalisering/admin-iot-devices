@@ -66,7 +66,8 @@
 
     function selectUnit()
     {
-        measurementPoint.value.enhed = measurementPoint.value.inputenhed
+        if(measurementPoint.value.inputenhed !== 'puls')
+            measurementPoint.value.enhed = measurementPoint.value.inputenhed
     }
 
     // Define emit for save and cancel
@@ -85,6 +86,31 @@
     {
         console.log(measurementPoint.value)
         setEmit('onSaveEdit')
+    }
+
+    // Helper
+
+    function parsePulseRatio(float)
+    {
+        var _float
+        var lastDigitIsDot = false
+
+        if(float[float.length - 1] == '.' || float[float.length - 1] == ',')
+        {
+            lastDigitIsDot = true
+            float.substring(0, float.length - 1)
+        }
+        
+        _float = parseFloat(float)
+        _float = isNaN(_float) ? 0 : _float
+
+        if(lastDigitIsDot)
+            _float += '.'
+
+        else if(float[float.length - 1] == '0' && (float[float.length - 2] == '.' || float[float.length - 2] == ','))
+            _float += '.0'
+
+        return _float
     }
 
 </script>
@@ -170,17 +196,28 @@
 
             </div>
 
-            <div>
-                <label for="enhed" class="capitalize">
+            <div class="flexinput">
+                <div v-if="measurementPoint.inputenhed == 'puls'" class="unitCount">
+                    <label for="name" class="capitalize">
 
-                    Eksportenhed
+                        Ratio
 
-                </label>
-                <select name="enhed" id="template" v-model="measurementPoint.enhed" required>
-                    <option value="" disabled>Vælg fra liste ..</option>
+                    </label>
+                    <input type="text" placeholder="F.eks. `1`" id="name" v-model="measurementPoint.pulsEnhedRatio"
+                       :focusout="measurementPoint.pulsEnhedRatio = parsePulseRatio(measurementPoint.pulsEnhedRatio)" required>
+                </div>
+                <div class="unitSelect">
+                    <label for="enhed" class="capitalize">
 
-                    <option v-for="enhed in enheder" :value="enhed">{{ enhed }}</option>
-                </select>
+                        Eksportenhed
+
+                    </label>
+                    <select name="enhed" id="template" v-model="measurementPoint.enhed" required>
+                        <option value="" disabled>Vælg fra liste ..</option>
+
+                        <option v-for="enhed in enheder" :value="enhed" :disabled="enhed == 'puls'">{{ enhed }}</option>
+                    </select>
+                </div>
 
             </div>  
 
@@ -220,7 +257,20 @@
     opacity: 0;
     overflow: hidden;
 }
-
+.flexinput
+{
+    display: flex;
+}
+.flexinput > .unitCount
+{
+    max-width: 30%;
+    flex-grow: 0;
+    margin-right: 1rem;
+}
+.flexinput > .unitSelect
+{
+    flex-grow: 5;
+}
 @keyframes fadein
 {
   from {
