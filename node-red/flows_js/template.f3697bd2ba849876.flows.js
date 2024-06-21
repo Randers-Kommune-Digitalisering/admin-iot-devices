@@ -3,7 +3,7 @@ const Node = {
   "type": "template",
   "z": "7b3a886e00fb2ea6",
   "name": "Alter query",
-  "field": "payload",
+  "field": "sql",
   "fieldType": "msg",
   "format": "sql",
   "syntax": "mustache",
@@ -13,7 +13,7 @@ const Node = {
   "y": 260,
   "wires": [
     [
-      "8cc4c582a00c3a27"
+      "a5240416095115c4"
     ]
   ]
 }

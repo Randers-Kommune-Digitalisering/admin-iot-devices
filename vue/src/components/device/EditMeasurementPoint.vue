@@ -95,6 +95,9 @@
         var _float
         var lastDigitIsDot = false
 
+        if(float == null || float == '')
+            return 0
+
         if(float[float.length - 1] == '.' || float[float.length - 1] == ',')
         {
             lastDigitIsDot = true
