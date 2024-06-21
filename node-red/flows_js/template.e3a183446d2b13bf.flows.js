@@ -36,6 +36,7 @@ CREATE TABLE if not exists {{global.metadataTablename.maalepunkt}}
 	-- EnergyKey
 	enhed VARCHAR(255),
 	inputenhed VARCHAR(255),
+	pulsEnhedRatio FLOAT,
 	energiartskode SMALLINT,
 	typekode SMALLINT,
 
