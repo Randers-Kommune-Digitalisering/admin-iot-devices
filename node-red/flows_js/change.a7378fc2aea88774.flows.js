@@ -32,6 +32,13 @@ const Node = {
       "pt": "msg",
       "to": "payload.startUnit",
       "tot": "msg"
+    },
+    {
+      "t": "set",
+      "p": "pulsEnhedRatio",
+      "pt": "msg",
+      "to": "payload.pulsEnhedRatio",
+      "tot": "msg"
     }
   ],
   "action": "",

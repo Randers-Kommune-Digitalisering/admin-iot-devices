@@ -31,8 +31,22 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, co
   // Return if units are the same
   if (msg.startUnit != msg.unit)
   
+  // Manual conversion for pulse
+  if(msg.startUnit == "puls")
+  
       try {
-          // Try converting value
+          msg.payload.value = msg.payload.value * msg.pulsEnhedRatio;
+      }
+      catch(error)
+      {
+          msg.payload.unit = msg.startUnit;
+          msg.error = error;
+      }
+  
+  // Automatic conversion for normal units
+  else
+  
+      try {
           msg.payload.value = convert(msg.payload.value).from(msg.startUnit).to(msg.unit);
       }
       catch (error) {
