@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "[ $distinct( data.observedAt ) @ $timestamp .\t(\t    measurementPoints.name @ $key . \t    {\t        \"observedAt\": $timestamp,\t        $key: $$.data[ observedAt = $timestamp and type = $key ].value\t    }\t    ~> $merge()\t) ]",
+      "to": "[ $distinct( data.observedAt ) @ $timestamp .\t(\t    measurementPoints.name @ $key . \t    (\t        $data :=  $$.data[ observedAt = $timestamp and type = $key ].value;\t    {\t        \"observedAt\": $timestamp,\t        $key: $data ~> $type() = \"array\" ? $data[0] : $data\t    }\t    )\t    ~> $merge()\t) ]",
       "tot": "jsonata"
     }
   ],

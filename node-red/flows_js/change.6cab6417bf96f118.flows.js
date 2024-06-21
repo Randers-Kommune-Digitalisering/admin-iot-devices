@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "whereClause",
       "pt": "msg",
-      "to": "measurementPointUids @ $uid . ( 'uid = ' &  $uid ) ~> $join(\", OR \")",
+      "to": "measurementPointUids @ $uid . ( 'uid = ' &  $uid ) ~> $join(\" OR \")",
       "tot": "jsonata"
     }
   ],

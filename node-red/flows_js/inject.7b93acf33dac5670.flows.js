@@ -1,15 +1,13 @@
 const Node = {
-  "id": "d8abaf119ed595f9",
+  "id": "7b93acf33dac5670",
   "type": "inject",
   "z": "5f6ef472b7d9e1e9",
   "name": "",
   "props": [
     {
-      "p": "payload"
-    },
-    {
-      "p": "topic",
-      "vt": "str"
+      "p": "measurementPointUids",
+      "v": "[4]",
+      "vt": "json"
     }
   ],
   "repeat": "",
@@ -17,13 +15,11 @@ const Node = {
   "once": false,
   "onceDelay": 0.1,
   "topic": "",
-  "payload": "",
-  "payloadType": "date",
-  "x": 380,
-  "y": 100,
+  "x": 150,
+  "y": 580,
   "wires": [
     [
-      "931111495e1492e5"
+      "6cab6417bf96f118"
     ]
   ]
 }

@@ -5,7 +5,7 @@ const Node = {
   "name": "DATABASE ERROR",
   "active": true,
   "tosidebar": true,
-  "console": false,
+  "console": true,
   "tostatus": false,
   "complete": "{\t    \"sql\": sql,\t    \"error\": error.message\t}",
   "targetType": "jsonata",

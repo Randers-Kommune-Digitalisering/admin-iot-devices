@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "( payload.measurementPoint.deviceUid ~> $distinct() ) @ $deviceUid .  (\t{\t        \"device\": {\t        \"uid\": $deviceUid,\t        \"eui\": payload[measurementPoint.deviceUid = $deviceUid][0].measurementPoint.deviceEui,\t        \"name\": payload[measurementPoint.deviceUid = $deviceUid][0].measurementPoint.deviceName,\t        \"installationsnummer\": payload[measurementPoint.deviceUid = $deviceUid][0].measurementPoint.installationsnummer,\t        \"energiartskode\": payload[measurementPoint.deviceUid = $deviceUid][0].measurementPoint.deviceEnergiartskode\t    },\t    \"measurementPoints\": payload.measurementPoint[deviceUid = $deviceUid] ~> | $ | {\t    }, [\"deviceUid\", \"deviceName\", \"deviceEui\", \"dataTablename\", \"deviceEnergiartskode\"] |,\t    \"data\": payload[measurementPoint.deviceUid = $deviceUid].data\t   \t} )",
+      "to": "( payload.measurementPoint.deviceUid ~> $distinct() ) @ $deviceUid .  (\t{\t    \"device\": {\t        \"uid\": $deviceUid,\t        \"eui\": payload[measurementPoint.deviceUid = $deviceUid][0].measurementPoint.deviceEui,\t        \"name\": payload[measurementPoint.deviceUid = $deviceUid][0].measurementPoint.deviceName,\t        \"installationsnummer\": payload[measurementPoint.deviceUid = $deviceUid][0].measurementPoint.installationsnummer,\t        \"energiartskode\": payload[measurementPoint.deviceUid = $deviceUid][0].measurementPoint.deviceEnergiartskode\t    },\t    \"measurementPoints\": payload.measurementPoint[deviceUid = $deviceUid] ~> | $ | {\t    }, [\"deviceUid\", \"deviceName\", \"deviceEui\", \"dataTablename\", \"deviceEnergiartskode\"] |,\t    \"data\": payload[measurementPoint.deviceUid = $deviceUid].data\t   \t} )",
       "tot": "jsonata"
     },
     {
@@ -24,11 +24,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 630,
+  "x": 610,
   "y": 520,
   "wires": [
     [
-      "1d01c50ff17a6674"
+      "150de57f6cfde87a"
     ]
   ]
 }

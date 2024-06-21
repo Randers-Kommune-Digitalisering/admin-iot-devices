@@ -11,6 +11,11 @@ const Node = {
       "to": "{\t    \"measurementPoint\": measurementPoint,\t    \"data\": payload,\t    \"parts\": parts\t}",
       "tot": "jsonata",
       "dc": true
+    },
+    {
+      "t": "delete",
+      "p": "measurementPoint",
+      "pt": "msg"
     }
   ],
   "action": "",

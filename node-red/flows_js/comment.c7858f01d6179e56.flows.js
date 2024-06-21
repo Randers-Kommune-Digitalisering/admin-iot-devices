@@ -4,7 +4,7 @@ const Node = {
   "z": "31eb0ab05cfa21a8",
   "name": "Saml målerdata",
   "info": "",
-  "x": 560,
+  "x": 540,
   "y": 480,
   "wires": []
 }

@@ -1,5 +1,5 @@
 const Node = {
-  "id": "c42b1386c5718d27",
+  "id": "24fa2b5cd5d32569",
   "type": "change",
   "z": "1b1f52cac1d78ec2",
   "name": "Testdata",
@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "{\"deviceUid\":1,\"name\":\"El-import (T1)\",\"inputenhed\":\"W\",\"enhed\":\"kW\",\"energiartskode\":0,\"typekode\":1,\"propertyName\":\"Active_Energy_Import_T1\"}",
+      "to": "{\"deviceUid\":1,\"name\":\"El-import (T2)\",\"inputenhed\":\"W\",\"enhed\":\"kW\",\"energiartskode\":0,\"typekode\":1,\"propertyName\":\"Active_Energy_Import_T2\"}",
       "tot": "json"
     }
   ],
@@ -18,10 +18,10 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 400,
-  "y": 640,
+  "y": 680,
   "wires": [
     [
-      "29e7d43764c0825e"
+      "ec0115a36d7e4595"
     ]
   ]
 }
