@@ -1,28 +1,27 @@
 const Node = {
-  "id": "bf1fd01ce6340a14",
+  "id": "6c0fda8e720a9a4d",
   "type": "template",
   "z": "b05183ed45071965",
   "g": "8a834a469e6df311",
-  "name": "Indsæt profiler",
+  "name": "Slet dekodere",
   "field": "sql",
   "fieldType": "msg",
   "format": "handlebars",
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 680,
-  "y": 2840,
+  "x": 660,
+  "y": 2400,
   "wires": [
     [
-      "926d4969ab7dfb4c"
+      "9c69488e43afb624"
     ]
   ]
 }
 
 Node.template = `
-INSERT INTO {{global.metadataTablename.deviceprofile}}
-    (os2uid, name)
-VALUES {{{values}}}
+DELETE FROM {{global.metadataTablename.decoder}}
+WHERE {{{values}}}
 `
 
 module.exports = Node;

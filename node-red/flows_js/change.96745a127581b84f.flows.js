@@ -1,16 +1,16 @@
 const Node = {
-  "id": "8141e559b50ab054",
+  "id": "96745a127581b84f",
   "type": "change",
   "z": "b05183ed45071965",
   "g": "8a834a469e6df311",
-  "name": "SQL values",
+  "name": "",
   "rules": [
     {
       "t": "set",
-      "p": "values",
+      "p": "sql",
       "pt": "msg",
-      "to": "newItems @ $item . \t(\t    \"(\" & $item.id & \", '\" & $item.name & \"')\"\t)\t ~> $join(\", \")",
-      "tot": "jsonata"
+      "to": "payload",
+      "tot": "msg"
     }
   ],
   "action": "",
@@ -18,11 +18,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 470,
-  "y": 2060,
+  "x": 490,
+  "y": 2260,
   "wires": [
     [
-      "4e2d7268111370eb"
+      "6de2a192df50a9ec"
     ]
   ]
 }

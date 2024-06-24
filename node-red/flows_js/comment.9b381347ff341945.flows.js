@@ -1,12 +1,12 @@
 const Node = {
-  "id": "f0b9296cccd3c617",
+  "id": "9b381347ff341945",
   "type": "comment",
   "z": "b05183ed45071965",
   "g": "8a834a469e6df311",
-  "name": "Payload decoders",
+  "name": "Opdatér eksisterende dekodere",
   "info": "",
-  "x": 130,
-  "y": 1780,
+  "x": 370,
+  "y": 2160,
   "wires": []
 }
 

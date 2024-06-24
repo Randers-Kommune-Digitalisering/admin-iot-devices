@@ -1,12 +1,12 @@
 const Node = {
-  "id": "f0b9296cccd3c617",
+  "id": "7bb2bc48f1154388",
   "type": "comment",
   "z": "b05183ed45071965",
   "g": "8a834a469e6df311",
-  "name": "Payload decoders",
+  "name": "Slet slettede dekodere",
   "info": "",
-  "x": 130,
-  "y": 1780,
+  "x": 340,
+  "y": 2360,
   "wires": []
 }
 

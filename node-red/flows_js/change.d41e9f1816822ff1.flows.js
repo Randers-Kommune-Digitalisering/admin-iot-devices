@@ -1,5 +1,5 @@
 const Node = {
-  "id": "8141e559b50ab054",
+  "id": "d41e9f1816822ff1",
   "type": "change",
   "z": "b05183ed45071965",
   "g": "8a834a469e6df311",
@@ -9,7 +9,7 @@ const Node = {
       "t": "set",
       "p": "values",
       "pt": "msg",
-      "to": "newItems @ $item . \t(\t    \"(\" & $item.id & \", '\" & $item.name & \"')\"\t)\t ~> $join(\", \")",
+      "to": "deletedItems @ $item . \t(\t    \"uid = \" & $item.uid\t)\t ~> $join(\" OR \")",
       "tot": "jsonata"
     }
   ],
@@ -19,10 +19,10 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 470,
-  "y": 2060,
+  "y": 2400,
   "wires": [
     [
-      "4e2d7268111370eb"
+      "6c0fda8e720a9a4d"
     ]
   ]
 }
