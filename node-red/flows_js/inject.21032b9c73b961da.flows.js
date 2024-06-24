@@ -1,11 +1,12 @@
 const Node = {
-  "id": "457dfec70792be51",
+  "id": "21032b9c73b961da",
   "type": "inject",
-  "z": "1b1f52cac1d78ec2",
+  "z": "7b3a886e00fb2ea6",
+  "g": "0f8e00ef379b1e7c",
   "name": "",
   "props": [
     {
-      "p": "testdeveui",
+      "p": "devEui",
       "v": "1234567890987654",
       "vt": "str"
     }
@@ -15,11 +16,11 @@ const Node = {
   "once": false,
   "onceDelay": 0.1,
   "topic": "",
-  "x": 295,
-  "y": 480,
+  "x": 735,
+  "y": 580,
   "wires": [
     [
-      "49cad4d3d05c13ed"
+      "7c50f6e487f4c0fc"
     ]
   ],
   "l": false

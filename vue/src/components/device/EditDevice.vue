@@ -180,6 +180,7 @@
     // Input validity - visual representation of valid/invalid input
 
     const devEuiIsValid = ref([null])
+    const devEuiIsUnique = ref([true])
     const appKeyIsValid = ref([null])
     
     function InputValidityCheck(type, index) // Type == "appKey" or "devEui"
@@ -199,11 +200,23 @@
         {
             deviceList.value[index].devEui = deviceList.value[index].devEui.replace(" " , "").trim()
             devEuiIsValid.value[index] = deviceList.value[index].devEui.length >= 16
-            console.log("devEuiIsValid: " + devEuiIsValid.value[index])
+
+            // If valid, check if it already exists
+            if(devEuiIsValid.value[index] == true)
+            
+                fetch('/api/checkeui/' + deviceList.value[index].devEui, {
+                    method: "GET",
+                    headers: {
+                        "Accept": "application/json"
+                    }
+                })
+                .then(response => response = response.json())
+                .then(value => devEuiIsUnique.value[index] = value)
         }
 
         setEmit("onUpdateInputValidity", ( devEuiIsValid.value.some(x => x == false) == false
-                                        && appKeyIsValid.value.some(x => x == false) == false ))
+                                        && appKeyIsValid.value.some(x => x == false) == false )
+                                        && devEuiIsUnique.value.some(x => x == false) == false ))
 
     }
 
@@ -293,12 +306,15 @@
                     <span :style="devEuiIsValid[index] != null ? devEuiIsValid[index] ? 'display:none' : '' : 'display:none'" class="small red">
                         Mindst 16 tegn
                     </span>
+                    <span :style="devEuiIsUnique[index] != null ? devEuiIsUnique[index] ? 'display:none' : '' : 'display:none'" class="small red">
+                        EUI findes allerede
+                    </span>
 
                 </label>
                 <input  type="text" placeholder="..." :id="'eui_' + index"
                         v-model="device.devEui"
                         :disabled="lockEui"
-                        :class="devEuiIsValid[index] != null ? devEuiIsValid[index] ? 'green' : 'red' : ''"
+                        :class="devEuiIsValid[index] != null ? (devEuiIsValid[index] && devEuiIsUnique[index]) ? 'green' : 'red' : ''"
                         @focusout="InputValidityCheck('devEui', index)"
                         required>
             </div>
