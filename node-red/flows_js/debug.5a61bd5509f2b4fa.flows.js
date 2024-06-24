@@ -1,18 +1,19 @@
 const Node = {
-  "id": "94afe06f227ccbd5",
+  "id": "5a61bd5509f2b4fa",
   "type": "debug",
-  "z": "31eb0ab05cfa21a8",
-  "name": "debug 45",
+  "z": "7b3a886e00fb2ea6",
+  "g": "c73500befce19fee",
+  "name": "Slet målepunkt",
   "active": true,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
-  "complete": "true",
-  "targetType": "full",
+  "complete": "payload",
+  "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1820,
-  "y": 840,
+  "x": 980,
+  "y": 2160,
   "wires": []
 }
 
