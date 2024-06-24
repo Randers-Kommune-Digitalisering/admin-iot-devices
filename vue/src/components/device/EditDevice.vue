@@ -215,8 +215,8 @@
         }
 
         setEmit("onUpdateInputValidity", ( devEuiIsValid.value.some(x => x == false) == false
-                                        && appKeyIsValid.value.some(x => x == false) == false )
-                                        && devEuiIsUnique.value.some(x => x == false) == false ))
+                                        && appKeyIsValid.value.some(x => x == false) == false
+                                        && devEuiIsUnique.value.some(x => x == false) == false))
 
     }
 
