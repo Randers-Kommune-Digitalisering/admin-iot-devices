@@ -3,7 +3,13 @@ const Node = {
   "type": "inject",
   "z": "1b1f52cac1d78ec2",
   "name": "",
-  "props": [],
+  "props": [
+    {
+      "p": "testdeveui",
+      "v": "1234567890987654",
+      "vt": "str"
+    }
+  ],
   "repeat": "",
   "crontab": "",
   "once": false,

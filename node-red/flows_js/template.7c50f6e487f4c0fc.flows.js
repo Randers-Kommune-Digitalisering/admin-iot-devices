@@ -1,26 +1,26 @@
 const Node = {
-  "id": "f3697bd2ba849876",
+  "id": "7c50f6e487f4c0fc",
   "type": "template",
   "z": "7b3a886e00fb2ea6",
-  "name": "Alter query",
+  "g": "0f8e00ef379b1e7c",
+  "name": "Select device (msg.devEui)",
   "field": "sql",
   "fieldType": "msg",
   "format": "sql",
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 1290,
-  "y": 260,
+  "x": 940,
+  "y": 540,
   "wires": [
     [
-      "a5240416095115c4"
+      "dd283ee9761c4b49"
     ]
   ]
 }
 
 Node.template = `
-ALTER TABLE {{global.metadataTablename.maalepunkt}}
-ADD pulsEnhedRatio FLOAT;
+SELECT deviceEui FROM {{global.metadataTablename.maaler}} WHERE deviceEui = '{{devEui}}'
 `
 
 module.exports = Node;

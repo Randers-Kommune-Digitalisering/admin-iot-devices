@@ -144,10 +144,16 @@
     {
         deviceList.value.push( JSON.parse(JSON.stringify (deviceMetadata)) )
         setEmit('onUpdateDeviceCount', deviceList.value.length)
-
+        
         // Disable submit button as new device does not have valid length
         if(isAdditionalDevice)
+        {
             setEmit("onUpdateInputValidity", false)
+
+            devEuiIsValid.value.push(null)
+            appKeyIsValid.value.push(null)
+            devEuiIsUnique.value.push(null)
+        }
     }
 
     function deleteDevice(id) // Deletes device from list
@@ -180,9 +186,10 @@
     // Input validity - visual representation of valid/invalid input
 
     const devEuiIsValid = ref([null])
+    const devEuiIsUnique = ref([true])
     const appKeyIsValid = ref([null])
     
-    function InputValidityCheck(type, index) // Type == "appKey" or "devEui"
+    async function InputValidityCheck(type, index) // Type == "appKey" or "devEui"
     {
         //console.log("This runs: " + type + " - " + index)
         if(deviceList.value[index] == null)
@@ -192,20 +199,48 @@
         {
             deviceList.value[index].appKey = deviceList.value[index].appKey.replace(" " , "").trim()
             appKeyIsValid.value[index] = deviceList.value[index].appKey.length >= 32
-            console.log("appKeyIsValid: " + appKeyIsValid.value[index])
+            updateValidity()
         }
 
         else if(type == "devEui")
         {
             deviceList.value[index].devEui = deviceList.value[index].devEui.replace(" " , "").trim()
             devEuiIsValid.value[index] = deviceList.value[index].devEui.length >= 16
-            console.log("devEuiIsValid: " + devEuiIsValid.value[index])
+
+            // If valid, check if it already exists
+            if(devEuiIsValid.value[index] == true)
+            {
+                fetch('/api/checkeui/' + deviceList.value[index].devEui, {
+                    method: "GET",
+                    headers: {
+                        "Accept": "application/json"
+                    }
+                })
+                .then(response => response.json())
+                .then(value => {
+                    devEuiIsUnique.value[index] = value;
+                    updateValidity();
+                });
+            }
+            else
+            {
+                devEuiIsUnique.value[index] = true;
+                updateValidity();
+            }
         }
-
-        setEmit("onUpdateInputValidity", ( devEuiIsValid.value.some(x => x == false) == false
-                                        && appKeyIsValid.value.some(x => x == false) == false ))
-
     }
+
+    // Check if all inputs are valid and emit to parent
+
+    function updateValidity()
+    {
+        var isValid = ( (devEuiIsValid.value.some(x => x == false || x == null) == false )
+                     && (appKeyIsValid.value.some(x => x == false || x == null) == false )
+                     && (devEuiIsUnique.value.some(x => x == false || x == null) == false ) )
+
+        setEmit("onUpdateInputValidity", isValid)
+    }
+
 
     // Payload decoders
 
@@ -293,12 +328,15 @@
                     <span :style="devEuiIsValid[index] != null ? devEuiIsValid[index] ? 'display:none' : '' : 'display:none'" class="small red">
                         Mindst 16 tegn
                     </span>
+                    <span :style="devEuiIsUnique[index] != null ? devEuiIsUnique[index] ? 'display:none' : '' : 'display:none'" class="small red">
+                        EUI findes allerede
+                    </span>
 
                 </label>
                 <input  type="text" placeholder="..." :id="'eui_' + index"
                         v-model="device.devEui"
                         :disabled="lockEui"
-                        :class="devEuiIsValid[index] != null ? devEuiIsValid[index] ? 'green' : 'red' : ''"
+                        :class="devEuiIsValid[index] != null ? (devEuiIsValid[index] && devEuiIsUnique[index]) ? 'green' : 'red' : ''"
                         @focusout="InputValidityCheck('devEui', index)"
                         required>
             </div>
