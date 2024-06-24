@@ -1,5 +1,7 @@
 <script setup>
     import { ref, watch  } from 'vue'
+    import { useRouter } from 'vue-router'
+    const router = useRouter()
     
     import Content from '@/components/Content.vue'
 
@@ -116,6 +118,38 @@
         return _float
     }
 
+    // Delete measurementpoint
+
+    const awaitingDeletionConfirmation = ref(false)
+    const isDeleting = ref(false)
+
+    function initiateDeletion()
+    {
+        awaitingDeletionConfirmation.value = true
+
+        // Cancel after 3 seconds
+        setTimeout(function (){
+            awaitingDeletionConfirmation.value = false
+        }, 3000)
+
+    }
+
+    function confirmDeletion()
+    {
+        isDeleting.value = true
+
+        fetch('/api/measurements/' + measurementPoint.value.uid, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+            }
+        })
+        .then(response => {
+            //response = response.json()
+            router.go()
+        })
+    }
+
 </script>
 
 <template>
@@ -226,18 +260,35 @@
 
 
             <!-- Save / cancel -->
+            
+            <div class="flexbuttons">
 
-            <button @click="" class="blue">
-                <span>
-                    {{measurementPoint.uid == -1 ? 'Tilføj målepunkt' : 'Gem ændringer'}}
-                </span>
-            </button>
+                <div>
+                    <button @click="" class="blue">
+                        <span>
+                            {{measurementPoint.uid == -1 ? 'Tilføj målepunkt' : 'Gem ændringer'}}
+                        </span>
+                    </button>
 
-            <button type="button" @click="cancelEdit()" class="gray">
-                <span>
-                    Anullér
-                </span>
-            </button>
+                    <button type="button" @click="cancelEdit()" class="gray">
+                        <span>
+                            Anullér
+                        </span>
+                    </button>
+                </div>
+
+                <div>
+                    <button type="button" class="red" v-if="measurementPoint.uid != -1" @click="awaitingDeletionConfirmation ? confirmDeletion() : initiateDeletion()"
+                            :disabled="isDeleting || (device != null && device.deviceCount > 0)">
+                        {{ isDeleting ?
+                            'Vent venligst ...' :
+                            awaitingDeletionConfirmation ?
+                                'Tryk for at bekræfte sletning' :
+                                'Slet målepunkt' }}
+                    </button>
+                </div>
+
+            </div>
 
         </div>
     </div>
@@ -273,6 +324,17 @@
 .flexinput > .unitSelect
 {
     flex-grow: 5;
+}
+.flexbuttons
+{
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+    align-items:flex-end;
+    gap: 1rem;
+}
+.flexbuttons button ~ button {
+    margin-left: 0.8rem;
 }
 @keyframes fadein
 {

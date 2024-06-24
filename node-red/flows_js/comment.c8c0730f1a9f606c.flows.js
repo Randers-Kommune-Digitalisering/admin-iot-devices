@@ -6,7 +6,7 @@ const Node = {
   "name": "Læs device profiler",
   "info": "",
   "x": 830,
-  "y": 2840,
+  "y": 2980,
   "wires": []
 }
 
