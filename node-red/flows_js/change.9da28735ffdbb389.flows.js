@@ -32,6 +32,13 @@ const Node = {
       "pt": "msg",
       "to": "payload.startUnit",
       "tot": "msg"
+    },
+    {
+      "t": "set",
+      "p": "pulsEnhedRatio",
+      "pt": "msg",
+      "to": "payload.pulsEnhedRatio",
+      "tot": "msg"
     }
   ],
   "action": "",
@@ -43,7 +50,8 @@ const Node = {
   "y": 2540,
   "wires": [
     [
-      "d1d2a41e32fa6523"
+      "d1d2a41e32fa6523",
+      "10dc50a304863372"
     ]
   ]
 }

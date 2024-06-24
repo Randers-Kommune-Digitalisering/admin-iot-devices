@@ -25,6 +25,7 @@ SELECT
     t1.propertyName,
     t1.enhed as unit,
     t1.inputenhed as startUnit,
+    t1.pulsEnhedRatio,
     t1.name,
     t2.dataTablename,
     t1.lastExport

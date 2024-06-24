@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "{\"deviceUid\":1,\"name\":\"El-import (T2)\",\"inputenhed\":\"W\",\"enhed\":\"kW\",\"energiartskode\":0,\"typekode\":1,\"propertyName\":\"Active_Energy_Import_T2\"}",
+      "to": "{\"deviceUid\":1,\"name\":\"El-import (T2)\",\"inputenhed\":\"W\",\"enhed\":\"kW\",\"energiartskode\":0,\"typekode\":1,\"propertyName\":\"Active_Energy_Import_T2\",\"pulsEnhedRatio\":1}",
       "tot": "json"
     }
   ],

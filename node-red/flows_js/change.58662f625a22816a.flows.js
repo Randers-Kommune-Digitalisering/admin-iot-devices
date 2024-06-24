@@ -16,7 +16,7 @@ const Node = {
       "p": "deviceUid",
       "pt": "msg",
       "to": "req.params.device",
-      "tot": "str"
+      "tot": "msg"
     }
   ],
   "action": "",
