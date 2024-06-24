@@ -144,10 +144,16 @@
     {
         deviceList.value.push( JSON.parse(JSON.stringify (deviceMetadata)) )
         setEmit('onUpdateDeviceCount', deviceList.value.length)
-
+        
         // Disable submit button as new device does not have valid length
         if(isAdditionalDevice)
+        {
             setEmit("onUpdateInputValidity", false)
+
+            devEuiIsValid.value.push(null)
+            appKeyIsValid.value.push(null)
+            devEuiIsUnique.value.push(null)
+        }
     }
 
     function deleteDevice(id) // Deletes device from list
@@ -228,9 +234,9 @@
 
     function updateValidity()
     {
-        var isValid = ( ( devEuiIsValid.value[0] == true && devEuiIsValid.value.some(x => x == false) == false )
-                     && ( appKeyIsValid.value[0] == true && appKeyIsValid.value.some(x => x == false) == false )
-                     && ( devEuiIsUnique.value[0] == true && devEuiIsUnique.value.some(x => x == false) == false ) )
+        var isValid = ( (devEuiIsValid.value.some(x => x == false || x == null) == false )
+                     && (appKeyIsValid.value.some(x => x == false || x == null) == false )
+                     && (devEuiIsUnique.value.some(x => x == false || x == null) == false ) )
 
         setEmit("onUpdateInputValidity", isValid)
     }
