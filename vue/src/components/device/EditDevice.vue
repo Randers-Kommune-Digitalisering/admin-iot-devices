@@ -213,7 +213,6 @@
                 .then(response => response.json())
                 .then(value => {
                     devEuiIsUnique.value[index] = value;
-                    console.log("Set value: " + devEuiIsUnique.value[index]);
                     updateValidity();
                 });
             }
@@ -229,14 +228,10 @@
 
     function updateValidity()
     {
-        console.log("Update validity")
-
-
         var isValid = ( ( devEuiIsValid.value[0] == true && devEuiIsValid.value.some(x => x == false) == false )
                      && ( appKeyIsValid.value[0] == true && appKeyIsValid.value.some(x => x == false) == false )
                      && ( devEuiIsUnique.value[0] == true && devEuiIsUnique.value.some(x => x == false) == false ) )
 
-        console.log(isValid)
         setEmit("onUpdateInputValidity", isValid)
     }
 
