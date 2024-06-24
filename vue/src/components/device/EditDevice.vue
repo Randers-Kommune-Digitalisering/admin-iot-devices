@@ -183,7 +183,7 @@
     const devEuiIsUnique = ref([true])
     const appKeyIsValid = ref([null])
     
-    function InputValidityCheck(type, index) // Type == "appKey" or "devEui"
+    async function InputValidityCheck(type, index) // Type == "appKey" or "devEui"
     {
         //console.log("This runs: " + type + " - " + index)
         if(deviceList.value[index] == null)
@@ -193,7 +193,7 @@
         {
             deviceList.value[index].appKey = deviceList.value[index].appKey.replace(" " , "").trim()
             appKeyIsValid.value[index] = deviceList.value[index].appKey.length >= 32
-            console.log("appKeyIsValid: " + appKeyIsValid.value[index])
+            updateValidity()
         }
 
         else if(type == "devEui")
@@ -203,22 +203,43 @@
 
             // If valid, check if it already exists
             if(devEuiIsValid.value[index] == true)
-            
+            {
                 fetch('/api/checkeui/' + deviceList.value[index].devEui, {
                     method: "GET",
                     headers: {
                         "Accept": "application/json"
                     }
                 })
-                .then(response => response = response.json())
-                .then(value => devEuiIsUnique.value[index] = value)
+                .then(response => response.json())
+                .then(value => {
+                    devEuiIsUnique.value[index] = value;
+                    console.log("Set value: " + devEuiIsUnique.value[index]);
+                    updateValidity();
+                });
+            }
+            else
+            {
+                devEuiIsUnique.value[index] = true;
+                updateValidity();
+            }
         }
-
-        setEmit("onUpdateInputValidity", ( devEuiIsValid.value.some(x => x == false) == false
-                                        && appKeyIsValid.value.some(x => x == false) == false
-                                        && devEuiIsUnique.value.some(x => x == false) == false))
-
     }
+
+    // Check if all inputs are valid and emit to parent
+
+    function updateValidity()
+    {
+        console.log("Update validity")
+
+
+        var isValid = ( ( devEuiIsValid.value[0] == true && devEuiIsValid.value.some(x => x == false) == false )
+                     && ( appKeyIsValid.value[0] == true && appKeyIsValid.value.some(x => x == false) == false )
+                     && ( devEuiIsUnique.value[0] == true && devEuiIsUnique.value.some(x => x == false) == false ) )
+
+        console.log(isValid)
+        setEmit("onUpdateInputValidity", isValid)
+    }
+
 
     // Payload decoders
 
