@@ -31,6 +31,11 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, co
   // Return if units are the same
   if (msg.startUnit != msg.unit)
   
+      console.log("Value is: " + msg.payload.value);
+  console.log("StartUnit is: " + msg.startUnit);
+  console.log("pulsEnhedRatio is: " + msg.pulsEnhedRatio);
+  
+  
   // Manual conversion for pulse
   if(msg.startUnit == "puls")
   
