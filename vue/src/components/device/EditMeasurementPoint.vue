@@ -33,8 +33,6 @@
         if(measurementPoint.value.deviceUid == -1)
             measurementPoint.value.deviceUid = props.deviceUid
 
-        console.log("This runs")
-
         // Fetch data dimensions
         dataDimensions.value = fetchDimensions()
         
