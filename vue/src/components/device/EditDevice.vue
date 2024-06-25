@@ -158,23 +158,19 @@
 
     function deleteDevice(id) // Deletes device from list
     {
-        // Slice device list to remove single item
-
-        const firstPart = deviceList.value.slice(0, id)
-        const lastPart = deviceList.value.slice(id+1)
-        deviceList.value = firstPart.concat(lastPart)
-
+        // Remove item at index "id" from deviceList
+        deviceList.value.splice(id, 1);
+    
         // Emit new count
-        setEmit('onUpdateDeviceCount', deviceList.value.length)
+        setEmit('onUpdateDeviceCount', deviceList.value.length);
+    
+        // Remove item at index "id" from devEuiIsValid, appKeyIsValid and devEuiIsUnique
+        devEuiIsValid.value.splice(id, 1);
+        appKeyIsValid.value.splice(id, 1);
+        devEuiIsUnique.value.splice(id, 1);
 
-        // Update input value validity
-        const devEui_firstPart = devEuiIsValid.value.slice(0, id)
-        const devEui_lastPart = devEuiIsValid.value.slice(id+1)
-        devEuiIsValid.value = devEui_firstPart.concat(devEui_lastPart)
-        const appKey_firstPart = appKeyIsValid.value.slice(0, id)
-        const appKey_lastPart = appKeyIsValid.value.slice(id+1)
-        appKeyIsValid.value = appKey_firstPart.concat(appKey_lastPart)
-
+        // Update validity
+        updateValidity()
     }
 
     function cleanDeviceList() // Removes all devices but index 0
