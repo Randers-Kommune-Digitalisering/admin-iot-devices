@@ -7,10 +7,18 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "payload",
+      "p": "response",
       "pt": "msg",
       "to": "{\t   \"fieldCount\": payload.fieldCount ~> $sum(),\t   \"affectedRows\": payload.affectedRows ~> $sum(),\t   \"insertId\": payload.insertId,\t   \"serverStatus\": payload[0].serverStatus,\t   \"warningCount\": payload.warningCount ~> $sum(),\t   \"message\": payload.message ~> $distinct(),\t   \"protocol41\": false in payload.protocol41 ? false : true,\t   \"changedRows\": payload.changedRows ~> $sum()\t}",
       "tot": "jsonata"
+    },
+    {
+      "t": "set",
+      "p": "templateUid",
+      "pt": "msg",
+      "to": "requestBody[0].templateUid",
+      "tot": "msg",
+      "dc": true
     }
   ],
   "action": "",
@@ -18,12 +26,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1340,
+  "x": 1120,
   "y": 880,
   "wires": [
     [
-      "78d77be38d59d605",
-      "f4fe574b19518461"
+      "7ef4e75e6630208b"
     ]
   ]
 }
