@@ -25,7 +25,7 @@ SET
 	name = '{{payload.name}}',
 	inputenhed = '{{payload.inputenhed}}',
 	enhed = '{{payload.enhed}}',
-	pulsEnhedRatio = '{{payload.pulsEnhedRatio}}',
+	pulsEnhedRatio = {{payload.pulsEnhedRatio}},
 	energiartskode = {{payload.energiartskode}},
 	typekode = {{payload.typekode}},
 	propertyName = '{{payload.propertyName}}',

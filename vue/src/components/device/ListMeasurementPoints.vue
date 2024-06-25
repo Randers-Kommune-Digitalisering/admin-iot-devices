@@ -61,6 +61,15 @@ function formatDate(isoDate) {
 
     watch( () => props.measurementPoints, (current, previous) => {
 
+        // Ensure ratio value exists
+        if(current != null)
+            current.forEach( measurement =>
+            {
+                if(measurement.pulsEnhedRatio == null)
+                        measurement.pulsEnhedRatio = 1
+            })
+
+        // Update values
         measurementPoints.value = current
 
     })
