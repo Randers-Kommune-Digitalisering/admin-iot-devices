@@ -114,8 +114,8 @@ Applikationen udstiller et API som overholder NGSIv2 standarder for IoT-metadata
 | [POST] devices/*{{uid}}*/measurements | Registrer nyt målepunkt på enhed med uid *{{uid}}* |
 | [PUT] measurements/*{{uid}}* | Redigér målepunkt med uid *{{uid}}* |
 | [GET] measurements/*{{uid}}* | Metadata for målepunkt med uid *{{uid}}* |
-| [GET] measurements/*{{uid}}*/now | Seneste datapunkt for målepunkt med uid *{{uid}}* |
-| [GET] measurements/*{{uid}}*/data | Datapunkter siden seneste dataeksport *{{uid}}* |
+| [GET] devices/*{{d_uid}}*/measurements/*{{uid}}*/now | Seneste datapunkt for målepunkt med uid *{{uid}}* |
+| [GET] devices/*{{d_uid}}*/measurements/*{{uid}}*/data | Datapunkter siden seneste dataeksport for målepunkt med uid *{{uid}}* |
 | [GET] decoders | Payload decoders |
 | [GET] deviceprofiles| Enhedsprofiler |
 
