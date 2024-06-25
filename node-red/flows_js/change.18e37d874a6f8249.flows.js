@@ -11,6 +11,14 @@ const Node = {
       "pt": "msg",
       "to": "payload @ $device # $index .\t{\t    \"appKey\": $device.appKey,\t    \"devEui\": $device.devEui,\t    \"installationsnummer\": $device.installationsnummer,\t\t    \"name\": $$.payload[0].name & \" \" & ($index+1),\t    \"energiart\": $$.payload[0].energiart,\t    \"deviceProfile\": $$.payload[0].deviceProfile,\t    \"payloadDecoder\": $$.payload[0].payloadDecoder,\t\t    \"isTemplate\": false,\t    \"templateUid\": $$.payload[0].templateUid\t}",
       "tot": "jsonata"
+    },
+    {
+      "t": "set",
+      "p": "requestBody",
+      "pt": "msg",
+      "to": "payload",
+      "tot": "msg",
+      "dc": true
     }
   ],
   "action": "",
