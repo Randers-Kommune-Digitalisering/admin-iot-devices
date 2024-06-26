@@ -86,6 +86,7 @@
 
     function confirmDeletion()
     {
+        const isTemplate = device.value.isTemplate
         isDeleting.value = true
 
         fetch('/api/devices/' + route.params.uid, {
@@ -96,7 +97,7 @@
         })
         .then(response => {
             //response = response.json()
-            router.push('/devices')
+            router.push(isTemplate ? '/templates' : '/devices')
         })
     }
 
