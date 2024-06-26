@@ -23,6 +23,6 @@
 
     <h2>Skabeloner</h2>
 
-    <ListDevices :devices="devices" />
+    <ListDevices :devices="devices" :templateMode="true" />
 
 </template>
