@@ -12,6 +12,7 @@
 
     fetch('/api/devices')
         .then(response => response = response.json())
+        .then(value => value = value.filter(x => x.isTemplate == false))
         .then(value => devices.value = value)
         //.then(value => console.log(value))
 

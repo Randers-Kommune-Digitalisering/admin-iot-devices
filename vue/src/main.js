@@ -8,7 +8,6 @@ import App from './App.vue'
 // Import af views til routing
 
 import Start from '@/views/Start.vue'
-import NewDevice from '@/views/NewDevice.vue'
 import Devices from '@/views/Devices.vue'
 import Device from '@/views/Device.vue'
 import Templates from '@/views/Templates.vue'
@@ -22,12 +21,7 @@ const router = createRouter({
             path: '/', 
             name: "Start",
             component: Start
-        },        
-        {
-            path: '/newdevice', 
-            name: "Ny måler",
-            component: NewDevice
-        },        
+        },
         {
             path: '/devices', 
             name: "Målere",
@@ -40,7 +34,7 @@ const router = createRouter({
         },
         {
             path: '/templates', 
-            name: "Templates",
+            name: "Skabeloner",
             component: Templates
         }
     ]

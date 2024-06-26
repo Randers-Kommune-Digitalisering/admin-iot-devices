@@ -15,8 +15,8 @@
             "url": "/devices"
         },
         {
-            "title": "Ny måler",
-            "url": "/newdevice"
+            "title": "Skabeloner",
+            "url": "/templates"
         }
     ])
 
