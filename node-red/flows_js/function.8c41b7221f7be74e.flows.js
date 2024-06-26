@@ -34,9 +34,6 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, co
   // For each data point
   for(let i = 0; i < msg.payload.length; i++)
   {
-      console.log("I: " + i);
-      console.log("Pre val: " + msg.payload[i].value);
-      
       // Manual conversion for pulse
       if (msg.startUnit == "puls")
   

@@ -45,6 +45,11 @@
         header: {
             type: String,
             required: false
+        },
+        templateMode: {
+            type: Boolean,
+            required: false,
+            default: false
         }
     })
 
@@ -92,7 +97,7 @@
         <template #heading>{{header}}</template>
 
         <span class="paragraph">
-            Herunder kan de registrerede målere ses, rettes og slettes.
+            Herunder kan {{props.templateMode ? 'målerskabeloner' : 'registrerede målere'}} ses, rettes og slettes.
         </span>
         
         <table>
@@ -102,7 +107,7 @@
                     <th>Målernavn</th>
                     <th>Energiart</th>
                     <th>Målepunkter</th>
-                    <th>Seneste data</th>
+                    <th v-if="props.templateMode == false">Seneste data</th>
                     <!--th></th-->
                 </tr>
             </thead>
@@ -131,7 +136,7 @@
                     {{device.maalepunktCount}}
                 </td>
 
-                <td>
+                <td v-if="props.templateMode == false">
                     <div class="flex col" v-if="!device.isTemplate">
 
                         <span v-if="device.lastObservation == null || device.lastObservation == '0000-00-00 00:00:00'" class="red small flex">
