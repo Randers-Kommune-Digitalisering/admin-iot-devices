@@ -80,6 +80,12 @@
     const setEmit = (_emi, value) => {
         emit(_emi, value)
     }
+    
+    // Input validity - visual representation of valid/invalid input
+
+    const devEuiIsValid = ref([null])
+    const devEuiIsUnique = ref([true])
+    const appKeyIsValid = ref([null])
 
     // Watch when editing device data
 
@@ -96,9 +102,11 @@
         deviceList.value[0].isTemplate = current.isTemplate
         deviceList.value[0].installationsnummer = current.installationsnummer
         isTemplate.value = current.isTemplate == 1 ? true : false
-        
-        //console.log("Loaded device:")
-        //console.log(current)
+
+        // Update validity
+        devEuiIsValid.value = [true]
+        appKeyIsValid.value = [true]
+        devEuiIsUnique.value = [true]
     })
 
     // Watch when toggling template
@@ -177,13 +185,16 @@
     {
         deviceList.value = [deviceList.value[0]]
         setEmit('onUpdateDeviceCount', deviceList.value.length)
+
+        // Update validity
+        devEuiIsValid.value = [devEuiIsValid.value[0]]
+        appKeyIsValid.value = [appKeyIsValid.value[0]]
+        devEuiIsUnique.value = [devEuiIsUnique.value[0]]
+        
+        updateValidity()
     }
 
-    // Input validity - visual representation of valid/invalid input
-
-    const devEuiIsValid = ref([null])
-    const devEuiIsUnique = ref([true])
-    const appKeyIsValid = ref([null])
+    // Check if an input field value is valid
     
     async function InputValidityCheck(type, index) // Type == "appKey" or "devEui"
     {
@@ -215,13 +226,13 @@
                 .then(response => response.json())
                 .then(value => {
                     devEuiIsUnique.value[index] = value;
-                    updateValidity();
+                    updateValidity()
                 });
             }
             else
             {
                 devEuiIsUnique.value[index] = true;
-                updateValidity();
+                updateValidity()
             }
         }
     }
