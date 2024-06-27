@@ -10,7 +10,7 @@ const Node = {
       "p": "deviceProfileIdentifier",
       "pt": "msg",
       "to": "OS2IOT_DEVICEPROFILE_IDENTIFIER",
-      "tot": "str"
+      "tot": "env"
     },
     {
       "t": "set",
