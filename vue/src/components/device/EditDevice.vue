@@ -80,7 +80,7 @@
     const setEmit = (_emi, value) => {
         emit(_emi, value)
     }
-    
+
     // Input validity - visual representation of valid/invalid input
 
     const devEuiIsValid = ref([null])
@@ -107,12 +107,20 @@
         devEuiIsValid.value = [true]
         appKeyIsValid.value = [true]
         devEuiIsUnique.value = [true]
+        updateValidity()
     })
 
     // Watch when toggling template
 
     watch( () => isTemplate.value, (current, previous) => {
         deviceList.value[0].isTemplate = current
+
+        if(current == true)
+        {
+            deviceList.value[0].devEui = null
+            deviceList.value[0].appKey = null
+        }
+
         setEmit('onUpdateSetAsTemplate', current)
     })
 
