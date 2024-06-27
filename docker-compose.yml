@@ -33,6 +33,7 @@ services:
       OS2IOT_DATATARGET_ID: 207
       OS2IOT_SERVICEPROFILE_ID: 142325a4-7941-42c8-bb02-63013a9e4748
       OS2IOT_DECODER_IDENTIFIER: Randers [2]
+      OS2IOT_DEVICEPROFILE_IDENTIFIER: Randers
       OS2IOT_API_URL: https://os2iot-backend.prod.os2iot.kmd.dk/api/v1/
       OS2IOT_API_KEY: ${OS2IOT_API_KEY}
 
