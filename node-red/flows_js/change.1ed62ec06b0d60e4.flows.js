@@ -16,29 +16,29 @@ const Node = {
       "t": "set",
       "p": "os2config.url",
       "pt": "global",
-      "to": "https://os2iot-backend.prod.os2iot.kmd.dk/api/v1/",
-      "tot": "str"
+      "to": "OS2IOT_API_URL",
+      "tot": "env"
     },
     {
       "t": "set",
       "p": "os2config.appId",
       "pt": "global",
-      "to": "167",
-      "tot": "num"
+      "to": "OS2IOT_APP_ID",
+      "tot": "env"
     },
     {
       "t": "set",
       "p": "os2config.dataTargetId",
       "pt": "global",
-      "to": "207",
-      "tot": "num"
+      "to": "OS2IOT_DATATARGET_ID",
+      "tot": "env"
     },
     {
       "t": "set",
       "p": "os2config.serviceProfileId",
       "pt": "global",
-      "to": "142325a4-7941-42c8-bb02-63013a9e4748",
-      "tot": "str"
+      "to": "OS2IOT_SERVICEPROFILE_ID",
+      "tot": "env"
     }
   ],
   "action": "",

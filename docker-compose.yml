@@ -12,20 +12,35 @@ services:
       - "3000:3000"
 
     environment:
+      DEV_ENV: "true"
+      TZ: "Europe/Copenhagen"
+
+      # DB
       DB_USER: root
       DB_PASS: pass
       DB_HOST: db
       DB_PORT: 3306
       DB_DATABASE: demo
-      DEV_ENV: "true"
-      TZ: "Europe/Copenhagen"
-      # Fortæller node-red editoren hvilket flow.json den skal åbne og arbejde i
-      FLOWS: "/data/flows.json"
+
+      # SFTP
+      SFTP_URL: sftp.randers.dk
+      SFTP_PORT: 22
       SFTP_USER: ${SFTP_USER}
       SFTP_PASS: ${SFTP_PASS}
+      
+      # OS2 IoT
+      OS2IOT_APP_ID: 167
+      OS2IOT_DATATARGET_ID: 207
+      OS2IOT_SERVICEPROFILE_ID: 142325a4-7941-42c8-bb02-63013a9e4748
+      OS2IOT_API_URL: https://os2iot-backend.prod.os2iot.kmd.dk/api/v1/
+      OS2IOT_API_KEY: ${OS2IOT_API_KEY}
+
+      # Back-end
       BACKEND_URL: http://localhost:1880
       VUE_PORT: 3000
-      OS2IOT_API_KEY: ${OS2IOT_API_KEY}
+
+      # Fortæller node-red editoren hvilket flow.json den skal åbne og arbejde i
+      FLOWS: "/data/flows.json"
 
     # Bind mount fra codespace til den kørende containers /data.
     # Det gør det muligt at comitte ændringer i flows til repositoriet
