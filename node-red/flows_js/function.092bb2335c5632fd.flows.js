@@ -29,7 +29,15 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, co
   msg.payload = Array.isArray(msg.payload) ? msg.payload[0] : msg.payload;
   
   // Return if units are the same
-  if (msg.startUnit != msg.unit)
+  if (msg.startUnit == msg.unit)
+      return msg;
+  
+  // Return if units are non-convertible
+  if (msg.startUnit == "%" || msg.startUnit == "pcs")
+  {
+      msg.payload.unit = msg.startUnit;
+      return msg;
+  }
   
   // Manual conversion for pulse
   if(msg.startUnit == "puls")
@@ -44,7 +52,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, co
       }
   
   // Automatic conversion for normal units
-  if(msg.unit != "puls")
+  else
   
       try {
           msg.payload.value = convert(msg.payload.value).from(msg.startUnit).to(msg.unit);
