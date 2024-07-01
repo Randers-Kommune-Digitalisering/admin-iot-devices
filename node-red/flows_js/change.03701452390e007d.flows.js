@@ -8,15 +8,8 @@ const Node = {
       "t": "set",
       "p": "host",
       "pt": "msg",
-      "to": "sftp.randers.dk",
-      "tot": "str"
-    },
-    {
-      "t": "set",
-      "p": "user",
-      "pt": "msg",
-      "to": "Energimonitorering",
-      "tot": "str"
+      "to": "SFTP_URL",
+      "tot": "env"
     },
     {
       "t": "set",
@@ -36,8 +29,8 @@ const Node = {
       "t": "set",
       "p": "port",
       "pt": "msg",
-      "to": "22",
-      "tot": "num"
+      "to": "SFTP_PORT",
+      "tot": "env"
     },
     {
       "t": "set",

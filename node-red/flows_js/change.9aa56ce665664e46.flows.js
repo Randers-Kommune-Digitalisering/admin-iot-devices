@@ -7,9 +7,16 @@ const Node = {
   "rules": [
     {
       "t": "set",
+      "p": "decoderIdentifier",
+      "pt": "msg",
+      "to": "OS2IOT_DECODER_IDENTIFIER",
+      "tot": "env"
+    },
+    {
+      "t": "set",
       "p": "decoders",
       "pt": "msg",
-      "to": "payload.data[name ~> $contains(\"Randers [2]\")]",
+      "to": "payload.data[name ~> $contains($$.decoderIdentifier)]",
       "tot": "jsonata"
     },
     {

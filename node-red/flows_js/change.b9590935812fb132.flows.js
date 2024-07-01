@@ -7,9 +7,16 @@ const Node = {
   "rules": [
     {
       "t": "set",
+      "p": "deviceProfileIdentifier",
+      "pt": "msg",
+      "to": "OS2IOT_DEVICEPROFILE_IDENTIFIER",
+      "tot": "env"
+    },
+    {
+      "t": "set",
       "p": "profiles",
       "pt": "msg",
-      "to": "payload.result[name ~> $contains(\"Randers\")]",
+      "to": "payload.result[name ~> $contains($$.deviceProfileIdentifier)]",
       "tot": "jsonata"
     },
     {
