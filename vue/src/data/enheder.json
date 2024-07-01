@@ -127,5 +127,10 @@
     "arcsec",
     
     "lx",
-    "ft-cd"
+    "ft-cd",
+
+    "ppm",
+    "ppb",
+    "ppt",
+    "ppq"
 ]
