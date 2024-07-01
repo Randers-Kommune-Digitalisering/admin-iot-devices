@@ -1,17 +1,16 @@
 const Node = {
-  "id": "aa7dda6c92a1c175",
+  "id": "1fdc3e1161be1eda",
   "type": "debug",
   "z": "31eb0ab05cfa21a8",
-  "name": "CSV",
+  "name": "debug 46",
   "active": true,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
-  "complete": "payload",
-  "targetType": "msg",
+  "complete": "false",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1450,
+  "x": 790,
   "y": 480,
   "wires": []
 }

@@ -26,7 +26,8 @@ SELECT
     t2.dataTablename,
     t2.installationsnummer,
     t2.deviceEui,
-    t2.deviceEnergiartskode
+    IFNULL(t3.deviceEnergiartskode, t2.deviceEnergiartskode) as energiartskode
+    
 FROM
     {{global.metadataTablename.maalepunkt}} AS t1
     
@@ -47,6 +48,16 @@ LEFT JOIN
 ) AS t2 
     ON t1.deviceUid = t2.templateUid
     OR t1.deviceUid = t2.deviceUid
+
+LEFT JOIN
+(
+    SELECT
+        uid,
+        energiartskode as deviceEnergiartskode
+    FROM
+        {{global.metadataTablename.maaler}}
+) as t3
+    ON t2.templateUid = t3.uid
 
 WHERE isTemplate = 0
 `
