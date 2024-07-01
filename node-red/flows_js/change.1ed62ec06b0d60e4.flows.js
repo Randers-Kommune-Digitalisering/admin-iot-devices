@@ -28,10 +28,24 @@ const Node = {
     },
     {
       "t": "set",
+      "p": "os2config.appId",
+      "pt": "global",
+      "to": "$globalContext(\"os2config\").appId ~> $number()",
+      "tot": "jsonata"
+    },
+    {
+      "t": "set",
       "p": "os2config.dataTargetId",
       "pt": "global",
       "to": "OS2IOT_DATATARGET_ID",
       "tot": "env"
+    },
+    {
+      "t": "set",
+      "p": "os2config.dataTargetId",
+      "pt": "global",
+      "to": "$globalContext(\"os2config\").dataTargetId~> $number()",
+      "tot": "jsonata"
     },
     {
       "t": "set",
