@@ -8,6 +8,7 @@
     import energiarter from '@/data/energiarter.json'
     import typekoder from '@/data/typekoder.json'
     import enheder from '@/data/enheder.json'
+    import eksportEnheder from '@/data/enheder-eksport.json'
 
     const props = defineProps({
         measurementPoint: {
@@ -62,12 +63,14 @@
 
     dataDimensions.value = fetchDimensions()
 
-    // Set export unit to the same as newly selected input unit
+    // Set export unit to the same as newly selected input unit if possible
 
     function selectUnit()
     {
-        if(measurementPoint.value.inputenhed !== 'puls')
+        if(eksportEnheder.includes(measurementPoint.value.inputenhed))
             measurementPoint.value.enhed = measurementPoint.value.inputenhed
+        else
+            measurementPoint.value.enhed = ""
     }
 
     // Define emit for save and cancel
@@ -250,7 +253,7 @@
                     <select name="enhed" id="template" v-model="measurementPoint.enhed" required>
                         <option value="" disabled>Vælg fra liste ..</option>
 
-                        <option v-for="enhed in enheder" :value="enhed" :disabled="enhed == 'puls'">{{ enhed }}</option>
+                        <option v-for="enhed in eksportEnheder" :value="enhed">{{ enhed }}</option>
                     </select>
                 </div>
 

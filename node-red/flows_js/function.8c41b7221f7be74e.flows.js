@@ -29,7 +29,14 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, co
   msg.payload = Array.isArray(msg.payload) ? msg.payload : [msg.payload];
   
   // Return if units are the same
-  if (msg.startUnit != msg.unit)
+  if (msg.startUnit == msg.unit)
+      return msg;
+  
+  // Return if units are non-convertible
+  if (msg.startUnit == "%" || msg.startUnit == "pcs") {
+      msg.unit = msg.startUnit;
+      return msg;
+  }
   
   // For each data point
   for(let i = 0; i < msg.payload.length; i++)
@@ -46,7 +53,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util, co
           }
   
       // Automatic conversion for normal units
-      else if (msg.startUnit != msg.unit)
+      else
   
           try {
               msg.payload[i].value = convert(msg.payload[i].value).from(msg.startUnit).to(msg.unit);
