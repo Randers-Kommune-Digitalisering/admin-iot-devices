@@ -2,23 +2,13 @@
     "puls",
 
     "Wh",
-    "MWh",
     "kWh",
+    "MWh",
     "GWh",
     "W",
-    "MW",
     "kW",
+    "MW",
     "GW",
-    "VAR",
-    "mVAR",
-    "kVAR",
-    "MVAR",
-    "GVAR",
-    "VA",
-    "mVA",
-    "kVA",
-    "MVA",
-    "GVA",
 
     "V",
     "mV",
@@ -26,6 +16,16 @@
     "A",
     "mA",
     "kA",
+    
+    "VAR",
+    "mVAR",
+    "kVAR",
+    "MVAR",
+    "GVAR",
+    "VA",
+    "kVA",
+    "MVA",
+    "GVA",
 
     "ml",
     "cl",
@@ -135,6 +135,6 @@
     "ppq",
 
     "%",
-    
+
     "pcs"
 ]
