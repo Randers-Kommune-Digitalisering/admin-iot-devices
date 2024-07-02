@@ -28,6 +28,7 @@ SELECT
         GREATEST(IFNULL(t3.lastExport, 0), IFNULL(t4.lastExport, 0)) ) as lastExport,
     t3.controlledProperty,
     t3.unit,
+    IFNULL(t2.energiartskode, t1.energiartskode) as energiartskode,
     t2.templateName,
     IFNULL(t3.maalepunktCount, 0) + IFNULL(t4.maalepunktCount, 0) as maalepunktCount
 FROM
@@ -37,7 +38,8 @@ LEFT JOIN -- template data
 (
     SELECT
         uid as templateUid,
-        name as templateName
+        name as templateName,
+        energiartskode
     FROM {{global.metadataTablename.maaler}}
     
 ) AS t2 
