@@ -87,6 +87,10 @@
     const devEuiIsUnique = ref([true])
     const appKeyIsValid = ref([null])
 
+    const devEuiIsEdited = ref([false])
+    const appKeyIsEdited = ref([false])
+
+
     // Watch when editing device data
 
     watch( () =>  props.device, (current, previous) => {
@@ -108,6 +112,9 @@
         appKeyIsValid.value = [true]
         devEuiIsUnique.value = [true]
         updateValidity()
+
+        devEuiIsEdited.value = [false]
+        appKeyIsEdited.value = [false]
     })
 
     // Watch when toggling template
@@ -175,15 +182,15 @@
     function deleteDevice(id) // Deletes device from list
     {
         // Remove item at index "id" from deviceList
-        deviceList.value.splice(id, 1);
+        deviceList.value.splice(id, 1)
     
         // Emit new count
         setEmit('onUpdateDeviceCount', deviceList.value.length);
     
         // Remove item at index "id" from devEuiIsValid, appKeyIsValid and devEuiIsUnique
-        devEuiIsValid.value.splice(id, 1);
-        appKeyIsValid.value.splice(id, 1);
-        devEuiIsUnique.value.splice(id, 1);
+        devEuiIsValid.value.splice(id, 1)
+        appKeyIsValid.value.splice(id, 1)
+        devEuiIsUnique.value.splice(id, 1)
 
         // Update validity
         updateValidity()
@@ -212,6 +219,7 @@
 
         if(type == "appKey")
         {
+            appKeyIsEdited.value[index] = true
             deviceList.value[index].appKey = deviceList.value[index].appKey.replace(" " , "").trim()
             appKeyIsValid.value[index] = deviceList.value[index].appKey.length >= 32
             updateValidity()
@@ -219,6 +227,7 @@
 
         else if(type == "devEui")
         {
+            devEuiIsEdited.value[index] = true
             deviceList.value[index].devEui = deviceList.value[index].devEui.replace(" " , "").trim()
             devEuiIsValid.value[index] = deviceList.value[index].devEui.length >= 16
 
@@ -351,7 +360,7 @@
                 <input  type="text" placeholder="..." :id="'eui_' + index"
                         v-model="device.devEui"
                         :disabled="lockEui"
-                        :class="devEuiIsValid[index] != null ? (devEuiIsValid[index] && devEuiIsUnique[index]) ? 'green' : 'red' : ''"
+                        :class="devEuiIsValid[index] != null && devEuiIsEdited[index] ? (devEuiIsValid[index] && devEuiIsUnique[index]) ? 'green' : 'red' : ''"
                         @focusout="InputValidityCheck('devEui', index)"
                         required>
             </div>
@@ -369,7 +378,7 @@
                 </label>
                 <input  type="text" placeholder="..." :id="'app_' + index"
                         v-model="device.appKey"
-                        :class="appKeyIsValid[index] != null ? appKeyIsValid[index] ? 'green' : 'red' : ''"
+                        :class="appKeyIsValid[index] != null && appKeyIsEdited[index] ? appKeyIsValid[index] ? 'green' : 'red' : ''"
                         @focusout="InputValidityCheck('appKey', index)"
                         required>
             </div>
