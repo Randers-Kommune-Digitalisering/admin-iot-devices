@@ -250,7 +250,7 @@
                         Eksportenhed
 
                     </label>
-                    <select name="enhed" id="template" v-model="measurementPoint.enhed" required>
+                    <select name="enhed" id="template" v-model="measurementPoint.enhed" :disabled="measurementPoint.inputenhed == 'pcs' || measurementPoint.inputenhed == '%'" required>
                         <option value="" disabled>Vælg fra liste ..</option>
 
                         <option v-for="enhed in eksportEnheder" :value="enhed">{{ enhed }}</option>
