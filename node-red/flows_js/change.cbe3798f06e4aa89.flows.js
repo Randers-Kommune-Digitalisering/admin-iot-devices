@@ -43,13 +43,6 @@ const Node = {
     },
     {
       "t": "set",
-      "p": "measurementPoint.deviceEnergiartskode",
-      "pt": "msg",
-      "to": "($globalContext(\"controlledProperties\"))[energyTypeUid = $$.measurementPoint.deviceEnergiartskode].energyKeyUid",
-      "tot": "jsonata"
-    },
-    {
-      "t": "set",
       "p": "measurementPoint.typekode",
       "pt": "msg",
       "to": "($globalContext(\"dataTypes\"))[typeUid = $$.measurementPoint.typekode].energyKeyUid",
