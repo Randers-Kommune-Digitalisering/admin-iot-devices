@@ -221,7 +221,7 @@
         {
             appKeyIsEdited.value[index] = true
             deviceList.value[index].appKey = deviceList.value[index].appKey.replace(" " , "").trim()
-            appKeyIsValid.value[index] = deviceList.value[index].appKey.length >= 32
+            appKeyIsValid.value[index] = deviceList.value[index].appKey.length <= 32
             updateValidity()
         }
 
@@ -372,7 +372,7 @@
                     OTAA Application Key
 
                     <span :style="appKeyIsValid[index] != null ? appKeyIsValid[index] ? 'display:none' : '' : 'display:none'" class="small red">
-                        Mindst 32 tegn
+                        Maks 32 tegn
                     </span>
 
                 </label>
