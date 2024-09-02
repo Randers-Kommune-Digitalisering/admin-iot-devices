@@ -5,13 +5,13 @@ const Node = {
   "name": "Datapunkter til eksport",
   "active": false,
   "tosidebar": true,
-  "console": true,
+  "console": false,
   "tostatus": false,
   "complete": "payload",
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 990,
+  "x": 980,
   "y": 380,
   "wires": []
 }

@@ -3,16 +3,16 @@ const Node = {
   "type": "debug",
   "z": "31eb0ab05cfa21a8",
   "name": "CSV",
-  "active": false,
+  "active": true,
   "tosidebar": true,
-  "console": false,
+  "console": true,
   "tostatus": false,
-  "complete": "payload",
-  "targetType": "msg",
+  "complete": "(payload ~> $substring(0, 200))\t& \"\\n\\n ... \\n\\n\" &\t(payload ~> $substring((payload ~> $length())-200, 200))",
+  "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1450,
-  "y": 480,
+  "x": 1140,
+  "y": 900,
   "wires": []
 }
 

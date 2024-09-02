@@ -21,7 +21,8 @@ const Node = {
   "y": 860,
   "wires": [
     [
-      "2a271cc4d8c9e079"
+      "2a271cc4d8c9e079",
+      "aa7dda6c92a1c175"
     ]
   ],
   "icon": "node-red/parser-csv.svg"

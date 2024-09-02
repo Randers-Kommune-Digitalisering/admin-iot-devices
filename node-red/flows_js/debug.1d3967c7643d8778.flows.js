@@ -3,7 +3,7 @@ const Node = {
   "type": "debug",
   "z": "31eb0ab05cfa21a8",
   "name": "Målepunkt til eksport",
-  "active": false,
+  "active": true,
   "tosidebar": true,
   "console": true,
   "tostatus": false,
