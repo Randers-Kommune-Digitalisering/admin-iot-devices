@@ -5,14 +5,14 @@ const Node = {
   "name": "Ingen data for måler",
   "active": true,
   "tosidebar": true,
-  "console": false,
+  "console": true,
   "tostatus": false,
   "complete": "device",
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
   "x": 1060,
-  "y": 600,
+  "y": 620,
   "wires": []
 }
 

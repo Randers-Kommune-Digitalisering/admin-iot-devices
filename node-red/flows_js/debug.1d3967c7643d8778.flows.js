@@ -5,7 +5,7 @@ const Node = {
   "name": "Målepunkt til eksport",
   "active": false,
   "tosidebar": true,
-  "console": false,
+  "console": true,
   "tostatus": false,
   "complete": "measurementPoint",
   "targetType": "msg",

@@ -1,9 +1,9 @@
 const Node = {
-  "id": "28e095d114d603f6",
+  "id": "01403e20a7bc5def",
   "type": "debug",
   "z": "31eb0ab05cfa21a8",
-  "name": "Måler til eksport",
-  "active": false,
+  "name": "DB Response (CSV)",
+  "active": true,
   "tosidebar": true,
   "console": true,
   "tostatus": false,
@@ -11,8 +11,8 @@ const Node = {
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 230,
-  "y": 700,
+  "x": 900,
+  "y": 140,
   "wires": []
 }
 
