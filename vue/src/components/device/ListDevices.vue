@@ -12,7 +12,7 @@
 </script-->
 <script setup>
     import { ref, watch } from 'vue'
-    import { useRouter } from 'vue-router'
+    import { useRouter, useRoute } from 'vue-router'
 
     import Content from '@/components/Content.vue'
     import DecodeHtml from '@/components/utility/DecodeHtml.vue'
@@ -26,6 +26,7 @@
     import energiarter from '@/data/energiarter.json'
 
     const router = useRouter()
+    const route = useRoute()
 
     const props = defineProps({
         devices: {
@@ -60,6 +61,7 @@
     watch( () => props.devices, (current, previous) => {
 
         devices.value = current
+        handleReturnFrom()
         //console.log("New device-list retrieved:")
         //console.log(current)
 
@@ -80,11 +82,47 @@
             devices.value = devices.value.filter(item => item.maalepunktCount > 0)
     }*/
 
+    // Return from
+
+    const returnFromParam = route.query.returnfrom
+    const returningFrom = ref(returnFromParam ?? null)
+
+    function handleReturnFrom()
+    {
+        if(returnFromParam)
+        {
+            returningFrom.value = returnFromParam
+            scrollTo(returningFrom.value)
+        }
+    }
+
+    function scrollTo(id)
+    {
+        setTimeout(function()
+        {
+            const item = document.getElementById(id)
+            let rect = item.getBoundingClientRect()
+            let calc = rect.top - (window.innerHeight - 240)
+
+            window.scrollBy({
+                left: 0, top: calc, 
+                behavior: "smooth" })
+        
+        }, 50) // Wait ms before scrolling
+    }
+
     // Click
 
     function clickDevice(uid)
     {
-        router.push('/devices/' + uid)
+        router.replace({ 
+            path: route.path,
+            query: { returnfrom: uid }
+        })
+        .then(
+        () => {
+            router.push('/devices/' + uid)
+        })
     }
 
 </script>
@@ -112,7 +150,12 @@
                 </tr>
             </thead>
 
-            <tr v-if="devices != null && devices.length > 0" v-for="device in devices" @click="clickDevice(device.uid)" :class="!allowClick ? 'nohover' : ''">
+            <!-- Each device table row -->
+            <tr v-if="devices != null && devices.length > 0"
+                v-for="device in devices"
+                @click="clickDevice(device.uid)"
+                :id="device.uid"
+                :class="!allowClick ? 'nohover' : ''">
 
                 <td class="deviceTypeTd"> <!-- Device type (if based on template or not) -->
                     <span :class="device.isTemplate ? 'orange' : 'randers'" v-if="device.templateUid == -1">
@@ -166,7 +209,6 @@
 </template>
 
 <style scoped>
-
     th
     {
         font-size: 0.8em;
@@ -207,7 +249,6 @@
             display:block;
             height: 100%;
         }
-
     
     .deviceTypeTd
     {
@@ -218,7 +259,6 @@
     {
         transform: translateY(0.3rem);
     }
-
 
     tr:not(.nohover):hover
     {

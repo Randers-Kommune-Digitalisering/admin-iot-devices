@@ -25,6 +25,9 @@ SELECT
 FROM {{global.metadataTablename.maalepunkt}} as t1
 
 WHERE {{{whereClause}}}
+
+ORDER BY 
+    name
 `
 
 module.exports = Node;
