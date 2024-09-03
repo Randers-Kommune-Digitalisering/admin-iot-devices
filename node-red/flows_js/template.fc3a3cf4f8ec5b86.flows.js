@@ -59,7 +59,7 @@ LEFT JOIN
 ) as t3
     ON t2.templateUid = t3.uid
 
-WHERE isTemplate = 0 AND t2.deviceUid <> 44
+WHERE isTemplate = 0
 `
 
 module.exports = Node;
