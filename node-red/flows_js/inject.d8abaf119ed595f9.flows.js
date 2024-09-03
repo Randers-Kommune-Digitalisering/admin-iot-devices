@@ -14,12 +14,12 @@ const Node = {
   ],
   "repeat": "",
   "crontab": "",
-  "once": false,
-  "onceDelay": 0.1,
+  "once": true,
+  "onceDelay": "8",
   "topic": "",
   "payload": "",
   "payloadType": "date",
-  "x": 380,
+  "x": 390,
   "y": 100,
   "wires": [
     [
