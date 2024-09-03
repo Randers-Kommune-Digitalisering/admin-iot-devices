@@ -36,7 +36,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "{\t   \"filename\": \"demo/data.csv\",\t   \"filedata\": payload \t}",
+      "to": "{\t   \"filename\": \"Energimonitorering/data.csv\",\t   \"filedata\": payload \t}",
       "tot": "jsonata"
     }
   ],
