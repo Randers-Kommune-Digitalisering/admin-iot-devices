@@ -42,7 +42,8 @@ const Node = {
   "y": 660,
   "wires": [
     [
-      "af18d9805a5b1c07"
+      "af18d9805a5b1c07",
+      "574796a62a626ffd"
     ]
   ],
   "icon": "node-red/file.svg"

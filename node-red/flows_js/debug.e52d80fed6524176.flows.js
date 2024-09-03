@@ -5,13 +5,13 @@ const Node = {
   "name": "Export CSV",
   "active": true,
   "tosidebar": true,
-  "console": false,
+  "console": true,
   "tostatus": false,
   "complete": "payload ~> $exists() ? (payload = '' ? \"CSV blank\" : \"CSV written\") : \"CSV error\"",
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
-  "x": 730,
+  "x": 740,
   "y": 140,
   "wires": []
 }

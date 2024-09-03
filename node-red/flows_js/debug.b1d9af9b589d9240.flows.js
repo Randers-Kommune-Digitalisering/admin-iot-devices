@@ -1,18 +1,18 @@
 const Node = {
-  "id": "01403e20a7bc5def",
+  "id": "b1d9af9b589d9240",
   "type": "debug",
   "z": "31eb0ab05cfa21a8",
-  "name": "DB Response (CSV)",
+  "name": "1",
   "active": true,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
-  "complete": "payload",
-  "targetType": "msg",
+  "complete": "1",
+  "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
-  "x": 900,
-  "y": 140,
+  "x": 450,
+  "y": 720,
   "wires": []
 }
 
