@@ -296,7 +296,7 @@ module.exports = {
                  */
                 level: "info",
                 /** Whether or not to include metric events in the log output */
-                metrics: false,
+                metrics: true,
                 /** Whether or not to include audit events in the log output */
                 audit: false
             }
