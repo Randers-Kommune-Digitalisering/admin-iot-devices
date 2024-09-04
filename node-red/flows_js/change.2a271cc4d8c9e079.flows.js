@@ -5,6 +5,13 @@ const Node = {
   "name": "Rens msg obj",
   "rules": [
     {
+      "t": "set",
+      "p": "deviceEui",
+      "pt": "msg",
+      "to": "device.eui",
+      "tot": "msg"
+    },
+    {
       "t": "delete",
       "p": "device",
       "pt": "msg"
@@ -12,11 +19,6 @@ const Node = {
     {
       "t": "delete",
       "p": "data",
-      "pt": "msg"
-    },
-    {
-      "t": "delete",
-      "p": "measurementPoints",
       "pt": "msg"
     },
     {
@@ -33,6 +35,11 @@ const Node = {
       "t": "delete",
       "p": "body",
       "pt": "msg"
+    },
+    {
+      "t": "delete",
+      "p": "parts",
+      "pt": "msg"
     }
   ],
   "action": "",
@@ -40,11 +47,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1160,
-  "y": 860,
+  "x": 940,
+  "y": 1240,
   "wires": [
     [
-      "d3e0e0c6a452cf5a"
+      "d96d050933c53a54"
     ]
   ]
 }

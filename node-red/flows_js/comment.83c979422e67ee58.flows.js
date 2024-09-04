@@ -4,8 +4,8 @@ const Node = {
   "z": "31eb0ab05cfa21a8",
   "name": "Konvertér",
   "info": "",
-  "x": 460,
-  "y": 800,
+  "x": 200,
+  "y": 1180,
   "wires": []
 }
 

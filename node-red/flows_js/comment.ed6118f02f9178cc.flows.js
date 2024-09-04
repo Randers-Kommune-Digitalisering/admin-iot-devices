@@ -4,8 +4,8 @@ const Node = {
   "z": "5f6ef472b7d9e1e9",
   "name": "Create prometheus metric",
   "info": "",
-  "x": 990,
-  "y": 300,
+  "x": 1070,
+  "y": 380,
   "wires": []
 }
 

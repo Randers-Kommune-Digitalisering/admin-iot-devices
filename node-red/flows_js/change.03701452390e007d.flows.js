@@ -31,13 +31,6 @@ const Node = {
       "pt": "msg",
       "to": "SFTP_PORT",
       "tot": "env"
-    },
-    {
-      "t": "set",
-      "p": "payload",
-      "pt": "msg",
-      "to": "{\t   \"filename\": \"Energimonitorering/data.csv\",\t   \"filedata\": payload \t}",
-      "tot": "jsonata"
     }
   ],
   "action": "",
@@ -45,11 +38,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 350,
-  "y": 300,
+  "x": 250,
+  "y": 380,
   "wires": [
     [
-      "4298c7311190156b"
+      "0a672221a456b458"
     ]
   ]
 }

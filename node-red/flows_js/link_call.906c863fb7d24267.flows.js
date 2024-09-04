@@ -2,13 +2,13 @@ const Node = {
   "id": "906c863fb7d24267",
   "type": "link call",
   "z": "31eb0ab05cfa21a8",
-  "name": "",
+  "name": "Get data",
   "links": [
     "6277bd80c50f09d4"
   ],
   "linkType": "static",
   "timeout": "30",
-  "x": 830,
+  "x": 840,
   "y": 340,
   "wires": [
     [

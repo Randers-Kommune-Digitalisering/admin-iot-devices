@@ -2,6 +2,7 @@ const Node = {
   "id": "3029f9c0524696a4",
   "type": "function",
   "z": "31eb0ab05cfa21a8",
+  "d": true,
   "name": "Sæt msg",
   "func": "",
   "outputs": 1,
@@ -9,13 +10,10 @@ const Node = {
   "initialize": "",
   "finalize": "",
   "libs": [],
-  "x": 380,
-  "y": 660,
+  "x": 560,
+  "y": 700,
   "wires": [
-    [
-      "dfeb676634b2fb1e",
-      "b1d9af9b589d9240"
-    ]
+    []
   ]
 }
 

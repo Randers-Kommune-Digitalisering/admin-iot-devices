@@ -1,18 +1,18 @@
 const Node = {
-  "id": "357f2ffa8cd477ac",
+  "id": "d7d39358eee8e172",
   "type": "debug",
-  "z": "31eb0ab05cfa21a8",
-  "name": "6",
+  "z": "5f6ef472b7d9e1e9",
+  "name": "Filename",
   "active": true,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
-  "complete": "6",
-  "targetType": "jsonata",
+  "complete": "payload.filename",
+  "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 630,
-  "y": 940,
+  "x": 580,
+  "y": 340,
   "wires": []
 }
 

@@ -6,7 +6,12 @@ const Node = {
   "props": [
     {
       "p": "datasetSize",
-      "v": "300",
+      "v": "150",
+      "vt": "num"
+    },
+    {
+      "p": "startId",
+      "v": "1",
       "vt": "num"
     },
     {

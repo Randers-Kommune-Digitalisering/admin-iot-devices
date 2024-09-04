@@ -7,12 +7,12 @@ const Node = {
   "tosidebar": true,
   "console": true,
   "tostatus": false,
-  "complete": "$merge([payload.device,\t{\t    \"dataCount\": payload.data ~> $count()\t}])",
+  "complete": "$merge([payload.device,\t{\t    \"measurementPoints\": payload.measurementPoints.name,\t    \"dataCount\": payload.data ~> $count()\t}])",
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
   "x": 230,
-  "y": 700,
+  "y": 720,
   "wires": []
 }
 

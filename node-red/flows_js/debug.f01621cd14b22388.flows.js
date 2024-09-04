@@ -3,16 +3,16 @@ const Node = {
   "type": "debug",
   "z": "31eb0ab05cfa21a8",
   "name": "Ingen data for måler",
-  "active": true,
+  "active": false,
   "tosidebar": true,
-  "console": true,
+  "console": false,
   "tostatus": false,
   "complete": "device",
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1060,
-  "y": 620,
+  "x": 1200,
+  "y": 680,
   "wires": []
 }
 
