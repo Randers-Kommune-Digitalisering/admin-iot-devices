@@ -60,7 +60,6 @@ LEFT JOIN
     ON t2.templateUid = t3.uid
 
 WHERE isTemplate = false
-AND t2.deviceUid <> 44
 `
 
 module.exports = Node;
