@@ -9,11 +9,11 @@ const Node = {
   "initialize": "",
   "finalize": "",
   "libs": [],
-  "x": 750,
-  "y": 660,
+  "x": 950,
+  "y": 700,
   "wires": [
     [
-      "eadbee3188bc80e3"
+      "55f02e216d08ceca"
     ]
   ]
 }
@@ -38,6 +38,7 @@ Node.func = async function (node, msg, RED, context, flow, global, env, util) {
   };
   
   // Refactor data
+  msg.payload = Array.isArray ? msg.payload : [msg.payload];
   msg.payload = transformArray(msg.payload);
   delete msg.data;
   
