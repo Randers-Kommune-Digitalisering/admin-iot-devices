@@ -27,6 +27,7 @@ FROM
 WHERE
     type = '{{payload.propertyName}}'
 AND observedAt > '{{payload.lastExport}}'
+LIMIT 5000
 `
 
 module.exports = Node;
