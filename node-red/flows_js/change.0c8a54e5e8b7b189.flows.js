@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "(\t    $maxDataCount := 1000;\t    $dataCount := payload ~> $count();\t    $splitDatasets := ($dataCount / $maxDataCount) ~> $ceil();\t\t    $dataObject := function($index) {\t        (\t            payload # $id . (\t                $id >= $index * $maxDataCount and\t                $id < ($index +1) * $maxDataCount ? $$.payload[$id]\t            )\t        )\t    };\t    \t    $splitDatasets > 1 ?\t        $map([0..($splitDatasets - 1)], function($v, $i, $a) { $dataObject($i) })\t    : payload\t)",
+      "to": "(\t    $maxDataCount := 500;\t    $dataCount := payload ~> $count();\t    $splitDatasets := ($dataCount / $maxDataCount) ~> $ceil();\t\t    $dataObject := function($index) {\t        (\t            payload # $id . (\t                $id >= $index * $maxDataCount and\t                $id < ($index +1) * $maxDataCount ? $$.payload[$id]\t            )\t        )\t    };\t    \t    $splitDatasets > 1 ?\t        $map([0..($splitDatasets - 1)], function($v, $i, $a) { $dataObject($i) })\t    : payload\t)",
       "tot": "jsonata"
     }
   ],
