@@ -6,7 +6,7 @@ const Node = {
   "props": [
     {
       "p": "datasetSize",
-      "v": "150",
+      "v": "8",
       "vt": "num"
     },
     {

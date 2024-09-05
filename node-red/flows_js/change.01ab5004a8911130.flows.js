@@ -2,6 +2,7 @@ const Node = {
   "id": "01ab5004a8911130",
   "type": "change",
   "z": "31eb0ab05cfa21a8",
+  "d": true,
   "name": "Refactoring \\n af data",
   "rules": [
     {
@@ -23,11 +24,9 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 750,
-  "y": 660,
+  "y": 600,
   "wires": [
-    [
-      "eadbee3188bc80e3"
-    ]
+    []
   ]
 }
 

@@ -6,7 +6,7 @@ const Node = {
   "props": [],
   "repeat": "",
   "crontab": "",
-  "once": false,
+  "once": true,
   "onceDelay": "8",
   "topic": "",
   "x": 390,
