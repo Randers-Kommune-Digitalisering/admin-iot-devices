@@ -22,7 +22,22 @@ const Node = {
 Node.template = `
 SELECT
     t1.*,
-    t3.lastExport,
+    IF(
+    GREATEST(
+        IFNULL(UNIX_TIMESTAMP(t3.lastExport), 0),
+        IFNULL(UNIX_TIMESTAMP(t4.lastExport), 0)
+    ) = 0,
+    null,
+    DATE_FORMAT(
+        FROM_UNIXTIME(
+            GREATEST(
+                IFNULL(UNIX_TIMESTAMP(t3.lastExport), 0),
+                IFNULL(UNIX_TIMESTAMP(t4.lastExport), 0)
+            )
+        ),
+        '%Y-%m-%dT%H:%i:%s.000Z'
+        )
+    ) as lastExport,
     t3.controlledProperty,
     t3.unit,
     IFNULL(t2.energiartskode, t1.energiartskode) as energiartskode,
@@ -32,7 +47,7 @@ SELECT
 FROM
     {{global.metadataTablename.maaler}} AS t1
     
-LEFT JOIN -- template data
+LEFT JOIN -- t2 template data
 (
     SELECT
         uid as templateUid,
@@ -43,7 +58,7 @@ LEFT JOIN -- template data
 ) AS t2 
     ON t1.templateUid = t2.templateUid
 
-LEFT JOIN -- measurementPoint data
+LEFT JOIN -- t3 measurementPoint data
 (
     SELECT
         deviceUid,
@@ -57,10 +72,11 @@ LEFT JOIN -- measurementPoint data
 ) AS t3
     ON t1.uid = t3.deviceUid
 
-LEFT JOIN -- template measurementPoints data
+LEFT JOIN -- t4 template measurementPoints data
 (
     SELECT
         deviceUid,
+        lastExport,
         COUNT(*) as maalepunktCount
     FROM {{global.metadataTablename.maalepunkt}}
     GROUP BY deviceUid
@@ -68,7 +84,7 @@ LEFT JOIN -- template measurementPoints data
 ) AS t4
     ON t1.templateUid = t4.deviceUid
     
-LEFT JOIN -- count of devices based on template
+LEFT JOIN -- t5 count of devices based on template
 (
     SELECT
         templateUid,

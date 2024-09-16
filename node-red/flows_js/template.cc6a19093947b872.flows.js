@@ -23,10 +23,21 @@ Node.template = `
 SELECT
     t1.*,
     IF(
-        GREATEST(IFNULL(t3.lastExport, 0), IFNULL(t4.lastExport, 0)) = 0,
+        GREATEST(
+            IFNULL(UNIX_TIMESTAMP(t3.lastExport), 0),
+            IFNULL(UNIX_TIMESTAMP(t4.lastExport), 0)
+        ) = 0,
         null,
-        DATE_FORMAT(CONVERT_TZ(GREATEST(IFNULL(t3.lastExport, 0), IFNULL(t4.lastExport, 0)), @@session.time_zone, '+00:00'), '%Y-%m-%dT%H:%i:%s.000Z') ) as lastExport,
-    t4.lastExport as lastExportTest,
+        DATE_FORMAT(
+            FROM_UNIXTIME(
+                GREATEST(
+                    IFNULL(UNIX_TIMESTAMP(t3.lastExport), 0),
+                    IFNULL(UNIX_TIMESTAMP(t4.lastExport), 0)
+                )
+            ),
+            '%Y-%m-%dT%H:%i:%s.000Z'
+        )
+    ) as lastExport,
     t3.controlledProperty,
     t3.unit,
     IFNULL(t2.energiartskode, t1.energiartskode) as energiartskode,
