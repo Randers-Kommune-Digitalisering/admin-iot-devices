@@ -17,11 +17,12 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 950,
-  "y": 860,
+  "x": 730,
+  "y": 1240,
   "wires": [
     [
-      "2a271cc4d8c9e079"
+      "2a271cc4d8c9e079",
+      "aa7dda6c92a1c175"
     ]
   ],
   "icon": "node-red/parser-csv.svg"

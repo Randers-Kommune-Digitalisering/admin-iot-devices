@@ -4,8 +4,8 @@ const Node = {
   "z": "5f6ef472b7d9e1e9",
   "name": "Upload CSV",
   "info": "",
-  "x": 370,
-  "y": 260,
+  "x": 270,
+  "y": 340,
   "wires": []
 }
 

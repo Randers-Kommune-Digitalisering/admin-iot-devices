@@ -4,7 +4,7 @@ const Node = {
   "z": "5f6ef472b7d9e1e9",
   "name": "Skab CSV",
   "info": "",
-  "x": 360,
+  "x": 380,
   "y": 140,
   "wires": []
 }

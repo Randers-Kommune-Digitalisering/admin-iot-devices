@@ -11,6 +11,7 @@ import Start from '@/views/Start.vue'
 import Devices from '@/views/Devices.vue'
 import Device from '@/views/Device.vue'
 import Templates from '@/views/Templates.vue'
+import SQL from '@/views/Sql.vue'
 
 // Opsætning af URL routing
 
@@ -36,6 +37,11 @@ const router = createRouter({
             path: '/templates', 
             name: "Skabeloner",
             component: Templates
+        },
+        {
+            path: '/sql', 
+            name: "SQL",
+            component: SQL
         }
     ]
 })

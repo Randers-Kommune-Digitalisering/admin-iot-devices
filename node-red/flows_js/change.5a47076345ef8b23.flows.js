@@ -1,14 +1,14 @@
 const Node = {
-  "id": "b92bfd9513669a1b",
+  "id": "5a47076345ef8b23",
   "type": "change",
   "z": "31eb0ab05cfa21a8",
-  "name": "measurementPointUids",
+  "name": "Rens measurementPoints",
   "rules": [
     {
       "t": "set",
-      "p": "measurementPointUids",
-      "pt": "flow",
-      "to": "$flowContext(\"measurementPointUids\") ~> $append(measurementPoints.uid)",
+      "p": "measurementPoints",
+      "pt": "msg",
+      "to": "measurementPoints[name in ($$.payload ~> $keys())]",
       "tot": "jsonata"
     }
   ],
@@ -17,11 +17,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 250,
-  "y": 860,
+  "x": 810,
+  "y": 840,
   "wires": [
     [
-      "6c319c813ef0163d"
+      "09eb3dddb876f470"
     ]
   ]
 }

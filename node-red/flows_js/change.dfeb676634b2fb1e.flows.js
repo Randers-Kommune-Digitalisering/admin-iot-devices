@@ -38,11 +38,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 600,
-  "y": 660,
+  "x": 260,
+  "y": 1060,
   "wires": [
     [
-      "af18d9805a5b1c07"
+      "dccd8c30b6698110"
     ]
   ],
   "icon": "node-red/file.svg"

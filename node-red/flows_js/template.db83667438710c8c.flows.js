@@ -2,6 +2,7 @@ const Node = {
   "id": "db83667438710c8c",
   "type": "template",
   "z": "1b1f52cac1d78ec2",
+  "d": true,
   "name": "DROP",
   "field": "sql",
   "fieldType": "msg",

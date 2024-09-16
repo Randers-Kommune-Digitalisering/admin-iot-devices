@@ -2,7 +2,6 @@ const Node = {
   "id": "f20827aaf69807c0",
   "type": "debug",
   "z": "b05183ed45071965",
-  "g": "7dd315ad06879230",
   "name": "Added os2uid",
   "active": true,
   "tosidebar": true,
@@ -12,8 +11,8 @@ const Node = {
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1680,
-  "y": 520,
+  "x": 1540,
+  "y": 780,
   "wires": []
 }
 

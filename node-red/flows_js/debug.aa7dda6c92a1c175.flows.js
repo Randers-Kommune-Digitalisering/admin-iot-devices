@@ -5,14 +5,14 @@ const Node = {
   "name": "CSV",
   "active": true,
   "tosidebar": true,
-  "console": false,
+  "console": true,
   "tostatus": false,
-  "complete": "payload",
-  "targetType": "msg",
+  "complete": "(payload ~> $substring(0, 200))\t& \"\\n\\n ... \\n\\n\" &\t(payload ~> $substring((payload ~> $length())-200, 200))",
+  "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1450,
-  "y": 480,
+  "x": 920,
+  "y": 1280,
   "wires": []
 }
 

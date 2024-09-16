@@ -1,16 +1,16 @@
 const Node = {
-  "id": "0dc3a6520af8cc91",
+  "id": "f048aabd310d493f",
   "type": "change",
-  "z": "31eb0ab05cfa21a8",
+  "z": "7b3a886e00fb2ea6",
+  "g": "fd0a50bf34a65f8b",
   "name": "",
   "rules": [
     {
       "t": "set",
-      "p": "measurementPointUids",
+      "p": "sql",
       "pt": "msg",
-      "to": "measurementPointUids",
-      "tot": "flow",
-      "dc": true
+      "to": "payload",
+      "tot": "msg"
     }
   ],
   "action": "",
@@ -18,11 +18,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1530,
-  "y": 840,
+  "x": 210,
+  "y": 3200,
   "wires": [
     [
-      "12c6fa7580dd9c5e"
+      "c59a6c63d1e24401"
     ]
   ]
 }

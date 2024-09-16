@@ -3,16 +3,16 @@ const Node = {
   "type": "debug",
   "z": "31eb0ab05cfa21a8",
   "name": "Måler til eksport",
-  "active": false,
+  "active": true,
   "tosidebar": true,
-  "console": false,
+  "console": true,
   "tostatus": false,
-  "complete": "payload",
-  "targetType": "msg",
+  "complete": "$merge([payload.device,\t{\t    \"measurementPoints\": payload.measurementPoints.name,\t    \"dataCount\": payload.data ~> $count()\t}])",
+  "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
-  "x": 220,
-  "y": 700,
+  "x": 230,
+  "y": 720,
   "wires": []
 }
 

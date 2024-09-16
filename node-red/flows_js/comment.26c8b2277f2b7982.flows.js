@@ -6,7 +6,7 @@ const Node = {
   "name": "Opdater os2uid",
   "info": "",
   "x": 1680,
-  "y": 360,
+  "y": 380,
   "wires": []
 }
 
