@@ -22,6 +22,10 @@ const Node = {
 Node.template = `
 SELECT
     t1.*,
+    DATE_FORMAT(t1.dateCreated, '%Y-%m-%dT%H:%i:%s.000Z') as dateCreated,
+    DATE_FORMAT(t1.dateFirstUsed, '%Y-%m-%dT%H:%i:%s.000Z') as dateFirstUsed,
+    DATE_FORMAT(t1.dateModified, '%Y-%m-%dT%H:%i:%s.000Z') as dateModified,
+    DATE_FORMAT(t1.lastObservation , '%Y-%m-%dT%H:%i:%s.000Z') as lastObservation,
     IF(
         GREATEST(
             IFNULL(UNIX_TIMESTAMP(t3.lastExport), 0),
