@@ -2,6 +2,7 @@ const Node = {
   "id": "8f32174591048747",
   "type": "template",
   "z": "7b3a886e00fb2ea6",
+  "d": true,
   "g": "0f8e00ef379b1e7c",
   "name": "Select template",
   "field": "sql",
@@ -10,7 +11,7 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 1020,
+  "x": 1140,
   "y": 680,
   "wires": [
     [

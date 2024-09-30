@@ -14,15 +14,18 @@
     import { ref, watch } from 'vue'
     import { useRouter, useRoute } from 'vue-router'
 
+    // Components
     import Content from '@/components/Content.vue'
     import DecodeHtml from '@/components/utility/DecodeHtml.vue'
     import DateFormatter from '@/components/utility/DateFormatter.vue'
 
+    // Icons
     import IconUniqueDevice from '@/components/icons/IconEditItem.vue'
     import IconTemplateDevice from '@/components/icons/IconDuplicateItem.vue'
     import IconUpload from '@/components/icons/IconUpload.vue'
     import IconDownload from '@/components/icons/IconDownload.vue'
     
+    // Data
     import energiarter from '@/data/energiarter.json'
 
     const router = useRouter()
@@ -33,7 +36,7 @@
             type: Array,
             required: false
         },
-        filter: {
+        filter: { /* Not implemented */
             type: String,
             required: false,
             //default: filters.NoFilter

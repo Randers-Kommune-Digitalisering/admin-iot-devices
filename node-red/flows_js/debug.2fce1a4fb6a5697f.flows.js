@@ -1,9 +1,9 @@
 const Node = {
-  "id": "c8b145b82d5b2b61",
+  "id": "2fce1a4fb6a5697f",
   "type": "debug",
   "z": "7b3a886e00fb2ea6",
-  "g": "04f711f641c46bbb",
-  "name": "Template",
+  "g": "0f8e00ef379b1e7c",
+  "name": "Måler",
   "active": true,
   "tosidebar": true,
   "console": false,
@@ -12,8 +12,8 @@ const Node = {
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 940,
-  "y": 1360,
+  "x": 510,
+  "y": 740,
   "wires": []
 }
 

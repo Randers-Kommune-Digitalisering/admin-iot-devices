@@ -2,6 +2,7 @@ const Node = {
   "id": "7eee9907953236eb",
   "type": "change",
   "z": "7b3a886e00fb2ea6",
+  "d": true,
   "g": "0f8e00ef379b1e7c",
   "name": "Overskriv med \\n data fra device",
   "rules": [
@@ -18,7 +19,7 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1400,
+  "x": 1520,
   "y": 680,
   "wires": [
     [
