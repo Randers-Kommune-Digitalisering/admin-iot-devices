@@ -13,6 +13,7 @@
 *
 */
 
+
 function decode(payload, metadata)
 {
     /* Ignorer hvis ikke fPort 20 eller 9 */
@@ -20,15 +21,15 @@ function decode(payload, metadata)
         return;
 
     /* Find timestamp + sensor ID */
-    let timestamp = payload.rxInfo[0].time != null ?
-                    payload.rxInfo[0].time :
+    let timestamp = payload.rxInfo[0].nsTime != null ?
+                    payload.rxInfo[0].nsTime :
                     new Date().toJSON();
 
     /* Skab retur-objekt */
     let res = {};
 
-    res.id = "device-" + payload.devEUI.slice(-6);
-    res.deviceEui = payload.devEUI;
+    res.id = "device-" + payload.deviceInfo.devEui.slice(-6);
+    res.deviceEui = payload.deviceInfo.devEui;
     res.observedAt = timestamp;
 
     /* Data */
@@ -38,15 +39,17 @@ function decode(payload, metadata)
     for(let i = 0;i < Object.keys(data).length; i++)
     {
         let key = (Object.keys(data))[i];
-        res.values.push({
-            "type": key,
-            "value": data[key]
-        })
+        if(data[key] != 0) // Ignore 0-values
+            res.values.push({
+                "type": key,
+                "value": data[key]
+            })
     }
 
     res.rssi = payload.rxInfo[0].rssi;
-    res.batteryLevel = metadata.lorawanSettings.deviceStatusBattery <= 100 ?
-                       metadata.lorawanSettings.deviceStatusBattery / 100 : -1;
+    //res.batteryLevel = metadata.lorawanSettings.deviceStatusBattery <= 100 ?
+    //                   metadata.lorawanSettings.deviceStatusBattery / 100 : -1;
+
 
     return res;
 }
@@ -67,7 +70,7 @@ function Decoder(bytes, port)
     }
 
     // EVENT Unsigned char (8 bits)
-    //decoded.batteryLow        = (bytes[n] & 0b00000100) >> 2; // ? 'low battery event (25%)' : 'battery OK';
+    decoded.batteryLow        = (bytes[n] & 0b00000100) >> 2; // ? 'low battery event (25%)' : 'battery OK';
     decoded.tamperingDetected = (bytes[n] & 0b00000010) >> 1; // ? 'Tamper alarm' : 'No Tamper alarm';
     decoded.intrusionDetected = (bytes[n] & 0b00000001); // ? 'Intrusion alarm detected' : 'No Intrusion';
     n++;
@@ -77,6 +80,7 @@ function Decoder(bytes, port)
 
     return decoded;
 }
+
 function base64ToBytes(str) {
     return atob(str)
         .split("")
