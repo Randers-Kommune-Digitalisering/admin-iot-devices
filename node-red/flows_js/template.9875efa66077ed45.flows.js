@@ -21,7 +21,9 @@ const Node = {
 
 Node.template = `
 SELECT
-    t1.*
+    t1.*,
+    DATE_FORMAT(t1.lastExport, '%Y-%m-%dT%H:%i:%s.000Z') as lastExport
+
 FROM {{global.metadataTablename.maalepunkt}} as t1
 
 WHERE {{{whereClause}}}

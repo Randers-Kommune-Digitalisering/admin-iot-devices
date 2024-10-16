@@ -20,7 +20,12 @@ const Node = {
 }
 
 Node.template = `
-SELECT * FROM {{global.metadataTablename.maaler}} WHERE isTemplate = true AND uid = '{{uid}}'
+SELECT *,
+    DATE_FORMAT(dateCreated, '%Y-%m-%dT%H:%i:%s.000Z') as dateCreated,
+    DATE_FORMAT(dateFirstUsed, '%Y-%m-%dT%H:%i:%s.000Z') as dateFirstUsed,
+    DATE_FORMAT(dateModified, '%Y-%m-%dT%H:%i:%s.000Z') as dateModified
+    
+FROM {{global.metadataTablename.maaler}} WHERE isTemplate = true AND uid = '{{uid}}'
 `
 
 module.exports = Node;
