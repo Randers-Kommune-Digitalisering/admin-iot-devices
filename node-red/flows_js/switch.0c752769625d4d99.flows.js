@@ -8,16 +8,22 @@ const Node = {
   "rules": [
     {
       "t": "false"
+    },
+    {
+      "t": "else"
     }
   ],
   "checkall": "true",
   "repair": false,
-  "outputs": 1,
+  "outputs": 2,
   "x": 200,
   "y": 560,
   "wires": [
     [
       "6cab6417bf96f118"
+    ],
+    [
+      "217985ec45797087"
     ]
   ]
 }

@@ -1,18 +1,18 @@
 const Node = {
-  "id": "931111495e1492e5",
+  "id": "0333a676fa284d93",
   "type": "link call",
   "z": "5f6ef472b7d9e1e9",
-  "name": "",
+  "name": "SFTP Put",
   "links": [
-    "a59c0378f2dc838c"
+    "fc01353259f5d1a5"
   ],
   "linkType": "static",
-  "timeout": "300",
-  "x": 430,
-  "y": 180,
+  "timeout": "60",
+  "x": 740,
+  "y": 380,
   "wires": [
     [
-      "6f195a71d8599eeb"
+      "12f08f4079c79710"
     ]
   ]
 }

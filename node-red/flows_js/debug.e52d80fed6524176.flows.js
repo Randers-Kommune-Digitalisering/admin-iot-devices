@@ -7,12 +7,12 @@ const Node = {
   "tosidebar": true,
   "console": true,
   "tostatus": false,
-  "complete": "{\t    \"eui\": deviceEui,\t    \"status\": payload ~> $exists() ?\t                (payload = '' ?\t                    \"CSV blank\" : \"CSV OK\")\t                : \"CSV error\"\t}",
+  "complete": "{\t    \"eui\": deviceEui,\t    \"filename\": filename,\t    \"status\": payload ~> $exists() ?\t                (payload = '' ?\t                    \"CSV blank\" : \"CSV OK\")\t                : \"CSV error\"\t}",
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
-  "x": 680,
-  "y": 140,
+  "x": 600,
+  "y": 340,
   "wires": []
 }
 
