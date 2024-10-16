@@ -5,13 +5,13 @@ const Node = {
   "name": "Filename",
   "active": true,
   "tosidebar": true,
-  "console": false,
+  "console": true,
   "tostatus": false,
   "complete": "payload.filename",
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 580,
+  "x": 590,
   "y": 340,
   "wires": []
 }

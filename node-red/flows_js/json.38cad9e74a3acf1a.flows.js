@@ -8,7 +8,7 @@ const Node = {
   "action": "str",
   "pretty": false,
   "x": 350,
-  "y": 240,
+  "y": 220,
   "wires": [
     [
       "fc612bd9cf1295bd"
