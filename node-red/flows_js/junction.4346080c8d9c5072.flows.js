@@ -1,12 +1,12 @@
 const Node = {
-  "id": "67ba871d9abdf480",
+  "id": "4346080c8d9c5072",
   "type": "junction",
   "z": "5f6ef472b7d9e1e9",
-  "x": 220,
-  "y": 500,
+  "x": 260,
+  "y": 360,
   "wires": [
     [
-      "0c752769625d4d99"
+      "f18b889afb413ace"
     ]
   ]
 }

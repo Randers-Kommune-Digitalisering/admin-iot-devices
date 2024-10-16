@@ -1,11 +1,11 @@
 const Node = {
-  "id": "d44fb0a27d7c9579",
+  "id": "236ebc952a581fb5",
   "type": "comment",
   "z": "5f6ef472b7d9e1e9",
-  "name": "Dataeksport af ny data",
+  "name": "Retry",
   "info": "",
-  "x": 160,
-  "y": 100,
+  "x": 110,
+  "y": 320,
   "wires": []
 }
 

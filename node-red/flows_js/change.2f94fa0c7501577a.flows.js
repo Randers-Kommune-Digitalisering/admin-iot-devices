@@ -1,15 +1,15 @@
 const Node = {
-  "id": "382db2ccc844543d",
+  "id": "2f94fa0c7501577a",
   "type": "change",
   "z": "5f6ef472b7d9e1e9",
-  "name": "Metric",
+  "name": "",
   "rules": [
     {
       "t": "set",
-      "p": "payload",
+      "p": "isRetry",
       "pt": "msg",
-      "to": "{\t    \"op\": \"set\",\t    \"val\": $millis()\t}",
-      "tot": "jsonata"
+      "to": "true",
+      "tot": "bool"
     }
   ],
   "action": "",
@@ -17,11 +17,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1090,
-  "y": 460,
+  "x": 580,
+  "y": 420,
   "wires": [
     [
-      "8eeadc7dceab5fd8"
+      "2bb64d20c1aefc82"
     ]
   ]
 }

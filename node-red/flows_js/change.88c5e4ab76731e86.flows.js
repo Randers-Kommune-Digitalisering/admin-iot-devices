@@ -1,14 +1,14 @@
 const Node = {
-  "id": "382db2ccc844543d",
+  "id": "88c5e4ab76731e86",
   "type": "change",
   "z": "5f6ef472b7d9e1e9",
-  "name": "Metric",
+  "name": "",
   "rules": [
     {
       "t": "set",
-      "p": "payload",
+      "p": "error.message",
       "pt": "msg",
-      "to": "{\t    \"op\": \"set\",\t    \"val\": $millis()\t}",
+      "to": "'Timeout while attempting to upload CSV to ' & host",
       "tot": "jsonata"
     }
   ],
@@ -17,11 +17,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1090,
-  "y": 460,
+  "x": 160,
+  "y": 400,
   "wires": [
     [
-      "8eeadc7dceab5fd8"
+      "a83fd7b6a8b7efc7"
     ]
   ]
 }

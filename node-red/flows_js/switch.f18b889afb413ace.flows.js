@@ -1,23 +1,25 @@
 const Node = {
-  "id": "6f195a71d8599eeb",
+  "id": "f18b889afb413ace",
   "type": "switch",
   "z": "5f6ef472b7d9e1e9",
   "name": "",
-  "property": "payload",
+  "property": "isRetry",
   "propertyType": "msg",
   "rules": [
     {
-      "t": "nempty"
+      "t": "neq",
+      "v": "true",
+      "vt": "jsonata"
     }
   ],
   "checkall": "true",
   "repair": false,
   "outputs": 1,
-  "x": 810,
-  "y": 180,
+  "x": 410,
+  "y": 420,
   "wires": [
     [
-      "65dbcf1d91d58cf9"
+      "2f94fa0c7501577a"
     ]
   ]
 }
