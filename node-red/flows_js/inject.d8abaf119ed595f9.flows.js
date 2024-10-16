@@ -6,14 +6,14 @@ const Node = {
   "props": [],
   "repeat": "",
   "crontab": "",
-  "once": false,
-  "onceDelay": "8",
+  "once": true,
+  "onceDelay": "30",
   "topic": "",
   "x": 370,
-  "y": 100,
+  "y": 60,
   "wires": [
     [
-      "931111495e1492e5"
+      "7e24c50a5952b22e"
     ]
   ]
 }

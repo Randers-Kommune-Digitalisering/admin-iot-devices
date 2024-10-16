@@ -1,5 +1,5 @@
 const Node = {
-  "id": "d5e8e9267b63725a",
+  "id": "bb77ec718729db19",
   "type": "debug",
   "z": "5f6ef472b7d9e1e9",
   "name": "Dev env",
@@ -11,8 +11,8 @@ const Node = {
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
-  "x": 590,
-  "y": 420,
+  "x": 570,
+  "y": 100,
   "wires": []
 }
 
