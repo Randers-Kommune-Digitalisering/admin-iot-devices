@@ -3,21 +3,27 @@ const Node = {
   "type": "switch",
   "z": "5f6ef472b7d9e1e9",
   "name": "Success?",
-  "property": "payload.filename = undefined",
-  "propertyType": "jsonata",
+  "property": "payload.success",
+  "propertyType": "msg",
   "rules": [
     {
-      "t": "false"
+      "t": "true"
+    },
+    {
+      "t": "else"
     }
   ],
   "checkall": "true",
   "repair": false,
-  "outputs": 1,
-  "x": 200,
-  "y": 560,
+  "outputs": 2,
+  "x": 360,
+  "y": 580,
   "wires": [
     [
       "6cab6417bf96f118"
+    ],
+    [
+      "5bae876f7cc8d3b2"
     ]
   ]
 }

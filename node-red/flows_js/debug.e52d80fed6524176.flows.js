@@ -3,16 +3,16 @@ const Node = {
   "type": "debug",
   "z": "5f6ef472b7d9e1e9",
   "name": "Export CSV",
-  "active": false,
+  "active": true,
   "tosidebar": true,
-  "console": false,
+  "console": true,
   "tostatus": false,
-  "complete": "payload ~> $exists() ? (payload = '' ? \"CSV blank\" : \"CSV written\") : \"CSV error\"",
+  "complete": "{\t   \"eui\": deviceEui,\t   \"filename\": payload.filename,\t   \"status\": payload ~> $exists() ?\t            (\t            payload = '' ?\t                \"CSV blank\" : \"CSV OK\"\t            )\t                : \"CSV error\"\t}",
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
-  "x": 670,
-  "y": 140,
+  "x": 780,
+  "y": 340,
   "wires": []
 }
 

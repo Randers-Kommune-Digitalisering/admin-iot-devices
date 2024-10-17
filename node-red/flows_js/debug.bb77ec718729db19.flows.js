@@ -1,18 +1,18 @@
 const Node = {
-  "id": "d7d39358eee8e172",
+  "id": "bb77ec718729db19",
   "type": "debug",
   "z": "5f6ef472b7d9e1e9",
-  "name": "Filename",
+  "name": "Dev env",
   "active": true,
   "tosidebar": true,
-  "console": false,
+  "console": true,
   "tostatus": false,
-  "complete": "payload.filename",
-  "targetType": "msg",
+  "complete": "\"Dev env detected, aborting SFTP job\"",
+  "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
-  "x": 580,
-  "y": 340,
+  "x": 730,
+  "y": 100,
   "wires": []
 }
 
