@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "filename",
       "pt": "msg",
-      "to": "\"Energimonitorering/\" & deviceEui & \"_\" & $millis() & \".csv\"",
+      "to": "deviceEui & \"_\" & $millis() & \".csv\"",
       "tot": "jsonata"
     },
     {
