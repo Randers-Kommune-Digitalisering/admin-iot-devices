@@ -6,10 +6,17 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "payload",
+      "p": "filename",
       "pt": "msg",
-      "to": "{\t   \"filename\": \"Energimonitorering/\" & deviceEui & \"_\" & $millis() & \".csv\",\t   \"filedata\": payload \t}",
+      "to": "\"Energimonitorering/\" & deviceEui & \"_\" & $millis() & \".csv\"",
       "tot": "jsonata"
+    },
+    {
+      "t": "set",
+      "p": "csv",
+      "pt": "msg",
+      "to": "payload",
+      "tot": "msg"
     }
   ],
   "action": "",
@@ -17,7 +24,7 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 590,
+  "x": 550,
   "y": 380,
   "wires": [
     [
