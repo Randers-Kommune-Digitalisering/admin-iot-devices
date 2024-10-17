@@ -1,29 +1,30 @@
 const Node = {
-  "id": "0c752769625d4d99",
+  "id": "8d64672538ef77c1",
   "type": "switch",
   "z": "5f6ef472b7d9e1e9",
-  "name": "Success?",
-  "property": "payload.success",
-  "propertyType": "msg",
+  "g": "b739c15631c21afd",
+  "name": "",
+  "property": "payload ~> $contains(\"paramiko\")",
+  "propertyType": "jsonata",
   "rules": [
     {
       "t": "true"
     },
     {
-      "t": "else"
+      "t": "false"
     }
   ],
   "checkall": "true",
   "repair": false,
   "outputs": 2,
-  "x": 360,
-  "y": 580,
+  "x": 330,
+  "y": 820,
   "wires": [
     [
-      "6cab6417bf96f118"
+      "85c7070f46e452ae"
     ],
     [
-      "5bae876f7cc8d3b2"
+      "18a65811970daec3"
     ]
   ]
 }

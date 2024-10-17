@@ -1,19 +1,19 @@
 const Node = {
-  "id": "8bfcdaf66ddd8d25",
+  "id": "da661e5a0c8235a7",
   "type": "debug",
   "z": "5f6ef472b7d9e1e9",
-  "d": true,
-  "name": "CSV uploaded",
-  "active": false,
+  "g": "b739c15631c21afd",
+  "name": "CSV Upload",
+  "active": true,
   "tosidebar": true,
-  "console": false,
+  "console": true,
   "tostatus": false,
-  "complete": "payload.filename",
+  "complete": "payload",
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1120,
-  "y": 340,
+  "x": 960,
+  "y": 840,
   "wires": []
 }
 
