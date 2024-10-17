@@ -10,16 +10,22 @@ const Node = {
       "t": "neq",
       "v": "true",
       "vt": "str"
+    },
+    {
+      "t": "else"
     }
   ],
   "checkall": "true",
   "repair": false,
-  "outputs": 1,
-  "x": 580,
-  "y": 380,
+  "outputs": 2,
+  "x": 340,
+  "y": 180,
   "wires": [
     [
-      "38017fda042e2eab"
+      "931111495e1492e5"
+    ],
+    [
+      "d5e8e9267b63725a"
     ]
   ]
 }

@@ -4,7 +4,7 @@ const Node = {
   "z": "5f6ef472b7d9e1e9",
   "name": "Hver time",
   "info": "",
-  "x": 140,
+  "x": 120,
   "y": 140,
   "wires": []
 }

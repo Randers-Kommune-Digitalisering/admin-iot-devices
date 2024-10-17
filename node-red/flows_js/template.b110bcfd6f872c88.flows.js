@@ -20,7 +20,13 @@ const Node = {
 }
 
 Node.template = `
-SELECT * FROM {{global.metadataTablename.maalepunkt}} WHERE uid = {{uid}}
+SELECT 
+        *,
+        DATE_FORMAT(dateCreated, '%Y-%m-%dT%H:%i:%s.000Z') as dateCreated,
+        DATE_FORMAT(dateModified, '%Y-%m-%dT%H:%i:%s.000Z') as dateModified,
+        DATE_FORMAT(lastExport, '%Y-%m-%dT%H:%i:%s.000Z') as lastExport
+
+FROM {{global.metadataTablename.maalepunkt}} WHERE uid = {{uid}}
 `
 
 module.exports = Node;

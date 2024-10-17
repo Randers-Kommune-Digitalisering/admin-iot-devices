@@ -1,25 +1,25 @@
 const Node = {
-  "id": "f53b4a36740109a0",
+  "id": "f18b889afb413ace",
   "type": "switch",
   "z": "5f6ef472b7d9e1e9",
-  "name": "Dev env?",
-  "property": "DEV_ENV",
-  "propertyType": "env",
+  "name": "",
+  "property": "isRetry",
+  "propertyType": "msg",
   "rules": [
     {
       "t": "neq",
       "v": "true",
-      "vt": "str"
+      "vt": "jsonata"
     }
   ],
   "checkall": "true",
   "repair": false,
   "outputs": 1,
-  "x": 540,
-  "y": 80,
+  "x": 410,
+  "y": 420,
   "wires": [
     [
-      "931111495e1492e5"
+      "2f94fa0c7501577a"
     ]
   ]
 }

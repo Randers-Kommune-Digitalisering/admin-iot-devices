@@ -20,7 +20,7 @@ const Node = {
     },
     {
       "t": "set",
-      "p": "password",
+      "p": "pass",
       "pt": "msg",
       "to": "SFTP_PASS",
       "tot": "env"
@@ -38,7 +38,7 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 250,
+  "x": 410,
   "y": 380,
   "wires": [
     [

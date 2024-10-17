@@ -4,7 +4,7 @@ const Node = {
   "z": "7b3a886e00fb2ea6",
   "g": "04f711f641c46bbb",
   "name": "Template",
-  "active": false,
+  "active": true,
   "tosidebar": true,
   "console": false,
   "tostatus": false,
@@ -12,7 +12,7 @@ const Node = {
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1060,
+  "x": 940,
   "y": 1360,
   "wires": []
 }

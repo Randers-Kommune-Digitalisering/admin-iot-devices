@@ -20,7 +20,7 @@ const Node = {
 }
 
 Node.template = `
-SELECT MAX(observedAt) as lastObservation FROM {{payload.dataTablename}} WHERE type = '{{payload.propertyName}}'
+SELECT DATE_FORMAT(MAX(observedAt), '%Y-%m-%dT%H:%i:%s.000Z') as lastObservation FROM {{payload.dataTablename}} WHERE type = '{{payload.propertyName}}'
 `
 
 module.exports = Node;
