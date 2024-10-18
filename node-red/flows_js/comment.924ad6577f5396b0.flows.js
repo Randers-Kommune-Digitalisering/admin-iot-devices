@@ -2,11 +2,11 @@ const Node = {
   "id": "924ad6577f5396b0",
   "type": "comment",
   "z": "b05183ed45071965",
-  "g": "7dd315ad06879230",
+  "g": "86f9a4f3efc9aad9",
   "name": "Opdater forespørgsel",
   "info": "",
-  "x": 1060,
-  "y": 340,
+  "x": 1040,
+  "y": 460,
   "wires": []
 }
 

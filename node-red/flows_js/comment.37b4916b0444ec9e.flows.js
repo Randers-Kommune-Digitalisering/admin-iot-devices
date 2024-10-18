@@ -6,7 +6,7 @@ const Node = {
   "name": "Retry - Hver 30. minut",
   "info": "",
   "x": 160,
-  "y": 500,
+  "y": 320,
   "wires": []
 }
 
