@@ -5,7 +5,7 @@ const Node = {
   "name": "ftp_upload",
   "info": "",
   "x": 660,
-  "y": 540,
+  "y": 220,
   "wires": []
 }
 

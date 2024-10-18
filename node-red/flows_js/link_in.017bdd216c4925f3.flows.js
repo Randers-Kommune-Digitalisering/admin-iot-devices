@@ -5,7 +5,7 @@ const Node = {
   "name": "Metric: file_journalize",
   "links": [],
   "x": 615,
-  "y": 580,
+  "y": 260,
   "wires": [
     [
       "8d49478c7c511617"
