@@ -11,11 +11,6 @@ const Node = {
     },
     {
       "t": "delete",
-      "p": "tablename",
-      "pt": "msg"
-    },
-    {
-      "t": "delete",
       "p": "config",
       "pt": "msg"
     }
