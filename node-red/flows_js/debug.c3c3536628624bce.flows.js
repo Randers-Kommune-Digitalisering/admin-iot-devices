@@ -8,7 +8,7 @@ const Node = {
   "tosidebar": true,
   "console": true,
   "tostatus": false,
-  "complete": "{\t    $globalContext(\"metadataTablename\").os2status: \"new request\",\t    \"timestamp\": $now(),\t    \"request\": {\t        \"uid\": insertId,\t        \"endpoint\": endpoint,\t        \"body\": requestBody\t    }\t}",
+  "complete": "{\t    $globalContext(\"metadataTablename\").os2status: \"new request\",\t    \"timestamp\": $now(),\t    \"request\": {\t        \"uid\": insertId,\t        \"endpoint\": endpoint,\t        \"method\": method\t    }\t}",
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",

@@ -24,7 +24,7 @@ const Node = {
       "t": "set",
       "p": "requestSuccessful",
       "pt": "msg",
-      "to": "response.error ~> $exists() ? 0 :\t(\t    response.statusCode ~> $exists() ?\t    (\t        response.statusCode = 200 ? 1 : 0\t    )\t    :\t    (\t        response.message = \"MESSAGE.ID-INVALID-OR-ALREADY-IN-USE\" ? 0 : 1\t    )\t)",
+      "to": "response ~> $type() = \"string\" ?\t    response ~> $lowercase() ~> $contains(\"error\") ? 0 : 1\t:\t    response.error ~> $exists() ? 0 :\t    (\t        response.statusCode ~> $exists() ?\t        (\t            response.statusCode = 200 ? 1 : 0\t        )\t        :\t        (\t            response.message = \"MESSAGE.ID-INVALID-OR-ALREADY-IN-USE\" ? 0 : 1\t        )\t    )",
       "tot": "jsonata"
     }
   ],
