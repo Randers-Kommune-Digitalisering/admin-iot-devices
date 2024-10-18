@@ -14,7 +14,7 @@ const Node = {
   "y": 2400,
   "wires": [
     [
-      "9c69488e43afb624"
+      "be470d2fbca9f6cd"
     ]
   ]
 }

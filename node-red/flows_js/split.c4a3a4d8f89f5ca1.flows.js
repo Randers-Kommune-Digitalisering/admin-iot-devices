@@ -11,7 +11,7 @@ const Node = {
   "stream": false,
   "addname": "",
   "x": 870,
-  "y": 540,
+  "y": 360,
   "wires": [
     [
       "1f61d0e1a1282582"

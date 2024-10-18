@@ -2,7 +2,7 @@ const Node = {
   "id": "452deceb0c5abb36",
   "type": "debug",
   "z": "b05183ed45071965",
-  "g": "7dd315ad06879230",
+  "g": "86f9a4f3efc9aad9",
   "name": "OS2 Request Update",
   "active": true,
   "tosidebar": true,
@@ -12,8 +12,8 @@ const Node = {
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1670,
-  "y": 420,
+  "x": 1610,
+  "y": 460,
   "wires": []
 }
 
