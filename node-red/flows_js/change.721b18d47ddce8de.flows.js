@@ -1,14 +1,21 @@
 const Node = {
-  "id": "382db2ccc844543d",
+  "id": "721b18d47ddce8de",
   "type": "change",
   "z": "5f6ef472b7d9e1e9",
   "name": "Metric",
   "rules": [
     {
       "t": "set",
-      "p": "payload",
+      "p": "job_name",
       "pt": "msg",
-      "to": "{\t    \"op\": \"set\",\t    \"val\": $millis()\t}",
+      "to": "export",
+      "tot": "str"
+    },
+    {
+      "t": "set",
+      "p": "status",
+      "pt": "msg",
+      "to": "error ~> $exists() ? 'error' : 'success'",
       "tot": "jsonata"
     }
   ],
@@ -17,11 +24,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 1090,
-  "y": 460,
+  "x": 1130,
+  "y": 540,
   "wires": [
     [
-      "8eeadc7dceab5fd8"
+      "8b2829375a60eea6"
     ]
   ]
 }

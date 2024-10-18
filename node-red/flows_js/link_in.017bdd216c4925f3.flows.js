@@ -3,9 +3,7 @@ const Node = {
   "type": "link in",
   "z": "c14ae4066846d3c3",
   "name": "Metric: file_journalize",
-  "links": [
-    "678034501f12e674"
-  ],
+  "links": [],
   "x": 615,
   "y": 580,
   "wires": [

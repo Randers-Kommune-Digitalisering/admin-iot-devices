@@ -5,7 +5,7 @@ const Node = {
   "g": "245f9dc8c4ef45d3",
   "name": "db_write_rows",
   "active": true,
-  "tosidebar": true,
+  "tosidebar": false,
   "console": false,
   "tostatus": false,
   "complete": "payload",

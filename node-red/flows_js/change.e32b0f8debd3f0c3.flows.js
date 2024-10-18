@@ -1,14 +1,21 @@
 const Node = {
-  "id": "8d49478c7c511617",
+  "id": "e32b0f8debd3f0c3",
   "type": "change",
-  "z": "c14ae4066846d3c3",
+  "z": "5f6ef472b7d9e1e9",
   "name": "Metric",
   "rules": [
     {
       "t": "set",
+      "p": "job_name",
+      "pt": "msg",
+      "to": "export",
+      "tot": "str"
+    },
+    {
+      "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "{\t    \"op\": \"inc\",\t    \"val\": 1,\t    \"labels\": {\t        \"status\": status,\t        \"ftp_name\": ftp_name\t    }\t}",
+      "to": "$millis() - ($flowContext(\"job_start_ms_array\")[devEui = $$.deviceEui]).ms",
       "tot": "jsonata"
     }
   ],
@@ -17,12 +24,11 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 710,
+  "x": 1130,
   "y": 580,
   "wires": [
     [
-      "198810fa4e7a2083",
-      "fea4005a09ee9b27"
+      "1553880bb60f9e17"
     ]
   ]
 }

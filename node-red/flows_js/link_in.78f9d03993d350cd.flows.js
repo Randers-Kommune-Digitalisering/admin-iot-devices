@@ -7,7 +7,9 @@ const Node = {
     "185db8a976e690e3",
     "39987f2e4ca5bcc2",
     "fc3b07fa23296d97",
-    "230aa3bcdd8360e5"
+    "230aa3bcdd8360e5",
+    "8b2829375a60eea6",
+    "8c566b7eab9ef3aa"
   ],
   "x": 95,
   "y": 680,

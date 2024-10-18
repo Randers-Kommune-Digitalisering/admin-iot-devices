@@ -2,9 +2,9 @@ const Node = {
   "id": "dbb39df6e2973872",
   "type": "comment",
   "z": "c14ae4066846d3c3",
-  "name": "file_journalize",
+  "name": "ftp_upload",
   "info": "",
-  "x": 670,
+  "x": 660,
   "y": 540,
   "wires": []
 }
