@@ -5,7 +5,7 @@ const Node = {
   "g": "0f8e00ef379b1e7c",
   "name": "Hent template navn",
   "info": "",
-  "x": 1330,
+  "x": 1310,
   "y": 800,
   "wires": []
 }

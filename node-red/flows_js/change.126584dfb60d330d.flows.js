@@ -2,7 +2,7 @@ const Node = {
   "id": "126584dfb60d330d",
   "type": "change",
   "z": "b05183ed45071965",
-  "g": "7dd315ad06879230",
+  "g": "86f9a4f3efc9aad9",
   "name": "URL",
   "rules": [
     {
@@ -33,8 +33,8 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 210,
-  "y": 380,
+  "x": 190,
+  "y": 500,
   "wires": [
     [
       "ce655379d3931feb"

@@ -185,14 +185,14 @@
                 <td v-if="props.templateMode == false">
                     <div class="flex col" v-if="!device.isTemplate">
 
-                        <span v-if="device.lastObservation == null || device.lastObservation == '0000-00-00 00:00:00'" class="red small flex">
+                        <span v-if="device.lastObservation == null || device.lastObservation == '0000-00-00 00:00:00' || device.lastObservation == '0000-00-00T00:00:00.000Z'" class="red small flex">
                             <IconDownload :scale="0.8" /> <span>Ingen import</span>
                         </span>
                         <span v-else class="randers small flex">
                             <IconDownload :scale="0.8" /> <span>{{ DateFormatter.formatDate(device.lastObservation) }}</span>
                         </span>
 
-                        <span v-if="device.lastExport == null || device.lastExport == '0000-00-00 00:00:00'" class="red small flex">
+                        <span v-if="device.lastExport == null || device.lastExport == '0000-00-00 00:00:00' || device.lastObservation == '0000-00-00T00:00:00.000Z'" class="red small flex">
                             <IconUpload :scale="0.8" /> <span>Ingen export</span>
                         </span>
                         <span v-else class="green small flex">
