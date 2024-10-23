@@ -8,7 +8,7 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "(\t    $separator := \";\";\t    $linebreak := \"\\r\\n\";\t    \t    [\t        header @ $col . [ $col.value & $separator ]\t        ~> $join() ,\t\t        body @ $row . [[ $row @ $col . [ $col.value & $separator ] ] ~> $join() ]\t    ]\t    ~> $join($linebreak)\t)",
+      "to": "(\t    $separator := \";\";\t    $linebreak := \"\\r\\n\";\t    \t    [\t        header @ $col . [ ($col.value) & $separator ]\t        ~> $join() ,\t\t        body @ $row . [[ $row @ $col . [ ($col.value) & $separator ] ] ~> $join() ]\t    ]\t    ~> $join($linebreak)\t)",
       "tot": "jsonata"
     }
   ],
