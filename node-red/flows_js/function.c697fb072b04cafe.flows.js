@@ -20,8 +20,10 @@ const Node = {
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
-  msg.requestBody = JSON.parse(JSON.stringify(msg.requestBody));
-  return msg;
+  
+    msg.requestBody = JSON.parse(JSON.stringify(msg.requestBody));
+    return msg;
+  
 }
 
 module.exports = Node;

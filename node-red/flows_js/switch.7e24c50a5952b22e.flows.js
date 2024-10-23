@@ -2,6 +2,7 @@ const Node = {
   "id": "7e24c50a5952b22e",
   "type": "switch",
   "z": "5f6ef472b7d9e1e9",
+  "d": true,
   "name": "Dev env?",
   "property": "DEV_ENV",
   "propertyType": "env",

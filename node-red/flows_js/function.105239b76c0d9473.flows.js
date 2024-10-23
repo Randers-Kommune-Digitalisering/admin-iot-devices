@@ -19,11 +19,13 @@ const Node = {
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
-  if (Array.isArray(msg.body))
-      if(!Array.isArray(msg.body[0]))
-          msg.body = [msg.body];
-      
-  return msg;
+  
+    if (Array.isArray(msg.body))
+        if(!Array.isArray(msg.body[0]))
+            msg.body = [msg.body];
+        
+    return msg;
+  
 }
 
 module.exports = Node;
