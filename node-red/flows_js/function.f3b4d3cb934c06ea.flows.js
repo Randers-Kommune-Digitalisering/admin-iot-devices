@@ -26,19 +26,21 @@ const Node = {
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util, convert) {
   
-  try
-  {
-      // Try converting 1 unit
+    
+    try
+    {
+        // Try converting 1 unit
+    
+        msg.payload = convert().list()
+    }
+    catch (error)
+    {
+        msg.error = error;
+        msg.payload = false;
+    }
+    
+    return msg;
   
-      msg.payload = convert().list()
-  }
-  catch (error)
-  {
-      msg.error = error;
-      msg.payload = false;
-  }
-  
-  return msg;
 }
 
 module.exports = Node;

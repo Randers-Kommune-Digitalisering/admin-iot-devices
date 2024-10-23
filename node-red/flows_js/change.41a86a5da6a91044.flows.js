@@ -15,7 +15,7 @@ const Node = {
       "t": "set",
       "p": "job_start_ms_array",
       "pt": "flow",
-      "to": "$flowContext(\"job_start_ms_array\")\t~> | $ | {},[devEui = $$.deviceEui] |",
+      "to": "$flowContext(\"job_start_ms_array\")[devEui != $$.deviceEui]",
       "tot": "jsonata"
     },
     {

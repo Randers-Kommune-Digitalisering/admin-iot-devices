@@ -19,30 +19,32 @@ const Node = {
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
-  const transformArray = (array) => {
-      // Step 1: Create an empty array to store the results
-      const result = [];
   
-      // Step 2: Iterate over array and populate the result array
-      array.forEach(item => {
-          const { observedAt, type, value } = item;
-          let entry = result.find(entry => entry.observedAt === observedAt);
-          if (!entry) {
-              entry = { observedAt };
-              result.push(entry);
-          }
-          entry[type] = value;
-      });
+    const transformArray = (array) => {
+        // Step 1: Create an empty array to store the results
+        const result = [];
+    
+        // Step 2: Iterate over array and populate the result array
+        array.forEach(item => {
+            const { observedAt, type, value } = item;
+            let entry = result.find(entry => entry.observedAt === observedAt);
+            if (!entry) {
+                entry = { observedAt };
+                result.push(entry);
+            }
+            entry[type] = value;
+        });
+    
+        return result;
+    };
+    
+    // Refactor data
+    msg.payload = Array.isArray ? msg.payload : [msg.payload];
+    msg.payload = transformArray(msg.payload);
+    delete msg.data;
+    
+    return msg;
   
-      return result;
-  };
-  
-  // Refactor data
-  msg.payload = Array.isArray ? msg.payload : [msg.payload];
-  msg.payload = transformArray(msg.payload);
-  delete msg.data;
-  
-  return msg;
 }
 
 module.exports = Node;

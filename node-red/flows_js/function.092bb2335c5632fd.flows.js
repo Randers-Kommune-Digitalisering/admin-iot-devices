@@ -25,44 +25,46 @@ const Node = {
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util, convert) {
-  // Ensure type object
-  msg.payload = Array.isArray(msg.payload) ? msg.payload[0] : msg.payload;
   
-  // Return if units are the same
-  if (msg.startUnit == msg.unit)
-      return msg;
+    // Ensure type object
+    msg.payload = Array.isArray(msg.payload) ? msg.payload[0] : msg.payload;
+    
+    // Return if units are the same
+    if (msg.startUnit == msg.unit)
+        return msg;
+    
+    // Return if units are non-convertible
+    if (msg.startUnit == "%" || msg.startUnit == "pcs")
+    {
+        msg.payload.unit = msg.startUnit;
+        return msg;
+    }
+    
+    // Manual conversion for pulse
+    if(msg.startUnit == "puls")
+    
+        try {
+            msg.payload.value = msg.payload.value * msg.pulsEnhedRatio;
+        }
+        catch(error)
+        {
+            msg.payload.unit = msg.startUnit;
+            msg.error = error;
+        }
+    
+    // Automatic conversion for normal units
+    else
+    
+        try {
+            msg.payload.value = convert(msg.payload.value).from(msg.startUnit).to(msg.unit);
+        }
+        catch (error) {
+            msg.payload.unit = msg.startUnit;
+            msg.error = error;
+        }
+    
+    return msg;
   
-  // Return if units are non-convertible
-  if (msg.startUnit == "%" || msg.startUnit == "pcs")
-  {
-      msg.payload.unit = msg.startUnit;
-      return msg;
-  }
-  
-  // Manual conversion for pulse
-  if(msg.startUnit == "puls")
-  
-      try {
-          msg.payload.value = msg.payload.value * msg.pulsEnhedRatio;
-      }
-      catch(error)
-      {
-          msg.payload.unit = msg.startUnit;
-          msg.error = error;
-      }
-  
-  // Automatic conversion for normal units
-  else
-  
-      try {
-          msg.payload.value = convert(msg.payload.value).from(msg.startUnit).to(msg.unit);
-      }
-      catch (error) {
-          msg.payload.unit = msg.startUnit;
-          msg.error = error;
-      }
-  
-  return msg;
 }
 
 module.exports = Node;

@@ -5,13 +5,13 @@ const Node = {
   "name": "Export CSV",
   "active": true,
   "tosidebar": true,
-  "console": true,
+  "console": false,
   "tostatus": false,
   "complete": "{\t   \"eui\": deviceEui,\t   \"filename\": payload.filename,\t   \"status\": payload ~> $exists() ?\t            (\t            payload = '' ?\t                \"CSV blank\" : \"CSV OK\"\t            )\t                : \"CSV error\"\t}",
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
-  "x": 780,
+  "x": 770,
   "y": 340,
   "wires": []
 }

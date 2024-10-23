@@ -20,10 +20,12 @@ const Node = {
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
-  if(!Array.isArray(msg.payload))
-      msg.payload = [msg.payload];
-      
-  return msg;
+  
+    if(!Array.isArray(msg.payload))
+        msg.payload = [msg.payload];
+        
+    return msg;
+  
 }
 
 module.exports = Node;

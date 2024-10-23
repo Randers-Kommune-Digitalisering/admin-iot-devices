@@ -36,5 +36,5 @@ RUN cd /app/express && npm ci --only=production
 
 USER node-red
 
-# Copy entrypoint script
 COPY entrypoint.sh .
+# COPY ./entrypoint.sh /entrypoint.sh
