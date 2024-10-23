@@ -36,11 +36,5 @@ RUN cd /app/express && npm ci --only=production
 
 USER node-red
 
-# Check if DEV_ENV is equal to "true" and copy the entrypoint file accordingly
-ARG DEV_ENV
-RUN if [ "$DEV_ENV" = "true" ]; then \
-    cp ./entrypoint.sh /entrypoint.sh; \
-    else \
-    cp ./entrypoint.sh .; \
-    fi
+COPY entrypoint.sh .
 # COPY ./entrypoint.sh /entrypoint.sh
