@@ -7,7 +7,7 @@ const Node = {
   "tosidebar": true,
   "console": true,
   "tostatus": false,
-  "complete": "{\t    \"sftp\": \"lastExport values updated for exported measurement points\",\t    \"measurementPointCount\": payload.affectedRows,\t    \"measurementPoints\": measurementPoints.uid\t}",
+  "complete": "{\t    \"sftp\": \"lastExport values updated for exported measurement point\",\t    \"measurementPointUid\": measurementPoints.uid\t}",
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",

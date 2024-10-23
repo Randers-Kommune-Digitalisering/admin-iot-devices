@@ -24,29 +24,31 @@ const Node = {
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util, convert) {
-  msg.payload = Array.isArray(msg.payload) ? msg.payload[0] : msg.payload;
   
-  const value = 1;
+    msg.payload = Array.isArray(msg.payload) ? msg.payload[0] : msg.payload;
+    
+    const value = 1;
+    
+    // Return if units are the same
+    
+    if (msg.payload.inputenhed === msg.payload.enhed)
+        msg.payload = value;
+    
+    else
+    try
+    {
+        // Try converting value
+    
+        msg.payload = convert(value).from(msg.payload.inputenhed).to(msg.payload.enhed);
+    }
+    catch (error)
+    {
+        msg.payload = value;
+        msg.error = error;
+    }
+    
+    return msg;
   
-  // Return if units are the same
-  
-  if (msg.payload.inputenhed === msg.payload.enhed)
-      msg.payload = value;
-  
-  else
-  try
-  {
-      // Try converting value
-  
-      msg.payload = convert(value).from(msg.payload.inputenhed).to(msg.payload.enhed);
-  }
-  catch (error)
-  {
-      msg.payload = value;
-      msg.error = error;
-  }
-  
-  return msg;
 }
 
 module.exports = Node;

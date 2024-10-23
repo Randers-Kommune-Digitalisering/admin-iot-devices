@@ -19,14 +19,16 @@ const Node = {
 }
 
 Node.func = async function (node, msg, RED, context, flow, global, env, util) {
-  try {
-      msg.payload = msg.payload.trim();
-  }
-  catch (error)
-  {
-      msg.error = error;
-  }
-  return msg;
+  
+    try {
+        msg.payload = msg.payload.trim();
+    }
+    catch (error)
+    {
+        msg.error = error;
+    }
+    return msg;
+  
 }
 
 module.exports = Node;
