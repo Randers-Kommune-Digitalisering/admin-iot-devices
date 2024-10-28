@@ -3,8 +3,8 @@ const Node = {
   "type": "switch",
   "z": "e4e3eef16c2dc327",
   "name": "Kontrollér om modtaget data \\n er nyere end gemt data",
-  "property": "payload[0].lastObservation ~> $toMillis()",
-  "propertyType": "jsonata",
+  "property": "payload",
+  "propertyType": "msg",
   "rules": [
     {
       "t": "gte",

@@ -7,7 +7,7 @@ const Node = {
   "timeout": "5",
   "timeoutUnits": "seconds",
   "rate": "1",
-  "nbRateUnits": "1",
+  "nbRateUnits": "10",
   "rateUnits": "second",
   "randomFirst": "1",
   "randomLast": "5",
@@ -15,7 +15,7 @@ const Node = {
   "drop": false,
   "allowrate": false,
   "outputs": 1,
-  "x": 590,
+  "x": 600,
   "y": 880,
   "wires": [
     [

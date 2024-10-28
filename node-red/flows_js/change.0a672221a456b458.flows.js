@@ -12,10 +12,10 @@ const Node = {
       "tot": "jsonata"
     },
     {
-      "t": "set",
-      "p": "csv",
+      "t": "move",
+      "p": "payload",
       "pt": "msg",
-      "to": "payload",
+      "to": "csv",
       "tot": "msg"
     }
   ],
