@@ -3,7 +3,7 @@ const Node = {
   "type": "debug",
   "z": "5f6ef472b7d9e1e9",
   "g": "b739c15631c21afd",
-  "name": "CSV Upload",
+  "name": "CSV Upload status",
   "active": true,
   "tosidebar": true,
   "console": true,
@@ -12,7 +12,7 @@ const Node = {
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 960,
+  "x": 1040,
   "y": 840,
   "wires": []
 }

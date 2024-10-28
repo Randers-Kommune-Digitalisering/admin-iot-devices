@@ -40,6 +40,11 @@ const Node = {
       "t": "delete",
       "p": "parts",
       "pt": "msg"
+    },
+    {
+      "t": "delete",
+      "p": "sql",
+      "pt": "msg"
     }
   ],
   "action": "",

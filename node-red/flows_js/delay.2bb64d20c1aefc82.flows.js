@@ -4,7 +4,7 @@ const Node = {
   "z": "5f6ef472b7d9e1e9",
   "name": "",
   "pauseType": "delay",
-  "timeout": "30",
+  "timeout": "20",
   "timeoutUnits": "minutes",
   "rate": "1",
   "nbRateUnits": "1",
