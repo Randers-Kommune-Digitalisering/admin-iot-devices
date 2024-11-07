@@ -9,7 +9,7 @@ const Node = {
       "t": "set",
       "p": "statusCode",
       "pt": "msg",
-      "to": "payload = [] or payload = {} ? 404 : 200",
+      "to": "payload = [] or payload = {} or payload = null ? 404 : 200",
       "tot": "jsonata"
     },
     {

@@ -1,10 +1,9 @@
 const Node = {
-  "id": "650114e61f7a4412",
+  "id": "abb1cd5a0f5e09e1",
   "type": "debug",
   "z": "7b3a886e00fb2ea6",
-  "d": true,
-  "g": "0f8e00ef379b1e7c",
-  "name": "Måler",
+  "g": "c73500befce19fee",
+  "name": "Opdater lastExport",
   "active": true,
   "tosidebar": true,
   "console": false,
@@ -13,8 +12,8 @@ const Node = {
   "targetType": "msg",
   "statusVal": "",
   "statusType": "auto",
-  "x": 1730,
-  "y": 720,
+  "x": 990,
+  "y": 2280,
   "wires": []
 }
 

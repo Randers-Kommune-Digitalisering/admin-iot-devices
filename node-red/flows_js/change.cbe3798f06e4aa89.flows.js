@@ -52,6 +52,14 @@ const Node = {
       "t": "delete",
       "p": "payload",
       "pt": "msg"
+    },
+    {
+      "t": "set",
+      "p": "measurementPoint",
+      "pt": "msg",
+      "to": "measurementPoint",
+      "tot": "msg",
+      "dc": true
     }
   ],
   "action": "",
