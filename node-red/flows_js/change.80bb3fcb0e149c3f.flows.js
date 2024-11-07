@@ -9,8 +9,8 @@ const Node = {
       "t": "set",
       "p": "payload",
       "pt": "msg",
-      "to": "[]",
-      "tot": "json"
+      "to": "null",
+      "tot": "jsonata"
     }
   ],
   "action": "",
@@ -19,7 +19,7 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 1260,
-  "y": 2880,
+  "y": 2980,
   "wires": [
     [
       "a8d0d236ccfce01c"
