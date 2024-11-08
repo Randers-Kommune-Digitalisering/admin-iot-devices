@@ -28,7 +28,7 @@ SELECT
     t1.pulsEnhedRatio,
     t1.name,
     t2.dataTablename,
-    t1.lastExport
+    DATE_FORMAT(t1.lastExport , '%Y-%m-%dT%H:%i:%s.000Z') as lastExport
 FROM 
     {{global.metadataTablename.maalepunkt}} AS t1
 

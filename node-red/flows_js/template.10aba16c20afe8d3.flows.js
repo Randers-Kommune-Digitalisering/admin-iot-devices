@@ -27,7 +27,6 @@ FROM
 WHERE
     type = '{{payload.propertyName}}'
 AND {{{observedAtQuery}}}
-LIMIT 5000
 `
 
 module.exports = Node;

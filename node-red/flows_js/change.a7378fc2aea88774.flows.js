@@ -44,7 +44,7 @@ const Node = {
       "t": "set",
       "p": "observedAtQuery",
       "pt": "msg",
-      "to": "\"observedAt > \" & payload.lastExport",
+      "to": "\"observedAt > '\" & payload.lastExport & \"'\"",
       "tot": "jsonata"
     }
   ],
