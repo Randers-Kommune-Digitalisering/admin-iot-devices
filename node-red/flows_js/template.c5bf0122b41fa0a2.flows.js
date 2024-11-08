@@ -11,7 +11,7 @@ const Node = {
   "template": "",
   "output": "str",
   "x": 230,
-  "y": 2840,
+  "y": 2940,
   "wires": [
     [
       "a905ed67035b216a"
@@ -28,7 +28,7 @@ SELECT
     t1.pulsEnhedRatio,
     t1.name,
     t2.dataTablename,
-    t1.lastExport
+    DATE_FORMAT(t1.lastExport , '%Y-%m-%dT%H:%i:%s.000Z') as lastExport
 FROM 
     {{global.metadataTablename.maalepunkt}} AS t1
 

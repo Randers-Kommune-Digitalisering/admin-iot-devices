@@ -6,7 +6,7 @@ const Node = {
   "name": "Seneste datapunkt",
   "info": "",
   "x": 130,
-  "y": 2640,
+  "y": 2740,
   "wires": []
 }
 

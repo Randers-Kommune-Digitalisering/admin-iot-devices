@@ -11,7 +11,7 @@ const Node = {
   "template": "",
   "output": "str",
   "x": 860,
-  "y": 2820,
+  "y": 2920,
   "wires": [
     [
       "3e75450869d4409e"
@@ -26,8 +26,7 @@ FROM
     {{payload.dataTablename}}
 WHERE
     type = '{{payload.propertyName}}'
-AND observedAt > '{{payload.lastExport}}'
-LIMIT 5000
+AND {{{observedAtQuery}}}
 `
 
 module.exports = Node;

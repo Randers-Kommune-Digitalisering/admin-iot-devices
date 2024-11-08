@@ -39,6 +39,13 @@ const Node = {
       "pt": "msg",
       "to": "payload.pulsEnhedRatio",
       "tot": "msg"
+    },
+    {
+      "t": "set",
+      "p": "observedAtQuery",
+      "pt": "msg",
+      "to": "\"observedAt > '\" & payload.lastExport & \"'\"",
+      "tot": "jsonata"
     }
   ],
   "action": "",
@@ -47,7 +54,7 @@ const Node = {
   "to": "",
   "reg": false,
   "x": 630,
-  "y": 2820,
+  "y": 2920,
   "wires": [
     [
       "d94f4d78868420d8"
