@@ -28,19 +28,13 @@ Herudover har applikationen til formål at konvertere og eksportere  målerdata 
 
 %% Upload af data %%
 flowchart LR
-
 	subgraph G1["Kubernetes miljø"]
-	    
         direction LR
 	    subgraph SG2["admin-iot-devices"]
-	
 	    A["Administrationspanel"] 
-	    
 	        subgraph SG20 [ ]
 	            style SG20 stroke-dasharray: 0 1  
 	            subgraph SG21["Node-RED back-end"]
-
-                    M0["API"]
 	            
 	                M1("
 	                Håndtering af metadata
@@ -49,26 +43,17 @@ flowchart LR
 	            end
 	        end
 	    end
-	            
         M2[(MariaDB)]
 	end
-
 	subgraph G2["KMD"]
         direction LR
 	    subgraph SG3["OS2IoT"]
 	        C[("Metadata")] 
 	    end
-	    
-	    subgraph SG4["EnergyKey"]
-	        D[("Målerdata")] 
-	    end
     end
-    
-    A<-->M0
-    M0<-->M1
+    A<-->M1
     M1<-->M2
 	M1<-->C
-	M1-->D
 ```
 
 
@@ -124,6 +109,6 @@ Applikationen udstiller et API som overholder NGSIv2 standarder for IoT-metadata
 
 :gear: | [Vue 3.3.4](https://vuejs.org), [Express.js 4.18.2](https://expressjs.com) (+`cors`, +`http-proxy-middleware`), [Vite 4.4.9](https://github.com/vitejs), [Axios 1.5.1](https://axios-http.com), [Node.js 18](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm),  [Node-RED 3.0.2](https://nodered.org/docs/getting-started/windows), Node-RED modul: `node-red-mysql-r2`
 
-:cloud: | Adgang til applikationens administrationspanel (Port 3000), Netværksadgang til OS2IoT API, Adgang til ekstern SFTP-server (til data-eksport), Adgang til SQL-database
+:cloud: | Adgang til applikationens administrationspanel (Port 3000), Netværksadgang til OS2IoT API, Adgang til SQL-database
 
-:heavy_dollar_sign: | Miljøvariabler for database: 	`DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USER`, `DB_PASS`, for OS2IoT API: `OS2IOT_API_KEY`, `OS2IOT_API_URL`, `OS2IOT_APP_ID`, `OS2IOT_DATATARGET_ID`, `OS2IOT_SERVICEPROFILE_ID`, `OS2IOT_DECODER_IDENTIFIER`, `OS2IOT_DEVICEPROFILE_IDENTIFIER`, samt for eksportering til SFTP-server: `SFTP_URL`, `SFTP_PORT`, `SFTP_USER`, `SFTP_PASS`
+:heavy_dollar_sign: | Miljøvariabler for database: 	`DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USER`, `DB_PASS`, for OS2IoT API: `OS2IOT_API_KEY`, `OS2IOT_API_URL`, `OS2IOT_APP_ID`, `OS2IOT_DATATARGET_ID`, `OS2IOT_SERVICEPROFILE_ID`, `OS2IOT_DECODER_IDENTIFIER`, `OS2IOT_DEVICEPROFILE_IDENTIFIER`
