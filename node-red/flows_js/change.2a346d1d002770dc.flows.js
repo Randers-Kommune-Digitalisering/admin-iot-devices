@@ -1,5 +1,5 @@
 const Node = {
-  "id": "f048aabd310d493f",
+  "id": "2a346d1d002770dc",
   "type": "change",
   "z": "7b3a886e00fb2ea6",
   "g": "fd0a50bf34a65f8b",
@@ -7,9 +7,9 @@ const Node = {
   "rules": [
     {
       "t": "set",
-      "p": "sql",
+      "p": "payload",
       "pt": "msg",
-      "to": "payload",
+      "to": "error.message",
       "tot": "msg"
     }
   ],
@@ -18,13 +18,14 @@ const Node = {
   "from": "",
   "to": "",
   "reg": false,
-  "x": 210,
-  "y": 3300,
+  "x": 465,
+  "y": 3340,
   "wires": [
     [
-      "dcdec0409c93be5e"
+      "8aa3b602b4c8fca7"
     ]
-  ]
+  ],
+  "l": false
 }
 
 module.exports = Node;
