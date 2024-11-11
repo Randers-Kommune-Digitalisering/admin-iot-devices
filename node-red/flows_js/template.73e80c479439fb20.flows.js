@@ -9,8 +9,8 @@ const Node = {
   "syntax": "mustache",
   "template": "",
   "output": "str",
-  "x": 1090,
-  "y": 780,
+  "x": 1210,
+  "y": 760,
   "wires": [
     [
       "96253b3a6c206f5c"
@@ -23,7 +23,7 @@ UPDATE {{global.metadataTablename.maaler}}
 SET
     os2uid = {{payload.id}}
 WHERE
-    deviceEui = '{{payload.deviceEUI}}'
+    deviceEui = '{{data.devEui}}'
 `
 
 module.exports = Node;
