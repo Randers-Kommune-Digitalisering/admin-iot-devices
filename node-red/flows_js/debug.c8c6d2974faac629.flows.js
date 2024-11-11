@@ -7,7 +7,7 @@ const Node = {
   "tosidebar": true,
   "console": true,
   "tostatus": false,
-  "complete": "{\t    \"error\": \"No OS2 id found in OS2IoT response\"\t    \"response\": response,\t    \"deviceEui\": response.deviceEUI,\t    \"affectedDeviceCount\": payload.affectedRows\t}",
+  "complete": "{\t    \"error\": \"No OS2 id found in OS2IoT response\",\t    \"response\": response,\t    \"deviceEui\": response.deviceEUI,\t    \"affectedDeviceCount\": payload.affectedRows\t}",
   "targetType": "jsonata",
   "statusVal": "",
   "statusType": "auto",
