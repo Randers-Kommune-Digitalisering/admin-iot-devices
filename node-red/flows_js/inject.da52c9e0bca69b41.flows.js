@@ -2,7 +2,6 @@ const Node = {
   "id": "da52c9e0bca69b41",
   "type": "inject",
   "z": "b05183ed45071965",
-  "d": true,
   "name": "test",
   "props": [
     {
@@ -20,7 +19,7 @@ const Node = {
   "y": 740,
   "wires": [
     [
-      "e60e01a95f2423db"
+      "de0820800c17b1dd"
     ]
   ]
 }
